@@ -21,7 +21,7 @@ import { Link } from "next/link";
 
 // @mui material components
 import Collapse from "@mui/material/Collapse";
-import Icon from "@mui/material/Icon";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 // Material Kit 2 React components
 import MKBox from "@/components/MKBox";
@@ -65,14 +65,6 @@ function DefaultNavbarDropdown({
         {...(href && linkComponent)}
       >
         <MKTypography
-          variant="body2"
-          lineHeight={1}
-          color="inherit"
-          sx={{ alignSelf: "center", "& *": { verticalAlign: "middle" } }}
-        >
-          {icon}
-        </MKTypography>
-        <MKTypography
           variant="button"
           fontWeight="regular"
           textTransform="capitalize"
@@ -86,9 +78,7 @@ function DefaultNavbarDropdown({
           color={light ? "white" : "dark"}
           ml="auto"
         >
-          <Icon sx={{ fontWeight: "normal", verticalAlign: "middle" }}>
-            {collapse && "keyboard_arrow_down"}
-          </Icon>
+          <KeyboardArrowDownIcon />
         </MKTypography>
       </MKBox>
       {children && (

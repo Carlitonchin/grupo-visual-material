@@ -14,10 +14,15 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 "use client";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { Fragment, useState, useEffect } from "react";
 
 // react-router components
 import { Link } from "next/link";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
@@ -286,7 +291,7 @@ function DefaultNavbar({
                 item.name
               )}
               {item.collapse && (
-                <Icon
+                <span
                   fontSize="small"
                   sx={{
                     fontWeight: "normal",
@@ -294,8 +299,8 @@ function DefaultNavbar({
                     mr: -0.5,
                   }}
                 >
-                  keyboard_arrow_right
-                </Icon>
+                  <KeyboardArrowRightIcon />
+                </span>
               )}
             </MKTypography>
           );
@@ -342,9 +347,9 @@ function DefaultNavbar({
         >
           <MKBox borderRadius="lg">
             <MKTypography variant="h1" color="white">
-              <Icon ref={setArrowRef} sx={{ mt: -3 }}>
-                arrow_drop_up
-              </Icon>
+              <span ref={setArrowRef} sx={{ mt: -3 }}>
+                <ArrowDropUpIcon />
+              </span>
             </MKTypography>
             <MKBox shadow="lg" borderRadius="lg" p={2} mt={2}>
               {renderRoutes}
@@ -426,7 +431,7 @@ function DefaultNavbar({
                       item.name
                     )}
                     {item.collapse && (
-                      <Icon
+                      <span
                         fontSize="small"
                         sx={{
                           fontWeight: "normal",
@@ -434,8 +439,8 @@ function DefaultNavbar({
                           mr: -0.5,
                         }}
                       >
-                        keyboard_arrow_right
-                      </Icon>
+                        <KeyboardArrowRightIcon />
+                      </span>
                     )}
                   </MKTypography>
                 );
@@ -578,7 +583,7 @@ function DefaultNavbar({
             sx={{ cursor: "pointer" }}
             onClick={openMobileNavbar}
           >
-            <Icon fontSize="default">{mobileNavbar ? "close" : "menu"}</Icon>
+            {mobileNavbar ? <CloseIcon /> : <MenuIcon />}
           </MKBox>
         </MKBox>
         <MKBox

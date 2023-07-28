@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
+import { routes } from "@/api/routes";
 
 export const metadata = {
   title: "Create Next App",
@@ -21,7 +22,8 @@ export default function RootLayout({
       <html lang="pt">
         <body>
           <DefaultNavbar
-            routes={[]}
+            routes={routes}
+            brand={"Grupo Visual"}
             action={{
               type: "external",
               route: "https://www.creative-tim.com/product/material-kit-react",
