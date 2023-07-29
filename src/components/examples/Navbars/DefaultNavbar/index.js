@@ -172,7 +172,7 @@ function DefaultNavbar({
                         {col.name}
                       </MKTypography>
                       {col.collapse.map((item) => (
-                        <a href={item.route}>
+                        <a key={item.route} href={item.route}>
                           <MKTypography
                             key={item.name}
                             minWidth="11.25rem"

@@ -74,7 +74,7 @@ function DefaultNavbarMobile({ routes, open, light }) {
                   {item.collapse ? (
                     <>
                       {item.collapse.map((el) => (
-                        <a href={el.route}>
+                        <a key={el.route} href={el.route}>
                           <MKTypography
                             key={el.name}
                             minWidth="11.25rem"
