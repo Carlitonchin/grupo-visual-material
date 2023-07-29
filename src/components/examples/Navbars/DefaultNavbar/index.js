@@ -57,6 +57,7 @@ function DefaultNavbar({
   sticky,
   relative,
   center,
+  background,
 }) {
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
@@ -103,6 +104,7 @@ function DefaultNavbar({
         icon={icon}
         href={href}
         route={route}
+        background={background}
         collapse={Boolean(collapse)}
         onMouseEnter={({ currentTarget }) => {
           if (collapse) {
@@ -501,15 +503,7 @@ function DefaultNavbar({
         position={relative ? "relative" : "absolute"}
         left={0}
         zIndex={3}
-        sx={({
-          palette: { transparent: transparentColor, white },
-          functions: { rgba },
-        }) => ({
-          backgroundColor: transparent
-            ? transparentColor.main
-            : rgba(white.main, 0.8),
-          backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
-        })}
+        className={background || "bg-white"}
       >
         <MKBox
           display="flex"

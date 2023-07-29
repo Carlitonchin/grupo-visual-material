@@ -5,6 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
 import { routes } from "@/api/routes";
+import MKBox from "@/components/MKBox";
 
 export const metadata = {
   title: "Create Next App",
@@ -22,14 +23,16 @@ export default function RootLayout({
       <html lang="pt">
         <body>
           <DefaultNavbar
+            background={"bg-gray-800"}
             routes={routes}
             brand={"Grupo Visual"}
             action={{
               type: "external",
               route: "https://www.creative-tim.com/product/material-kit-react",
               label: "free download",
-              color: "info",
+              color: "white",
             }}
+            light
             sticky
             center
           />
