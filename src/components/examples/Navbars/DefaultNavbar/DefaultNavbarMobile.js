@@ -32,7 +32,7 @@ import MKTypography from "@/components/MKTypography";
 // Material Kit 2 React example components
 import DefaultNavbarDropdown from "@/components/examples/Navbars/DefaultNavbar/DefaultNavbarDropdown";
 
-function DefaultNavbarMobile({ routes, open }) {
+function DefaultNavbarMobile({ routes, open, light }) {
   const [collapse, setCollapse] = useState("");
 
   const handleSetCollapse = (name) =>
@@ -55,58 +55,50 @@ function DefaultNavbarMobile({ routes, open }) {
         onClick={() => handleSetCollapse(name)}
         href={href}
         route={route}
+        light={light}
         collapse={Boolean(navCollapse)}
       >
         <MKBox
-          sx={{ height: "15rem", maxHeight: "15rem", overflowY: "scroll" }}
+          sx={{
+            height: "fit-content",
+            maxHeight: "15rem",
+            overflowY: "auto",
+          }}
         >
           {routeCollapses &&
             routeCollapses.map((item) => (
               <MKBox key={item.name} px={2}>
                 {item.collapse ? (
                   <>
-                    <MKTypography
-                      display="block"
-                      variant="button"
-                      fontWeight="bold"
-                      textTransform="capitalize"
-                      py={1}
-                      px={0.5}
-                    >
-                      {item.name}
-                    </MKTypography>
                     {item.collapse.map((el) => (
-                      <MKTypography
-                        key={el.name}
-                        component={el.route ? Link : MuiLink}
-                        to={el.route ? el.route : ""}
-                        href={el.href ? el.href : ""}
-                        target={el.href ? "_blank" : ""}
-                        rel={el.href ? "noreferrer" : "noreferrer"}
-                        minWidth="11.25rem"
-                        display="block"
-                        variant="button"
-                        color="text"
-                        textTransform="capitalize"
-                        fontWeight="regular"
-                        py={0.625}
-                        px={2}
-                        sx={({
-                          palette: { grey, dark },
-                          borders: { borderRadius },
-                        }) => ({
-                          borderRadius: borderRadius.md,
-                          cursor: "pointer",
-                          transition: "all 300ms linear",
+                      <a href={el.route}>
+                        <MKTypography
+                          key={el.name}
+                          minWidth="11.25rem"
+                          display="block"
+                          variant="button"
+                          color="text"
+                          textTransform="capitalize"
+                          fontWeight="regular"
+                          py={0.625}
+                          px={1}
+                          sx={({
+                            palette: { grey, dark },
+                            borders: { borderRadius },
+                          }) => ({
+                            borderRadius: borderRadius.md,
+                            cursor: "pointer",
+                            transition: "all 300ms linear",
 
-                          "&:hover": {
-                            backgroundColor: grey[200],
-                            color: dark.main,
-                          },
-                        })}
-                      >
-                        {el.name}
-                      </MKTypography>
+                            "&:hover": {
+                              backgroundColor: grey[200],
+                              color: dark.main,
+                            },
+                          })}
+                        >
+                          {el.name}
+                        </MKTypography>
+                      </a>
                     ))}
                   </>
                 ) : (
@@ -145,15 +137,6 @@ function DefaultNavbarMobile({ routes, open }) {
                       textTransform="capitalize"
                     >
                       {item.name}
-                    </MKTypography>
-                    <MKTypography
-                      display="block"
-                      variant="button"
-                      color="text"
-                      fontWeight="regular"
-                      sx={{ transition: "all 300ms linear" }}
-                    >
-                      {item.description}
                     </MKTypography>
                   </MKBox>
                 )}

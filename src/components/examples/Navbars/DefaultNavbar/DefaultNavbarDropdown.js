@@ -36,7 +36,6 @@ function DefaultNavbarDropdown({
   href,
   route,
   collapse,
-  background,
   ...rest
 }) {
   const linkComponent = {

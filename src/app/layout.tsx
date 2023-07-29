@@ -23,18 +23,16 @@ export default function RootLayout({
       <html lang="pt">
         <body>
           <DefaultNavbar
-            background={"bg-gray-800"}
             routes={routes}
             brand={"Grupo Visual"}
             action={{
               type: "external",
-              route: "https://www.creative-tim.com/product/material-kit-react",
-              label: "free download",
+              route: "https://www.gpvisualead.com.br/login",
+              label: "Área do Aluno",
               color: "white",
             }}
             light
             sticky
-            center
           />
           {children}
         </body>

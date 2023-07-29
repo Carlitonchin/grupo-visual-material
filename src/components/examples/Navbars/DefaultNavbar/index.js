@@ -56,7 +56,6 @@ function DefaultNavbar({
   sticky,
   relative,
   center,
-  background,
 }) {
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
@@ -103,7 +102,6 @@ function DefaultNavbar({
         icon={icon}
         href={href}
         route={route}
-        background={background}
         collapse={Boolean(collapse)}
         onMouseEnter={({ currentTarget }) => {
           if (collapse) {
@@ -144,7 +142,6 @@ function DefaultNavbar({
             container
             marginTop={1.5}
             spacing={0}
-            className={background + " rounded-md shadow-md "}
             py={1.5}
             px={1.5}
           >
@@ -184,7 +181,6 @@ function DefaultNavbar({
                             fontWeight="regular"
                             py={0.625}
                             px={2}
-                            className={light && "text-white"}
                             sx={({
                               palette: { grey, dark },
                               borders: { borderRadius },
@@ -194,7 +190,7 @@ function DefaultNavbar({
                               transition: "all 300ms linear",
 
                               "&:hover": {
-                                backgroundColor: light ? grey[600] : grey[200],
+                                backgroundColor: grey[200],
                                 color: light ? "white" : dark.main,
                               },
                             })}
@@ -353,9 +349,7 @@ function DefaultNavbar({
         >
           <MKBox borderRadius="lg">
             <MKTypography variant="h1" color="white">
-              <span ref={setArrowRef} sx={{ mt: -3 }}>
-                <ArrowDropUpIcon />
-              </span>
+              <span ref={setArrowRef} sx={{ mt: -3 }}></span>
             </MKTypography>
             {renderRoutes}
           </MKBox>
@@ -501,33 +495,22 @@ function DefaultNavbar({
         mx={relative ? 0 : 3}
         width={relative ? "100%" : "calc(100% - 48px)"}
         borderRadius="xl"
+        className="bg-gray-600 bg-opacity-50"
         shadow={transparent ? "none" : "md"}
         color={light ? "white" : "dark"}
         position={relative ? "relative" : "absolute"}
         left={0}
         zIndex={3}
-        className={background || "bg-white"}
       >
         <MKBox
           display="flex"
           justifyContent="space-between"
           alignItems="center"
         >
-          <MKBox
-            component={Link}
-            to="/"
-            lineHeight={1}
-            py={transparent ? 1.5 : 0.75}
-            pl={relative || transparent ? 0 : { xs: 0, lg: 1 }}
-          >
-            <MKTypography
-              variant="button"
-              fontWeight="bold"
-              color={light ? "white" : "dark"}
-            >
-              {brand}
-            </MKTypography>
-          </MKBox>
+          <a href="/">
+            <img width={120} height={50} src="/grupo_visual_logo.webp" />
+          </a>
+
           <MKBox
             color="inherit"
             display={{ xs: "none", lg: "flex" }}
@@ -589,7 +572,11 @@ function DefaultNavbar({
           px={transparent ? 2 : 0}
         >
           {mobileView && (
-            <DefaultNavbarMobile routes={routes} open={mobileNavbar} />
+            <DefaultNavbarMobile
+              routes={routes}
+              open={mobileNavbar}
+              light={light}
+            />
           )}
         </MKBox>
       </MKBox>
