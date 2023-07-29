@@ -133,11 +133,12 @@ function DefaultNavbar({
 
           resultArray[chunkIndex].push(item);
 
+          console.log(resultArray);
           return resultArray;
         }, []);
 
         template = (
-          <Grid key={name} container spacing={3} py={1} px={1.5}>
+          <Grid key={name} container spacing={0} py={1.5} px={1.5}>
             {calculateColumns.map((cols, key) => {
               const gridKey = `grid-${key}`;
               const dividerKey = `divider-${key}`;
@@ -156,7 +157,7 @@ function DefaultNavbar({
                         variant="button"
                         fontWeight="bold"
                         textTransform="capitalize"
-                        py={1}
+                        py={0}
                         px={0.5}
                         mt={index !== 0 ? 2 : 0}
                       >
@@ -345,16 +346,16 @@ function DefaultNavbar({
             background: ({ palette: { white } }) => white.main,
           }}
         >
-          <MKBox borderRadius="lg">
-            <MKTypography variant="h1" color="white">
+          {/*<MKBox borderRadius="lg">*/}
+          {/*<MKTypography variant="h1" color="white">
               <span ref={setArrowRef} sx={{ mt: -3 }}>
                 <ArrowDropUpIcon />
               </span>
-            </MKTypography>
-            <MKBox shadow="lg" borderRadius="lg" p={2} mt={2}>
-              {renderRoutes}
-            </MKBox>
-          </MKBox>
+        </MKTypography>*/}
+          <div className="bg-white mt-3.5 rounded-sm shadow-md opacity-90">
+            {renderRoutes}
+          </div>
+          {/*</MKBox>*/}
         </Grow>
       )}
     </Popper>
