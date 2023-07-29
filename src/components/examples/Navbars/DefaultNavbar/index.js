@@ -527,16 +527,18 @@ function DefaultNavbar({
               ml="auto"
               mr={center ? "auto" : 0}
             >
-              <SearchInput />
-            </MKBox>
+              <>
+                <MKBox
+                  color="inherit"
+                  display={{ xs: "none", lg: "flex" }}
+                  ml="auto"
+                  mr={center ? "auto" : 0}
+                >
+                  <SearchInput />
+                </MKBox>
 
-            <MKBox
-              color="inherit"
-              display={{ xs: "none", lg: "flex" }}
-              ml="auto"
-              mr={center ? "auto" : 0}
-            >
-              {renderNavbarItems}
+                {renderNavbarItems}
+              </>
             </MKBox>
 
             <MKBox
