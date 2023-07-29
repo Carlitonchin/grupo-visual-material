@@ -11,13 +11,16 @@ import MKInput from "@/components/MKInput";
 
 import TextField from "@mui/material/TextField";
 
-function InputIcon() {
+function InputIcon({ classNameContainer, className }) {
   return (
-    <div className="relative items-center flex ">
+    <div className={"relative items-center flex " + classNameContainer}>
       <input
         placeholder="Buscar"
         type="text"
-        className="rounded-md px-2 pl-8 py-1 outline-none focus:shadow-sm text-base"
+        className={
+          "rounded-md px-2 pl-8 py-1 outline-none focus:shadow-sm text-base " +
+          className
+        }
       />
       <SearchIcon className="text-black absolute left-2" />
     </div>

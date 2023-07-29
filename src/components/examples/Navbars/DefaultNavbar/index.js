@@ -521,7 +521,14 @@ function DefaultNavbar({
               <img width={120} height={50} src="/grupo_visual_logo.webp" />
             </a>
 
-            <SearchInput />
+            <MKBox
+              color="inherit"
+              display={{ xs: "none", lg: "flex" }}
+              ml="auto"
+              mr={center ? "auto" : 0}
+            >
+              <SearchInput />
+            </MKBox>
 
             <MKBox
               color="inherit"
