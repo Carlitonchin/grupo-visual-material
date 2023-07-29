@@ -31,6 +31,7 @@ export default function RootLayout({
               color: "info",
             }}
             sticky
+            center
           />
           {children}
         </body>

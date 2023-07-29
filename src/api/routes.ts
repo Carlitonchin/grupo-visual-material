@@ -1,25 +1,37 @@
 export const routes = [
   {
-    name: "pages",
+    name: "Cursos",
+    route: "/cursos",
+  },
+  {
+    name: "Sobre",
     columns: 1,
     rowsPerColumn: 2,
     collapse: [
       {
         collapse: [
           {
-            name: "about us",
+            name: "Quem Somos",
             route: "/pages/landing-pages/about-us",
           },
           {
-            name: "contact us",
+            name: "Nosso Método",
             route: "/pages/landing-pages/contact-us",
           },
           {
-            name: "author",
+            name: "Professores",
             route: "/pages/landing-pages/author",
           },
         ],
       },
     ],
+  },
+  {
+    name: "Contato",
+    route: "/contato",
+  },
+  {
+    name: "Blog",
+    route: "/blog",
   },
 ];

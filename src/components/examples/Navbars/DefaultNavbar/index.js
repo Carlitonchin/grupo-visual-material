@@ -138,7 +138,14 @@ function DefaultNavbar({
         }, []);
 
         template = (
-          <Grid key={name} container spacing={0} py={1.5} px={1.5}>
+          <Grid
+            key={name}
+            container
+            marginTop={1.5}
+            spacing={0}
+            py={1.5}
+            px={1.5}
+          >
             {calculateColumns.map((cols, key) => {
               const gridKey = `grid-${key}`;
               const dividerKey = `divider-${key}`;
@@ -339,16 +346,14 @@ function DefaultNavbar({
             background: ({ palette: { white } }) => white.main,
           }}
         >
-          {/*<MKBox borderRadius="lg">*/}
-          {/*<MKTypography variant="h1" color="white">
+          <MKBox borderRadius="lg">
+            <MKTypography variant="h1" color="white">
               <span ref={setArrowRef} sx={{ mt: -3 }}>
                 <ArrowDropUpIcon />
               </span>
-        </MKTypography>*/}
-          <div className="bg-white mt-3.5 rounded-sm shadow-md opacity-90">
+            </MKTypography>
             {renderRoutes}
-          </div>
-          {/*</MKBox>*/}
+          </MKBox>
         </Grow>
       )}
     </Popper>

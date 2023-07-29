@@ -57,7 +57,7 @@ function DefaultNavbarDropdown({
         mx={1}
         p={1}
         display="flex"
-        alignItems="baseline"
+        alignItems="center"
         color={light ? "white" : "dark"}
         opacity={light ? 1 : 0.6}
         sx={{ cursor: "pointer", userSelect: "none" }}
@@ -71,14 +71,14 @@ function DefaultNavbarDropdown({
           color={light ? "white" : "dark"}
           sx={{ fontWeight: "100%", ml: 1, mr: 0.25 }}
         >
-          {name}
+          {route ? <a href={route}>{name}</a> : <>{name}</>}
         </MKTypography>
         <MKTypography
           variant="body2"
           color={light ? "white" : "dark"}
           ml="auto"
         >
-          <KeyboardArrowDownIcon />
+          {!route && <KeyboardArrowDownIcon />}
         </MKTypography>
       </MKBox>
       {children && (
