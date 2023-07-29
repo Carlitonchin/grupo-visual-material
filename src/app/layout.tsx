@@ -21,7 +21,7 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <html lang="pt">
-        <body>
+        <body className="overflow-x-hidden overflow-y-auto">
           <DefaultNavbar
             routes={routes}
             brand={"Grupo Visual"}
