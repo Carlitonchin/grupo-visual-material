@@ -29,7 +29,6 @@ import PropTypes from "prop-types";
 
 // @mui material components
 import Container from "@mui/material/Container";
-import Icon from "@mui/material/Icon";
 import Popper from "@mui/material/Popper";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
@@ -145,6 +144,7 @@ function DefaultNavbar({
             container
             marginTop={1.5}
             spacing={0}
+            className={background + " rounded-md shadow-md "}
             py={1.5}
             px={1.5}
           >
@@ -173,32 +173,35 @@ function DefaultNavbar({
                         {col.name}
                       </MKTypography>
                       {col.collapse.map((item) => (
-                        <MKTypography
-                          key={item.name}
-                          minWidth="11.25rem"
-                          display="block"
-                          variant="button"
-                          color="text"
-                          textTransform="capitalize"
-                          fontWeight="regular"
-                          py={0.625}
-                          px={2}
-                          sx={({
-                            palette: { grey, dark },
-                            borders: { borderRadius },
-                          }) => ({
-                            borderRadius: borderRadius.md,
-                            cursor: "pointer",
-                            transition: "all 300ms linear",
+                        <a href={item.route}>
+                          <MKTypography
+                            key={item.name}
+                            minWidth="11.25rem"
+                            display="block"
+                            variant="button"
+                            color="text"
+                            textTransform="capitalize"
+                            fontWeight="regular"
+                            py={0.625}
+                            px={2}
+                            className={light && "text-white"}
+                            sx={({
+                              palette: { grey, dark },
+                              borders: { borderRadius },
+                            }) => ({
+                              borderRadius: borderRadius.md,
+                              cursor: "pointer",
+                              transition: "all 300ms linear",
 
-                            "&:hover": {
-                              backgroundColor: grey[200],
-                              color: dark.main,
-                            },
-                          })}
-                        >
-                          <a href={item.route}>{item.name}</a>
-                        </MKTypography>
+                              "&:hover": {
+                                backgroundColor: light ? grey[600] : grey[200],
+                                color: light ? "white" : dark.main,
+                              },
+                            })}
+                          >
+                            {item.name}
+                          </MKTypography>
+                        </a>
                       ))}
                     </Fragment>
                   ))}
