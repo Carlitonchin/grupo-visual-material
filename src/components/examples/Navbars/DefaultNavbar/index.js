@@ -47,6 +47,8 @@ import DefaultNavbarMobile from "@/components/examples/Navbars/DefaultNavbar/Def
 // Material Kit 2 React base styles
 import breakpoints from "@/theme/base/breakpoints";
 
+import SearchInput from "@/components/inputs/SearchInput";
+
 function DefaultNavbar({
   brand,
   routes,
@@ -140,7 +142,7 @@ function DefaultNavbar({
           <Grid
             key={name}
             container
-            marginTop={1.5}
+            marginTop={3.4}
             spacing={0}
             py={1.5}
             px={1.5}
@@ -487,10 +489,16 @@ function DefaultNavbar({
   );
 
   return (
-    <Container sx={sticky ? { position: "sticky", top: 0, zIndex: 10 } : null}>
+    <Container
+      sx={
+        sticky
+          ? { position: "sticky", top: 0, zIndex: 10, width: "100%" }
+          : null
+      }
+    >
       <MKBox
-        py={1}
-        px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
+        py={{ xs: 1.5, md: 1 }}
+        px={{ xs: 2, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
         my={relative ? 0 : 2}
         mx={relative ? 0 : 3}
         width={relative ? "100%" : "calc(100% - 48px)"}
@@ -504,25 +512,85 @@ function DefaultNavbar({
       >
         <MKBox
           display="flex"
+          flexDirection={{ xs: "column", lg: "row" }}
           justifyContent="space-between"
           alignItems="center"
         >
-          <a href="/">
-            <img width={120} height={50} src="/grupo_visual_logo.webp" />
-          </a>
+          <div className="w-full h-fit flex items-center justify-between">
+            <a href="/">
+              <img width={120} height={50} src="/grupo_visual_logo.webp" />
+            </a>
 
-          <MKBox
-            color="inherit"
-            display={{ xs: "none", lg: "flex" }}
-            ml="auto"
-            mr={center ? "auto" : 0}
-          >
-            {renderNavbarItems}
-          </MKBox>
-          <MKBox ml={{ xs: "auto", lg: 0 }}>
+            <SearchInput />
+
+            <MKBox
+              color="inherit"
+              display={{ xs: "none", lg: "flex" }}
+              ml="auto"
+              mr={center ? "auto" : 0}
+            >
+              {renderNavbarItems}
+            </MKBox>
+
+            <MKBox
+              ml={{ xs: "auto", lg: 0 }}
+              minWidth={"fit-content"}
+              display={{ xs: "none", md: "block" }}
+            >
+              {action &&
+                (action.type === "internal" ? (
+                  <MKButton
+                    component={Link}
+                    to={action.route}
+                    variant={
+                      action.color === "white" || action.color === "default"
+                        ? "contained"
+                        : "gradient"
+                    }
+                    color={action.color ? action.color : "info"}
+                    size="small"
+                  >
+                    {action.label}
+                  </MKButton>
+                ) : (
+                  <MKButton
+                    component="a"
+                    href={action.route}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant={
+                      action.color === "white" || action.color === "default"
+                        ? "contained"
+                        : "gradient"
+                    }
+                    color={action.color ? action.color : "info"}
+                    size="small"
+                  >
+                    {action.label}
+                  </MKButton>
+                ))}
+            </MKBox>
+            <MKBox
+              display={{ xs: "inline-block", lg: "none" }}
+              lineHeight={0}
+              py={1.5}
+              pl={1.5}
+              color={transparent ? "white" : "inherit"}
+              sx={{ cursor: "pointer" }}
+              onClick={openMobileNavbar}
+            >
+              {mobileNavbar ? (
+                <CloseIcon color={light ? "white" : "dark"} />
+              ) : (
+                <MenuIcon color={light ? "white" : "dark"} />
+              )}
+            </MKBox>
+          </div>
+          <MKBox width={"100%"} display={{ xs: "block", md: "none" }}>
             {action &&
               (action.type === "internal" ? (
                 <MKButton
+                  width={"100%"}
                   component={Link}
                   to={action.route}
                   variant={
@@ -531,7 +599,6 @@ function DefaultNavbar({
                       : "gradient"
                   }
                   color={action.color ? action.color : "info"}
-                  size="small"
                 >
                   {action.label}
                 </MKButton>
@@ -548,21 +615,11 @@ function DefaultNavbar({
                   }
                   color={action.color ? action.color : "info"}
                   size="small"
+                  className="w-full"
                 >
                   {action.label}
                 </MKButton>
               ))}
-          </MKBox>
-          <MKBox
-            display={{ xs: "inline-block", lg: "none" }}
-            lineHeight={0}
-            py={1.5}
-            pl={1.5}
-            color={transparent ? "white" : "inherit"}
-            sx={{ cursor: "pointer" }}
-            onClick={openMobileNavbar}
-          >
-            {mobileNavbar ? <CloseIcon /> : <MenuIcon />}
           </MKBox>
         </MKBox>
         <MKBox
