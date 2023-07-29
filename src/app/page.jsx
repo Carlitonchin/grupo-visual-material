@@ -5,9 +5,9 @@ import { Container, Grid } from "@mui/material";
 
 export default function Home() {
   return (
-    <main className="flex h-fit flex-col items-center justify-between   color-white">
+    <main className="flex h-fit flex-col items-center justify-between  color-white">
       <MKBox
-        minHeight="75vh"
+        minHeight="100vh"
         width="100%"
         sx={{
           backgroundImage: `url("/bg-back.jpg")`,
@@ -37,7 +37,7 @@ export default function Home() {
                 },
               })}
             >
-              Material Kit 2 React{" "}
+              Grupo Visual{" "}
             </MKTypography>
             <MKTypography
               variant="body1"
@@ -46,8 +46,7 @@ export default function Home() {
               px={{ xs: 6, lg: 12 }}
               mt={1}
             >
-              Free & Open Source Web UI Kit built over ReactJS &amp; MUI. Join
-              over 1.6 million developers around the world.
+              Cursos professionais para levar voçê ao seguinte nivel
             </MKTypography>
           </Grid>
         </Container>

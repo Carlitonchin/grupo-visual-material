@@ -503,7 +503,7 @@ function DefaultNavbar({
         mx={relative ? 0 : 3}
         width={relative ? "100%" : "calc(100% - 48px)"}
         borderRadius="xl"
-        className="bg-gray-600 bg-opacity-50"
+        className="bg-gray-300 bg-opacity-20"
         shadow={transparent ? "none" : "md"}
         color={light ? "white" : "dark"}
         position={relative ? "relative" : "absolute"}
