@@ -19,7 +19,7 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { Fragment, useState, useEffect } from "react";
 
 // react-router components
-import { Link } from "next/link";
+import Link from "@mui/material/Link";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -166,13 +166,6 @@ function DefaultNavbar({
                       {col.collapse.map((item) => (
                         <MKTypography
                           key={item.name}
-                          component={item.route ? Link : MuiLink}
-                          to={item.route ? item.route : ""}
-                          href={
-                            item.href ? item.href : (e) => e.preventDefault()
-                          }
-                          target={item.href ? "_blank" : ""}
-                          rel={item.href ? "noreferrer" : "noreferrer"}
                           minWidth="11.25rem"
                           display="block"
                           variant="button"
@@ -195,7 +188,7 @@ function DefaultNavbar({
                             },
                           })}
                         >
-                          {item.name}
+                          <a href={item.route}>{item.name}</a>
                         </MKTypography>
                       ))}
                     </Fragment>
