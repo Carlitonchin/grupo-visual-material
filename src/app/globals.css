@@ -2,31 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.animado-derecha {
-  animation: moverDerecha 0.3s linear;
-}
-
-/* Clase para animar el desplazamiento a la izquierda */
-.animado-izquierda {
-  animation: moverIzquierda 0.3s linear;
-}
-
-/* Definir la animación para mover a la derecha */
-@keyframes moverDerecha {
-  from {
-    left: 1rem; /* Posición inicial */
-  }
-  to {
-    left: calc(100% - 1rem); /* Posición final a la derecha */
-  }
-}
-
-/* Definir la animación para mover a la izquierda */
-@keyframes moverIzquierda {
-  from {
-    left: calc(100% - 1rem); /* Posición inicial a la derecha */
-  }
-  to {
-    left: 1rem; /* Posición final a la izquierda */
-  }
+.father-hover\:scale-110:hover {
+  transform: scale(1.1);
 }

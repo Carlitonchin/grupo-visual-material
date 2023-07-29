@@ -29,7 +29,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/inputs/SearchInput.jsx",
-    "src/app/page.jsx"
+    "src/app/page.jsx",
+    "src/app/page-components/home/courses-cards.jsx",
+    "src/app/page-components/home/courses-cards.jsx"
   ],
   "exclude": ["node_modules"]
 }

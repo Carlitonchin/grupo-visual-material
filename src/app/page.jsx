@@ -63,17 +63,17 @@ export default function Home() {
         <CoursesCards
           cards={[
             {
-              text: "Curso de programacao",
+              text: "Programacao",
               href: "/cursos/programacao",
               img: "/course1.webp",
             },
             {
-              text: "Curso de mecanica",
+              text: "Mecanica",
               href: "/cursos/mecanica",
               img: "/course2.webp",
             },
             {
-              text: "Curso de social media",
+              text: "Social Media",
               href: "/cursos/social-media",
               img: "/course3.webp",
             },
