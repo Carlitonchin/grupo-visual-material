@@ -492,7 +492,7 @@ function DefaultNavbar({
     <Container
       sx={
         sticky
-          ? { position: "sticky", top: 0, zIndex: 10, width: "100%" }
+          ? { position: "sticky", top: 0, zIndex: 40, width: "100%" }
           : null
       }
     >
@@ -503,7 +503,7 @@ function DefaultNavbar({
         mx={relative ? 0 : 3}
         width={relative ? "100%" : "calc(100% - 48px)"}
         borderRadius="xl"
-        className="bg-gray-300 bg-opacity-20"
+        className="bg-gray-700 bg-opacity-80"
         shadow={transparent ? "none" : "md"}
         color={light ? "white" : "dark"}
         position={relative ? "relative" : "absolute"}

@@ -29,12 +29,12 @@ export default function CoursesCards({ cards }) {
   return (
     <section
       ref={sectionRef}
-      className="  w-full h-96 -mt-60 z-40 opacity-0 transition-all duration-1000 mb-10"
+      className="  w-full h-96 -mt-60 z-10 opacity-0 transition-all duration-1000 mb-10"
     >
-      <div className="h-fit w-full z-40 flex justify-center gap-x-10">
+      <div className="h-fit w-full z-10 flex justify-center gap-x-10">
         {cards.map((card) => {
           return (
-            <a href={card.href}>
+            <a key={card.href} href={card.href}>
               <div className="h-96 w-96 relative overflow-hidden pointer-events-none rounded-md">
                 <div
                   className="w-full h-full hover:scale-110 cursor-pointer pointer-events-auto transition-all duration-300"
