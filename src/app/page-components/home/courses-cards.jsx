@@ -30,9 +30,9 @@ export default function CoursesCards({ cards }) {
   return (
     <section
       ref={sectionRef}
-      className="bg-gray-200  w-full h-fit mt-4 md:-mt-60 z-10 opacity-0 transition-all duration-1000 mb-4"
+      className=" w-full h-fit py-4 md:-mt-60 z-10 opacity-0 transition-all duration-1000"
     >
-      <div className="h-fit w-full z-10 flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-10">
+      <div className="h-fit w-full z-10 flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-5 lg:gap-x-10">
         {cards.map((card) => {
           return (
             <a key={card.href} href={card.href}>
