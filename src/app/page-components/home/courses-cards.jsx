@@ -1,3 +1,4 @@
+"use client";
 import MKTypography from "@/components/MKTypography";
 import { useEffect, useRef, useState } from "react";
 
