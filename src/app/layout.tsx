@@ -21,20 +21,22 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <html lang="pt">
-        <body className="overflow-x-hidden overflow-y-auto">
-          <DefaultNavbar
-            routes={routes}
-            brand={"Grupo Visual"}
-            action={{
-              type: "external",
-              route: "https://www.gpvisualead.com.br/login",
-              label: "Área do Aluno",
-              color: "white",
-            }}
-            light
-            sticky
-          />
-          {children}
+        <body>
+          <div className="overflow-x-hidden h-fit overflow-y-auto">
+            <DefaultNavbar
+              routes={routes}
+              brand={"Grupo Visual"}
+              action={{
+                type: "external",
+                route: "https://www.gpvisualead.com.br/login",
+                label: "Área do Aluno",
+                color: "white",
+              }}
+              light
+              sticky
+            />
+            {children}
+          </div>
         </body>
       </html>
     </ThemeProvider>
