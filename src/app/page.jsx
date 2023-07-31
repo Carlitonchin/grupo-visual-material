@@ -24,43 +24,44 @@ export default function Home() {
             style={{
               backdropFilter: "blur(3px)",
             }}
-            className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur"
-          ></div>
-          <Container>
-            <Grid
-              container
-              item
-              xs={12}
-              lg={7}
-              justifyContent="center"
-              mx="auto"
-            >
-              <MKTypography
-                variant="h1"
-                color="white"
-                mt={-6}
-                mb={1}
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["3xl"],
-                  },
-                })}
+            className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center"
+          >
+            <Container>
+              <Grid
+                container
+                item
+                xs={12}
+                lg={7}
+                justifyContent="center"
+                mx="auto"
               >
-                Grupo Visual{" "}
-              </MKTypography>
-              <MKTypography
-                variant="body1"
-                color="white"
-                textAlign="center"
-                px={{ xs: 6, lg: 12 }}
-                mt={1}
-              >
-                Cursos professionais para levar voçê ao seguinte nivel
-              </MKTypography>
-            </Grid>
-          </Container>
+                <MKTypography
+                  variant="h1"
+                  color="white"
+                  mt={-6}
+                  mb={1}
+                  sx={({ breakpoints, typography: { size } }) => ({
+                    [breakpoints.down("md")]: {
+                      fontSize: size["3xl"],
+                    },
+                  })}
+                >
+                  Grupo Visual{" "}
+                </MKTypography>
+                <MKTypography
+                  variant="body1"
+                  color="white"
+                  textAlign="center"
+                  px={{ xs: 6, lg: 12 }}
+                  mt={1}
+                >
+                  Cursos professionais para levar voçê ao seguinte nivel
+                </MKTypography>
+              </Grid>
+            </Container>
+          </div>
         </MKBox>
-        <CoursesCards
+        {/*<CoursesCards
           cards={[
             {
               text: "Programacao",
@@ -78,7 +79,7 @@ export default function Home() {
               img: "/course3.webp",
             },
           ]}
-        />
+        />*/}
       </main>
     </>
   );
