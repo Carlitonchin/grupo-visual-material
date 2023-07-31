@@ -7,6 +7,7 @@ export default function CoursesCards({ cards }) {
 
   function handleScroll() {
     if (firstShow) return;
+    console.log(window.scrollY);
     if (window.scrollY < 80) return;
 
     if (!sectionRef?.current) return;
@@ -18,24 +19,25 @@ export default function CoursesCards({ cards }) {
     sectionRef.current.classList.add("-mt-20");
   }
   useEffect(() => {
+    console.log("first render", firstShow);
     if (firstShow) return;
 
-    document.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => {
-      document.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   return (
     <section
       ref={sectionRef}
-      className="  w-full h-96 mt-0 md:-mt-60 z-10 opacity-0 transition-all duration-1000 mb-10"
+      className="  w-full h-96 mt-10 md:-mt-60 z-10 opacity-0 transition-all duration-1000 mb-10"
     >
-      <div className="h-fit w-full z-10 flex-col md:flex-row justify-center items-center gap-y-10 md:gap-y-0 md:gap-x-10">
+      <div className="h-fit w-full z-10 flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-10">
         {cards.map((card) => {
           return (
             <a key={card.href} href={card.href}>
-              <div className="h-96 w-96 relative overflow-hidden pointer-events-none rounded-md">
+              <div className="w-[85vw] h-[85vw] md:h-96 md:w-96 relative overflow-hidden pointer-events-none rounded-md">
                 <div
                   className="w-full h-full hover:scale-110 cursor-pointer pointer-events-auto transition-all duration-300"
                   style={{
