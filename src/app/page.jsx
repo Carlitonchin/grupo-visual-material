@@ -61,7 +61,7 @@ export default function Home() {
             </Container>
           </div>
         </MKBox>
-        {/*<CoursesCards
+        <CoursesCards
           cards={[
             {
               text: "Programacao",
@@ -79,7 +79,7 @@ export default function Home() {
               img: "/course3.webp",
             },
           ]}
-        />*/}
+        />
       </main>
     </>
   );
