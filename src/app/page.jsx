@@ -6,7 +6,34 @@ import HomeMain from "@/app/page-components/home/home-main";
 export default function Home() {
   return (
     <>
-      <HomeMain />
+      <HomeMain
+        slides={[
+          {
+            text1: "Grupo Visual",
+            text2: "Conhecimento vai mais la de nossas mentes",
+            buttonText: "Saiba mais",
+            url: "/",
+          },
+          {
+            text1: "Canal de youtube",
+            text2: "Conhecimento vai mais la de nossas mentes",
+            buttonText: "Saiba mais",
+            url: "/",
+          },
+          {
+            text1: "Siga a gente no insta",
+            text2: "Conhecimento vai mais la de nossas mentes",
+            buttonText: "Saiba mais",
+            url: "/",
+          },
+          {
+            text1: "Siga a gente no insta2",
+            text2: "Conhecimento vai mais la de nossas mentes",
+            buttonText: "Saiba mais",
+            url: "/",
+          },
+        ]}
+      />
       <CoursesCards
         cards={[
           {
