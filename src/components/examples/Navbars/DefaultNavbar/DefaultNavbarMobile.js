@@ -33,6 +33,7 @@ import MKTypography from "@/components/MKTypography";
 import DefaultNavbarDropdown from "@/components/examples/Navbars/DefaultNavbar/DefaultNavbarDropdown";
 
 import SearchInput from "@/components/inputs/SearchInput";
+import { grey } from "@mui/material/colors";
 
 function DefaultNavbarMobile({ routes, open, light }) {
   const [collapse, setCollapse] = useState("");
@@ -80,11 +81,11 @@ function DefaultNavbarMobile({ routes, open, light }) {
                             minWidth="11.25rem"
                             display="block"
                             variant="button"
-                            color="text"
+                            color="white"
                             textTransform="capitalize"
                             fontWeight="regular"
                             py={0.625}
-                            px={1}
+                            px={2}
                             sx={({
                               palette: { grey, dark },
                               borders: { borderRadius },
