@@ -9,28 +9,25 @@ export default function Home() {
       <HomeMain
         slides={[
           {
-            text1: "Grupo Visual",
-            text2: "Conhecimento vai mais la de nossas mentes",
+            text1: "Cursos Onlines",
+            text2: "Cursos profesionais, certificados, soporte 24h e mais.",
             buttonText: "Saiba mais",
             url: "/",
+            img: "/bg1.jpg",
           },
           {
             text1: "Canal de youtube",
-            text2: "Conhecimento vai mais la de nossas mentes",
+            text2: "Podcast todas as semanas, conteudo de qualidade para você",
             buttonText: "Saiba mais",
             url: "/",
+            img: "/bg2.jpg",
           },
           {
-            text1: "Siga a gente no insta",
-            text2: "Conhecimento vai mais la de nossas mentes",
+            text1: "Praticas profesionais",
+            text2: "Contato com empresas para praticar todo o aprendido",
             buttonText: "Saiba mais",
             url: "/",
-          },
-          {
-            text1: "Siga a gente no insta2",
-            text2: "Conhecimento vai mais la de nossas mentes",
-            buttonText: "Saiba mais",
-            url: "/",
+            img: "/bg3.jpg",
           },
         ]}
       />

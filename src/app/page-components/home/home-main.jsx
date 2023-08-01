@@ -36,7 +36,7 @@ export default function HomeMain({ slides }) {
       animateSliders();
     }, 5000);
 
-    return () => clearInterval(timeOutHandler);
+    // return () => clearInterval(timeOutHandler);
   }, []);
 
   return (
@@ -57,7 +57,7 @@ export default function HomeMain({ slides }) {
               style={{
                 width: "100%",
                 minHeight: "100vh",
-                backgroundImage: `url("/bg-back.jpg")`,
+                backgroundImage: `url("${slide.img}")`,
                 backgroundSize: "cover",
                 backgroundPosition: "top",
               }}
