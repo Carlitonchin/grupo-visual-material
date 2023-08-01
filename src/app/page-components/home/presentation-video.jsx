@@ -40,7 +40,7 @@ export default function PresentationVideo({
     currentOption.style.opacity = "1";
   }, []);
   return (
-    <section className="p-4 py-8 w-full h-fit bg-gray-900">
+    <section className="p-4 py-8 xl:px-16 w-full h-fit ">
       <div className="flex flex-col items-center justify-center xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
         <video
           id="presentation-video"
@@ -52,10 +52,10 @@ export default function PresentationVideo({
         >
           <source src={videoUrl}></source>
         </video>
-        <div className="w-full flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start">
+        <div className="w-full max-w-2xl flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start">
           <MKTypography
             variant="h2"
-            color="white"
+            color="black"
             className="text-center w-full"
             sx={({ breakpoints, typography: { size } }) => ({
               [breakpoints.down("md")]: {
@@ -78,8 +78,8 @@ export default function PresentationVideo({
                     variant="button"
                     color="text"
                     fontWeight="bold"
-                    className={`px-4 lg:px-8  cursor-pointer text-center min-w-min hover:text-white transition-all duration-300 ${
-                      index == selectedOption ? "text-white" : ""
+                    className={`px-4 lg:px-8  cursor-pointer text-center min-w-min hover:text-black transition-all duration-300 ${
+                      index == selectedOption ? "text-black" : ""
                     }`}
                     onClick={() => handleChangeOptions(index)}
                     textTransform="uppercase"
@@ -93,7 +93,7 @@ export default function PresentationVideo({
                   />
                   <span
                     className={
-                      "absolute bottom-0 left-0 transition-all h-1 bg-white duration-300 " +
+                      "absolute bottom-0 left-0 transition-all h-1 bg-black duration-300 " +
                       (index == selectedOption ? "w-full" : "w-0")
                     }
                   />
