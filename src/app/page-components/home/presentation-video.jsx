@@ -69,7 +69,10 @@ export default function PresentationVideo({
           <div className="w-full sm:w-3/4 md:w-2/3 xl:w-full ">
             <div className="w-full flex flex-col  md:flex-row justify-center gap-y-2 ">
               {Object.keys(options).map((key, index) => (
-                <div className="w-full h-10 flex flex-col  relative ">
+                <div
+                  className="w-full h-10 flex flex-col  relative "
+                  key={index}
+                >
                   <MKTypography
                     key={index}
                     variant="button"
@@ -99,6 +102,7 @@ export default function PresentationVideo({
             </div>
             {Object.keys(options).map((key, index) => (
               <MKTypography
+                key={index}
                 mt={1.5}
                 variant="body2"
                 id={"text-option-presentation-" + index}
