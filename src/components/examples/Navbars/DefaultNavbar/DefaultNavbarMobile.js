@@ -154,10 +154,10 @@ function DefaultNavbarMobile({ routes, open, light }) {
 
   return (
     <Collapse in={Boolean(open)} timeout="auto" unmountOnExit>
+      <div className="w-full rounded-md mt-8">
+        <SearchInput mobile={true} />
+      </div>
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2}>
-        <div className="w-full rounded-md px-2 mb-2">
-          <SearchInput mobile={true} />
-        </div>
         {renderNavbarItems}
       </MKBox>
     </Collapse>
