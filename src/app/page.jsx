@@ -1,5 +1,6 @@
 import CoursesCards from "@/app/page-components/home/courses-cards";
 import HomeMain from "@/app/page-components/home/home-main";
+import PresentationVideo from "@/app/page-components/home/presentation-video";
 
 export default function Home() {
   return (
@@ -49,6 +50,20 @@ export default function Home() {
         ]}
         buttonText={"Saiba mais"}
         buttonUrl={"/"}
+      />
+      <PresentationVideo
+        buttonText={"Saiba mais"}
+        buttonUrl={"/"}
+        options={{
+          "Sobre nos":
+            "Sobre nos | Somos uma empresa de educacao com mais de 20 anos de experiencia, formamos estudantes para eles crescerem no mercado laboral, temos um grupo de profesores experientes en varias areas de interesse como tecnologia, criminalistica, etc. Sobre nos | Somos uma empresa de educacao com mais de 20 anos de experiencia, formamos estudantes para eles crescerem no mercado laboral, temos um grupo de profesores experientes en varias areas de interesse como tecnologia, criminalistica, etc.",
+          "Nosso metodo":
+            "Nosso metodo | Somos uma empresa de educacao com mais de 20 anos de experiencia, formamos estudantes para eles crescerem no mercado laboral, temos um grupo de profesores experientes en varias areas de interesse como tecnologia, criminalistica, etc. Nosso metodo | Somos uma empresa de educacao com mais de 20 anos de experiencia, formamos estudantes para eles crescerem no mercado laboral, temos um grupo de profesores experientes en varias areas de interesse como tecnologia, criminalistica, etc.",
+          "Nossa missao":
+            "Nossa missao | Somos uma empresa de educacao com mais de 20 anos de experiencia, formamos estudantes para eles crescerem no mercado laboral, temos um grupo de profesores experientes en varias areas de interesse como tecnologia, criminalistica, etc. Nossa missao | Somos uma empresa de educacao com mais de 20 anos de experiencia, formamos estudantes para eles crescerem no mercado laboral, temos um grupo de profesores experientes en varias areas de interesse como tecnologia, criminalistica, etc.",
+        }}
+        videoUrl={"/video.mp4"}
+        title={"Grupo Visual"}
       />
     </>
   );
