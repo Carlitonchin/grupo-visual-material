@@ -53,15 +53,13 @@ export default function HomeMain({ slides }) {
               left: index < slides.length - 1 ? `${index * 100}%` : "-100%",
             }}
           >
-            <MKBox
-              minHeight="100vh"
-              width="100%"
-              sx={{
+            <div
+              style={{
+                width: "100%",
+                minHeight: "100vh",
                 backgroundImage: `url("/bg-back.jpg")`,
                 backgroundSize: "cover",
                 backgroundPosition: "top",
-                display: "grid",
-                placeItems: "center",
               }}
               className="relative"
             >
@@ -69,53 +67,38 @@ export default function HomeMain({ slides }) {
                 style={{
                   backdropFilter: "blur(3px)",
                 }}
-                className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center"
+                className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center lg:justify-start"
               >
-                <Container>
-                  <Grid
-                    container
-                    item
-                    xs={12}
-                    lg={7}
-                    justifyContent="center"
-                    mx="auto"
+                <div className=" w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40">
+                  <MKTypography
+                    variant="h1"
+                    color="white"
+                    mt={-6}
+                    mb={1}
+                    sx={({ breakpoints, typography: { size } }) => ({
+                      [breakpoints.down("md")]: {
+                        fontSize: size["4xl"],
+                      },
+                    })}
                   >
-                    <MKTypography
-                      variant="h1"
-                      color="white"
-                      mt={-6}
-                      mb={1}
-                      sx={({ breakpoints, typography: { size } }) => ({
-                        [breakpoints.down("md")]: {
-                          fontSize: size["3xl"],
-                        },
-                      })}
-                    >
-                      {slide.text1 + " "}
-                    </MKTypography>
-                    <MKTypography
-                      variant="body1"
-                      color="white"
-                      textAlign="center"
-                      px={{ xs: 6, lg: 12 }}
-                      mt={1}
-                    >
-                      {slide.text2}
-                    </MKTypography>
+                    {slide.text1}
+                  </MKTypography>
+                  <MKTypography variant="body1" color="white" mt={1}>
+                    {slide.text2}
+                  </MKTypography>
 
-                    <MKButton
-                      className="mt-4"
-                      color="dark"
-                      variant="gradient"
-                      component={Link}
-                      href={slide.url}
-                    >
-                      {slide.buttonText}
-                    </MKButton>
-                  </Grid>
-                </Container>
+                  <MKButton
+                    className="mt-4"
+                    color="light"
+                    variant="gradient"
+                    component={Link}
+                    href={slide.url}
+                  >
+                    {slide.buttonText}
+                  </MKButton>
+                </div>
               </div>
-            </MKBox>
+            </div>
           </div>
         ))}
       </div>
