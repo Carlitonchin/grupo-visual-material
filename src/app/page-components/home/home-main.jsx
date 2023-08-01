@@ -1,8 +1,6 @@
 "use client";
-import MKBox from "@/components/MKBox";
 import MKButton from "@/components/MKButton";
 import MKTypography from "@/components/MKTypography";
-import { Container, Grid } from "@mui/material";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -19,7 +17,7 @@ export default function HomeMain({ slides }) {
       let content = child.getElementsByClassName("home-container-text");
 
       if (left == 100) {
-        child.style.zIndex = 0;
+        child.style.zIndex = 1;
         child.style.transition = "left 0.8s ease-in-out";
         if (content?.length && content[0]?.style) {
           setTimeout(() => {
@@ -27,7 +25,7 @@ export default function HomeMain({ slides }) {
           }, 300);
         }
       } else {
-        child.style.zIndex = "-1";
+        child.style.zIndex = 0;
         child.style.transition = "none";
         if (content?.length && content[0]?.style) {
           setTimeout(() => {
@@ -61,7 +59,7 @@ export default function HomeMain({ slides }) {
     <main className="flex h-[75vh] flex-col items-center justify-between  color-white">
       <div
         id="slider-container-home-main"
-        className="w-screen h-[75vh] flex overflow-hidden relative"
+        className="w-screen h-[75vh] flex overflow-hidden relative z-10"
       >
         {slides.map((slide, index) => (
           <div

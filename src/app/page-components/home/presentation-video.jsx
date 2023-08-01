@@ -40,7 +40,7 @@ export default function PresentationVideo({
     currentOption.style.opacity = "1";
   }, []);
   return (
-    <section className="p-4 py-8 xl:px-16 w-full h-fit ">
+    <section className="p-4 py-10 xl:px-16 w-full h-fit ">
       <div className="flex flex-col items-center justify-center xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
         <video
           id="presentation-video"

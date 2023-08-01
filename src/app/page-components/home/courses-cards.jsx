@@ -16,24 +16,22 @@ export default function CoursesCards({ cards, buttonUrl, buttonText }) {
     if (sectionRef.current?.classList?.contains("opacity-100")) return;
     sectionRef.current.classList.remove("opacity-0");
     sectionRef.current.classList.add("opacity-100");
-    sectionRef.current.classList.remove("md:-mt-60");
-    sectionRef.current.classList.add("md:-mt-20");
   }
-  useEffect(() => {
+  /*useEffect(() => {
     if (firstShow) return;
 
     handleShow();
-  }, []);
+  }, []);*/
   return (
     <section
       ref={sectionRef}
-      className=" w-full h-fit flex flex-col justify-center items-center py-8 md:-mt-60 z-10 opacity-0 transition-all duration-1000"
+      className="bg-gray-200 w-full h-fit flex flex-col justify-center items-center py-10 md:-mt-20 transition-all duration-1000"
     >
-      <div className="h-fit w-full z-10 flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-5 lg:gap-x-10">
+      <div className="h-fit w-full  flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-5 lg:gap-x-10">
         {cards.map((card) => {
           return (
-            <a key={card.href} href={card.href}>
-              <div className="w-[85vw] max-w-[30rem] max-h-[30rem] h-[85vw] md:h-96 md:w-96 md:max-w-[30vw] md:max-h-[30vw] relative overflow-hidden pointer-events-none rounded-md">
+            <a key={card.href} href={card.href} style={{ zIndex: 20 }}>
+              <div className=" w-[85vw] max-w-[30rem] max-h-[30rem] h-[85vw] md:h-96 md:w-96 md:max-w-[30vw] md:max-h-[30vw] relative overflow-hidden pointer-events-none rounded-md">
                 <div
                   className="w-full h-full hover:scale-110 cursor-pointer pointer-events-auto transition-all duration-300"
                   style={{
