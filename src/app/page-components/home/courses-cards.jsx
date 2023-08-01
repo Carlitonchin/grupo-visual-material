@@ -1,8 +1,10 @@
 "use client";
 import MKTypography from "@/components/MKTypography";
+import MKButton from "@/components/MKButton";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export default function CoursesCards({ cards }) {
+export default function CoursesCards({ cards, buttonUrl, buttonText }) {
   const [firstShow, setFirstShow] = useState(false);
   const sectionRef = useRef(null);
 
@@ -25,7 +27,7 @@ export default function CoursesCards({ cards }) {
   return (
     <section
       ref={sectionRef}
-      className=" w-full h-fit py-4 md:-mt-60 z-10 opacity-0 transition-all duration-1000"
+      className=" w-full h-fit flex flex-col justify-center items-center py-4 md:-mt-60 z-10 opacity-0 transition-all duration-1000"
     >
       <div className="h-fit w-full z-10 flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-5 lg:gap-x-10">
         {cards.map((card) => {
@@ -53,6 +55,15 @@ export default function CoursesCards({ cards }) {
           );
         })}
       </div>
+      <MKButton
+        className="mt-4 w-52 max-w-full"
+        color="dark"
+        variant="gradient"
+        component={Link}
+        href={buttonUrl}
+      >
+        {buttonText}
+      </MKButton>
     </section>
   );
 }

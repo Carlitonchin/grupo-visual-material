@@ -47,6 +47,8 @@ export default function Home() {
             img: "/course3.webp",
           },
         ]}
+        buttonText={"Saiba mais"}
+        buttonUrl={"/"}
       />
     </>
   );
