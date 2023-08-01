@@ -6,10 +6,8 @@ export default function CoursesCards({ cards }) {
   const [firstShow, setFirstShow] = useState(false);
   const sectionRef = useRef(null);
 
-  function handleScroll() {
+  function handleShow() {
     if (firstShow) return;
-
-    if (window.scrollY < 80) return;
 
     if (!sectionRef?.current) return;
     setFirstShow(true);
@@ -22,11 +20,7 @@ export default function CoursesCards({ cards }) {
   useEffect(() => {
     if (firstShow) return;
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleShow();
   }, []);
   return (
     <section

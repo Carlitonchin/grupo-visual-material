@@ -61,12 +61,12 @@ export default function HomeMain({ slides }) {
     <main className="flex h-fit flex-col items-center justify-between  color-white">
       <div
         id="slider-container-home-main"
-        className="w-screen min-h-screen flex overflow-hidden relative"
+        className="w-screen h-[75vh] flex overflow-hidden relative"
       >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`w-screen min-h-screen absolute top-0`}
+            className={`w-screen h-[75vh] absolute top-0`}
             style={{
               left: `${index * 100}%`,
             }}
@@ -74,7 +74,7 @@ export default function HomeMain({ slides }) {
             <div
               style={{
                 width: "100%",
-                minHeight: "100vh",
+                minHeight: "75vh",
                 backgroundImage: `url("${slide.img}")`,
                 backgroundSize: "cover",
                 backgroundPosition: "top",
@@ -94,8 +94,6 @@ export default function HomeMain({ slides }) {
                   <MKTypography
                     variant="h1"
                     color="white"
-                    mt={-6}
-                    mb={1}
                     sx={({ breakpoints, typography: { size } }) => ({
                       [breakpoints.down("md")]: {
                         fontSize: size["4xl"],
