@@ -58,7 +58,7 @@ export default function HomeMain({ slides }) {
   }, []);
 
   return (
-    <main className="flex h-fit flex-col items-center justify-between  color-white">
+    <main className="flex h-[75vh] flex-col items-center justify-between  color-white">
       <div
         id="slider-container-home-main"
         className="w-screen h-[75vh] flex overflow-hidden relative"
