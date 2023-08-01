@@ -8,26 +8,44 @@ import { useEffect } from "react";
 
 export default function HomeMain({ slides }) {
   function animateSliders() {
+    if (!slides?.length) return;
+
     let container = document.getElementById("slider-container-home-main");
     if (!container) return;
 
     let max = (slides.length - 1) * 100;
     container.childNodes.forEach((child) => {
       let left = Number(child.style.left.split("%")[0]);
+      let content = child.getElementsByClassName("home-container-text");
 
-      if (left == -100) {
+      if (left == 100) {
         child.style.zIndex = 0;
         child.style.transition = "left 0.8s ease-in-out";
+        if (content?.length && content[0]?.style) {
+          setTimeout(() => {
+            content[0].style.opacity = "1";
+          }, 300);
+        }
       } else {
         child.style.zIndex = "-1";
-
-        child.style.transition = left != 0 ? "none" : "left 0.8s ease-in-out";
+        child.style.transition = "none";
+        if (content?.length && content[0]?.style) {
+          setTimeout(() => {
+            content[0].style.opacity = "0";
+          }, 2000);
+        }
       }
 
-      left += 100;
-      if (left >= max) left = "-100";
+      left -= 100;
+      if (left < 0) left = max;
 
-      child.style.left = `${left}%`;
+      if (left < max) {
+        child.style.left = `${left}%`;
+      } else {
+        setTimeout(() => {
+          child.style.left = `${left}%`;
+        }, 2000);
+      }
     });
   }
 
@@ -50,7 +68,7 @@ export default function HomeMain({ slides }) {
             key={index}
             className={`w-screen min-h-screen absolute top-0`}
             style={{
-              left: index < slides.length - 1 ? `${index * 100}%` : "-100%",
+              left: `${index * 100}%`,
             }}
           >
             <div
@@ -69,7 +87,10 @@ export default function HomeMain({ slides }) {
                 }}
                 className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center lg:justify-start"
               >
-                <div className=" w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40">
+                <div
+                  style={{ opacity: index == 0 ? "1" : "0" }}
+                  className={`home-container-text transition-opacity duration-1000 w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
+                >
                   <MKTypography
                     variant="h1"
                     color="white"

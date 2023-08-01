@@ -1,5 +1,3 @@
-"use client";
-
 import CoursesCards from "@/app/page-components/home/courses-cards";
 import HomeMain from "@/app/page-components/home/home-main";
 
