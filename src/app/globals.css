@@ -5,3 +5,52 @@
 .father-hover\:scale-110:hover {
   transform: scale(1.1);
 }
+
+section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 600px) {
+  section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  section {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  section {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  section {
+    padding-left: 13rem;
+    padding-right: 13rem;
+  }
+}
+
+@media (min-width: 2300px) {
+  section {
+    padding-left: 20rem;
+    padding-right: 20rem;
+  }
+}
