@@ -50,6 +50,7 @@ export default function StarCard({ img, text, stars, url }) {
                 .map((_, index) =>
                   index + 1 <= stars ? (
                     <StarIcon
+                      key={index}
                       className="w-6 h-6"
                       style={{ color: colors.warning.main }}
                     />
@@ -63,8 +64,9 @@ export default function StarCard({ img, text, stars, url }) {
                   style={{ color: colors.warning.main }}
                 />
               )}
-              {new Array(5 - Math.ceil(stars)).fill(0).map(() => (
+              {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
                 <StarBorderIcon
+                  key={"--" + index}
                   className="w-6 h-6"
                   style={{ color: colors.warning.main }}
                 />
