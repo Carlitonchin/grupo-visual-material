@@ -1,6 +1,7 @@
 import CoursesCards from "@/app/page-components/home/courses-cards";
 import HomeMain from "@/app/page-components/home/home-main";
 import PresentationVideo from "@/app/page-components/home/presentation-video";
+import StarCard from "@/components/cards/StarCard";
 
 export default function Home() {
   return (
@@ -64,6 +65,12 @@ export default function Home() {
         }}
         videoUrl={"/video.mp4"}
         title={"Grupo Visual"}
+      />
+      <StarCard
+        img={"/course1.webp"}
+        stars={3.4}
+        text={"Alimentacao"}
+        url={"/"}
       />
     </>
   );
