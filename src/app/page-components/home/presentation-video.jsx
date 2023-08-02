@@ -40,8 +40,8 @@ export default function PresentationVideo({
     currentOption.style.opacity = "1";
   }, []);
   return (
-    <section className="p-4 py-10 xl:px-16 w-full h-fit ">
-      <div className="flex flex-col items-center justify-center xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
+    <section className="px-8 py-10 w-full h-fit ">
+      <div className="flex flex-col items-center justify-between xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
         <video
           id="presentation-video"
           controls
@@ -66,7 +66,7 @@ export default function PresentationVideo({
             {title}
           </MKTypography>
 
-          <div className="w-full sm:w-3/4 md:w-2/3 xl:w-full ">
+          <div className="w-full sm:w-3/4 md:w-full ">
             <div className="w-full flex flex-col  md:flex-row justify-center gap-y-2 ">
               {Object.keys(options).map((key, index) => (
                 <div
