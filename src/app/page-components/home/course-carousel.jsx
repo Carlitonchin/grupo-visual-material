@@ -146,13 +146,7 @@ export default function CourseCarousel({
         >
           {courses.map((c, index) => (
             <>
-              <StarCard
-                img={c.img}
-                text={c.text}
-                stars={c.stars}
-                url={c.url}
-                className={`${isDragStart ? "pointer-events-none" : ""}`}
-              />
+              <StarCard img={c.img} text={c.text} stars={c.stars} url={c.url} />
             </>
           ))}
         </div>
