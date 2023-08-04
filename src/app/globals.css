@@ -4,6 +4,7 @@
 
 .father-hover\:scale-110:hover {
   transform: scale(1.1);
+  border: 1px solid rgb(192, 185, 185);
 }
 
 .smooth-scroll {
@@ -22,8 +23,8 @@ section {
 }
 
 .item-carousel-3 {
-  width: 100%;
-  aspect-ratio: 0.7 / 1;
+  width: calc(100% - 0.5rem);
+  aspect-ratio: 0.65 / 1;
 }
 
 @media (min-width: 400px) {
@@ -56,14 +57,14 @@ section {
 
 @media (min-width: 700px) {
   .item-carousel-3 {
-    width: calc(100% / 2);
+    width: calc(100% / 2 - 0.5rem);
     aspect-ratio: 0.8 / 1;
   }
 }
 
 @media (min-width: 900px) {
   .item-carousel-3 {
-    width: calc(100% / 2);
+    width: calc(100% / 2 - 0.5rem);
     aspect-ratio: 1 / 1;
   }
 }

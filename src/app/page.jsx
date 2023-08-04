@@ -68,6 +68,9 @@ export default function Home() {
         title={"Grupo Visual"}
       />
       <CourseCarousel
+        title="Nossos Cursos"
+        buttonText={"Todos os cursos"}
+        buttonUrl={"/"}
         courses={[
           {
             img: "/course1.webp",

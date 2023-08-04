@@ -1,8 +1,10 @@
 "use client";
 import StarCard from "@/components/cards/StarCard";
-import colors from "@/theme/base/colors";
+import MKTypography from "@/components/MKTypography";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import MKButton from "@/components/MKButton";
+import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 
 var prevPageX = 0;
@@ -10,7 +12,12 @@ var prevScrollLeft = 0;
 var widthItem = 0;
 var positionDiff = 0;
 
-export default function CourseCarousel({ courses }) {
+export default function CourseCarousel({
+  courses,
+  title,
+  buttonUrl,
+  buttonText,
+}) {
   const carouselRef = useRef(null);
   const [isDragStart, setIsDragStart] = useState(false);
   const [arrowLeftVisible, setArrowLeftVisible] = useState(false);
@@ -99,8 +106,20 @@ export default function CourseCarousel({ courses }) {
     [arrowLeftVisible, arrowRightVisible]
   );
   return (
-    <section className="bg-gray-200">
-      <div className="relative flex items-center w-full gap-x-4 justify-center">
+    <section className="bg-gray-200 flex flex-col justify-center items-center">
+      <MKTypography
+        variant="h2"
+        color="black"
+        className="text-center w-full"
+        sx={({ breakpoints, typography: { size } }) => ({
+          [breakpoints.down("md")]: {
+            fontSize: size["4xl"],
+          },
+        })}
+      >
+        {title}
+      </MKTypography>
+      <div className="relative flex items-center w-full gap-x-4 justify-center mt-8">
         <ArrowCircleLeftIcon
           onClick={clickLeft}
           className={
@@ -146,6 +165,16 @@ export default function CourseCarousel({ courses }) {
           onClick={clickRight}
         />
       </div>
+
+      <MKButton
+        className="mt-4 w-52 max-w-full"
+        color="dark"
+        variant="gradient"
+        component={Link}
+        href={buttonUrl}
+      >
+        {buttonText}
+      </MKButton>
     </section>
   );
 }

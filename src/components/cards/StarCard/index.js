@@ -15,9 +15,9 @@ export default function StarCard({ img, text, stars, url, className }) {
       <div
         className={
           className +
-          " item-carousel-3 inline-block cursor-pointer overflow-hidden shadow-md hover:shadow-xl duration-300 rounded-md"
+          " item-carousel-3 inline-block cursor-pointer overflow-hidden  shadow-md hover:shadow-lg duration-300 rounded-md"
         }
-        style={{ border: "0.2px solid rgba(242, 237, 237, 0.071);" }}
+        style={{ border: "1px solid rgb(192, 185, 185)" }}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
