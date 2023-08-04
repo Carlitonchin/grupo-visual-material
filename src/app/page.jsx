@@ -2,6 +2,7 @@ import CoursesCards from "@/app/page-components/home/courses-cards";
 import HomeMain from "@/app/page-components/home/home-main";
 import PresentationVideo from "@/app/page-components/home/presentation-video";
 import StarCard from "@/components/cards/StarCard";
+import CourseCarousel from "@/app/page-components/home/course-carousel";
 
 export default function Home() {
   return (
@@ -66,11 +67,20 @@ export default function Home() {
         videoUrl={"/video.mp4"}
         title={"Grupo Visual"}
       />
-      <StarCard
-        img={"/course1.webp"}
-        stars={3.4}
-        text={"Alimentacao"}
-        url={"/"}
+      <CourseCarousel
+        courses={[
+          { img: "/course1.webp", stars: 3.4, text: "Alimentacao", url: "/" },
+          { img: "/course2.webp", stars: 5, text: "Social Media", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleiro", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+          { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
+        ]}
       />
     </>
   );

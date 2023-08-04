@@ -45,14 +45,14 @@ export default function HomeMain({ slides }) {
         }, 2000);
       }
     });
+
+    setTimeout(() => animateSliders(), 5000);
   }
 
   useEffect(() => {
-    let timeOutHandler = setInterval(() => {
+    setTimeout(() => {
       animateSliders();
     }, 5000);
-
-    // return () => clearInterval(timeOutHandler);
   }, []);
 
   return (

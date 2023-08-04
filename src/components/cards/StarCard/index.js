@@ -8,13 +8,14 @@ import MKButton from "@/components/MKButton";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function StarCard({ img, text, stars, url }) {
+export default function StarCard({ img, text, stars, url, className }) {
   const [hover, setHover] = useState(false);
   return (
-    <a href={url}>
+    <a href={url} draggable={false}>
       <div
         className={
-          "ml-4 mb-4 cursor-pointer overflow-hidden w-[28vw] h-[31vw] min-w-[300px] min-h-[311px] max-w-[30rem] max-h-[31rem] shadow-md hover:shadow-xl duration-300 rounded-md"
+          className +
+          " item-carousel-3 inline-block cursor-pointer overflow-hidden shadow-md hover:shadow-xl duration-300 rounded-md"
         }
         style={{ border: "0.2px solid rgba(242, 237, 237, 0.071);" }}
         onMouseEnter={() => setHover(true)}
