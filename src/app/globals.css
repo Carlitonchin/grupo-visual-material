@@ -22,42 +22,63 @@ section {
 }
 
 .item-carousel-3 {
-  width: calc(100% / 3 - 0.9rem);
-  aspect-ratio: 10 / 12;
+  width: 100%;
+  aspect-ratio: 0.7 / 1;
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 400px) {
   .item-carousel-3 {
-    aspect-ratio: 10 / 10;
-    width: calc(100% / 2 - 0.5rem);
+    width: 100%;
+    aspect-ratio: 0.9 / 1;
   }
 }
 
-@media (max-width: 850px) {
+@media (min-width: 480px) {
   .item-carousel-3 {
+    width: 100%;
+    aspect-ratio: 1.1 / 1;
+  }
+}
+
+@media (min-width: 540px) {
+  .item-carousel-3 {
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+  }
+}
+
+@media (min-width: 600px) {
+  .item-carousel-3 {
+    width: 100%;
     aspect-ratio: 1.3 / 1;
-    width: 100%;
   }
 }
 
-@media (max-width: 650px) {
+@media (min-width: 700px) {
   .item-carousel-3 {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .item-carousel-3 {
+    width: calc(100% / 2);
     aspect-ratio: 0.8 / 1;
-    width: 100%;
   }
 }
 
-@media (max-width: 420px) {
+@media (min-width: 900px) {
   .item-carousel-3 {
-    aspect-ratio: 0.6 / 1;
-    width: 100%;
+    width: calc(100% / 2);
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 1100px) {
+  .item-carousel-3 {
+    width: calc(100% / 3 - 0.9rem);
+    aspect-ratio: 0.8 / 1;
+  }
+}
+
+@media (min-width: 1490px) {
+  .item-carousel-3 {
+    width: calc(100% / 3 - 0.9rem);
+    aspect-ratio: 1 / 1;
   }
 }
 

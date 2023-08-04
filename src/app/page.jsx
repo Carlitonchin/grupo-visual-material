@@ -69,7 +69,12 @@ export default function Home() {
       />
       <CourseCarousel
         courses={[
-          { img: "/course1.webp", stars: 3.4, text: "Alimentacao", url: "/" },
+          {
+            img: "/course1.webp",
+            stars: 3.4,
+            text: "Alimentacao Social Asistida #2 con hambre",
+            url: "/",
+          },
           { img: "/course2.webp", stars: 5, text: "Social Media", url: "/" },
           { img: "/course3.webp", stars: 4.5, text: "Cabeleleiro", url: "/" },
           { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },

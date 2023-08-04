@@ -1,5 +1,6 @@
 "use client";
 import StarCard from "@/components/cards/StarCard";
+import colors from "@/theme/base/colors";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { useRef, useEffect, useState } from "react";
@@ -103,10 +104,13 @@ export default function CourseCarousel({ courses }) {
         <ArrowCircleLeftIcon
           onClick={clickLeft}
           className={
-            "w-10 h-10 cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
+            "w-10 h-10 rounded-full bg-white border-2 border-black cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
             (arrowLeftVisible ? "block" : "hidden")
           }
-          style={{ right: "calc(100% - 1.5rem)" }}
+          style={{
+            right: "calc(100% - 1.25rem)",
+            //background: colors.warning.main,
+          }}
         />
         <div
           ref={carouselRef}
@@ -135,10 +139,10 @@ export default function CourseCarousel({ courses }) {
         </div>
         <ArrowCircleRightIcon
           className={
-            "w-10 h-10 cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
+            "w-10 h-10 rounded-full bg-white border-2 border-black cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
             (arrowRightVisible ? "block" : "hidden")
           }
-          style={{ left: "calc(100% - 1.5rem" }}
+          style={{ left: "calc(100% - 1.75rem" }}
           onClick={clickRight}
         />
       </div>

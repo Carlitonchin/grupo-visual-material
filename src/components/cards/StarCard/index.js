@@ -21,7 +21,7 @@ export default function StarCard({ img, text, stars, url, className }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-full h-[55%] xl:h-[65%] overflow-hidden relative">
+        <div className="w-full h-[60%] xl:h-[65%] overflow-hidden relative">
           <div
             className={
               "absolute top-0 left-0 w-full h-full transition-all duration-500 " +
@@ -40,9 +40,14 @@ export default function StarCard({ img, text, stars, url, className }) {
             }
           />
         </div>
-        <div className="w-full h-[45%] xl:h-[35%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
-          <div className="flex flex-col gap-y-4">
-            <MKTypography variant="h4" color="black" fontWeight="bold">
+        <div className="w-full h-[40%] xl:h-[35%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
+          <div className="flex flex-col gap-y-4 w-full">
+            <MKTypography
+              className="w-full -mt-2 text-center whitespace-normal"
+              variant="text"
+              color="black"
+              fontWeight="bold"
+            >
               {text}
             </MKTypography>
             <div className="w-full -mt-3 flex items-center justify-center gap-x-1">
