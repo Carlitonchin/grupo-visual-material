@@ -3,6 +3,7 @@ import HomeMain from "@/app/page-components/home/home-main";
 import PresentationVideo from "@/app/page-components/home/presentation-video";
 import Stats from "@/app/page-components/home/stats";
 import CourseCarousel from "@/app/page-components/home/course-carousel";
+import Teachers from "@/app/page-components/home/teachers";
 
 export default function Home() {
   return (
@@ -86,6 +87,7 @@ export default function Home() {
           },
         ]}
       />
+
       <CourseCarousel
         title="Nossos Cursos"
         buttonText={"Todos os cursos"}
@@ -109,6 +111,8 @@ export default function Home() {
           { img: "/course3.webp", stars: 4.5, text: "Cabeleleir2o", url: "/" },
         ]}
       />
+
+      <Teachers />
     </>
   );
 }

@@ -22,16 +22,19 @@ import Icon from "@mui/material/Icon";
 // Material Kit 2 React components
 import MKBox from "@/components/MKBox";
 import MKTypography from "@/components/MKTypography";
+import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 
 function RotatingCardFront({ color, image, icon, title, description }) {
   return (
     <MKBox
+      className="flex flex-col justify-center items-center px-8"
       display="flex"
       justifyContent="center"
       alignContent="center"
       borderRadius="lg"
       coloredShadow={color}
       width="100%"
+      height="100%"
       position="relative"
       zIndex={2}
       sx={{
@@ -53,13 +56,9 @@ function RotatingCardFront({ color, image, icon, title, description }) {
         backfaceVisibility: "hidden",
       }}
     >
-      <MKBox py={12} px={3} textAlign="center" lineHeight={1}>
-        {icon && (
-          <MKTypography variant="h2" color="white" my={2}>
-            {typeof icon === "string" ? <Icon>{icon}</Icon> : icon}
-          </MKTypography>
-        )}
-        <MKTypography variant="h3" color="white" gutterBottom>
+      <MKBox textAlign="center" lineHeight={1}>
+        {icon && <PanToolAltIcon className="text-white my-2 w-10 h-10" />}
+        <MKTypography variant="h3" color="white" gutterBottom mt={4}>
           {title}
         </MKTypography>
         <MKTypography variant="body2" color="white" opacity={0.8}>

@@ -31,6 +31,7 @@ function RotatingCard({ color, image, title, description, action }) {
   return (
     <MKBox
       display="flex"
+      className="px-8"
       justifyContent="center"
       alignItems="center"
       borderRadius="lg"
@@ -61,7 +62,7 @@ function RotatingCard({ color, image, title, description, action }) {
         transform: "rotateY(180deg)",
       }}
     >
-      <MKBox pt={12} pb={2} px={2} textAlign="center" lineHeight={1}>
+      <MKBox textAlign="center" lineHeight={1}>
         <MKTypography variant="h3" color="white" gutterBottom>
           {title}
         </MKTypography>
@@ -69,7 +70,7 @@ function RotatingCard({ color, image, title, description, action }) {
           {description}
         </MKTypography>
         {action && (
-          <MKBox width="50%" mt={4} mb={2} mx="auto">
+          <MKBox width="100%" mt={4} mx="auto">
             {action.type === "external" ? (
               <MKButton
                 component={MuiLink}

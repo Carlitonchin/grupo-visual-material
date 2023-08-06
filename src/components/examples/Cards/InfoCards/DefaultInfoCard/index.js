@@ -54,6 +54,7 @@ function DefaultInfoCard({
         display="block"
         variant="5"
         fontWeight="bold"
+        className="text-center lg:text-left"
         mt={direction === "center" ? 1 : 2}
         mb={1.5}
       >
@@ -61,10 +62,9 @@ function DefaultInfoCard({
       </MKTypography>
       <MKTypography
         display="block"
+        className="text-center lg:text-left"
         variant={small ? "button" : "body2"}
         color="text"
-        pr={direction === "left" ? 6 : 0}
-        pl={direction === "right" ? 6 : 0}
       >
         {description}
       </MKTypography>

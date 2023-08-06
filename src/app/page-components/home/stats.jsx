@@ -4,7 +4,7 @@ import colors from "@/theme/base/colors";
 
 export default function Stats({ stats }) {
   return (
-    <section className="bg-gray-200 flex flex-col items-center md:items-start md:flex-row gap-y-10 justify-center gap-x-16 lg:gap-x-24 xl:gap-x-32">
+    <section className="py-10 bg-gray-200 flex flex-col items-center md:items-start md:flex-row gap-y-10 justify-center gap-x-16 lg:gap-x-24 xl:gap-x-32">
       {stats.map((elem) => (
         <div className="flex relative">
           <div className="w-fit text-center">
