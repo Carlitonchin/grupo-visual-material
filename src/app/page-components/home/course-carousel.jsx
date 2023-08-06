@@ -2,13 +2,11 @@
 import StarCard from "@/components/cards/StarCard";
 import MKTypography from "@/components/MKTypography";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import MKButton from "@/components/MKButton";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
+import colors from "@/theme/base/colors";
 
 var prevPageX = 0;
 var prevScrollLeft = 0;
@@ -104,10 +102,11 @@ export default function CourseCarousel({
   }
 
   return (
-    <section className="bg-gray-200 flex flex-col justify-center items-center">
+    <section className="flex flex-col justify-center items-center">
       <MKTypography
         variant="h2"
-        color="black"
+        color={colors.dark.main}
+        textGradient
         className="text-center w-full"
         sx={({ breakpoints, typography: { size } }) => ({
           [breakpoints.down("md")]: {

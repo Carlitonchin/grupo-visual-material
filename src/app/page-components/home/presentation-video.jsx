@@ -55,7 +55,8 @@ export default function PresentationVideo({
         <div className="w-full max-w-2xl flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start">
           <MKTypography
             variant="h2"
-            color="black"
+            color={colors.dark.main}
+            textGradient
             className="text-center w-full"
             sx={({ breakpoints, typography: { size } }) => ({
               [breakpoints.down("md")]: {

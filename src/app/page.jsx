@@ -1,7 +1,7 @@
 import CoursesCards from "@/app/page-components/home/courses-cards";
 import HomeMain from "@/app/page-components/home/home-main";
 import PresentationVideo from "@/app/page-components/home/presentation-video";
-import StarCard from "@/components/cards/StarCard";
+import Stats from "@/app/page-components/home/stats";
 import CourseCarousel from "@/app/page-components/home/course-carousel";
 
 export default function Home() {
@@ -66,6 +66,25 @@ export default function Home() {
         }}
         videoUrl={"/video.mp4"}
         title={"Grupo Visual"}
+      />
+      <Stats
+        stats={[
+          {
+            count: "4.000",
+            title: "Alunos",
+            description: "formados em todo Brasil",
+          },
+          {
+            count: "30",
+            title: "Cursos",
+            description: "profissionalizantes",
+          },
+          {
+            count: "20",
+            title: "Professores",
+            description: "atuantes na sua área",
+          },
+        ]}
       />
       <CourseCarousel
         title="Nossos Cursos"
