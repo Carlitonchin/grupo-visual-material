@@ -1,8 +1,11 @@
 "use client";
 import StarCard from "@/components/cards/StarCard";
 import MKTypography from "@/components/MKTypography";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import MKButton from "@/components/MKButton";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
@@ -75,7 +78,6 @@ export default function CourseCarousel({
   useEffect(() => {
     let itemCarousel = document.querySelector(".item-carousel-3");
     widthItem = itemCarousel?.clientWidth || 100;
-    widthItem += 16;
   });
 
   function clickLeft() {
@@ -101,10 +103,6 @@ export default function CourseCarousel({
     setTimeout(() => handleArrows(newScrollLeft), 300);
   }
 
-  useEffect(
-    () => console.log({ arrowLeftVisible, arrowRightVisible }),
-    [arrowLeftVisible, arrowRightVisible]
-  );
   return (
     <section className="bg-gray-200 flex flex-col justify-center items-center">
       <MKTypography
@@ -119,15 +117,15 @@ export default function CourseCarousel({
       >
         {title}
       </MKTypography>
-      <div className="relative flex items-center w-full gap-x-4 justify-center mt-8">
-        <ArrowCircleLeftIcon
+      <div className="relative flex items-center w-full justify-center mt-8">
+        <NavigateBeforeIcon
           onClick={clickLeft}
           className={
-            "w-10 h-10 rounded-full bg-white border-2 border-black cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
+            "w-10 h-10 rounded-full  bg-gray-300 bg-opacity-90 cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
             (arrowLeftVisible ? "block" : "hidden")
           }
           style={{
-            right: "calc(100% - 1.25rem)",
+            left: "-0.45rem",
             //background: colors.warning.main,
           }}
         />
@@ -141,7 +139,7 @@ export default function CourseCarousel({
           onTouchEnd={dragStop}
           className={
             (isDragStart ? "cursor-grab auto-scroll" : "") +
-            " smooth-scroll whitespace-nowrap overflow-hidden w-full z-0 scroll-beha space-x-4"
+            " smooth-scroll whitespace-nowrap overflow-hidden w-full z-0  "
           }
         >
           {courses.map((c, index) => (
@@ -150,12 +148,12 @@ export default function CourseCarousel({
             </>
           ))}
         </div>
-        <ArrowCircleRightIcon
+        <NavigateNextIcon
           className={
-            "w-10 h-10 rounded-full bg-white border-2 border-black cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
+            "w-10 h-10 rounded-full  bg-gray-300 bg-opacity-90 cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
             (arrowRightVisible ? "block" : "hidden")
           }
-          style={{ left: "calc(100% - 1.75rem" }}
+          style={{ right: "-0.45rem" }}
           onClick={clickRight}
         />
       </div>

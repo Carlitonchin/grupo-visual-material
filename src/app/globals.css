@@ -23,7 +23,7 @@ section {
 }
 
 .item-carousel-3 {
-  width: calc(100% - 0.5rem);
+  width: 100%;
   aspect-ratio: 0.65 / 1;
 }
 
@@ -57,28 +57,28 @@ section {
 
 @media (min-width: 700px) {
   .item-carousel-3 {
-    width: calc(100% / 2 - 0.5rem);
+    width: calc(100% / 2);
     aspect-ratio: 0.8 / 1;
   }
 }
 
 @media (min-width: 900px) {
   .item-carousel-3 {
-    width: calc(100% / 2 - 0.5rem);
+    width: calc(100% / 2);
     aspect-ratio: 1 / 1;
   }
 }
 
 @media (min-width: 1100px) {
   .item-carousel-3 {
-    width: calc(100% / 3 - 0.9rem);
+    width: calc(100% / 3);
     aspect-ratio: 0.8 / 1;
   }
 }
 
 @media (min-width: 1490px) {
   .item-carousel-3 {
-    width: calc(100% / 3 - 0.9rem);
+    width: calc(100% / 3);
     aspect-ratio: 1 / 1;
   }
 }
