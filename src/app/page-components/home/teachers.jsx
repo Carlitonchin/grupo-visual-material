@@ -38,7 +38,7 @@ export default function Teachers() {
               <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
               <DefaultInfoCard
                 title="Claudia Marin"
-                description="Licenciada en comunicacion social y master en romper los huevos"
+                description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
               />
             </div>
           </Grid>
@@ -47,7 +47,7 @@ export default function Teachers() {
               <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
               <DefaultInfoCard
                 title="Claudia Marin"
-                description="Licenciada en comunicacion social y master en romper los huevos"
+                description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
               />
             </div>
           </Grid>
@@ -56,7 +56,7 @@ export default function Teachers() {
               <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
               <DefaultInfoCard
                 title="Claudia Marin"
-                description="Licenciada en comunicacion social y master en romper los huevos"
+                description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
               />
             </div>
           </Grid>
@@ -65,7 +65,7 @@ export default function Teachers() {
               <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
               <DefaultInfoCard
                 title="Claudia Marin"
-                description="Licenciada en comunicacion social y master en romper los huevos"
+                description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
               />
             </div>
           </Grid>
