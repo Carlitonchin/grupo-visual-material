@@ -4,6 +4,7 @@ import PresentationVideo from "@/app/page-components/home/presentation-video";
 import Stats from "@/app/page-components/home/stats";
 import CourseCarousel from "@/app/page-components/home/course-carousel";
 import Teachers from "@/app/page-components/home/teachers";
+import BlogHome from "@/app/page-components/home/blog";
 
 export default function Home() {
   return (
@@ -94,7 +95,7 @@ export default function Home() {
         buttonUrl={"/"}
         courses={[
           {
-            img: "/course1.webp",
+            img: "/blog1.webp",
             stars: 3.4,
             text: "Alimentacao Social Asistida #2 con hambre",
             url: "/",
@@ -113,6 +114,7 @@ export default function Home() {
       />
 
       <Teachers />
+      <BlogHome />
     </>
   );
 }

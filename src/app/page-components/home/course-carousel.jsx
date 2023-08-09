@@ -7,6 +7,7 @@ import MKButton from "@/components/MKButton";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import colors from "@/theme/base/colors";
+import TextLink from "@/components/TextLink";
 
 var prevPageX = 0;
 var prevScrollLeft = 0;
@@ -156,16 +157,7 @@ export default function CourseCarousel({
           onClick={clickRight}
         />
       </div>
-
-      <MKButton
-        className="mt-4 w-52 max-w-full"
-        color="dark"
-        variant="gradient"
-        component={Link}
-        href={buttonUrl}
-      >
-        {buttonText}
-      </MKButton>
+      <TextLink className={"mt-4"} url={buttonUrl} text={buttonText} />
     </section>
   );
 }

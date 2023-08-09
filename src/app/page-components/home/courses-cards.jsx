@@ -2,7 +2,8 @@
 import MKTypography from "@/components/MKTypography";
 import MKButton from "@/components/MKButton";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import TextLink from "@/components/TextLink";
 
 export default function CoursesCards({ cards, buttonUrl, buttonText }) {
   const [firstShow, setFirstShow] = useState(false);
@@ -53,15 +54,7 @@ export default function CoursesCards({ cards, buttonUrl, buttonText }) {
           );
         })}
       </div>
-      <MKButton
-        className="mt-4 w-52 max-w-full"
-        color="dark"
-        variant="gradient"
-        component={Link}
-        href={buttonUrl}
-      >
-        {buttonText}
-      </MKButton>
+      <TextLink text={buttonText} url={buttonUrl} className={"mt-4"} />
     </section>
   );
 }
