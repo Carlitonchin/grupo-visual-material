@@ -5,6 +5,7 @@ import Stats from "@/app/page-components/home/stats";
 import CourseCarousel from "@/app/page-components/home/course-carousel";
 import Teachers from "@/app/page-components/home/teachers";
 import BlogHome from "@/app/page-components/home/blog";
+import Whatsapp from "@/components/smartarget/whatsapp";
 
 export default function Home() {
   return (
@@ -115,10 +116,7 @@ export default function Home() {
 
       <Teachers />
       <BlogHome />
-      <script
-        type="text/javascript"
-        src="https://smartarget.online/loader.js?u=603da0f4880eac03c4a04e4192a85450c044deef"
-      ></script>
+      <Whatsapp />
     </>
   );
 }
