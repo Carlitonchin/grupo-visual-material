@@ -56,7 +56,7 @@ export default function BlogCard() {
             <MKButton
               variant="gradient"
               color="dark"
-              className={"absolute bottom-0 left-0 m-4"}
+              className={"absolute bottom-0 left-0 m-4 mb-2"}
               component={Link}
               style={{
                 color: hover ? colors.warning.main : "white",
