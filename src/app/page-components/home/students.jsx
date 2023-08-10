@@ -28,24 +28,26 @@ export default function Students({ students }) {
           .map((student) => (
             <PhotoCard text={student.text} url={student.url} />
           ))}
-        {students.length > 4 &&
-          students
+      </div>
+      {students.length > 4 && (
+        <div className="mt-4 w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
+          {students
             .filter((_, index) => index >= 4)
             .map((student) => (
               <PhotoCard
                 className={`overflow-hidden relative ${
-                  showAll
-                    ? "scale-100 item-4 duration-200"
-                    : "duration-500 w-0.5"
+                  showAll ? "scale-100 item-4" : "duration-500 w-0 h-0"
                 }`}
                 url={student.url}
                 text={student.text}
               />
             ))}
-      </div>
+        </div>
+      )}
+
       <MKButton
         onClick={() => setShowAll(!showAll)}
-        className={"text-md mt-2"}
+        className={"text-md mt-2 duration-200"}
         color="dark"
         variant="text"
         component={"button"}
