@@ -25,17 +25,17 @@ export default function Students({ students }) {
       <div className="w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
         {students
           .filter((_, index) => index < 4)
-          .map((student) => (
-            <PhotoCard key={index} text={student.text} url={student.url} />
+          .map((student, i) => (
+            <PhotoCard key={i} text={student.text} url={student.url} />
           ))}
       </div>
       {students.length > 4 && (
         <div className="mt-4 w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
           {students
             .filter((_, index) => index >= 4)
-            .map((student) => (
+            .map((student, i) => (
               <PhotoCard
-                key={index + 4}
+                key={i + 4}
                 className={`overflow-hidden relative ${
                   showAll ? "scale-100 item-4" : "duration-500 w-0 h-0"
                 }`}
