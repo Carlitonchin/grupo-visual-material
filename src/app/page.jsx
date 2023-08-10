@@ -117,7 +117,42 @@ export default function Home() {
 
       <Teachers />
       <BlogHome />
-      <Students />
+      <Students
+        students={[
+          {
+            url: "student1.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student1.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student1.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student1.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student2.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student2.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student2.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+          {
+            url: "student2.webp",
+            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
+          },
+        ]}
+      />
       <Whatsapp />
     </>
   );
