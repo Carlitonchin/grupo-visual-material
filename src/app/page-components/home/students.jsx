@@ -26,7 +26,7 @@ export default function Students({ students }) {
         {students
           .filter((_, index) => index < 4)
           .map((student) => (
-            <PhotoCard text={student.text} url={student.url} />
+            <PhotoCard key={index} text={student.text} url={student.url} />
           ))}
       </div>
       {students.length > 4 && (
@@ -35,6 +35,7 @@ export default function Students({ students }) {
             .filter((_, index) => index >= 4)
             .map((student) => (
               <PhotoCard
+                key={index + 4}
                 className={`overflow-hidden relative ${
                   showAll ? "scale-100 item-4" : "duration-500 w-0 h-0"
                 }`}
