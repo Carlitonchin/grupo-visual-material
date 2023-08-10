@@ -6,6 +6,7 @@ import CourseCarousel from "@/app/page-components/home/course-carousel";
 import Teachers from "@/app/page-components/home/teachers";
 import BlogHome from "@/app/page-components/home/blog";
 import Whatsapp from "@/components/smartarget/whatsapp";
+import Students from "@/app/page-components/home/students";
 
 export default function Home() {
   return (
@@ -116,6 +117,7 @@ export default function Home() {
 
       <Teachers />
       <BlogHome />
+      <Students />
       <Whatsapp />
     </>
   );
