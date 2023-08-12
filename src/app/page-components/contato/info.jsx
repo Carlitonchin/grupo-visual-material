@@ -5,13 +5,12 @@ import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 export default function Info() {
   return (
-    <div>
+    <div className="min-w-fit max-w-full h-fit">
       <div>
         <MKTypography
           variant="h1"
           color={colors.dark.main}
           textGradient
-          className="text-center w-full"
           sx={({ breakpoints, typography: { size } }) => ({
             [breakpoints.down("md")]: {
               fontSize: size["4xl"],

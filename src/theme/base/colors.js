@@ -13,6 +13,8 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import { dark } from "@mui/material/styles/createPalette";
+
 /**
  * The base colors for the Material Kit 2 React.
  * You can add new color using this file.
@@ -50,18 +52,18 @@ export default {
   },
 
   secondary: {
-    main: "#7b809a",
-    focus: "#8f93a9",
+    main: "#0a0",
+    focus: "#0a0",
   },
 
   info: {
-    main: "#1A73E8",
-    focus: "#1662C4",
+    main: "#000",
+    focus: "#000",
   },
 
   success: {
-    main: "#4CAF50",
-    focus: "#67bb6a",
+    main: "#a00",
+    focus: "#a00",
   },
 
   warning: {
@@ -113,8 +115,8 @@ export default {
     },
 
     success: {
-      main: "#66BB6A",
-      state: "#43A047",
+      main: "#a00",
+      state: "#a00",
     },
 
     warning: {
@@ -202,8 +204,8 @@ export default {
 
   badgeColors: {
     primary: {
-      background: "#f8b3ca",
-      text: "#cc084b",
+      background: "#a00",
+      text: "#a00",
     },
 
     secondary: {
@@ -217,8 +219,8 @@ export default {
     },
 
     success: {
-      background: "#bce2be",
-      text: "#339537",
+      background: "#a00",
+      text: "#a00",
     },
 
     warning: {
@@ -243,10 +245,10 @@ export default {
   },
 
   coloredShadows: {
-    primary: "#e91e62",
+    primary: "#a00",
     secondary: "#110e0e",
     info: "#00bbd4",
-    success: "#4caf4f",
+    success: "#a00",
     warning: "#ff9900",
     error: "#f44336",
     light: "#adb5bd",
