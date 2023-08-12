@@ -5,17 +5,13 @@ import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 export default function Info() {
   return (
-    <div className="min-w-fit max-w-full h-fit">
+    <div className="min-w-fit max-w-full h-fit lg:mb-36">
       <div>
         <MKTypography
           variant="h1"
+          className="text-4xl"
           color={colors.dark.main}
           textGradient
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
         >
           Fale Conosco
         </MKTypography>
@@ -25,12 +21,12 @@ export default function Info() {
       </div>
       <div className="mt-8">
         <div className="flex items-center">
-          <PhoneInTalkOutlinedIcon className="w-10 h-10" />
+          <PhoneInTalkOutlinedIcon className="w-8 h-8" />
           <MKTypography
             variant="h3"
             color={colors.dark.main}
             textGradient
-            className="ml-4"
+            className="ml-4 text-2xl"
             sx={({ breakpoints, typography: { size } }) => ({
               [breakpoints.down("md")]: {
                 fontSize: size["4xl"],
@@ -41,7 +37,7 @@ export default function Info() {
           </MKTypography>
         </div>
         <MKTypography
-          variant="body1"
+          variant="body2"
           color={colors.dark.main}
           className="ml-14"
         >
@@ -49,12 +45,12 @@ export default function Info() {
         </MKTypography>
       </div>
       <div className="flex items-center mt-8">
-        <EmailOutlinedIcon className="w-10 h-10" />
+        <EmailOutlinedIcon className="w-8 h-8" />
         <MKTypography
           variant="h3"
           color={colors.dark.main}
           textGradient
-          className="ml-4"
+          className="ml-4 text-2xl"
           sx={({ breakpoints, typography: { size } }) => ({
             [breakpoints.down("md")]: {
               fontSize: size["4xl"],
@@ -64,7 +60,7 @@ export default function Info() {
           Email
         </MKTypography>
       </div>
-      <MKTypography variant="body1" color={colors.dark.main} className="ml-14">
+      <MKTypography variant="body2" color={colors.dark.main} className="ml-14">
         <a href={"mailto:grupovisualfb@gmail.com"}>grupovisualfb@gmail.com</a>
       </MKTypography>
     </div>
