@@ -5,6 +5,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
 import { routes } from "@/api/routes";
+import CenteredFooter from "../components/examples/Footers/CenteredFooter";
+import DefaultFooter from "../components/examples/Footers/DefaultFooter";
+import SimpleFooter from "../components/examples/Footers/SimpleFooter";
+import Footer from "../components/footer";
 
 export const metadata = {
   title: "Grupo Visual | Formações Profissionais",
@@ -15,11 +19,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -39,6 +39,7 @@ export default function RootLayout({
               sticky
             />
             {children}
+            <Footer />
           </div>
         </body>
       </html>

@@ -1,3 +1,4 @@
+"use client";
 /**
 =========================================================
 * Material Kit 2 React - v2.1.0
@@ -27,8 +28,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import GitHubIcon from "@mui/icons-material/GitHub";
-
 // Material Kit 2 React components
+
 import MKBox from "@/components/MKBox";
 import MKTypography from "@/components/MKTypography";
 
