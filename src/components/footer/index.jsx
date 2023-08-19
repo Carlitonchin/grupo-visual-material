@@ -209,7 +209,11 @@ export default function Footer() {
                 visualcursosfb@gmail.com
               </MKTypography>
             </a>
-            <span className="fill-white text-white flex">
+            <a
+              target="_blank"
+              href="https://www.google.com/maps/place/R.+Ver.+Romeu+Lauro+Werlang,+1490+-+Centro,+Francisco+Beltr%C3%A3o+-+PR,+85601-020/@-26.0829216,-53.0507821,17z/data=!3m1!4b1!4m6!3m5!1s0x94f072d5daf59271:0x704a1b6e631b8bc5!8m2!3d-26.0829216!4d-53.0507821!16s%2Fg%2F11c290444j?entry=ttu"
+              className="fill-white flex duration-200 text-white hover:fill-orange-500 hover:text-orange-500"
+            >
               <LocationOnIcon className="duration-0 w-6 h-6 fill-inherit" />
               <MKTypography
                 variant="body2"
@@ -224,7 +228,7 @@ export default function Footer() {
                 PR<br></br>
                 CNPJ: 25.067.781/0001-62
               </MKTypography>
-            </span>
+            </a>
           </div>
         </div>
       </div>
