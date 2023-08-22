@@ -5,6 +5,10 @@ import Link from "next/link";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
   return (
@@ -228,6 +232,32 @@ export default function Footer() {
                 PR<br></br>
                 CNPJ: 25.067.781/0001-62
               </MKTypography>
+            </a>
+          </div>
+          <div className="w-full flex gap-x-4 mt-1 justify-start pl-8 md:justify-center md:pl-0 lg:justify-start items-center lg:pl-8">
+            <a
+              href="#"
+              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+            >
+              <FacebookIcon className="w-7 h-7" />
+            </a>
+            <a
+              href="#"
+              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+            >
+              <YouTubeIcon className="w-7 h-7" />
+            </a>
+            <a
+              href="#"
+              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+            >
+              <InstagramIcon className="w-7 h-7" />
+            </a>
+            <a
+              href="#"
+              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+            >
+              <LinkedInIcon className="w-7 h-7" />
             </a>
           </div>
         </div>

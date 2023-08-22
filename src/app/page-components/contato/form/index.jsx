@@ -9,10 +9,14 @@ import {
   TextareaAutosize,
   FormHelperText,
 } from "@mui/material";
+import MuiAlert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
 import MKButton from "@/components/MKButton";
 import { IMaskInput } from "react-imask";
 import { useState, forwardRef } from "react";
 import { requiredField } from "./validators";
+import axios from "axios";
+import { API_URL } from "@/api/constant";
 
 const TextMaskCustom = forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -52,6 +56,17 @@ export default function Form() {
     state: "",
     message: "",
   });
+  const requiredFields = [
+    "name",
+    "phone",
+    "age",
+    "email",
+    "city",
+    "state",
+    "message",
+  ];
+  const [showReqErrors, setShowReqErrors] = useState(false);
+  const [showReqSuccess, setShowReqSuccess] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   function handleChange(e) {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -60,13 +75,65 @@ export default function Form() {
 
   function validateAllValues() {
     let newErrors = {};
+    let withErrors = false;
     Object.keys(values).forEach((key) => {
-      newErrors[key] = requiredField(values[key]);
+      if (requiredFields.includes(key)) {
+        let e = requiredField(values[key]);
+        if (e) withErrors = true;
+        newErrors[key] = e;
+      }
     });
     setErrors(newErrors);
+    return withErrors;
+  }
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    setIsSubmitted(true);
+    const withErrors = validateAllValues();
+    console.log(withErrors);
+    if (withErrors) return;
+
+    try {
+      await axios.post(API_URL + "send-email", values);
+      setShowReqSuccess(true);
+    } catch {
+      setShowReqErrors(true);
+    }
   }
   return (
     <div className="min-w-fit max-w-full h-fit">
+      <Snackbar
+        open={showReqSuccess}
+        autoHideDuration={6000}
+        onClose={() => setShowReqSuccess(false)}
+      >
+        <MuiAlert
+          onClose={() => setShowReqSuccess(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+          variant="filled"
+          elevation={6}
+        >
+          Email enviado com sucesso!
+        </MuiAlert>
+      </Snackbar>
+
+      <Snackbar
+        open={showReqErrors}
+        autoHideDuration={6000}
+        onClose={() => setShowReqErrors(false)}
+      >
+        <MuiAlert
+          onClose={() => setShowReqErrors(false)}
+          severity="error"
+          sx={{ width: "100%" }}
+          variant="filled"
+          elevation={6}
+        >
+          Ocorreu um erro inesperado, tentei se comunicar por whatsapp
+        </MuiAlert>
+      </Snackbar>
       <form>
         <Container>
           <Grid container item xs={12} lg={7} sx={{ mx: "auto" }}>
@@ -211,9 +278,8 @@ export default function Form() {
                     variant="gradient"
                     color={"dark"}
                     fullWidth
-                    onClick={() => {
-                      validateAllValues();
-                      setIsSubmitted(true);
+                    onClick={(e) => {
+                      onSubmit(e);
                     }}
                   >
                     Enviar
