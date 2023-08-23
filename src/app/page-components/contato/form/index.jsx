@@ -91,7 +91,7 @@ export default function Form() {
     e.preventDefault();
     setIsSubmitted(true);
     const withErrors = validateAllValues();
-    console.log(withErrors);
+
     if (withErrors) return;
 
     try {
@@ -102,7 +102,7 @@ export default function Form() {
     }
   }
   return (
-    <div className="min-w-fit max-w-full h-fit">
+    <div className="w-full h-fit max-w-4xl">
       <Snackbar
         open={showReqSuccess}
         autoHideDuration={6000}
@@ -134,161 +134,158 @@ export default function Form() {
           Ocorreu um erro inesperado, tentei se comunicar por whatsapp
         </MuiAlert>
       </Snackbar>
-      <form>
-        <Container>
-          <Grid container item xs={12} lg={7} sx={{ mx: "auto" }}>
-            <MKBox
-              width="100%"
-              component="form"
-              method="post"
-              autoComplete="off"
-            >
-              <MKBox p={3}>
-                <Grid container spacing={3}>
-                  <Grid item xs={12}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.name)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="name">Nome Completo</InputLabel>
-                      <Input fullWidth name="name" onChange={handleChange} />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.name}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
+      <form className="w-full">
+        <MKBox
+          width="100%"
+          component="form"
+          method="post"
+          className="px-0"
+          autoComplete="off"
+        >
+          <MKBox>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.name)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="name">Nome Completo</InputLabel>
+                  <Input fullWidth name="name" onChange={handleChange} />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.name}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
 
-                  <Grid item xs={12} md={6}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.phone)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="phone">Telefone</InputLabel>
-                      <Input
-                        fullWidth
-                        name="phone"
-                        onChange={handleChange}
-                        inputComponent={TextMaskCustom}
-                      />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.phone}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.age)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="age">Idade</InputLabel>
-                      <Input
-                        fullWidth
-                        name="age"
-                        type="number"
-                        onChange={handleChange}
-                      />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.age}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.course)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="course">Curso</InputLabel>
-                      <Input fullWidth name="course" onChange={handleChange} />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.course}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.email)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="email">Email</InputLabel>
-                      <Input
-                        fullWidth
-                        type="email"
-                        name="email"
-                        onChange={handleChange}
-                      />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.email}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.city)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="city">Cidade</InputLabel>
-                      <Input fullWidth name="city" onChange={handleChange} />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.city}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.state)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="state">Estado</InputLabel>
-                      <Input fullWidth name="state" onChange={handleChange} />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.state}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormControl
-                      error={Boolean(isSubmitted && errors.message)}
-                      variant="standard"
-                      fullWidth
-                    >
-                      <InputLabel htmlFor="message">Mensagem</InputLabel>
-                      <Input
-                        fullWidth
-                        name="message"
-                        rows={6}
-                        multiline
-                        onChange={handleChange}
-                      />
-                      {isSubmitted && (
-                        <FormHelperText>{errors.message}</FormHelperText>
-                      )}
-                    </FormControl>
-                  </Grid>
-                </Grid>
-                <Grid container item justifyContent="center" xs={12} my={2}>
-                  <MKButton
-                    href="#"
-                    variant="gradient"
-                    color={"dark"}
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.phone)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="phone">Telefone</InputLabel>
+                  <Input
                     fullWidth
-                    onClick={(e) => {
-                      onSubmit(e);
-                    }}
-                  >
-                    Enviar
-                  </MKButton>
-                </Grid>
-              </MKBox>
-            </MKBox>
-          </Grid>
-        </Container>
+                    name="phone"
+                    onChange={handleChange}
+                    inputComponent={TextMaskCustom}
+                  />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.phone}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.age)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="age">Idade</InputLabel>
+                  <Input
+                    fullWidth
+                    name="age"
+                    type="number"
+                    onChange={handleChange}
+                  />
+                  {isSubmitted && <FormHelperText>{errors.age}</FormHelperText>}
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.course)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="course">Curso</InputLabel>
+                  <Input fullWidth name="course" onChange={handleChange} />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.course}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.email)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="email">Email</InputLabel>
+                  <Input
+                    fullWidth
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                  />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.email}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.city)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="city">Cidade</InputLabel>
+                  <Input fullWidth name="city" onChange={handleChange} />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.city}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.state)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel htmlFor="state">Estado</InputLabel>
+                  <Input fullWidth name="state" onChange={handleChange} />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.state}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl
+                  error={Boolean(isSubmitted && errors.message)}
+                  variant="standard"
+                  fullWidth
+                >
+                  <InputLabel sx={{ paddingBottom: "2px" }} htmlFor="message">
+                    Mensagem
+                  </InputLabel>
+                  <Input
+                    fullWidth
+                    name="message"
+                    rows={6}
+                    multiline
+                    onChange={handleChange}
+                  />
+                  {isSubmitted && (
+                    <FormHelperText>{errors.message}</FormHelperText>
+                  )}
+                </FormControl>
+              </Grid>
+            </Grid>
+            <Grid container item justifyContent="center" xs={12} my={2}>
+              <MKButton
+                href="#"
+                variant="gradient"
+                color={"dark"}
+                fullWidth
+                onClick={(e) => {
+                  onSubmit(e);
+                }}
+              >
+                Enviar
+              </MKButton>
+            </Grid>
+          </MKBox>
+        </MKBox>
       </form>
     </div>
   );

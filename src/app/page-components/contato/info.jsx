@@ -5,7 +5,7 @@ import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 export default function Info() {
   return (
-    <div className="min-w-fit max-w-full h-fit lg:mb-36">
+    <div className="w-fit min-w-fit max-w-full h-fit lg:mb-36">
       <div>
         <MKTypography
           variant="h1"
@@ -39,7 +39,7 @@ export default function Info() {
         <MKTypography
           variant="body2"
           color={colors.dark.main}
-          className="ml-14"
+          className="ml-12"
         >
           <a href={"tel:+554630554355"}>(46) 3055-4355</a>
         </MKTypography>
@@ -60,7 +60,7 @@ export default function Info() {
           Email
         </MKTypography>
       </div>
-      <MKTypography variant="body2" color={colors.dark.main} className="ml-14">
+      <MKTypography variant="body2" color={colors.dark.main} className="ml-12">
         <a href={"mailto:grupovisualfb@gmail.com"}>grupovisualfb@gmail.com</a>
       </MKTypography>
     </div>
