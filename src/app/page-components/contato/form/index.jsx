@@ -10,6 +10,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
+import CircularProgress from "@mui/material/CircularProgress";
 import Snackbar from "@mui/material/Snackbar";
 import MKButton from "@/components/MKButton";
 import { IMaskInput } from "react-imask";
@@ -17,6 +18,7 @@ import { useState, forwardRef } from "react";
 import { requiredField } from "./validators";
 import axios from "axios";
 import { API_URL } from "@/api/constant";
+import colors from "@/theme/base/colors";
 
 const TextMaskCustom = forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -68,6 +70,7 @@ export default function Form() {
   const [showReqErrors, setShowReqErrors] = useState(false);
   const [showReqSuccess, setShowReqSuccess] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   function handleChange(e) {
     setValues({ ...values, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: requiredField(e.target.value) });
@@ -93,16 +96,23 @@ export default function Form() {
     const withErrors = validateAllValues();
 
     if (withErrors) return;
-
+    setIsLoading(true);
     try {
       await axios.post(API_URL + "send-email", values);
       setShowReqSuccess(true);
     } catch {
       setShowReqErrors(true);
+    } finally {
+      setIsLoading(false);
     }
   }
   return (
     <div className="w-full h-fit max-w-4xl">
+      {isLoading && (
+        <div className="w-screen z-40  h-screen fixed top-0 left-0 flex justify-center items-center">
+          <CircularProgress sx={{ color: colors.dark.main }} />
+        </div>
+      )}
       <Snackbar
         open={showReqSuccess}
         autoHideDuration={6000}
@@ -111,7 +121,7 @@ export default function Form() {
         <MuiAlert
           onClose={() => setShowReqSuccess(false)}
           severity="success"
-          sx={{ width: "100%" }}
+          sx={{ width: "100%", backgroundColor: "green" }}
           variant="filled"
           elevation={6}
         >
