@@ -131,12 +131,6 @@ export default function CourseCarousel({
         />
         <div
           ref={carouselRef}
-          onMouseDown={dragStart}
-          onTouchStart={dragStart}
-          onMouseMove={dragging}
-          onTouchMove={dragging}
-          onMouseLeave={dragStop}
-          onTouchEnd={dragStop}
           className={
             (isDragStart ? "cursor-grab auto-scroll" : "") +
             " smooth-scroll whitespace-nowrap overflow-hidden w-full z-0  "
@@ -144,7 +138,13 @@ export default function CourseCarousel({
         >
           {courses.map((c, index) => (
             <>
-              <StarCard img={c.img} text={c.text} stars={c.stars} url={c.url} />
+              <StarCard
+                img={c.img}
+                text={c.text}
+                stars={c.stars}
+                url={c.url}
+                category={c.category}
+              />
             </>
           ))}
         </div>

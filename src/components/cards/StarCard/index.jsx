@@ -8,7 +8,16 @@ import MKButton from "@/components/MKButton";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-function component(img, text, stars, url, className, hover, setHover) {
+function component(
+  img,
+  text,
+  stars,
+  url,
+  className,
+  hover,
+  setHover,
+  category
+) {
   return (
     <div className="item-carousel-3 inline-block relative w-full">
       <div
@@ -37,6 +46,19 @@ function component(img, text, stars, url, className, hover, setHover) {
               backgroundSize: "cover",
             }}
           />
+          <span
+            className="absolute top-0 left-0 rounded-r-sm px-4"
+            style={{ backgroundColor: category.color }}
+          >
+            <MKTypography
+              className="w-full -mt-2 text-center whitespace-normal"
+              variant="text"
+              color="white"
+              fontWeight="bold"
+            >
+              {category.text}
+            </MKTypography>
+          </span>
           <div
             className={
               "absolute top-0 left-0 h-full w-full transition-all duration-500 bg-black " +
@@ -101,16 +123,23 @@ function component(img, text, stars, url, className, hover, setHover) {
   );
 }
 
-export default function StarCard({ img, text, stars, url, className }) {
+export default function StarCard({
+  img,
+  text,
+  stars,
+  url,
+  className,
+  category,
+}) {
   const [hover, setHover] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient, []);
   return isClient ? (
     <a href={url} draggable={false}>
-      {component(img, text, stars, url, className, hover, setHover)}
+      {component(img, text, stars, url, className, hover, setHover, category)}
     </a>
   ) : (
-    component(img, text, stars, url, className, hover, setHover)
+    component(img, text, stars, url, className, hover, setHover, category)
   );
 }
