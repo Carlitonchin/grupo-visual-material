@@ -38,20 +38,23 @@ export const routes = [
 
 export const courses = [
   {
+    id: 1,
     img: "/blog1.webp",
     stars: 3.4,
     text: "Alimentacao Social Asistida #2 con hambre",
-    url: "/",
+    url: "/teste",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 2,
     img: "/course2.webp",
     stars: 5,
     text: "Social Media",
-    url: "/",
+    url: "/teste2",
     category: { color: "#aa0000", text: "Programacao", id: 2 },
   },
   {
+    id: 3,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleiro",
@@ -59,6 +62,7 @@ export const courses = [
     category: { color: "#00aa00", text: "Empresa", id: 3 },
   },
   {
+    id: 4,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -66,6 +70,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 5,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -73,6 +78,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 6,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -80,6 +86,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 7,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -87,6 +94,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 8,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -94,6 +102,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 9,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -101,6 +110,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 10,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -108,6 +118,7 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
+    id: 11,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",

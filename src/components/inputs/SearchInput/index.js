@@ -1,3 +1,6 @@
+import { courses } from "@/api/routes";
+import MKTypography from "@/components/MKTypography";
+import colors from "@/theme/base/colors";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useRef, useEffect } from "react";
 
@@ -5,6 +8,9 @@ function InputIcon({ classNameContainer, className, mobile }) {
   const [focusInput, setFocusInput] = useState(false);
   const refInput = useRef(null);
   const refContainer = useRef(null);
+  const [search, setSearch] = useState("");
+  const [coursesFiltered, setCoursesFiltered] = useState([]);
+  const [searchHovered, setSearchHovered] = useState(null);
 
   function putFocusOnInput() {
     refInput.current.focus();
@@ -13,6 +19,62 @@ function InputIcon({ classNameContainer, className, mobile }) {
   function handleSubmit(e) {
     e.preventDefault();
     window.location.href = "/cursos?search=" + (refInput?.current?.value || "");
+  }
+
+  useEffect(() => {
+    if (!search.trim()) {
+      setCoursesFiltered([]);
+      return;
+    }
+
+    setCoursesFiltered(
+      courses.filter((c) =>
+        c.text.trim().toLowerCase().includes(search.trim().toLowerCase())
+      )
+    );
+  }, [search]);
+
+  useEffect(() => {
+    if (!coursesFiltered?.length) {
+      setSearchHovered(null);
+      return;
+    }
+
+    if (
+      searchHovered != null &&
+      !coursesFiltered.find((c) => c.id == searchHovered)
+    ) {
+      setSearchHovered(coursesFiltered[0].id);
+      return;
+    }
+  }, [coursesFiltered]);
+
+  function handleKey(e) {
+    if (e.key == "ArrowDown") {
+      e.preventDefault();
+      return moveUpDown(1);
+    }
+    if (e.key == "ArrowUp") {
+      e.preventDefault();
+      return moveUpDown(-1);
+    }
+    if (e.key == "Enter" && searchHovered) {
+      e.preventDefault();
+      let course = courses.find((c) => c.id == searchHovered);
+      if (course) window.location.href = "/cursos" + course.url;
+    }
+  }
+
+  function moveUpDown(step) {
+    if (!coursesFiltered?.length) return;
+
+    const elem = coursesFiltered.find((c) => c.id == searchHovered);
+    let index = coursesFiltered.indexOf(elem);
+
+    index += step;
+    if (index >= 0 && index < 5 && index < coursesFiltered.length)
+      setSearchHovered(coursesFiltered[index].id);
+    else setSearchHovered(null);
   }
 
   useEffect(() => {
@@ -53,8 +115,11 @@ function InputIcon({ classNameContainer, className, mobile }) {
         onBlur={(e) => {
           e.preventDefault();
           e.stopPropagation();
+          setSearchHovered(null);
           setFocusInput(false);
         }}
+        onKeyDown={handleKey}
+        onInput={(e) => setSearch(e.target.value)}
         type="text"
         className={
           `rounded-md w-full ${
@@ -67,6 +132,26 @@ function InputIcon({ classNameContainer, className, mobile }) {
         onClick={putFocusOnInput}
         className={`text-black w-5 h-5 absolute transition-all duration-300 left-2.5 cursor-pointer`}
       />
+      {focusInput && coursesFiltered.length > 0 && (
+        <div className="absolute mt-1 md:mt-0 rounded-sm shadow-md bg-white top-full flex flex-col w-full">
+          {coursesFiltered.map((c, index) => {
+            if (index > 4) return <></>;
+
+            return (
+              <a
+                href={c.url}
+                className={`hover:bg-gray-200 px-4 py-2 ${
+                  searchHovered == c.id && "bg-gray-200"
+                }`}
+              >
+                <MKTypography variant="body2" color={colors.dark.main}>
+                  {c.text}
+                </MKTypography>
+              </a>
+            );
+          })}
+        </div>
+      )}
     </form>
   );
 }
