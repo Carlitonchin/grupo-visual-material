@@ -8,6 +8,7 @@ import BlogHome from "@/app/page-components/home/blog";
 import Whatsapp from "@/components/smartarget/whatsapp";
 import Students from "@/app/page-components/home/students";
 import Brand from "@/app/page-components/home/brand";
+import { courses } from "@/api/routes";
 
 export default function Home() {
   return (
@@ -96,85 +97,7 @@ export default function Home() {
         title="Nossos Cursos"
         buttonText={"Todos os cursos"}
         buttonUrl={"/"}
-        courses={[
-          {
-            img: "/blog1.webp",
-            stars: 3.4,
-            text: "Alimentacao Social Asistida #2 con hambre",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course2.webp",
-            stars: 5,
-            text: "Social Media",
-            url: "/",
-            category: { color: "#aa0000", text: "Programacao" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleiro",
-            url: "/",
-            category: { color: "#00aa00", text: "Empresa" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-          {
-            img: "/course3.webp",
-            stars: 4.5,
-            text: "Cabeleleir2o",
-            url: "/",
-            category: { color: "#0000aa", text: "Marketing" },
-          },
-        ]}
+        courses={courses}
       />
 
       <Teachers />
