@@ -159,7 +159,7 @@ export default function CoursesLists({ categories, courses }) {
                 category={course.category}
                 text={course.text}
                 url={course.url}
-                key={Math.random()}
+                key={course.id}
               />
             );
           })}

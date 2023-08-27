@@ -139,6 +139,7 @@ function InputIcon({ classNameContainer, className, mobile }) {
 
             return (
               <a
+                key={c.id}
                 href={c.url}
                 className={`hover:bg-gray-200 px-4 py-2 ${
                   searchHovered == c.id && "bg-gray-200"
