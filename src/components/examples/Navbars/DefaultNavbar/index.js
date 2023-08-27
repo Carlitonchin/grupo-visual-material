@@ -76,7 +76,7 @@ function DefaultNavbar({
     function displayMobileNavbar() {
       if (window.innerWidth < breakpoints.values.lg) {
         setMobileView(true);
-        setMobileNavbar(false);
+        //setMobileNavbar(false);
       } else {
         setMobileView(false);
         setMobileNavbar(false);

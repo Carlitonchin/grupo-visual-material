@@ -45,8 +45,16 @@ function InputIcon({ classNameContainer, className, mobile }) {
       <input
         ref={refInput}
         placeholder="Buscar"
-        onFocus={() => setFocusInput(true)}
-        onBlur={() => setFocusInput(false)}
+        onFocus={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setFocusInput(true);
+        }}
+        onBlur={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setFocusInput(false);
+        }}
         type="text"
         className={
           `rounded-md w-full ${
