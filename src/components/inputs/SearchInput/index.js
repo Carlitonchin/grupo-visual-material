@@ -113,6 +113,9 @@ function InputIcon({ classNameContainer, className, mobile }) {
           setFocusInput(true);
         }}
         onBlur={(e) => {
+          if (e?.relatedTarget?.getAttribute("data-group") == "search-group") {
+            return;
+          }
           e.preventDefault();
           e.stopPropagation();
           setSearchHovered(null);
@@ -139,6 +142,8 @@ function InputIcon({ classNameContainer, className, mobile }) {
 
             return (
               <a
+                onClick={() => setFocusInput(true)}
+                data-group="search-group"
                 key={c.id}
                 href={c.url}
                 className={`hover:bg-gray-200 px-4 py-2 ${
