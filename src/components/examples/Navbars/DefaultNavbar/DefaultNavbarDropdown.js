@@ -64,15 +64,30 @@ function DefaultNavbarDropdown({
         {...(route && routeComponent)}
         {...(href && linkComponent)}
       >
-        <MKTypography
-          variant="button"
-          fontWeight="regular"
-          textTransform="capitalize"
-          color={light ? "white" : "dark"}
-          sx={{ fontWeight: "100%", ml: 1, mr: 0.25 }}
-        >
-          {route ? <a href={route}>{name}</a> : <>{name}</>}
-        </MKTypography>
+        {route ? (
+          <a className="w-full" href={route}>
+            <MKTypography
+              variant="button"
+              fontWeight="regular"
+              textTransform="capitalize"
+              color={light ? "white" : "dark"}
+              sx={{ fontWeight: "100%", ml: 1, mr: 0.25, width: "100%" }}
+            >
+              {name}
+            </MKTypography>
+          </a>
+        ) : (
+          <MKTypography
+            variant="button"
+            fontWeight="regular"
+            textTransform="capitalize"
+            color={light ? "white" : "dark"}
+            sx={{ fontWeight: "100%", ml: 1, mr: 0.25, width: "100%" }}
+          >
+            <>{name}</>
+          </MKTypography>
+        )}
+
         <MKTypography
           variant="body2"
           color={light ? "white" : "dark"}

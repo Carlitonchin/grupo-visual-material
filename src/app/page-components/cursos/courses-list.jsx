@@ -1,20 +1,48 @@
 "use client";
 import MKTypography from "@/components/MKTypography";
 import colors from "@/theme/base/colors";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
-import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
 import StarCard from "@/components/cards/StarCard";
+import { useSearchParams } from "next/navigation";
 
+var pesquisa = false;
+function resultsText(number) {
+  if (number == 1) return "1 curso encontrado";
+
+  return `${number} cursos encontrados`;
+}
 export default function CoursesLists({ categories, courses }) {
   const [categoriesSelected, setCategoriesSelected] = useState([]);
+  const [search, setSearch] = useState("");
+  const params = useSearchParams();
+  const [searchQuery, _] = useState(params.get("search") || "");
+  const [filteredCourses, setFilteredCourses] = useState([].concat(courses));
 
+  useEffect(() => {
+    setSearch(searchQuery?.trim() || "");
+    let input = document.getElementById("search-course");
+    if (input) input.value = searchQuery?.trim() || "";
+  }, [searchQuery]);
+
+  useEffect(() => {
+    let newCourses = courses;
+    if (categoriesSelected?.length)
+      newCourses = newCourses.filter((c) =>
+        categoriesSelected.includes(c.category.id)
+      );
+
+    if (search?.trim()) {
+      newCourses = newCourses.filter((c) =>
+        c.text.trim().toLowerCase().includes(search?.trim().toLowerCase())
+      );
+    }
+
+    setFilteredCourses(newCourses);
+  }, [categoriesSelected, search]);
   function handleSelectCategory(id) {
     if (categoriesSelected.includes(id)) {
       setCategoriesSelected(categoriesSelected.filter((c) => c != id));
@@ -22,6 +50,18 @@ export default function CoursesLists({ categories, courses }) {
     }
 
     setCategoriesSelected(categoriesSelected.concat([id]));
+  }
+
+  function handleSearch(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (pesquisa) return;
+    pesquisa = true;
+    setTimeout(() => {
+      pesquisa = false;
+    }, 200);
+    let input = document.getElementById("search-course");
+    setSearch(input?.value || "");
   }
   return (
     <div className="flex flex-col justify-center items-center">
@@ -79,33 +119,51 @@ export default function CoursesLists({ categories, courses }) {
           );
         })}
       </div>
-      <form className="w-full max-w-3xl flex bg-white rounded-md shadow-sm mt-6">
+      <form
+        onSubmit={handleSearch}
+        className="w-full max-w-3xl flex bg-white rounded-md shadow-sm mt-6"
+      >
         <InputBase
           sx={{ ml: 1, flex: 1 }}
           className="w-full"
+          id="search-course"
+          onBlur={handleSearch}
           placeholder="Pesquisar"
           inputProps={{ "aria-label": "pesquisar" }}
         />
-        <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+        <IconButton
+          onClick={handleSearch}
+          type="button"
+          sx={{ p: "10px" }}
+          aria-label="search"
+        >
           <SearchIcon />
         </IconButton>
-        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       </form>
 
       <div className="mt-4 md:mt-10 w-full xl:w-11/12 flex justify-center flex-wrap gap-y-4 md:gap-y-8">
-        {courses.map((course, index) => {
-          return (
-            <StarCard
-              className={"h-10"}
-              img={course.img}
-              stars={course.stars}
-              category={course.category}
-              text={course.text}
-              url={course.url}
-              key={index}
-            />
-          );
-        })}
+        <MKTypography
+          variant="body1"
+          textGradient
+          className="text-center w-full"
+          color={colors.dark.main}
+          mt={0.5}
+        >
+          {resultsText(filteredCourses?.length || 0)}
+        </MKTypography>
+        {filteredCourses?.length > 0 &&
+          filteredCourses.map((course) => {
+            return (
+              <StarCard
+                img={course.img}
+                stars={course.stars}
+                category={course.category}
+                text={course.text}
+                url={course.url}
+                key={Math.random()}
+              />
+            );
+          })}
       </div>
     </div>
   );

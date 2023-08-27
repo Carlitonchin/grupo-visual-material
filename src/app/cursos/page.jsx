@@ -10,10 +10,10 @@ export default function Cursos() {
             {
               id: 1,
               text: "Marketing",
-              color: "#a00",
+              color: "#00a",
             },
-            { id: 2, text: "Programacao", color: "#0a0" },
-            { id: 3, text: "Empresa", color: "#00a" },
+            { id: 2, text: "Programacao", color: "#a00" },
+            { id: 3, text: "Empresa", color: "#0a0" },
           ]}
           courses={courses}
         />

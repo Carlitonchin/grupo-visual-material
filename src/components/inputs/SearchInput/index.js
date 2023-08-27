@@ -3,12 +3,16 @@ import { useState, useRef, useEffect } from "react";
 
 function InputIcon({ classNameContainer, className, mobile }) {
   const [focusInput, setFocusInput] = useState(false);
-  const [firstRender, setFirstRender] = useState(false);
   const refInput = useRef(null);
   const refContainer = useRef(null);
 
   function putFocusOnInput() {
     refInput.current.focus();
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    window.location.href = "/cursos?search=" + (refInput?.current?.value || "");
   }
 
   useEffect(() => {
@@ -28,35 +32,14 @@ function InputIcon({ classNameContainer, className, mobile }) {
     refContainer.current.classList?.add("w-72");
   }, [focusInput]);
 
-  useEffect(() => {
-    if (firstRender) return;
-    setFirstRender(true);
-    if (!mobile) return;
-
-    setTimeout(() => {
-      if (!refContainer?.current) return;
-      if (!refContainer.current?.classList?.contains("opacity-0")) return;
-      refContainer?.current?.classList?.remove("opacity-0");
-      refContainer?.current?.classList?.add("opacity-100");
-    }, 200);
-
-    return () => {
-      if (!refContainer?.current) return;
-      if (refContainer.current?.classList?.contains("opacity-0")) return;
-      refContainer?.current?.classList?.remove("opacity-100");
-      refContainer?.current?.classList?.add("opacity-0");
-    };
-  }, []);
   return (
-    <div
+    <form
+      onSubmit={handleSubmit}
       ref={refContainer}
       onClick={putFocusOnInput}
       className={
-        `${
-          mobile && "opacity-0"
-        } relative items-center flex cursor-pointer transition-all duration-300 ${
-          mobile ? "w-full" : "w-10"
-        }` + classNameContainer
+        `relative items-center flex cursor-pointer transition-all duration-300 ` +
+        classNameContainer
       }
     >
       <input
@@ -76,7 +59,7 @@ function InputIcon({ classNameContainer, className, mobile }) {
         onClick={putFocusOnInput}
         className={`text-black w-5 h-5 absolute transition-all duration-300 left-2.5 cursor-pointer`}
       />
-    </div>
+    </form>
   );
 }
 
