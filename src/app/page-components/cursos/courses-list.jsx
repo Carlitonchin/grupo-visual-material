@@ -92,7 +92,7 @@ export default function CoursesLists({ categories, courses }) {
         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       </form>
 
-      <div className="mt-4 w-full flex justify-center flex-wrap gap-y-4">
+      <div className="mt-4 md:mt-10 w-full xl:w-11/12 flex justify-center flex-wrap gap-y-4 md:gap-y-8">
         {courses.map((course, index) => {
           return (
             <StarCard

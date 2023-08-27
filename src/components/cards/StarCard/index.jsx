@@ -34,7 +34,7 @@ function component(
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-full h-[40%] xl:h-[50%] overflow-hidden relative">
+        <div className="w-full h-[60%] xl:h-[50%] overflow-hidden relative">
           <div
             className={
               "absolute top-0 left-0 w-full h-full transition-all duration-500 " +
@@ -66,7 +66,7 @@ function component(
             }
           />
         </div>
-        <div className="w-full h-[60%] xl:h-[50%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
+        <div className="w-full h-[40%] xl:h-[50%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
           <div className="flex flex-col gap-y-4 w-full">
             <MKTypography
               className="w-full -mt-2 text-center whitespace-normal"
