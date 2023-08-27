@@ -7,8 +7,6 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import StarCard from "@/components/cards/StarCard";
-import { useSearchParams } from "next/navigation";
-
 var pesquisa = false;
 function resultsText(number) {
   if (number == 1) return "1 curso encontrado";
@@ -18,15 +16,15 @@ function resultsText(number) {
 export default function CoursesLists({ categories, courses }) {
   const [categoriesSelected, setCategoriesSelected] = useState([]);
   const [search, setSearch] = useState("");
-  const params = useSearchParams();
-  const [searchQuery, _] = useState(params.get("search") || "");
   const [filteredCourses, setFilteredCourses] = useState([].concat(courses));
 
   useEffect(() => {
-    setSearch(searchQuery?.trim() || "");
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get("search") || "";
+    setSearch(searchQuery.trim());
     let input = document.getElementById("search-course");
-    if (input) input.value = searchQuery?.trim() || "";
-  }, [searchQuery]);
+    if (input) input.value = searchQuery.trim();
+  }, []);
 
   useEffect(() => {
     let newCourses = courses;
@@ -43,6 +41,7 @@ export default function CoursesLists({ categories, courses }) {
 
     setFilteredCourses(newCourses);
   }, [categoriesSelected, search]);
+
   function handleSelectCategory(id) {
     if (categoriesSelected.includes(id)) {
       setCategoriesSelected(categoriesSelected.filter((c) => c != id));
