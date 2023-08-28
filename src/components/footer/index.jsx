@@ -12,7 +12,10 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
   return (
-    <section className="py-10 flex flex-col justify-center items-center bg-gray-900 ">
+    <section
+      id="footer-section"
+      className="py-10 flex flex-col justify-center items-center bg-gray-900 "
+    >
       <MKTypography
         variant="h2"
         color={"#fff"}

@@ -19,105 +19,103 @@ function component(
   category
 ) {
   return (
-    <div className="item-carousel-3 inline-block relative w-full">
-      <div
-        className={
-          className +
-          " inline-block absolute cursor-pointer overflow-hidden  shadow-md hover:shadow-lg duration-300 rounded-md"
-        }
-        style={{
-          outline: "1px solid rgb(192, 185, 185)",
-          width: "calc(100% - 1rem)",
-          left: "0.5rem",
-          height: "100%",
-        }}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <div className="w-full h-[60%] xl:h-[50%] overflow-hidden relative">
-          <div
-            className={
-              "absolute top-0 left-0 w-full h-full transition-all duration-500 " +
-              (hover ? "scale-110" : "")
-            }
-            style={{
-              backgroundImage: `url(${img})`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          />
-          <span
-            className="absolute top-0 left-0 rounded-r-sm px-4"
-            style={{ backgroundColor: category.color }}
+    <div
+      className={
+        className +
+        " inline-block absolute cursor-pointer overflow-hidden  shadow-md hover:shadow-lg duration-300 rounded-md"
+      }
+      style={{
+        outline: "1px solid rgb(192, 185, 185)",
+        width: "calc(100% - 1rem)",
+        left: "0.5rem",
+        height: "100%",
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <div className="w-full h-[60%] xl:h-[50%] overflow-hidden relative">
+        <div
+          className={
+            "absolute top-0 left-0 w-full h-full transition-all duration-500 " +
+            (hover ? "scale-110" : "")
+          }
+          style={{
+            backgroundImage: `url(${img})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        />
+        <span
+          className="absolute top-0 left-0 rounded-r-sm px-4"
+          style={{ backgroundColor: category.color }}
+        >
+          <MKTypography
+            className="w-full -mt-2 text-center whitespace-normal"
+            variant="text"
+            color="white"
+            fontWeight="bold"
           >
-            <MKTypography
-              className="w-full -mt-2 text-center whitespace-normal"
-              variant="text"
-              color="white"
-              fontWeight="bold"
-            >
-              {category.text}
-            </MKTypography>
-          </span>
-          <div
-            className={
-              "absolute top-0 left-0 h-full w-full transition-all duration-500 bg-black " +
-              (hover ? "opacity-30" : "opacity-0")
-            }
-          />
-        </div>
-        <div className="w-full h-[40%] xl:h-[50%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
-          <div className="flex flex-col gap-y-4 w-full">
-            <MKTypography
-              className="w-full -mt-2 text-center whitespace-normal"
-              variant="text"
-              color="black"
-              fontWeight="bold"
-            >
-              {text}
-            </MKTypography>
-            <div className="w-full -mt-3 flex items-center justify-center gap-x-1">
-              {new Array(Math.ceil(stars))
-                .fill(0)
-                .map((_, index) =>
-                  index + 1 <= stars ? (
-                    <StarIcon
-                      key={index}
-                      className="w-6 h-6"
-                      style={{ color: colors.warning.main }}
-                    />
-                  ) : (
-                    <></>
-                  )
-                )}
-              {Math.ceil(stars) > stars && (
-                <StarHalfIcon
-                  className="w-6 h-6"
-                  style={{ color: colors.warning.main }}
-                />
+            {category.text}
+          </MKTypography>
+        </span>
+        <div
+          className={
+            "absolute top-0 left-0 h-full w-full transition-all duration-500 bg-black " +
+            (hover ? "opacity-30" : "opacity-0")
+          }
+        />
+      </div>
+      <div className="w-full h-[40%] xl:h-[50%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
+        <div className="flex flex-col gap-y-4 w-full">
+          <MKTypography
+            className="w-full -mt-2 text-center whitespace-normal"
+            variant="text"
+            color="black"
+            fontWeight="bold"
+          >
+            {text}
+          </MKTypography>
+          <div className="w-full -mt-3 flex items-center justify-center gap-x-1">
+            {new Array(Math.ceil(stars))
+              .fill(0)
+              .map((_, index) =>
+                index + 1 <= stars ? (
+                  <StarIcon
+                    key={index}
+                    className="w-6 h-6"
+                    style={{ color: colors.warning.main }}
+                  />
+                ) : (
+                  <></>
+                )
               )}
-              {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
-                <StarBorderIcon
-                  key={"--" + index}
-                  className="w-6 h-6"
-                  style={{ color: colors.warning.main }}
-                />
-              ))}
-            </div>
+            {Math.ceil(stars) > stars && (
+              <StarHalfIcon
+                className="w-6 h-6"
+                style={{ color: colors.warning.main }}
+              />
+            )}
+            {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
+              <StarBorderIcon
+                key={"--" + index}
+                className="w-6 h-6"
+                style={{ color: colors.warning.main }}
+              />
+            ))}
           </div>
-          <MKButton
-            variant="gradient"
-            color="dark"
-            className={"w-full "}
-            component={Link}
-            style={{
-              color: hover ? colors.warning.main : "white",
-            }}
-            href={url}
-          >
-            Saiba mais
-          </MKButton>
         </div>
+        <MKButton
+          variant="gradient"
+          color="dark"
+          className={"w-full "}
+          component={Link}
+          style={{
+            color: hover ? colors.warning.main : "white",
+          }}
+          href={"/cursos" + url}
+        >
+          Saiba mais
+        </MKButton>
       </div>
     </div>
   );
@@ -134,12 +132,25 @@ export default function StarCard({
   const [hover, setHover] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => setIsClient, []);
-  return isClient ? (
-    <a href={url} draggable={false}>
-      {component(img, text, stars, url, className, hover, setHover, category)}
-    </a>
-  ) : (
-    component(img, text, stars, url, className, hover, setHover, category)
+  useEffect(() => setIsClient(true), []);
+  return (
+    <div className="item-carousel-3 inline-block relative w-full">
+      {isClient ? (
+        <a href={"/cursos" + url} draggable={false} className="w-fit h-fit">
+          {component(
+            img,
+            text,
+            stars,
+            url,
+            className,
+            hover,
+            setHover,
+            category
+          )}
+        </a>
+      ) : (
+        component(img, text, stars, url, className, hover, setHover, category)
+      )}
+    </div>
   );
 }

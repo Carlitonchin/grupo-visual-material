@@ -58,7 +58,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleiro",
-    url: "/",
+    url: "/teste3",
     category: { color: "#00aa00", text: "Empresa", id: 3 },
   },
   {
@@ -66,7 +66,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste4",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -74,7 +74,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste5",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -82,7 +82,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste6",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -90,7 +90,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste7",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -98,7 +98,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste8",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -106,7 +106,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste9",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -114,7 +114,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste10",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
   {
@@ -122,7 +122,7 @@ export const courses = [
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
-    url: "/",
+    url: "/teste11",
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
 ];
