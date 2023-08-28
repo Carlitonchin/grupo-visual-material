@@ -65,7 +65,7 @@ export default function SingleCourse({ course }) {
         <div
           id="card-course-price"
           className={
-            "w-full flex flex-col items-center lg:items-end max-w-md lg:pr-12 " +
+            "w-full flex flex-col items-center lg:items-end max-w-md lg:pr-12 mb-6 lg:mb-0" +
             (fixCard && !closeFooter && " fixed top-4 self-start ") +
             (fixCard && closeFooter && " absolute bottom-0 self-start ")
           }
@@ -88,7 +88,11 @@ export default function SingleCourse({ course }) {
                 variant="h3"
                 color={colors.dark.main}
                 textGradient
-                sx={{ padding: 0, margin: 0, textAlign: "right" }}
+                className="text-center lg:text-right"
+                sx={{
+                  padding: 0,
+                  margin: 0,
+                }}
               >
                 {course.text}
               </MKTypography>
@@ -96,9 +100,9 @@ export default function SingleCourse({ course }) {
           )}
 
           <div className="w-full bg-white rounded-md shadow-lg mt-6">
-            <div className="p-10 flex flex-col items-start w-full">
-              <div className="flex w-full h-fit justify-between">
-                <div>
+            <div className="p-5 sm:p-10 flex flex-col items-start w-full">
+              <div className="flex flex-col sm:flex-row w-full h-fit sm:justify-between">
+                <div className="mb-6 sm:mb-0">
                   <div className="flex items-center -mb-2">
                     <ListAltIcon
                       className="w-6 h-6 mr-1"

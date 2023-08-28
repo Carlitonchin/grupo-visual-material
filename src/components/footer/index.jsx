@@ -46,7 +46,7 @@ export default function Footer() {
           <img
             alt="Logo Grupo Visual"
             className="h-auto w-44"
-            src="grupo_visual_logo.webp"
+            src="/grupo_visual_logo.webp"
           ></img>
           <MKTypography
             variant="body2"
