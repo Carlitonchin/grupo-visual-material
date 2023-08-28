@@ -5,6 +5,7 @@ import MKButton from "@/components/MKButton";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import WatchLaterOutlinedIcon from "@mui/icons-material/WatchLaterOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useEffect, useState } from "react";
 
 export default function SingleCourse({ course }) {
@@ -222,7 +223,7 @@ export default function SingleCourse({ course }) {
                 sx={{ marginTop: "0.5rem" }}
                 href="#"
               >
-                Adicionar ao carrinho
+                <ShoppingCartOutlinedIcon className="h-6 w-6" />
               </MKButton>
             </div>
           </div>
