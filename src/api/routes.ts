@@ -39,6 +39,7 @@ export const routes = [
 export const courses = [
   {
     id: 1,
+    price: 4.5,
     img: "/blog1.webp",
     stars: 3.4,
     text: "Alimentacao Social Asistida #2 con hambre",
@@ -47,6 +48,7 @@ export const courses = [
   },
   {
     id: 2,
+    price: 2,
     img: "/course2.webp",
     stars: 5,
     text: "Social Media",
@@ -55,6 +57,7 @@ export const courses = [
   },
   {
     id: 3,
+    price: 3,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleiro",
@@ -63,6 +66,7 @@ export const courses = [
   },
   {
     id: 4,
+    price: 2.5,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -71,6 +75,7 @@ export const courses = [
   },
   {
     id: 5,
+    price: 8,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -79,6 +84,7 @@ export const courses = [
   },
   {
     id: 6,
+    price: 10,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -87,6 +93,7 @@ export const courses = [
   },
   {
     id: 7,
+    price: 4,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -95,6 +102,7 @@ export const courses = [
   },
   {
     id: 8,
+    price: 2,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -103,6 +111,7 @@ export const courses = [
   },
   {
     id: 9,
+    price: 1,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -111,6 +120,7 @@ export const courses = [
   },
   {
     id: 10,
+    price: 2,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",
@@ -119,6 +129,7 @@ export const courses = [
   },
   {
     id: 11,
+    price: 4550.45,
     img: "/course3.webp",
     stars: 4.5,
     text: "Cabeleleir2o",

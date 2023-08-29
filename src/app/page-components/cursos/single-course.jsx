@@ -6,13 +6,20 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import WatchLaterOutlinedIcon from "@mui/icons-material/WatchLaterOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useCart } from "@/app/hooks/cart";
 import { useEffect, useState } from "react";
+
+var brlFormatter = Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "BRL",
+});
 
 export default function SingleCourse({ course }) {
   const [fixCard, setFixCard] = useState(false);
   const [closeFooter, setCloseFooter] = useState(false);
   const [firstRender, setFirstRender] = useState(false);
   const [lgWidth, setLgWidth] = useState(false);
+  const { AddToCart } = useCart();
   useEffect(() => {
     function handleScroll() {
       if (!lgWidth) {
@@ -205,7 +212,7 @@ export default function SingleCourse({ course }) {
                 textGradient
                 sx={{ padding: 0, margin: 0 }}
               >
-                R$ 4.000,00
+                {brlFormatter.format(course?.price || 0)}
               </MKTypography>
               <MKButton
                 variant="gradient"
@@ -222,6 +229,10 @@ export default function SingleCourse({ course }) {
                 fullWidth
                 sx={{ marginTop: "0.5rem" }}
                 href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  AddToCart(course);
+                }}
               >
                 <ShoppingCartOutlinedIcon className="h-6 w-6" />
               </MKButton>

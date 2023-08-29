@@ -5,10 +5,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
 import { routes } from "@/api/routes";
-import CenteredFooter from "../components/examples/Footers/CenteredFooter";
-import DefaultFooter from "../components/examples/Footers/DefaultFooter";
-import SimpleFooter from "../components/examples/Footers/SimpleFooter";
 import Footer from "../components/footer";
+import Whatsapp from "@/components/smartarget/whatsapp";
+import Cart from "@/components/cart";
+import { CartProvider } from "./hooks/cart";
 
 export const metadata = {
   title: "Grupo Visual | Formações Profissionais",
@@ -21,28 +21,32 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <html lang="pt">
-        <body>
-          <div className="overflow-x-hidden h-fit overflow-y-auto">
-            <DefaultNavbar
-              routes={routes}
-              brand={"Grupo Visual"}
-              action={{
-                type: "external",
-                route: "https://www.gpvisualead.com.br/login",
-                label: "Área do Aluno",
-                color: "white",
-              }}
-              light
-              sticky
-            />
-            {children}
-            <Footer />
-          </div>
-        </body>
-      </html>
-    </ThemeProvider>
+    <CartProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <html lang="pt">
+          <body>
+            <div className="overflow-x-hidden h-fit overflow-y-auto">
+              <DefaultNavbar
+                routes={routes}
+                brand={"Grupo Visual"}
+                action={{
+                  type: "external",
+                  route: "https://www.gpvisualead.com.br/login",
+                  label: "Área do Aluno",
+                  color: "white",
+                }}
+                light
+                sticky
+              />
+              {children}
+              <Cart />
+              <Whatsapp />
+              <Footer />
+            </div>
+          </body>
+        </html>
+      </ThemeProvider>
+    </CartProvider>
   );
 }

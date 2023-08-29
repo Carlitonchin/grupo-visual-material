@@ -1,0 +1,52 @@
+"use client";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useCart } from "@/app/hooks/cart";
+import DialogCart from "./dialogCart";
+
+export default function Cart() {
+  const cart = useCart();
+
+  function calculateSum() {
+    console.log(cart.cart);
+    let sum = 0;
+    cart.cart.forEach((item) => (sum += item.cant));
+    return sum;
+  }
+
+  return cart?.cart?.length > 0 ? (
+    <>
+      <DialogCart
+        open={cart.open}
+        setOpen={cart.setOpen}
+        courses={cart.cart}
+        AddToCart={cart.AddToCart}
+        RemoveFromCart={cart.RemoveFromCart}
+        SubFromCart={cart.SubFromCart}
+      />
+      <button
+        style={{
+          height: "3.2rem",
+          width: "3.2rem",
+          right: "1.5rem",
+          bottom: "5.3rem",
+          zIndex: "39",
+        }}
+        onClick={() => cart.setOpen(true)}
+        className="bg-blue-600 shadow-md fixed rounded-full hover:bg-blue-700"
+      >
+        <ShoppingCartOutlinedIcon className="w-7 h-7 fill-white" />
+        <span
+          style={{
+            right: "1rem",
+            bottom: "7.3rem",
+          }}
+          className="text-white text-sm flex items-center justify-center text-center z-40 w-6 h-6 bg-red-500 font-bold fixed p-2 rounded-full"
+        >
+          {calculateSum()}
+        </span>
+      </button>
+    </>
+  ) : (
+    <></>
+  );
+}
