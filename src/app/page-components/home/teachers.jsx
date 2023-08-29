@@ -35,7 +35,11 @@ export default function Teachers() {
         <Grid container spacing={4.5} className="h-fit">
           <Grid item xs={12} lg={6} className="flex flex-col">
             <div className="flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left w-full lg:w-64 max-w-full">
-              <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
+              <img
+                className="w-14 h-14 rounded-full"
+                src="/bg1.jpg"
+                alt="roberto pereira"
+              ></img>
               <DefaultInfoCard
                 title="Claudia Marin"
                 description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
@@ -44,7 +48,11 @@ export default function Teachers() {
           </Grid>
           <Grid item xs={12} lg={6} className="flex flex-col">
             <div className="flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left w-full lg:w-64 max-w-full">
-              <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
+              <img
+                className="w-14 h-14 rounded-full"
+                src="/bg1.jpg"
+                alt="eliseo rodriguez"
+              ></img>
               <DefaultInfoCard
                 title="Claudia Marin"
                 description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
@@ -53,7 +61,11 @@ export default function Teachers() {
           </Grid>
           <Grid item xs={12} lg={6} className="flex flex-col">
             <div className="flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left w-full lg:w-64 max-w-full">
-              <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
+              <img
+                className="w-14 h-14 rounded-full"
+                src="/bg1.jpg"
+                alt="melissa sanchez"
+              ></img>
               <DefaultInfoCard
                 title="Claudia Marin"
                 description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"
@@ -62,7 +74,11 @@ export default function Teachers() {
           </Grid>
           <Grid item xs={12} lg={6} className="flex flex-col">
             <div className="flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left w-full lg:w-64 max-w-full">
-              <img className="w-14 h-14 rounded-full" src="/bg1.jpg"></img>
+              <img
+                className="w-14 h-14 rounded-full"
+                src="/bg1.jpg"
+                alt="rigoberto duran"
+              ></img>
               <DefaultInfoCard
                 title="Claudia Marin"
                 description="Licenciada en comunicacion social y especialista en marketing en Grupo Visual"

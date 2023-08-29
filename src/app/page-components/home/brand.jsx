@@ -18,12 +18,36 @@ export default function Brand() {
       >
         Brand Partners
       </MKTypography>
-      <img className="w-auto max-w-md max-h-28 h-auto" src="logo1.png"></img>
-      <img className="w-auto max-w-md max-h-28 h-auto" src="logo2.png"></img>
-      <img className="w-auto max-w-md max-h-28 h-auto" src="logo3.png"></img>
-      <img className="w-auto max-w-md max-h-28 h-auto" src="logo4.png"></img>
-      <img className="w-auto max-w-md max-h-28 h-auto" src="logo5.png"></img>
-      <img className="w-auto max-w-md max-h-28 h-auto" src="logo6.png"></img>
+      <img
+        className="w-auto max-w-md max-h-28 h-auto"
+        src="logo1.png"
+        alt="banco do brasil"
+      ></img>
+      <img
+        className="w-auto max-w-md max-h-28 h-auto"
+        src="logo2.png"
+        alt="nubank"
+      ></img>
+      <img
+        className="w-auto max-w-md max-h-28 h-auto"
+        src="logo3.png"
+        alt="nike"
+      ></img>
+      <img
+        className="w-auto max-w-md max-h-28 h-auto"
+        src="logo4.png"
+        alt="microsoft"
+      ></img>
+      <img
+        className="w-auto max-w-md max-h-28 h-auto"
+        src="logo5.png"
+        alt="hello"
+      ></img>
+      <img
+        className="w-auto max-w-md max-h-28 h-auto"
+        src="logo6.png"
+        alt="amazon"
+      ></img>
     </section>
   );
 }

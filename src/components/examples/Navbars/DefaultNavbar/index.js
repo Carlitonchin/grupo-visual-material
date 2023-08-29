@@ -518,7 +518,12 @@ function DefaultNavbar({
         >
           <div className="w-full h-fit flex items-center justify-between">
             <a href="/">
-              <img width={120} height={50} src="/grupo_visual_logo.webp" />
+              <img
+                width={120}
+                height={50}
+                src="/grupo_visual_logo.webp"
+                alt="grupo visual logo"
+              />
             </a>
 
             <MKBox
