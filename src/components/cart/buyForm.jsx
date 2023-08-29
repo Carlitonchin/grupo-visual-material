@@ -24,7 +24,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 
-export default function BuyForm() {
+export default function BuyForm({ courses, handleClose }) {
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -44,6 +44,7 @@ export default function BuyForm() {
     console.log(withErrors);
     if (withErrors) return;
     setIsLoading(true);
+    handleClose();
     try {
     } catch {
       setShowReqErrors(true);

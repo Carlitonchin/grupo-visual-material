@@ -10,11 +10,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import BuyForm from "./buyForm";
-
-var brlFormatter = Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
+import { brlCurrencyFormatter } from "@/components/utils/conversion";
 
 export default function DialogCart({
   open,
@@ -34,7 +30,7 @@ export default function DialogCart({
 
     courses.forEach((c) => (sum += (c?.item?.price || 0) * (c?.cant || 0)));
 
-    return brlFormatter.format(sum);
+    return brlCurrencyFormatter.format(sum);
   }
   return (
     <div>
@@ -90,7 +86,7 @@ export default function DialogCart({
                       {c.item.text}
                       {": "}
                       <span className="font-bold">
-                        {brlFormatter.format(c.cant * c.item.price)}
+                        {brlCurrencyFormatter.format(c.cant * c.item.price)}
                       </span>
                     </span>
                     <button
@@ -107,7 +103,7 @@ export default function DialogCart({
                 className="text-center sm:text-start font-bold"
                 gutterBottom
               >
-                {`Total: R$ ${calculateSum()}`}
+                {`Total: ${calculateSum()}`}
               </Typography>
             </>
           ) : (
@@ -115,7 +111,7 @@ export default function DialogCart({
           )}
         </DialogContent>
         <DialogActions>
-          <BuyForm />
+          <BuyForm courses={courses} handleClose={handleClose} />
         </DialogActions>
       </Dialog>
     </div>
