@@ -5,7 +5,7 @@ import Stats from "@/app/page-components/home/stats";
 import CourseCarousel from "@/app/page-components/home/course-carousel";
 import Teachers from "@/app/page-components/home/teachers";
 import BlogHome from "@/app/page-components/home/blog";
-
+import Whatsapp from "@/components/smartarget/whatsapp";
 import Students from "@/app/page-components/home/students";
 import Brand from "@/app/page-components/home/brand";
 import { courses } from "@/api/routes";
@@ -139,6 +139,7 @@ export default function Home() {
         ]}
       />
       <Brand />
+      <Whatsapp />
     </>
   );
 }

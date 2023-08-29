@@ -6,7 +6,6 @@ import theme from "@/theme";
 import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
 import { routes } from "@/api/routes";
 import Footer from "../components/footer";
-import Whatsapp from "@/components/smartarget/whatsapp";
 import Cart from "@/components/cart";
 import { CartProvider } from "./hooks/cart";
 
@@ -41,7 +40,7 @@ export default function RootLayout({ children }) {
               />
               {children}
               <Cart />
-              <Whatsapp />
+
               <Footer />
             </div>
           </body>

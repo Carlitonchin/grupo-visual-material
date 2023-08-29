@@ -2,16 +2,27 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useCart } from "@/app/hooks/cart";
 import DialogCart from "./dialogCart";
+import { useEffect, useState } from "react";
 
 export default function Cart() {
+  const [isInHome, setIsInHome] = useState(true);
   const cart = useCart();
 
   function calculateSum() {
-    console.log(cart.cart);
     let sum = 0;
     cart.cart.forEach((item) => (sum += item.cant));
     return sum;
   }
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path == "/" && !isInHome) {
+      setIsInHome(true);
+      return;
+    }
+
+    if (path != "/" && isInHome) setIsInHome(false);
+  });
 
   return cart?.cart?.length > 0 ? (
     <>
@@ -28,7 +39,7 @@ export default function Cart() {
           height: "3.2rem",
           width: "3.2rem",
           right: "1.5rem",
-          bottom: "5.3rem",
+          bottom: isInHome ? "5.3rem" : "2rem",
           zIndex: "39",
         }}
         onClick={() => cart.setOpen(true)}
@@ -38,7 +49,7 @@ export default function Cart() {
         <span
           style={{
             right: "1rem",
-            bottom: "7.3rem",
+            bottom: isInHome ? "7.3rem" : "4rem",
           }}
           className="text-white text-sm flex items-center justify-center text-center z-40 w-6 h-6 bg-red-500 font-bold fixed p-2 rounded-full"
         >

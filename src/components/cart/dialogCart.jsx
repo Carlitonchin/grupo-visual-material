@@ -6,10 +6,10 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import MKButton from "@/components/MKButton";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import BuyForm from "./buyForm";
 
 var brlFormatter = Intl.NumberFormat("pt-BR", {
   style: "currency",
@@ -24,9 +24,6 @@ export default function DialogCart({
   AddToCart,
   SubFromCart,
 }) {
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -118,9 +115,7 @@ export default function DialogCart({
           )}
         </DialogContent>
         <DialogActions>
-          <MKButton variant="gradient" color="dark" fullWidth href="#">
-            Realizar pagamento
-          </MKButton>
+          <BuyForm />
         </DialogActions>
       </Dialog>
     </div>
