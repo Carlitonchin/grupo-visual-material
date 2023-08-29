@@ -1,21 +1,14 @@
 "use client";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import MKButton from "@/components/MKButton";
-import AddBoxIcon from "@mui/icons-material/AddBox";
-import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useState } from "react";
 import MuiAlert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
 import MKBox from "@/components/MKBox";
 import Snackbar from "@mui/material/Snackbar";
 import { requiredField, validateEmail } from "@/components/utils/validators";
+import { API_URL } from "@/api/constant";
+import colors from "@/theme/base/colors";
 import {
   Grid,
   FormControl,
@@ -23,6 +16,7 @@ import {
   Input,
   FormHelperText,
 } from "@mui/material";
+import axios from "axios";
 
 export default function BuyForm({ courses, handleClose }) {
   const [values, setValues] = useState({
@@ -41,11 +35,19 @@ export default function BuyForm({ courses, handleClose }) {
     e.preventDefault();
     setIsSubmitted(true);
     const withErrors = validateAllValues();
-    console.log(withErrors);
+
     if (withErrors) return;
     setIsLoading(true);
-    handleClose();
     try {
+      const resp = await axios.post(API_URL + "buy-courses", {
+        customer: values,
+        courses,
+      });
+      const checkout_url = resp.data.checkouts[0].payment_url;
+      if (!checkout_url) throw new Error("error");
+
+      document.location.href = checkout_url;
+      handleClose();
     } catch {
       setShowReqErrors(true);
     } finally {
@@ -63,7 +65,6 @@ export default function BuyForm({ courses, handleClose }) {
     if (!error && e.target.name == "email")
       error = validateEmail(e.target.value);
 
-    console.log(error);
     setErrors({ ...errors, [e.target.name]: error });
   }
 
