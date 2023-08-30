@@ -27,14 +27,14 @@ export default function Home() {
             text2: "Podcast todas as semanas, conteudo de qualidade para você",
             buttonText: "Saiba mais",
             url: "/",
-            img: "/bg2.jpg",
+            img: "/bg2.webp",
           },
           {
             text1: "Praticas profesionais",
             text2: "Contato com empresas para praticar todo o aprendido",
             buttonText: "Saiba mais",
             url: "/",
-            img: "/bg3.jpg",
+            img: "/bg3.png",
           },
         ]}
       />
