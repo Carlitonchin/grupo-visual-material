@@ -14,7 +14,6 @@ export default function InfoMethod() {
           backgroundPosition: "center",
           textAlign: "center",
         }}
-        className="absolute top-0 left-0"
       >
         <div className="w-full h-full pb-12 bg-gray-800 bg-opacity-75 bg-blur flex items-end justify-center">
           <MKTypography
@@ -30,8 +29,7 @@ export default function InfoMethod() {
           </MKTypography>
         </div>
       </div>
-      <div style={{ height: "32vh", minHeight: "250px" }}></div>
-      <div className="flex flex-col gap-y-4">
+      <section className="bg-gray-200 flex flex-col gap-y-4 py-8">
         <MKTypography
           variant="button"
           color={"text"}
@@ -123,7 +121,7 @@ export default function InfoMethod() {
           na construção de um conhecimento sólido e maduro que realmente
           contribua em sua formação profissional, pessoal ou acadêmica.
         </MKTypography>
-      </div>
+      </section>
     </>
   );
 }

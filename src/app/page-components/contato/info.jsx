@@ -1,68 +1,80 @@
 "use client";
 import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 export default function Info() {
   return (
-    <div className="w-fit min-w-fit max-w-full h-fit lg:mb-36">
-      <div>
-        <MKTypography
-          variant="h1"
-          className="text-4xl"
-          color={colors.dark.main}
-          textGradient
-        >
-          Fale Conosco
-        </MKTypography>
-        <MKTypography variant="body1" color={colors.dark.main} mt={0.5}>
-          Atendemos todo o Brasil
-        </MKTypography>
-      </div>
-      <div className="mt-8">
-        <div className="flex items-center">
-          <PhoneInTalkOutlinedIcon className="w-8 h-8" />
+    <div>
+      <div
+        style={{
+          width: "100%",
+          height: "45vh",
+          minHeight: "460px",
+          maxHeight: "500px",
+          backgroundImage: `url("/bg1.jpeg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          textAlign: "center",
+        }}
+      >
+        <div className="w-full h-full pb-12 bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-end">
           <MKTypography
-            variant="h3"
-            color={colors.dark.main}
-            textGradient
-            className="ml-4 text-2xl"
+            variant="h1"
+            color="white"
             sx={({ breakpoints, typography: { size } }) => ({
               [breakpoints.down("md")]: {
                 fontSize: size["4xl"],
               },
             })}
           >
-            Telefone
+            Fale Conosco
           </MKTypography>
+          <MKTypography variant="body1" color="white" mt={1}>
+            Atendemos todo o Brasil
+          </MKTypography>
+          <div className="mt-4 text-center justify-center">
+            <div className="flex justify-center">
+              <PhoneInTalkOutlinedIcon className="fill-white w-8 h-8" />
+              <MKTypography
+                variant="h3"
+                color={"white"}
+                className="text-2xl"
+                sx={({ breakpoints, typography: { size } }) => ({
+                  [breakpoints.down("md")]: {
+                    fontSize: size["4xl"],
+                  },
+                })}
+              >
+                Telefone
+              </MKTypography>
+            </div>
+            <MKTypography variant="body2" color={"white"}>
+              <a href={"tel:+554630554355"}>(46) 3055-4355</a>
+            </MKTypography>
+
+            <div className="flex text-center justify-center  mt-4">
+              <EmailOutlinedIcon className="w-8 h-8 fill-white" />
+              <MKTypography
+                variant="h3"
+                color={"white"}
+                className="text-2xl"
+                sx={({ breakpoints, typography: { size } }) => ({
+                  [breakpoints.down("md")]: {
+                    fontSize: size["4xl"],
+                  },
+                })}
+              >
+                Email
+              </MKTypography>
+            </div>
+            <MKTypography variant="body2" color={"white"}>
+              <a href={"mailto:grupovisualfb@gmail.com"}>
+                grupovisualfb@gmail.com
+              </a>
+            </MKTypography>
+          </div>
         </div>
-        <MKTypography
-          variant="body2"
-          color={colors.dark.main}
-          className="ml-12"
-        >
-          <a href={"tel:+554630554355"}>(46) 3055-4355</a>
-        </MKTypography>
       </div>
-      <div className="flex items-center mt-8">
-        <EmailOutlinedIcon className="w-8 h-8" />
-        <MKTypography
-          variant="h3"
-          color={colors.dark.main}
-          textGradient
-          className="ml-4 text-2xl"
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
-        >
-          Email
-        </MKTypography>
-      </div>
-      <MKTypography variant="body2" color={colors.dark.main} className="ml-12">
-        <a href={"mailto:grupovisualfb@gmail.com"}>grupovisualfb@gmail.com</a>
-      </MKTypography>
     </div>
   );
 }
