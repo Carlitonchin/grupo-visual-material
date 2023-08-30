@@ -12,7 +12,7 @@ export const routes = [
         collapse: [
           {
             name: "Quem Somos",
-            route: "/pages/landing-pages/about-us",
+            route: "/quem-somos",
           },
           {
             name: "Nosso Método",
