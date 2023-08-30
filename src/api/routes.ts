@@ -16,7 +16,7 @@ export const routes = [
           },
           {
             name: "Nosso Método",
-            route: "/pages/landing-pages/contact-us",
+            route: "/nosso-metodo",
           },
           {
             name: "Professores",
