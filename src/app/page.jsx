@@ -20,7 +20,7 @@ export default function Home() {
             text2: "Cursos profesionais, certificados, soporte 24h e mais.",
             buttonText: "Saiba mais",
             url: "/",
-            img: "/bg1.jpg",
+            img: "/bg1.jpeg",
           },
           {
             text1: "Canal de youtube",

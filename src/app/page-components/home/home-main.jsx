@@ -75,16 +75,11 @@ export default function HomeMain({ slides }) {
                 minHeight: "75vh",
                 backgroundImage: `url("${slide.img}")`,
                 backgroundSize: "cover",
-                backgroundPosition: "top",
+                backgroundPosition: "center",
               }}
               className="relative"
             >
-              <div
-                style={{
-                  backdropFilter: "blur(3px)",
-                }}
-                className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center lg:justify-start"
-              >
+              <div className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center lg:justify-start">
                 <div
                   style={{ opacity: index == 0 ? "1" : "0" }}
                   className={`home-container-text transition-opacity duration-1000 w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
