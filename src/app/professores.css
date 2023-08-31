@@ -1,0 +1,32 @@
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos-slide img {
+  display: inline-block;
+  height: 400px;
+  width: 400px;
+}
+
+.logos-slide {
+  animation: 30s slide infinite linear;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.gradient-card {
+  background: rgb(232, 243, 244);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 243, 244, 0) 0%,
+    rgba(4, 3, 0, 0.8856792717086834) 71%
+  );
+}

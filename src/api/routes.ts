@@ -20,7 +20,7 @@ export const routes = [
           },
           {
             name: "Professores",
-            route: "/pages/landing-pages/author",
+            route: "/professores",
           },
         ],
       },
