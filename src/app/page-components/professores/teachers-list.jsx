@@ -3,6 +3,7 @@ import { useState } from "react";
 import MKTypography from "@/components/MKTypography";
 import CancelIcon from "@mui/icons-material/Cancel";
 import TeacherCard from "./teacher-card";
+import colors from "@/theme/base/colors";
 
 export default function TeachersList({ categories, teachers }) {
   const [categoriesSelected, setCategoriesSelected] = useState([]);
@@ -16,7 +17,21 @@ export default function TeachersList({ categories, teachers }) {
   }
   return (
     <div className="z-20">
-      <div className="z-20 flex mb-4 flex-wrap w-full items-center justify-center gap-x-2 gap-y-2">
+      <div className="z-20 flex mt-10 mb-4 flex-wrap w-full items-center justify-center gap-x-2 gap-y-2">
+        <MKTypography
+          variant="h4"
+          color={colors.dark.main}
+          textGradient
+          className="text-center w-full mb-4 px-4 z-20"
+          sx={({ breakpoints, typography: { size } }) => ({
+            [breakpoints.down("md")]: {
+              fontSize: size["4xl"],
+            },
+          })}
+        >
+          Conheça seus professores
+        </MKTypography>
+
         {categories.map((cat) => {
           return (
             <MKTypography

@@ -42,19 +42,19 @@ export default function ProfessoresPage() {
           variant="h2"
           color={colors.dark.main}
           textGradient
-          className="text-center w-full mb-4"
+          className="text-center w-full mb-6 px-4"
           sx={({ breakpoints, typography: { size } }) => ({
             [breakpoints.down("md")]: {
               fontSize: size["4xl"],
             },
           })}
         >
-          Nossos professores
+          Professores atuantes na área
         </MKTypography>
       </div>
 
       <div
-        className="z-10 bg-gradient-to-t from-gray-200 via-gray-200 to-transparent"
+        className="z-10 bg-gradient-to-t from-gray-200 via-gray-100 to-transparent"
         style={{
           position: "absolute",
           top: "200px",
