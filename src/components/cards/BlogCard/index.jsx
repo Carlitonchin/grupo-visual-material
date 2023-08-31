@@ -34,6 +34,7 @@ function component(hover, setHover) {
           variant="text"
           color="black"
           fontWeight="bold"
+          sx={{ fontSize: "1.1rem" }}
         >
           Novo metodo de ensenhanza a nivel mundial
         </MKTypography>
@@ -42,7 +43,7 @@ function component(hover, setHover) {
           mt={1.5}
           variant="body2"
           color="text"
-          className={"w-full mt-4 line-clamp-3 lg:line-clamp-4"}
+          className={"w-full mt-2 line-clamp-3 lg:line-clamp-4"}
         >
           Um novo metodo de ensino testado na Europa esta causando furor entre
           varias das melhores universidades do continente. Os estudantes tem

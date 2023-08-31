@@ -145,7 +145,7 @@ function InputIcon({ classNameContainer, className, mobile }) {
                 onClick={() => setFocusInput(true)}
                 data-group="search-group"
                 key={c.id}
-                href={c.url}
+                href={"/cursos" + c.url}
                 className={`hover:bg-gray-200 px-4 py-2 ${
                   searchHovered == c.id && "bg-gray-200"
                 }`}
