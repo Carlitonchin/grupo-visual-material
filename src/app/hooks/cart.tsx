@@ -6,6 +6,7 @@ interface props {
   AddToCart: (a: any) => void;
   SubFromCart: (a: any) => void;
   RemoveFromCart: (a: any) => void;
+  CleanCart: () => void;
   open: boolean;
   setOpen: (value: boolean) => void;
 }
@@ -17,6 +18,7 @@ const CartContext = createContext<props>({
   AddToCart: (a: any) => {},
   SubFromCart: (a: any) => {},
   RemoveFromCart: (a: any) => {},
+  CleanCart: () => {},
 });
 
 export const CartProvider = ({ children }: { children: any }) => {
@@ -74,9 +76,21 @@ export const CartProvider = ({ children }: { children: any }) => {
     setCart(cart.filter((ic) => ic?.item?.id != item.id));
   }
 
+  function CleanCart() {
+    setCart([]);
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, AddToCart, SubFromCart, RemoveFromCart, open, setOpen }}
+      value={{
+        cart,
+        AddToCart,
+        SubFromCart,
+        RemoveFromCart,
+        open,
+        setOpen,
+        CleanCart,
+      }}
     >
       {children}
     </CartContext.Provider>
