@@ -4,7 +4,7 @@ import MKTypography from "@/components/MKTypography";
 import MKButton from "@/components/MKButton";
 import Link from "next/link";
 
-export default function TeacherCard({ url, text, title, className }) {
+export default function TeacherCard({ url, text, title, slug, className }) {
   const [hover, setHover] = useState(false);
   return (
     <div
@@ -48,7 +48,7 @@ export default function TeacherCard({ url, text, title, className }) {
             color="light"
             variant="gradient"
             component={Link}
-            href={"#"}
+            href={"/professores" + slug}
           >
             Conheça o professor
           </MKButton>

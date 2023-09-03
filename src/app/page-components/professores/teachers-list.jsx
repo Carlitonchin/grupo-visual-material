@@ -66,7 +66,8 @@ export default function TeachersList({ categories, teachers }) {
       <div className="z-20 w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
         {teachers.map((teacher, i) => (
           <TeacherCard
-            key={i}
+            slug={teacher.slug}
+            key={teacher.id}
             text={teacher.text}
             url={teacher.url}
             title={teacher.title}

@@ -2,6 +2,7 @@
 import MKTypography from "@/components/MKTypography";
 import colors from "@/theme/base/colors";
 import TeachersList from "./teachers-list";
+import { teachers } from "@/api/routes";
 
 export default function ProfessoresPage() {
   return (
@@ -83,48 +84,7 @@ export default function ProfessoresPage() {
             { id: 2, text: "Programacao", color: "#a00" },
             { id: 3, text: "Empresa", color: "#0a0" },
           ]}
-          teachers={[
-            {
-              url: "student1.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student1.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student1.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student1.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student2.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student2.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student2.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-            {
-              url: "student2.webp",
-              title: "Maria Javier",
-              text: "Master en ciencias. Professora da PUCPR",
-            },
-          ]}
+          teachers={teachers}
         />
       </section>
     </div>

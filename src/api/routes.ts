@@ -137,3 +137,62 @@ export const courses = [
     category: { color: "#0000aa", text: "Marketing", id: 1 },
   },
 ];
+
+export const teachers = [
+  {
+    id: 1,
+    slug: "/jose1",
+    url: "/student1.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 2,
+    slug: "/jose2",
+    url: "/student1.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 3,
+    slug: "/jose3",
+    url: "/student1.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 4,
+    slug: "/jose4",
+    url: "/student1.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 5,
+    slug: "/jose5",
+    url: "/student2.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 6,
+    slug: "/jose6",
+    url: "/student2.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 7,
+    slug: "/jose7",
+    url: "/student2.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+  {
+    id: 8,
+    slug: "/jose8",
+    url: "/student2.webp",
+    title: "Maria Javier",
+    text: "Master en ciencias. Professora da PUCPR",
+  },
+];
