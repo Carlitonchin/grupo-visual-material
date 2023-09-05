@@ -6,35 +6,7 @@ import { teachers } from "@/api/routes";
 
 export default function ProfessoresPage() {
   return (
-    <div className="h-fit relative">
-      <div className="w-full">
-        <div
-          className="logos flex"
-          style={{ width: `${2 * 400 * 8}px`, height: "400px" }}
-        >
-          <div className="logos-slide flex" style={{ width: `${400 * 8}px` }}>
-            <img alt="proffesor jirafales" src="student1.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-          </div>
-
-          <div className="logos-slide flex" style={{ width: `${400 * 8}px` }}>
-            <img alt="proffesor jirafales" src="student1.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-            <img alt="proffesor jirafales" src="student2.webp"></img>
-          </div>
-        </div>
-      </div>
+    <div className="h-fit relative z-0">
       <div
         className="absolute top-0 left-0 flex justify-center items-end z-20"
         style={{ width: "100%", height: "400px" }}
@@ -43,7 +15,7 @@ export default function ProfessoresPage() {
           variant="h2"
           color={colors.dark.main}
           textGradient
-          className="text-center w-full mb-6 px-4"
+          className="text-center w-full mb-6 px-4 z-20"
           sx={({ breakpoints, typography: { size } }) => ({
             [breakpoints.down("md")]: {
               fontSize: size["4xl"],
@@ -53,7 +25,40 @@ export default function ProfessoresPage() {
           Professores atuantes na área
         </MKTypography>
       </div>
+      <div className="w-full">
+        <div
+          className="logos flex z-0"
+          style={{ width: `${2 * 400 * 8}px`, height: "400px" }}
+        >
+          <div
+            className="logos-slide flex z-0"
+            style={{ width: `${400 * 8}px` }}
+          >
+            <img alt="proffesor jirafales z-0" src="student1.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+          </div>
 
+          <div
+            className="logos-slide flex z-0"
+            style={{ width: `${400 * 8}px` }}
+          >
+            <img alt="proffesor jirafales z-0" src="student1.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+          </div>
+        </div>
+      </div>
       <div
         className="z-10 bg-gradient-to-t from-gray-200 via-gray-100 to-transparent"
         style={{
@@ -87,6 +92,7 @@ export default function ProfessoresPage() {
           teachers={teachers}
         />
       </section>
+      sdfdsf
     </div>
   );
 }

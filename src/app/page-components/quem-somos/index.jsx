@@ -37,6 +37,7 @@ export default function Who() {
       <section className=" bg-white">
         <MKTypography
           variant="h2"
+          className="text-center lg:text-start"
           color={colors.dark.main}
           sx={({ breakpoints, typography: { size } }) => ({
             [breakpoints.down("md")]: {
@@ -102,7 +103,9 @@ export default function Who() {
       </section>
       <section className="py-8 flex flex-col gap-y-4">
         <MKTypography
+          id="nosso-metodo"
           variant="h2"
+          className="text-center lg:text-start"
           color={colors.dark.main}
           sx={({ breakpoints, typography: { size } }) => ({
             [breakpoints.down("md")]: {
@@ -110,7 +113,7 @@ export default function Who() {
             },
           })}
         >
-          Historia do Grupo Visual
+          Nosso Metodo
         </MKTypography>
 
         <MKTypography
