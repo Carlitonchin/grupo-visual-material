@@ -10,14 +10,33 @@ import { useCart } from "@/app/hooks/cart";
 import { useEffect, useState } from "react";
 import { brlCurrencyFormatter } from "@/components/utils/conversion";
 import EnrollDialog from "@/components/cart/enrollDialog";
+import { useReactPixel } from "@/app/hooks/reactPixel";
+import {
+  activateSoundTrack,
+  trackOpenEnroll,
+  viewCourseDetail,
+  viewVideoTrack,
+} from "@/facebook-pixel/utils";
 
 export default function SingleCourse({ course }) {
+  const videoName = "curso: " + (course.text || "");
   const [fixCard, setFixCard] = useState(false);
   const [closeFooter, setCloseFooter] = useState(false);
   const [firstRender, setFirstRender] = useState(false);
+  const [firstSound, setFirstSound] = useState(false);
+  const [durationCaptured, setDurationCaptured] = useState(false);
   const [openEnroll, setOpenEnroll] = useState(false);
+  const [firstEnroll, setFirstEnroll] = useState(false);
   const [lgWidth, setLgWidth] = useState(false);
   const { AddToCart } = useCart();
+  const { reactPixel } = useReactPixel();
+
+  useEffect(() => {
+    if (!reactPixel) return;
+
+    viewCourseDetail(reactPixel, course);
+  }, [reactPixel]);
+
   useEffect(() => {
     function handleScroll() {
       if (!lgWidth) {
@@ -59,6 +78,25 @@ export default function SingleCourse({ course }) {
     };
   });
 
+  function handleVolume() {
+    let video = document.getElementById("single-course-video");
+    if (video && !video.muted && !firstSound) {
+      setFirstSound(true);
+      activateSoundTrack(reactPixel, videoName);
+    }
+  }
+
+  function handleTime() {
+    let video = document.getElementById("single-course-video");
+    if (
+      video?.duration &&
+      video.currentTime / video.duration > 0.9 &&
+      !durationCaptured
+    ) {
+      setDurationCaptured(true);
+      viewVideoTrack(reactPixel, videoName);
+    }
+  }
   return (
     <>
       <div
@@ -220,6 +258,11 @@ export default function SingleCourse({ course }) {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
+                    if (!firstEnroll) {
+                      setFirstEnroll(true);
+                      trackOpenEnroll(reactPixel, course);
+                    }
+
                     setOpenEnroll(true);
                   }}
                   color="info"
@@ -249,12 +292,15 @@ export default function SingleCourse({ course }) {
           style={{ maxWidth: fixCard ? "calc(100% - 28rem)" : "100%" }}
         >
           <video
+            id="single-course-video"
             style={{ width: "100%", maxWidth: "1000px" }}
             controls
             width="800"
             height="600"
             autoPlay
             muted
+            onVolumeChange={handleVolume}
+            onTimeUpdate={handleTime}
           >
             <source src={"/course-video.mp4"}></source>
           </video>

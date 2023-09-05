@@ -9,6 +9,9 @@ import { routes } from "@/api/routes";
 import Footer from "../components/footer";
 import Cart from "@/components/cart";
 import { CartProvider } from "./hooks/cart";
+import { Suspense } from "react";
+import FacebookPixel from "@/facebook-pixel";
+import { ReactPixelProvider } from "./hooks/reactPixel";
 
 export const metadata = {
   title: "Grupo Visual | Formações Profissionais",
@@ -21,32 +24,37 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <CartProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <html lang="pt">
-          <body>
-            <div className="overflow-x-hidden h-fit overflow-y-auto">
-              <DefaultNavbar
-                routes={routes}
-                brand={"Grupo Visual"}
-                action={{
-                  type: "external",
-                  route: "https://www.gpvisualead.com.br/login",
-                  label: "Área do Aluno",
-                  color: "white",
-                }}
-                light
-                sticky
-              />
-              {children}
-              <Cart />
+    <ReactPixelProvider>
+      <CartProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <html lang="pt">
+            <body>
+              <Suspense fallback={null}>
+                <FacebookPixel />
+              </Suspense>
+              <div className="overflow-x-hidden h-fit overflow-y-auto">
+                <DefaultNavbar
+                  routes={routes}
+                  brand={"Grupo Visual"}
+                  action={{
+                    type: "external",
+                    route: "https://www.gpvisualead.com.br/login",
+                    label: "Área do Aluno",
+                    color: "white",
+                  }}
+                  light
+                  sticky
+                />
+                {children}
+                <Cart />
 
-              <Footer />
-            </div>
-          </body>
-        </html>
-      </ThemeProvider>
-    </CartProvider>
+                <Footer />
+              </div>
+            </body>
+          </html>
+        </ThemeProvider>
+      </CartProvider>
+    </ReactPixelProvider>
   );
 }

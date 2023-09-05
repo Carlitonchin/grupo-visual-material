@@ -33,7 +33,8 @@
     "src/app/page-components/home/courses-cards.jsx",
     "src/app/page-components/home/courses-cards.jsx",
     "src/app/page-components/home/presentation-video.jsx",
-    "src/app/page-components/contato/form/form.jsx"
+    "src/app/page-components/contato/form/form.jsx",
+    "src/app/facebook/pixel.js"
   ],
   "exclude": ["node_modules"]
 }

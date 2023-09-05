@@ -1,8 +1,15 @@
 "use client";
+import { useReactPixel } from "@/app/hooks/reactPixel";
 import MKTypography from "@/components/MKTypography";
+import {
+  activateSoundTrack,
+  customEvent,
+  viewVideoTrack,
+} from "@/facebook-pixel/utils";
 import colors from "@/theme/base/colors";
 import { useEffect, useState } from "react";
 
+const videoName = "home";
 export default function PresentationVideo({
   videoUrl,
   title,
@@ -11,6 +18,10 @@ export default function PresentationVideo({
   buttonUrl,
 }) {
   const [selectedOption, setSelectedOption] = useState(0);
+  const [firstSound, setFirstSound] = useState(false);
+  const [durationCaptured, setDurationCaptured] = useState(false);
+  const { reactPixel } = useReactPixel();
+
   function handleChangeOptions(index) {
     let currentOption = document.getElementById(
       "text-option-presentation-" + selectedOption
@@ -39,6 +50,26 @@ export default function PresentationVideo({
 
     currentOption.style.opacity = "1";
   }, []);
+
+  function handleVolume() {
+    let video = document.getElementById("presentation-video");
+    if (video && !video.muted && !firstSound) {
+      setFirstSound(true);
+      activateSoundTrack(reactPixel, videoName);
+    }
+  }
+
+  function handleTime() {
+    let video = document.getElementById("presentation-video");
+    if (
+      video?.duration &&
+      video.currentTime / video.duration > 0.9 &&
+      !durationCaptured
+    ) {
+      setDurationCaptured(true);
+      viewVideoTrack(reactPixel, videoName);
+    }
+  }
   return (
     <section className=" w-full h-fit ">
       <div className="flex flex-col items-center justify-between xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
@@ -49,6 +80,8 @@ export default function PresentationVideo({
           height="600"
           autoPlay
           muted
+          onVolumeChange={handleVolume}
+          onTimeUpdate={handleTime}
         >
           <source src={videoUrl}></source>
         </video>

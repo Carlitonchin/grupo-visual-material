@@ -1,5 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useReactPixel } from "./reactPixel";
+import { addToCart } from "@/facebook-pixel/utils";
 
 interface props {
   cart: any[];
@@ -24,6 +26,7 @@ const CartContext = createContext<props>({
 export const CartProvider = ({ children }: { children: any }) => {
   const [cart, setCart] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
+  const { reactPixel } = useReactPixel();
 
   useEffect(() => {
     setOpen(false);
@@ -38,18 +41,20 @@ export const CartProvider = ({ children }: { children: any }) => {
 
   function AddToCart(item: any) {
     const itemInCart = cart.find((ic: any) => ic?.item?.id == item?.id);
+    let newCart = null;
     if (!itemInCart) {
-      setCart(cart.concat([{ item: item, cant: 1 }]));
+      newCart = cart.concat([{ item: item, cant: 1 }]);
+      setCart(newCart);
+      addToCart(reactPixel, newCart);
       return;
     }
+    newCart = cart.map((ic) => {
+      if (ic?.item?.id != itemInCart?.item?.id) return ic;
 
-    setCart(
-      cart.map((ic) => {
-        if (ic?.item?.id != itemInCart?.item?.id) return ic;
-
-        return { item: ic.item, cant: ic.cant + 1 };
-      })
-    );
+      return { item: ic.item, cant: ic.cant + 1 };
+    });
+    addToCart(reactPixel, newCart);
+    setCart(newCart);
   }
 
   function SubFromCart(item: any) {

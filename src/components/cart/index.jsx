@@ -3,10 +3,14 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useCart } from "@/app/hooks/cart";
 import DialogCart from "./dialogCart";
 import { useEffect, useState } from "react";
+import { useReactPixel } from "@/app/hooks/reactPixel";
+import { viewCart } from "@/facebook-pixel/utils";
 
 export default function Cart() {
   const [isInHome, setIsInHome] = useState(true);
+  const [firstView, setFirstView] = useState(false);
   const cart = useCart();
+  const { reactPixel } = useReactPixel();
 
   function calculateSum() {
     let sum = 0;
@@ -23,6 +27,8 @@ export default function Cart() {
 
     if (path != "/" && isInHome) setIsInHome(false);
   });
+
+  useEffect(() => setFirstView(false), [cart.cart]);
 
   return cart?.cart?.length > 0 ? (
     <>
@@ -42,7 +48,14 @@ export default function Cart() {
           bottom: isInHome ? "5.3rem" : "2rem",
           zIndex: "39",
         }}
-        onClick={() => cart.setOpen(true)}
+        onClick={() => {
+          if (!firstView) {
+            viewCart(reactPixel, cart.cart);
+            setFirstView(true);
+          }
+
+          cart.setOpen(true);
+        }}
         className="bg-blue-600 shadow-md fixed rounded-full hover:bg-blue-700"
       >
         <ShoppingCartOutlinedIcon className="w-7 h-7 fill-white" />
