@@ -1,23 +1,27 @@
 "use client";
 import MKTypography from "@/components/MKTypography";
+import colors from "@/theme/base/colors";
+import WhoVideo from "./video";
+import Service from "./service";
 
 export default function Who() {
   return (
-    <div>
+    <div className="bg-gray-200">
       <div
         style={{
           width: "100%",
-          height: "35vh",
-          minHeight: "300px",
+          height: "55vh",
+          minHeight: "400px",
           backgroundImage: `url("/bg1.jpeg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           textAlign: "center",
         }}
       >
-        <div className="w-full h-full pb-12 bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-end">
+        <div className="w-full px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-center">
           <MKTypography
-            variant="h1"
+            variant="h2"
             color="white"
             sx={({ breakpoints, typography: { size } }) => ({
               [breakpoints.down("md")]: {
@@ -25,99 +29,125 @@ export default function Who() {
               },
             })}
           >
-            O Grupo Visual
-          </MKTypography>
-          <MKTypography variant="body1" color="white" mt={1}>
-            Saiba mais sobre a empresa de cursos profissionalizantes que mais
-            cresce no Brasil
+            Conheça o Grupo Visual
           </MKTypography>
         </div>
       </div>
-      <section className="bg-gray-200 flex flex-col gap-y-4 py-8">
+      <WhoVideo />
+      <section className=" bg-white">
         <MKTypography
-          variant="button"
-          color={"text"}
-          sx={{
-            fontSize: "1.2rem",
-          }}
+          variant="h2"
+          color={colors.dark.main}
+          sx={({ breakpoints, typography: { size } }) => ({
+            [breakpoints.down("md")]: {
+              fontSize: size["4xl"],
+            },
+          })}
         >
-          Uma instituição de cursos profissionalizantes reconhecida pela
-          credibilidade e compromisso com a formação profissional dos seus
-          estudantes. Com uma vasta experiência na área de treinamentos e nos
-          mais variados cursos profissionalizantes.
+          Serviços Oferecidos
+        </MKTypography>
+        <div className="w-full mt-8 flex flex-col gap-y-20 lg:gap-y-36">
+          <Service
+            align={"left"}
+            alt={"servico"}
+            category={"Gestao Academica"}
+            img={"/bg2.jpg"}
+            text={
+              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
+            }
+            textButton={"Saiba mais"}
+            title={"Secretaria Virtual"}
+            urlButton={"/cursos"}
+          />
+
+          <Service
+            align={"right"}
+            alt={"servico"}
+            category={"Gestao Academica"}
+            img={"/bg2.jpg"}
+            text={
+              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
+            }
+            textButton={"Saiba mais"}
+            title={"Secretaria Virtual"}
+            urlButton={"/cursos"}
+          />
+
+          <Service
+            align={"left"}
+            alt={"servico"}
+            category={"Gestao Academica"}
+            img={"/bg2.jpg"}
+            text={
+              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
+            }
+            textButton={"Saiba mais"}
+            title={"Secretaria Virtual"}
+            urlButton={"/cursos"}
+          />
+
+          <Service
+            align={"right"}
+            alt={"servico"}
+            category={"Gestao Academica"}
+            img={"/bg2.jpg"}
+            text={
+              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
+            }
+            textButton={"Saiba mais"}
+            title={"Secretaria Virtual"}
+            urlButton={"/cursos"}
+          />
+        </div>
+      </section>
+      <section className="py-8 flex flex-col gap-y-4">
+        <MKTypography
+          variant="h2"
+          color={colors.dark.main}
+          sx={({ breakpoints, typography: { size } }) => ({
+            [breakpoints.down("md")]: {
+              fontSize: size["4xl"],
+            },
+          })}
+        >
+          Historia do Grupo Visual
         </MKTypography>
 
         <MKTypography
           variant="button"
           color={"text"}
-          sx={{
-            fontSize: "1.2rem",
-          }}
+          className="columns-1 md:columns-2 lg:columns-3 gap-x-20"
+          sx={{ fontSize: "1.1rem" }}
         >
-          Os cursos possuem uma linguagem simples, prática e moderna que atendem
-          da melhor maneira possível o público alvo em questão, proporcionando
-          um processo de aprendizagem interativo, dinâmico e acessível a
-          qualquer pessoa que tenha acesso à Internet.
-        </MKTypography>
-        <MKTypography
-          variant="button"
-          color={"text"}
-          sx={{
-            fontSize: "1.2rem",
-          }}
-        >
-          Há anos atuando no mercado, o Grupo Visual se transformou rapidamente
-          em uma referência no mercado virtual, com certificado válido (Cursos
-          Livres), investindo não apenas na qualidade de seu material didático,
-          como também em profissionais qualificados, para atender estudantes de
-          qualquer lugar do Brasil.
-        </MKTypography>
-        <MKTypography
-          variant="button"
-          color={"text"}
-          sx={{
-            fontSize: "1.2rem",
-          }}
-        >
-          Hoje o Grupo Visual orgulhosamente disponibiliza cursos de primeira
-          linha, visando o mercado de trabalho e qualificação dos alunos.
+          Entre 2013 e 2016, a Enap alcançou avanços significativos no campo da
+          educação a distância, a exemplo da ampliação dos cursos ofertados
+          (100%) e dos certificados emitidos (400%), bem como a internalização
+          dos serviços de hospedagem e administração do seu ambiente virtual de
+          aprendizagem, de produção multimídia e de planejamento educacional. A
+          Escola Virtual de Governo surgiu, em 2017, como uma proposta para
+          superar a fragmentação dos serviços de hospedagem e gestão acadêmica,
+          buscando garantir a continuidade dos serviços de capacitação a
+          distância do serviço público e solucionar problemas estruturantes que
+          tenham origem na oferta descentralizada de cursos. Saiba mais sobre o
+          surgimento da Escola Virtual de Governo. As primeiras adesões à Escola
+          Virtual de Governo aconteceram em uma cerimônia realizada na Enap no
+          dia 6 de dezembro de 2017. A Escola Virtual segue na jornada de
+          ampliar sua capacidade como hub de conhecimento, abrindo o leque de
+          possibilidades e buscando engajamento dos usuários interessados para
+          que a plataforma evolua ainda mais e consolide-se como um centro de
+          propagação da capacitação online. Atualmente, diversas instituições
+          fazem parte da EV.G como conteudistas, ou seja, ofertando cursos
+          produzidos em parceria conosco ou migrando cursos prontos para
+          hospedagem na plataforma da EV.G. A fim de simplificar e tornar mais
+          eficazes e diretas as parcerias, a EV.G baseia-se na Portaria Enap no
+          83, de 03 de junho de 2014, que versa sobre os termos de autorização
+          de uso dos cursos. Sendo assim, os parceiros estão assegurados que a
+          permanência de seus cursos na plataforma é perene (salvo manifestação
+          contrária do próprio parceiro para que o curso seja alterado ou
+          precise ser retirado da EV.G). Para saber mais sobre adesão da sua
+          instituição à EV.G, escreva para parcerias.evg@enap.gov.br
         </MKTypography>
       </section>
-      <div
-        style={{
-          width: "100%",
-          height: "fit-content",
-          backgroundImage: `url("/bg1.jpeg")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          textAlign: "center",
-        }}
-      >
-        <div className="w-full z-10 px-4 py-8 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-center">
-          <MKTypography
-            variant="h3"
-            color="white"
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["4xl"],
-              },
-            })}
-          >
-            O Grupo Visual é formado por:
-          </MKTypography>
-          <MKTypography variant="body1" color="white" mt={1}>
-            GRUPO VISUAL CURSOS PROFISSIONALIZANTES - EIRELE - CNPJ
-            25.067.781/0001-62
-          </MKTypography>
-          <MKTypography variant="body1" color="white" mt={1}>
-            C.J. RAMOS & CIA LTDA - ME - CNPJ 22.940.734/0001-93
-          </MKTypography>
-          <MKTypography variant="body1" color="white" mt={1}>
-            C.J. RAMOS - TREINAMENTO PROFISSIONAL LTDA - CNPJ
-            33.156.914/0001-03.
-          </MKTypography>
-        </div>
-      </div>
     </div>
   );
 }
