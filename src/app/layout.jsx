@@ -12,6 +12,8 @@ import { CartProvider } from "./hooks/cart";
 import { Suspense } from "react";
 import FacebookPixel from "@/facebook-pixel";
 import { ReactPixelProvider } from "./hooks/reactPixel";
+import CheckOrders from "./orders/check-orders";
+import { OrderProvider } from "./hooks/order";
 
 export const metadata = {
   title: "Grupo Visual | Formações Profissionais",
@@ -26,34 +28,39 @@ export default function RootLayout({ children }) {
   return (
     <ReactPixelProvider>
       <CartProvider>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <html lang="pt">
-            <body>
-              <Suspense fallback={null}>
-                <FacebookPixel />
-              </Suspense>
-              <div className="overflow-x-hidden h-fit overflow-y-auto">
-                <DefaultNavbar
-                  routes={routes}
-                  brand={"Grupo Visual"}
-                  action={{
-                    type: "external",
-                    route: "https://www.gpvisualead.com.br/login",
-                    label: "Área do Aluno",
-                    color: "white",
-                  }}
-                  light
-                  sticky
-                />
-                {children}
-                <Cart />
+        <OrderProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <html lang="pt">
+              <body>
+                <Suspense fallback={null}>
+                  <FacebookPixel />
+                </Suspense>
+                <div className="overflow-x-hidden h-fit overflow-y-auto">
+                  <DefaultNavbar
+                    routes={routes}
+                    brand={"Grupo Visual"}
+                    action={{
+                      type: "external",
+                      route: "https://www.gpvisualead.com.br/login",
+                      label: "Área do Aluno",
+                      color: "white",
+                    }}
+                    light
+                    sticky
+                  />
+                  {children}
+                  <Cart />
 
-                <Footer />
-              </div>
-            </body>
-          </html>
-        </ThemeProvider>
+                  <Footer />
+                </div>
+                <Suspense fallback={null}>
+                  <CheckOrders />
+                </Suspense>
+              </body>
+            </html>
+          </ThemeProvider>
+        </OrderProvider>
       </CartProvider>
     </ReactPixelProvider>
   );

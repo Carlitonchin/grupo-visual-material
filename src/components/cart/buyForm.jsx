@@ -17,8 +17,13 @@ import {
   FormHelperText,
 } from "@mui/material";
 import axios from "axios";
+import { useReactPixel } from "@/app/hooks/reactPixel";
+import { initiateCheckout } from "@/facebook-pixel/utils";
+import { useOrder } from "@/app/hooks/order";
 
-export default function BuyForm({ courses, handleClose }) {
+export default function BuyForm({ courses, handleClose, isCart }) {
+  const { reactPixel } = useReactPixel();
+  const { setOrderCart, setOrderEnroll } = useOrder();
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -43,10 +48,17 @@ export default function BuyForm({ courses, handleClose }) {
         customer: values,
         courses,
       });
+
       const checkout_url = resp.data.checkouts[0].payment_url;
       if (!checkout_url) throw new Error("error");
-
-      document.location.href = checkout_url;
+      if (isCart) {
+        setOrderCart(resp.data.id, courses);
+      } else {
+        setOrderEnroll(resp.data.id, courses);
+      }
+      initiateCheckout(reactPixel, courses, values, resp.data.id);
+      //document.location.href = checkout_url;
+      window.open(checkout_url, "_blank");
       handleClose();
     } catch {
       setShowReqErrors(true);

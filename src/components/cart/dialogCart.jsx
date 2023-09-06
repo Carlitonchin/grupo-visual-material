@@ -111,7 +111,7 @@ export default function DialogCart({
           )}
         </DialogContent>
         <DialogActions>
-          <BuyForm courses={courses} handleClose={handleClose} />
+          <BuyForm courses={courses} handleClose={handleClose} isCart={true} />
         </DialogActions>
       </Dialog>
     </div>

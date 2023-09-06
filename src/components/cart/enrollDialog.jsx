@@ -60,6 +60,7 @@ export default function EnrollDialog({ course, setOpen, open }) {
           <BuyForm
             courses={[{ item: course, cant: 1 }]}
             handleClose={handleClose}
+            isCart={false}
           />
         </DialogActions>
       </Dialog>
