@@ -58,6 +58,8 @@ function DefaultNavbar({
   sticky,
   relative,
   center,
+  urlLogo,
+  altLogo,
 }) {
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
@@ -134,7 +136,6 @@ function DefaultNavbar({
 
           resultArray[chunkIndex].push(item);
 
-          console.log(resultArray);
           return resultArray;
         }, []);
 
@@ -518,12 +519,7 @@ function DefaultNavbar({
         >
           <div className="w-full h-fit flex items-center justify-between">
             <a href="/">
-              <img
-                width={120}
-                height={50}
-                src="/grupo_visual_logo.webp"
-                alt="grupo visual logo"
-              />
+              <img width={120} height={50} src={urlLogo} alt={altLogo} />
             </a>
 
             <MKBox
