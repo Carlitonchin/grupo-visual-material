@@ -10,32 +10,13 @@ import Students from "@/app/page-components/home/students";
 import Brand from "@/app/page-components/home/brand";
 import { courses } from "@/api/routes";
 import HomeMainServer from "./api-components/home/HomeMainServer";
+import PromoCardServer from "./api-components/home/PromoCardServer";
 
 export default function Home() {
   return (
     <>
       <HomeMainServer />
-      <CoursesCards
-        cards={[
-          {
-            text: "Programacao",
-            href: "/cursos/programacao",
-            img: "/course1.webp",
-          },
-          {
-            text: "Mecanica",
-            href: "/cursos/mecanica",
-            img: "/course2.webp",
-          },
-          {
-            text: "Social Media",
-            href: "/cursos/social-media",
-            img: "/course3.webp",
-          },
-        ]}
-        buttonText={"Saiba mais"}
-        buttonUrl={"/"}
-      />
+      <PromoCardServer />
       <PresentationVideo
         buttonText={"Saiba mais"}
         buttonUrl={"/"}

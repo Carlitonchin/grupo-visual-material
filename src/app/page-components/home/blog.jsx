@@ -25,7 +25,12 @@ export default function BlogHome() {
         <BlogCard />
         <BlogCard />
       </div>
-      <TextLink className={"mt-4"} text={"Mais posts"} url={"/blog"} />
+      <TextLink
+        className={"mt-4"}
+        text={"Mais posts"}
+        url={"/blog"}
+        extern={false}
+      />
     </section>
   );
 }

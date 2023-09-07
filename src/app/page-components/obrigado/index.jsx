@@ -39,6 +39,7 @@ export default function ObrigadoComponent() {
             className={"mt-10 text-white hover:text-white"}
             text={"Ver mais cursos"}
             url={"/cursos"}
+            extern={false}
           />
         </div>
       </div>

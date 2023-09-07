@@ -157,7 +157,12 @@ export default function CourseCarousel({
           onClick={clickRight}
         />
       </div>
-      <TextLink className={"mt-4"} url={buttonUrl} text={buttonText} />
+      <TextLink
+        className={"mt-4"}
+        url={buttonUrl}
+        text={buttonText}
+        extern={false}
+      />
     </section>
   );
 }

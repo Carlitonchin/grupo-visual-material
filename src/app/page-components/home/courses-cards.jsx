@@ -5,7 +5,12 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import TextLink from "@/components/TextLink";
 
-export default function CoursesCards({ cards, buttonUrl, buttonText }) {
+export default function CoursesCards({
+  cards,
+  buttonUrl,
+  buttonText,
+  buttonExtern,
+}) {
   const [firstShow, setFirstShow] = useState(false);
   const sectionRef = useRef(null);
 
@@ -31,7 +36,12 @@ export default function CoursesCards({ cards, buttonUrl, buttonText }) {
       <div className="h-fit w-full  flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-5 lg:gap-x-10">
         {cards.map((card) => {
           return (
-            <a key={card.href} href={card.href} style={{ zIndex: 20 }}>
+            <a
+              key={card.href}
+              href={card.href}
+              style={{ zIndex: 20 }}
+              target={card?.extern_link ? "_blank" : ""}
+            >
               <div className=" w-[85vw] max-w-[30rem] max-h-[30rem] h-[85vw] md:h-96 md:w-96 md:max-w-[30vw] md:max-h-[30vw] relative overflow-hidden pointer-events-none rounded-md">
                 <div
                   className="w-full h-full hover:scale-110 cursor-pointer pointer-events-auto transition-all duration-300"
@@ -54,7 +64,12 @@ export default function CoursesCards({ cards, buttonUrl, buttonText }) {
           );
         })}
       </div>
-      <TextLink text={buttonText} url={buttonUrl} className={"mt-4"} />
+      <TextLink
+        text={buttonText}
+        url={buttonUrl}
+        className={"mt-4"}
+        extern={buttonExtern}
+      />
     </section>
   );
 }

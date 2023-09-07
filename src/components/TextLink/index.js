@@ -3,7 +3,7 @@ import MKButton from "@/components/MKButton";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function TextLink({ url, text, className }) {
+export default function TextLink({ url, text, className, extern }) {
   const [hover, setHover] = useState(false);
   return (
     <MKButton
@@ -12,6 +12,7 @@ export default function TextLink({ url, text, className }) {
       className={"text-lg " + className}
       color="dark"
       variant="text"
+      target={extern ? "_blank" : undefined}
       component={Link}
       href={url}
     >
