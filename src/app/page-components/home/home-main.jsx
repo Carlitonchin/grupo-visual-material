@@ -45,14 +45,16 @@ export default function HomeMain({ slides }) {
         }, 2000);
       }
     });
-
-    setTimeout(() => animateSliders(), 5000);
   }
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setInterval(() => {
       animateSliders();
     }, 5000);
+
+    return () => {
+      clearInterval(timeout);
+    };
   }, []);
 
   return (
@@ -105,6 +107,7 @@ export default function HomeMain({ slides }) {
                     variant="gradient"
                     component={Link}
                     href={slide.url}
+                    target={slide?.extern_link ? "_blank" : undefined}
                   >
                     {slide.buttonText}
                   </MKButton>

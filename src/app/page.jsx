@@ -9,35 +9,12 @@ import Whatsapp from "@/components/smartarget/whatsapp";
 import Students from "@/app/page-components/home/students";
 import Brand from "@/app/page-components/home/brand";
 import { courses } from "@/api/routes";
+import HomeMainServer from "./api-components/home/HomeMainServer";
 
 export default function Home() {
   return (
     <>
-      <HomeMain
-        slides={[
-          {
-            text1: "Cursos Onlines",
-            text2: "Cursos profesionais, certificados, soporte 24h e mais.",
-            buttonText: "Saiba mais",
-            url: "/",
-            img: "/bg1.jpeg",
-          },
-          {
-            text1: "Canal de youtube",
-            text2: "Podcast todas as semanas, conteudo de qualidade para você",
-            buttonText: "Saiba mais",
-            url: "/",
-            img: "/bg2.webp",
-          },
-          {
-            text1: "Praticas profesionais",
-            text2: "Contato com empresas para praticar todo o aprendido",
-            buttonText: "Saiba mais",
-            url: "/",
-            img: "/bg3.png",
-          },
-        ]}
-      />
+      <HomeMainServer />
       <CoursesCards
         cards={[
           {
