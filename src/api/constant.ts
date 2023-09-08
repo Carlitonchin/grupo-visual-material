@@ -13,7 +13,8 @@ const headers = {
 export const strapiGet = async (
   resource: string,
   populate = "?populate=*",
-  limit = "&pagination[limit]=100"
+  limit = "&pagination[limit]=100",
+  filters = ""
 ) => {
   const resp = await axios.get(STRAPI_URL + resource + populate + limit, {
     headers,

@@ -1,3 +1,4 @@
+import { getSingleCourse } from "@/api/cursos/cursos";
 import { courses } from "@/api/routes";
 import SingleCourse from "@/app/page-components/cursos/single-course";
 
@@ -25,7 +26,9 @@ async function getCourse(slug) {
 }
 
 export default async function Course({ params }) {
-  const course = await getCourse(params.slug);
+  let slug = params.slug;
+  if (slug[0] != "/") slug = "/" + slug;
+  const course = await getSingleCourse(slug);
   return (
     <section className="bg-gray-200">
       <SingleCourse course={course} />

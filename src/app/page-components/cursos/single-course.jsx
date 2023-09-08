@@ -31,6 +31,10 @@ export default function SingleCourse({ course }) {
   const { AddToCart } = useCart();
   const { reactPixel } = useReactPixel();
 
+  const splitAbout = course.about.split("\n");
+  const splitObjetive = course.objetive.split("\n");
+  const splitContent = course.content.split("\n");
+
   useEffect(() => {
     if (!reactPixel) return;
 
@@ -175,7 +179,7 @@ export default function SingleCourse({ course }) {
                         marginBottom: "1rem",
                       }}
                     >
-                      Online
+                      {course.format}
                     </MKTypography>
                   </div>
 
@@ -207,7 +211,7 @@ export default function SingleCourse({ course }) {
                         marginBottom: "1rem",
                       }}
                     >
-                      3 horas
+                      {course.duration}
                     </MKTypography>
                   </div>
                 </div>
@@ -238,8 +242,7 @@ export default function SingleCourse({ course }) {
                     marginBottom: "1rem",
                   }}
                 >
-                  Certificado válido em todo território nacional conforme a LDBE
-                  - LEI DE DIRETRIZES E BASE DA EDUCAÇÃO - LEI 9.394/96.
+                  {course.certification}
                 </MKTypography>
               </div>
               <div className="w-full bg-gray-300 p-5 text-center flex flex-col items-center justify-center">
@@ -323,32 +326,17 @@ export default function SingleCourse({ course }) {
                 fontSize: "1rem",
               }}
             >
-              O auxiliar de Necropsia é o profissional responsável por auxiliar
-              o Médico Legista na identificação da causa da morte, já o
-              tanatopraxista trabalha junto às clínicas de tanatopraxia ou
-              fenerárias auxiliando na preparação e ornamentação dos corpos.
-              <br></br>
-              <br></br>O Auxiliar de Necrópsia vai auxiliar na identificação do
-              cadáver, na comunicação com os familiares, vai auxiliar com
-              manuseio do corpo realizando os procedimentos de abertura do
-              cadáver, exposição dos órgãos para identificação de lesões que
-              possam ter levado o indivíduo a óbito, ou seja, é ele o
-              responsável por fazer o trabalho bruto, enquanto isso o médico
-              legista acompanha e observa para identificar e desvendar a causa
-              da morte. Logo após todo procedimento realizado é responsabilidade
-              do auxiliar de Necropsia finalizar o procedimento fechar o corpo e
-              fazer a liberação dele para a funerária e familiares.
-              <br></br>
-              <br></br>
-              Ao final do curso o estudante recebe em sua casa, dois
-              certificados, o de Auxiliar de Necropsia e o de Tanatopraxia com
-              ênfase em Necromaquiagem. Além do mais, nossos certificados
-              possuem um código de validação em nossa matriz que realmente
-              comprovam sua validade. Nossos certificados são válidos em todo
-              território nacional conforme a LDBE - LEI DE DIRETRIZES E BASE DA
-              EDUCAÇÃO - LEI 9.394/96. Observação: Ressaltamos que para atuação
-              no IML e Institutos de Perícia, é necessário ser aprovado em
-              concurso público.
+              {splitAbout.map((text) => {
+                if (!text)
+                  return (
+                    <>
+                      <br></br>
+                      <br></br>
+                    </>
+                  );
+
+                return text;
+              })}
             </MKTypography>
 
             <MKTypography
@@ -366,17 +354,17 @@ export default function SingleCourse({ course }) {
                 fontSize: "1rem",
               }}
             >
-              O objetivo do curso é preparar profissionais de acordo com as
-              competências e habilidades exigidas a esse ramo. Nosso curso é
-              para você que está interessado em ingressar na carreira pública
-              via de concurso público, ou na área privada.
-              <br></br>
-              <br></br>
-              Na área pública você poderá atuar dentro do IML, no IGP (Instituto
-              Geral de Perícia) ou também no SVO que é o (Serviços de
-              Verificação de Óbito). E na esfera privada você pode trabalhar em
-              Funerárias; Crematórios; Hospitais; Clínicas de conservação e
-              Laboratórios de anatomia.
+              {splitObjetive.map((text) => {
+                if (!text)
+                  return (
+                    <>
+                      <br></br>
+                      <br></br>
+                    </>
+                  );
+
+                return text;
+              })}
             </MKTypography>
 
             <MKTypography
@@ -387,60 +375,47 @@ export default function SingleCourse({ course }) {
             >
               Conteúdo
             </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              1º Medicina Legal
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              2º Ética Bioética e Biossegurança
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              3º Anatomia e Fisiologia Humana
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              4º Tanatologia
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              5º Traumatologia Forense
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              6º Técnicas de Necropsia
-            </MKTypography>
+            <div className="flex gap-x-2">
+              <div className="flex flex-col w-fit h-fit items-end">
+                {splitContent
+                  .filter((text) => Boolean(text))
+                  .map((text, index) => {
+                    if (!text) return <></>;
+
+                    return (
+                      <MKTypography
+                        key={index}
+                        variant="button"
+                        color={colors.dark.main}
+                        className="font-bold"
+                        sx={{
+                          fontSize: "1rem",
+                        }}
+                      >
+                        {index + 1 + " - "}
+                      </MKTypography>
+                    );
+                  })}
+              </div>
+              <div className="flex flex-col w-fit h-fit">
+                {splitContent.map((text, index) => {
+                  if (!text) return <></>;
+
+                  return (
+                    <MKTypography
+                      key={index}
+                      variant="button"
+                      color={"text"}
+                      sx={{
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {text}
+                    </MKTypography>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

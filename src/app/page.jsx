@@ -9,6 +9,7 @@ import { courses } from "@/api/routes";
 import HomeMainServer from "./api-components/home/HomeMainServer";
 import PromoCardServer from "./api-components/home/PromoCardServer";
 import PresentationVideoServer from "./api-components/home/PresentationVideoServer";
+import StatsServer from "./api-components/home/StatsServer";
 
 export default function Home() {
   return (
@@ -16,25 +17,7 @@ export default function Home() {
       <HomeMainServer />
       <PromoCardServer />
       <PresentationVideoServer />
-      <Stats
-        stats={[
-          {
-            count: "4.000",
-            title: "Alunos",
-            description: "formados em todo Brasil",
-          },
-          {
-            count: "30",
-            title: "Cursos",
-            description: "profissionalizantes",
-          },
-          {
-            count: "20",
-            title: "Professores",
-            description: "atuantes na sua área",
-          },
-        ]}
-      />
+      <StatsServer />
 
       <CourseCarousel
         title="Nossos Cursos"
