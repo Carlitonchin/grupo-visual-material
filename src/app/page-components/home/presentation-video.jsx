@@ -10,13 +10,7 @@ import colors from "@/theme/base/colors";
 import { useEffect, useState } from "react";
 
 const videoName = "home";
-export default function PresentationVideo({
-  videoUrl,
-  title,
-  options,
-  buttonText,
-  buttonUrl,
-}) {
+export default function PresentationVideo({ videoUrl, title, options }) {
   const [selectedOption, setSelectedOption] = useState(0);
   const [firstSound, setFirstSound] = useState(false);
   const [durationCaptured, setDurationCaptured] = useState(false);
