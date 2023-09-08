@@ -1,12 +1,12 @@
 import { strapiGet } from "../constant";
 
-interface categoria {
+export interface categoria {
   id: number;
   text: string;
   color: string;
 }
 
-interface course {
+export interface course {
   id: number;
   price: number;
   img: string;
@@ -21,14 +21,6 @@ interface course {
   certification?: string;
   content?: string;
 }
-
-/*id: 1,
-    price: 4.5,
-    img: "/blog1.webp",
-    stars: 3.4,
-    text: "Alimentacao Social Asistida #2 con hambre",
-    url: "/teste",
-    category: { color: "#0000aa", text: "Marketing", id: 1 },*/
 
 export const getCategories = async () => {
   const data: categoria[] = [];

@@ -9,22 +9,6 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getCourse(slug) {
-  let promise = new Promise((resolve, reject) => {
-    const course = courses.find(
-      (c) => c.url.trim().replaceAll("/", "") == slug
-    );
-    if (!course) {
-      reject("course not found");
-      return;
-    }
-
-    resolve(course);
-  });
-
-  return promise;
-}
-
 export default async function Course({ params }) {
   let slug = params.slug;
   if (slug[0] != "/") slug = "/" + slug;

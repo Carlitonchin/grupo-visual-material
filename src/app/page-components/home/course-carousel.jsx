@@ -3,8 +3,6 @@ import StarCard from "@/components/cards/StarCard";
 import MKTypography from "@/components/MKTypography";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import MKButton from "@/components/MKButton";
-import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import colors from "@/theme/base/colors";
 import TextLink from "@/components/TextLink";
@@ -19,6 +17,7 @@ export default function CourseCarousel({
   title,
   buttonUrl,
   buttonText,
+  buttonExtern,
 }) {
   const carouselRef = useRef(null);
   const [isDragStart, setIsDragStart] = useState(false);
@@ -161,7 +160,7 @@ export default function CourseCarousel({
         className={"mt-4"}
         url={buttonUrl}
         text={buttonText}
-        extern={false}
+        extern={buttonExtern ? true : false}
       />
     </section>
   );

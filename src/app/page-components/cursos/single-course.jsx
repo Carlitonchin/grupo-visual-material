@@ -392,7 +392,7 @@ export default function SingleCourse({ course }) {
                           fontSize: "1rem",
                         }}
                       >
-                        {index + 1 + " - "}
+                        {index + 1 + ". "}
                       </MKTypography>
                     );
                   })}

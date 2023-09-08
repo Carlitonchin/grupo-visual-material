@@ -10,6 +10,7 @@ import HomeMainServer from "./api-components/home/HomeMainServer";
 import PromoCardServer from "./api-components/home/PromoCardServer";
 import PresentationVideoServer from "./api-components/home/PresentationVideoServer";
 import StatsServer from "./api-components/home/StatsServer";
+import CourseCarouselServer from "./api-components/home/CourseCarouselServer";
 
 export default function Home() {
   return (
@@ -18,13 +19,7 @@ export default function Home() {
       <PromoCardServer />
       <PresentationVideoServer />
       <StatsServer />
-
-      <CourseCarousel
-        title="Nossos Cursos"
-        buttonText={"Todos os cursos"}
-        buttonUrl={"/"}
-        courses={courses}
-      />
+      <CourseCarouselServer />
 
       <Teachers />
       <BlogHome />
