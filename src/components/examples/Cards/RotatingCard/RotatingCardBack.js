@@ -86,7 +86,7 @@ function RotatingCard({ color, image, title, description, action }) {
             ) : (
               <MKButton
                 component={Link}
-                to={action.route}
+                href={action.route}
                 color="white"
                 size="small"
                 fullWidth

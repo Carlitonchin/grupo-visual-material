@@ -11,6 +11,7 @@ import PromoCardServer from "./api-components/home/PromoCardServer";
 import PresentationVideoServer from "./api-components/home/PresentationVideoServer";
 import StatsServer from "./api-components/home/StatsServer";
 import CourseCarouselServer from "./api-components/home/CourseCarouselServer";
+import TeachersServer from "./api-components/home/TeachersServer";
 
 export default function Home() {
   return (
@@ -20,8 +21,7 @@ export default function Home() {
       <PresentationVideoServer />
       <StatsServer />
       <CourseCarouselServer />
-
-      <Teachers />
+      <TeachersServer />
       <BlogHome />
       <Students
         students={[
