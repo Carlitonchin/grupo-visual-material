@@ -1,11 +1,11 @@
 import { getSingleCourse } from "@/api/cursos/cursos";
-import { courses } from "@/api/routes";
 import SingleCourse from "@/app/page-components/cursos/single-course";
+import { getCategories, getCourses } from "@/api/cursos/cursos";
 
 export async function generateStaticParams() {
+  const courses = await getCourses();
   return courses.map((c) => ({
     slug: c.url.trim().replaceAll("/", ""),
-    course: c,
   }));
 }
 

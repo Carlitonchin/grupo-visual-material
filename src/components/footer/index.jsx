@@ -10,7 +10,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export default function Footer({ faqTexts, faqs }) {
+export default function Footer({ faqTexts, faqs, footerInfo, links }) {
   return (
     <section
       id="footer-section"
@@ -44,9 +44,9 @@ export default function Footer({ faqTexts, faqs }) {
       <div className="flex w-full flex-col items-center lg:flex-row lg:justify-center lg:gap-x-40 mt-12">
         <div className="flex flex-col gap-y-2 w-full px-4 md:px-20 lg:px-0 text-left md:text-center items-center lg:text-start lg:items-start lg:max-w-sm">
           <img
-            alt="Logo Grupo Visual"
+            alt={footerInfo.alt_logo}
             className="h-auto w-44"
-            src="/grupo_visual_logo.webp"
+            src={footerInfo.img_logo}
           ></img>
           <MKTypography
             variant="body2"
@@ -58,100 +58,30 @@ export default function Footer({ faqTexts, faqs }) {
               },
             })}
           >
-            Uma instituição de cursos profissionalizantes reconhecida pela
-            credibilidade e compromisso com a formacao profissional dos seus
-            estudantes
+            {footerInfo.descricao}
           </MKTypography>
           <div className="flex flex-wrap gap-x-2 w-full justify-start md:justify-center lg:justify-start">
-            <MKTypography
-              component={Link}
-              href="/cursos"
-              variant="body2"
-              color={"#fff"}
-              className=" text-white hover:text-orange-500"
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["4xl"],
-                },
-              })}
-            >
-              Cursos
-            </MKTypography>
-            <span className="text-white">/</span>
-            <MKTypography
-              component={Link}
-              href="/cursos"
-              variant="body2"
-              color={"#fff"}
-              className=" text-white hover:text-orange-500"
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["4xl"],
-                },
-              })}
-            >
-              Quem Somos
-            </MKTypography>
-            <span className="text-white">/</span>
-            <MKTypography
-              component={Link}
-              href="/cursos"
-              variant="body2"
-              color={"#fff"}
-              className=" text-white hover:text-orange-500"
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["4xl"],
-                },
-              })}
-            >
-              Nosso Metodo
-            </MKTypography>
-            <span className="text-white">/</span>
-            <MKTypography
-              component={Link}
-              href="/cursos"
-              variant="body2"
-              color={"#fff"}
-              className=" text-white hover:text-orange-500"
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["4xl"],
-                },
-              })}
-            >
-              Blog
-            </MKTypography>
-            <span className="text-white">/</span>
-            <MKTypography
-              component={Link}
-              href="/cursos"
-              variant="body2"
-              color={"#fff"}
-              className=" text-white hover:text-orange-500"
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["4xl"],
-                },
-              })}
-            >
-              Contato
-            </MKTypography>
-            <span className="text-white">/</span>
-            <MKTypography
-              component={Link}
-              href="/cursos"
-              variant="body2"
-              color={"#fff"}
-              className=" text-white hover:text-orange-500"
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["4xl"],
-                },
-              })}
-            >
-              Professores
-            </MKTypography>
+            {links.map((link, index) => (
+              <>
+                <MKTypography
+                  component={Link}
+                  href={link.url}
+                  variant="body2"
+                  color={"#fff"}
+                  className=" text-white hover:text-orange-500"
+                  sx={({ breakpoints, typography: { size } }) => ({
+                    [breakpoints.down("md")]: {
+                      fontSize: size["4xl"],
+                    },
+                  })}
+                >
+                  {link.texto}
+                </MKTypography>
+                {index < links.length - 1 && (
+                  <span className="text-white">/</span>
+                )}
+              </>
+            ))}
           </div>
           <div className="w-full">
             <MKTypography
@@ -164,7 +94,7 @@ export default function Footer({ faqTexts, faqs }) {
                 },
               })}
             >
-              ©2022 Grupo Visual. Todos os direitos reservados
+              {footerInfo.texto_copyright}
             </MKTypography>
           </div>
         </div>
@@ -183,7 +113,7 @@ export default function Footer({ faqTexts, faqs }) {
           </MKTypography>*/}
           <div className="w-full flex flex-col items-start md:items-center lg:items-start gap-y-2">
             <a
-              href="tel:+554630554355"
+              href={`tel:${footerInfo.telefone}`}
               className="fill-white duration-200 text-white hover:fill-orange-500 hover:text-orange-500"
             >
               <LocalPhoneIcon className="duration-0 w-6 h-6 fill-inherit" />
@@ -196,11 +126,11 @@ export default function Footer({ faqTexts, faqs }) {
                   },
                 })}
               >
-                (46) 3055-4355
+                {footerInfo.telefone_formatado}
               </MKTypography>
             </a>
             <a
-              href="mailto:visualcursosfb@gmail.com"
+              href={`mailto:${footerInfo.email}`}
               className="fill-white duration-200 text-white hover:fill-orange-500 hover:text-orange-500"
             >
               <EmailIcon className="duration-0 w-6 h-6 fill-inherit" />
@@ -213,12 +143,12 @@ export default function Footer({ faqTexts, faqs }) {
                   },
                 })}
               >
-                visualcursosfb@gmail.com
+                {footerInfo.email}
               </MKTypography>
             </a>
             <a
               target="_blank"
-              href="https://www.google.com/maps/place/R.+Ver.+Romeu+Lauro+Werlang,+1490+-+Centro,+Francisco+Beltr%C3%A3o+-+PR,+85601-020/@-26.0829216,-53.0507821,17z/data=!3m1!4b1!4m6!3m5!1s0x94f072d5daf59271:0x704a1b6e631b8bc5!8m2!3d-26.0829216!4d-53.0507821!16s%2Fg%2F11c290444j?entry=ttu"
+              href={footerInfo.googlemaps_url}
               className="fill-white flex duration-200 text-white hover:fill-orange-500 hover:text-orange-500"
             >
               <LocationOnIcon className="duration-0 w-6 h-6 fill-inherit" />
@@ -231,37 +161,49 @@ export default function Footer({ faqTexts, faqs }) {
                   },
                 })}
               >
-                Rua Romero Lauro Werlang, N 1490 - sala 101, Francisco Beltrao -
-                PR<br></br>
-                CNPJ: 25.067.781/0001-62
+                {footerInfo.endereco}
+                <br></br>
+                CNPJ: {footerInfo.cnpj}
               </MKTypography>
             </a>
           </div>
           <div className="w-full flex gap-x-4 mt-1 justify-start pl-8 md:justify-center md:pl-0 lg:justify-start items-center lg:pl-8">
-            <a
-              href="#"
-              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
-            >
-              <FacebookIcon className="w-7 h-7" />
-            </a>
-            <a
-              href="#"
-              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
-            >
-              <YouTubeIcon className="w-7 h-7" />
-            </a>
-            <a
-              href="#"
-              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
-            >
-              <InstagramIcon className="w-7 h-7" />
-            </a>
-            <a
-              href="#"
-              className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
-            >
-              <LinkedInIcon className="w-7 h-7" />
-            </a>
+            {Boolean(footerInfo?.facebook_url) && (
+              <a
+                target="_blank"
+                href={footerInfo?.facebook_url}
+                className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+              >
+                <FacebookIcon className="w-7 h-7" />
+              </a>
+            )}
+            {Boolean(footerInfo?.youtube_url) && (
+              <a
+                target="_blank"
+                href={footerInfo?.youtube_url}
+                className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+              >
+                <YouTubeIcon className="w-7 h-7" />
+              </a>
+            )}
+            {Boolean(footerInfo?.instagram_url) && (
+              <a
+                target="_blank"
+                href={footerInfo?.instagram_url}
+                className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+              >
+                <InstagramIcon className="w-7 h-7" />
+              </a>
+            )}
+            {Boolean(footerInfo?.linkedin_url) && (
+              <a
+                target="_blank"
+                href={footerInfo?.linkedin_url}
+                className="p-1 hover:bg-orange-500 duration-200 bg-white rounded-full"
+              >
+                <LinkedInIcon className="w-7 h-7" />
+              </a>
+            )}
           </div>
         </div>
       </div>
