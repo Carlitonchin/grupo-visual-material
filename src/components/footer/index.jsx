@@ -10,7 +10,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export default function Footer() {
+export default function Footer({ faqTexts, faqs }) {
   return (
     <section
       id="footer-section"
@@ -26,7 +26,7 @@ export default function Footer() {
           },
         })}
       >
-        FAQ
+        {faqTexts.titulo}
       </MKTypography>
       <MKTypography
         variant="h4"
@@ -38,9 +38,9 @@ export default function Footer() {
           },
         })}
       >
-        Perguntas e respostas mais frequentes
+        {faqTexts.descricao}
       </MKTypography>
-      <Accordion />
+      <Accordion faqs={faqs} />
       <div className="flex w-full flex-col items-center lg:flex-row lg:justify-center lg:gap-x-40 mt-12">
         <div className="flex flex-col gap-y-2 w-full px-4 md:px-20 lg:px-0 text-left md:text-center items-center lg:text-start lg:items-start lg:max-w-sm">
           <img

@@ -15,6 +15,7 @@ import { ReactPixelProvider } from "./hooks/reactPixel";
 import CheckOrders from "./orders/check-orders";
 import { OrderProvider } from "./hooks/order";
 import Navbar from "./api-components/general/navbar";
+import FooterServer from "./api-components/general/footerServer";
 
 export const metadata = {
   title: "Grupo Visual | Formações Profissionais",
@@ -41,8 +42,7 @@ export default function RootLayout({ children }) {
                   <Navbar />
                   {children}
                   <Cart />
-
-                  <Footer />
+                  <FooterServer />
                 </div>
                 <Suspense fallback={null}>
                   <CheckOrders />
