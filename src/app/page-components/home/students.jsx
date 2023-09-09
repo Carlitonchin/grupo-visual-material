@@ -5,7 +5,7 @@ import PhotoCard from "@/components/cards/PhotoCard";
 import { useState } from "react";
 import MKButton from "@/components/MKButton";
 
-export default function Students({ students }) {
+export default function Students({ students, texts }) {
   const [showAll, setShowAll] = useState(false);
   return (
     <section className="py-10 flex flex-col justify-center items-center bg-gray-200">
@@ -20,7 +20,7 @@ export default function Students({ students }) {
           },
         })}
       >
-        Nossos Alunos
+        {texts.titulo}
       </MKTypography>
       <div className="w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
         {students
@@ -53,7 +53,7 @@ export default function Students({ students }) {
         variant="text"
         component={"button"}
       >
-        <span>{showAll ? "Ver menos" : "Ver mais"}</span>
+        <span>{showAll ? texts.ver_menos : texts.ver_mais}</span>
       </MKButton>
     </section>
   );

@@ -8,6 +8,7 @@ import StatsServer from "./api-components/home/StatsServer";
 import CourseCarouselServer from "./api-components/home/CourseCarouselServer";
 import TeachersServer from "./api-components/home/TeachersServer";
 import HomeBlogServer from "./api-components/home/BlogHomeServer";
+import StudentsServer from "./api-components/home/StudentsServer";
 
 export default function Home() {
   return (
@@ -19,42 +20,7 @@ export default function Home() {
       <CourseCarouselServer />
       <TeachersServer />
       <HomeBlogServer />
-      <Students
-        students={[
-          {
-            url: "student1.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student1.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student1.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student1.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student2.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student2.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student2.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-          {
-            url: "student2.webp",
-            text: "Em Grupo Visual me formei como adbogada e gracas a eles hoje trabalho no ramo que gostou. Eles me ajudaram a criar a mentalidade de estudo e hoje aprendou algo novo todos os dias.",
-          },
-        ]}
-      />
+      <StudentsServer />
       <Brand />
       <Whatsapp />
     </>
