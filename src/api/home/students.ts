@@ -21,6 +21,6 @@ export const getStudentsCards = async () => {
 
 export const getStudentTexts = async () => {
   const resp = await strapiGet("home-alunos");
-  console.log(resp);
+
   return resp.attributes;
 };

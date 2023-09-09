@@ -9,6 +9,7 @@ import CourseCarouselServer from "./api-components/home/CourseCarouselServer";
 import TeachersServer from "./api-components/home/TeachersServer";
 import HomeBlogServer from "./api-components/home/BlogHomeServer";
 import StudentsServer from "./api-components/home/StudentsServer";
+import BrandServer from "./api-components/home/BrandServer";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
       <TeachersServer />
       <HomeBlogServer />
       <StudentsServer />
-      <Brand />
+      <BrandServer />
       <Whatsapp />
     </>
   );
