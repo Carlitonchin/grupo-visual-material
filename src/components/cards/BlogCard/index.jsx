@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import colors from "@/theme/base/colors";
 
-function component(hover, setHover) {
+function component(hover, setHover, blog) {
   return (
     <div
       onMouseEnter={() => setHover(true)}
@@ -16,7 +16,7 @@ function component(hover, setHover) {
         <div
           className="w-full h-full duration-300 absolute"
           style={{
-            backgroundImage: "url('/blog1.webp')",
+            backgroundImage: `url('${blog.img}')`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             scale: hover ? "1.05" : "1",
@@ -28,15 +28,15 @@ function component(hover, setHover) {
           }`}
         />
       </div>
-      <div className="w-full h-3/5 p-2 sm:p-4 text-center">
+      <div className="w-full h-3/5 p-2 text-center">
         <MKTypography
-          className="w-full text-center whitespace-normal"
+          className="w-full text-center whitespace-normal line-clamp-2"
           variant="text"
           color="black"
           fontWeight="bold"
           sx={{ fontSize: "1.1rem" }}
         >
-          Novo metodo de ensenhanza a nivel mundial
+          {blog.titulo}
         </MKTypography>
 
         <MKTypography
@@ -45,9 +45,7 @@ function component(hover, setHover) {
           color="text"
           className={"w-full mt-2 line-clamp-3 lg:line-clamp-4"}
         >
-          Um novo metodo de ensino testado na Europa esta causando furor entre
-          varias das melhores universidades do continente. Os estudantes tem
-          acrescentado num 35% suas notas Um novo metodo de ensino testado..
+          {blog.texto}
         </MKTypography>
 
         <MKButton
@@ -55,20 +53,21 @@ function component(hover, setHover) {
           color="dark"
           className={"absolute bottom-0 left-0 m-4 mb-2"}
           component={Link}
+          target={blog.link_externo ? "_blank" : undefined}
           style={{
             color: hover ? colors.warning.main : "white",
             width: "calc(100% - 2rem)",
           }}
-          href={"/"}
+          href={blog.url}
         >
-          Ver mais
+          {blog.texto_botao}
         </MKButton>
       </div>
     </div>
   );
 }
 
-export default function BlogCard() {
+export default function BlogCard({ blog }) {
   const [hover, setHover] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -76,9 +75,11 @@ export default function BlogCard() {
   return (
     <div className="item-carousel-3 inline-block relative ">
       {isClient ? (
-        <a href="/">{component(hover, setHover)}</a>
+        <a href={blog.url} target={blog?.link_externo ? "_blank" : undefined}>
+          {component(hover, setHover, blog)}
+        </a>
       ) : (
-        component(hover, setHover)
+        component(hover, setHover, blog)
       )}
     </div>
   );

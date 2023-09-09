@@ -57,7 +57,6 @@ export default function CheckOrders() {
   }
 
   async function checkEnroll(order: any) {
-    console.log(timeEnrollEllapsed);
     if (cantEnrollErrors > 10 || enrollChecks > 60) return;
 
     try {

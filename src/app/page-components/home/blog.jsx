@@ -4,7 +4,7 @@ import colors from "@/theme/base/colors";
 import BlogCard from "@/components/cards/BlogCard";
 import TextLink from "@/components/TextLink";
 
-export default function BlogHome() {
+export default function BlogHome({ blogs, texts }) {
   return (
     <section className="flex flex-col justify-center items-center">
       <MKTypography
@@ -18,18 +18,18 @@ export default function BlogHome() {
           },
         })}
       >
-        Temos um Blog
+        {texts.titulo}
       </MKTypography>
       <div className="w-full h-fit flex flex-wrap justify-center gap-y-4">
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+        {blogs.map((blog, index) => {
+          return <BlogCard blog={blog} key={index} />;
+        })}
       </div>
       <TextLink
         className={"mt-4"}
-        text={"Mais posts"}
-        url={"/blog"}
-        extern={false}
+        text={texts.link_texto}
+        url={texts.link_url}
+        extern={Boolean(texts?.link_externo)}
       />
     </section>
   );
