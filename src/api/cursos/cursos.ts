@@ -37,9 +37,8 @@ export const getCategories = async () => {
   return data;
 };
 
-export const getCourses = async () => {
+export const extractCourses = (resp: any) => {
   const data: course[] = [];
-  const resp = await strapiGet("cursos");
   for (let i = 0; i < resp.length; i++) {
     const item = resp[i].attributes;
     const categoriaId = item.categoria.data.id;
@@ -59,6 +58,13 @@ export const getCourses = async () => {
       url: item.url,
     });
   }
+
+  return data;
+};
+
+export const getCourses = async () => {
+  const resp = await strapiGet("cursos");
+  const data = extractCourses(resp);
 
   return data;
 };

@@ -2,9 +2,14 @@
 import MKTypography from "@/components/MKTypography";
 import colors from "@/theme/base/colors";
 import TeachersList from "./teachers-list";
-import { teachers } from "@/api/routes";
 
-export default function ProfessoresPage() {
+export default function ProfessoresPage({
+  title,
+  text,
+  categories,
+  carousel,
+  teachers,
+}) {
   return (
     <div className="h-fit relative z-0">
       <div
@@ -22,7 +27,7 @@ export default function ProfessoresPage() {
             },
           })}
         >
-          Professores atuantes na área
+          {title}
         </MKTypography>
       </div>
       <div className="w-full">
@@ -34,28 +39,18 @@ export default function ProfessoresPage() {
             className="logos-slide flex z-0"
             style={{ width: `${400 * 8}px` }}
           >
-            <img alt="proffesor jirafales z-0" src="student1.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            {carousel.map((c, index) => (
+              <img key={index} alt={c.alt} src={c.img}></img>
+            ))}
           </div>
 
           <div
             className="logos-slide flex z-0"
             style={{ width: `${400 * 8}px` }}
           >
-            <img alt="proffesor jirafales z-0" src="student1.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
-            <img alt="proffesor jirafales z-0" src="student2.webp"></img>
+            {carousel.map((c, index) => (
+              <img key={index} alt={c.alt} src={c.img}></img>
+            ))}
           </div>
         </div>
       </div>
@@ -79,20 +74,8 @@ export default function ProfessoresPage() {
           paddingBottom: "2rem",
         }}
       >
-        <TeachersList
-          categories={[
-            {
-              id: 1,
-              text: "Marketing",
-              color: "#00a",
-            },
-            { id: 2, text: "Programacao", color: "#a00" },
-            { id: 3, text: "Empresa", color: "#0a0" },
-          ]}
-          teachers={teachers}
-        />
+        <TeachersList text={text} categories={categories} teachers={teachers} />
       </section>
-      sdfdsf
     </div>
   );
 }

@@ -16,7 +16,9 @@ export const strapiGet = async (
   limit = "&pagination[limit]=100",
   filters = ""
 ) => {
-  const resp = await axios.get(STRAPI_URL + resource + populate + limit, {
+  const url = STRAPI_URL + resource + populate + limit;
+
+  const resp = await axios.get(url, {
     headers,
   });
   return resp.data.data;

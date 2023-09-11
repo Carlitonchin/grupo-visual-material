@@ -1,10 +1,10 @@
 import { teachers } from "@/api/routes";
+import { getTeachersInfo } from "@/api/teachers/teachers";
 import SingleTeacher from "@/app/page-components/professores/single-teacher";
 
 export async function generateStaticParams() {
-  return teachers.map((c) => ({
+  return (await getTeachersInfo()).map((c) => ({
     slug: c.slug.trim().replaceAll("/", ""),
-    course: c,
   }));
 }
 
@@ -25,10 +25,11 @@ async function getTeacher(slug) {
 }
 
 export default async function Teacher({ params }) {
-  const teacher = await getTeacher(params.slug);
+  const teacher = await getTeachersInfo(params.slug);
+
   return (
     <section className="bg-gray-200">
-      <SingleTeacher teacher={teacher} />
+      <SingleTeacher teacher={teacher[0]} />
     </section>
   );
 }

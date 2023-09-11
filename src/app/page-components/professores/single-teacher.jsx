@@ -1,5 +1,4 @@
 "use client";
-import { courses } from "@/api/routes";
 import MKTypography from "@/components/MKTypography";
 import StarCard from "@/components/cards/StarCard";
 import colors from "@/theme/base/colors";
@@ -47,28 +46,17 @@ export default function SingleTeacher({ teacher }) {
               marginTop: "1rem",
             }}
           >
-            O auxiliar de Necropsia é o profissional responsável por auxiliar o
-            Médico Legista na identificação da causa da morte, já o
-            tanatopraxista trabalha junto às clínicas de tanatopraxia ou
-            fenerárias auxiliando na preparação e ornamentação dos corpos. O
-            Auxiliar de Necrópsia vai auxiliar na identificação do cadáver, na
-            comunicação com os familiares, vai auxiliar com manuseio do corpo
-            realizando os procedimentos de abertura do cadáver, exposição dos
-            órgãos para identificação de lesões que possam ter levado o
-            indivíduo a óbito, ou seja, é ele o responsável por fazer o trabalho
-            bruto, enquanto isso o médico legista acompanha e observa para
-            identificar e desvendar a causa da morte. Logo após todo
-            procedimento realizado é responsabilidade do auxiliar de Necropsia
-            finalizar o procedimento fechar o corpo e fazer a liberação dele
-            para a funerária e familiares. Ao final do curso o estudante recebe
-            em sua casa, dois certificados, o de Auxiliar de Necropsia e o de
-            Tanatopraxia com ênfase em Necromaquiagem. Além do mais, nossos
-            certificados possuem um código de validação em nossa matriz que
-            realmente comprovam sua validade. Nossos certificados são válidos em
-            todo território nacional conforme a LDBE - LEI DE DIRETRIZES E BASE
-            DA EDUCAÇÃO - LEI 9.394/96. Observação: Ressaltamos que para atuação
-            no IML e Institutos de Perícia, é necessário ser aprovado em
-            concurso público.
+            {teacher.resume.split("\n").map((t, index) => {
+              if (!t)
+                return (
+                  <span key={index}>
+                    <br></br>
+                    <br></br>
+                  </span>
+                );
+
+              return <span key={index}>{t}</span>;
+            })}
           </MKTypography>
         </div>
         <div className="w-full relative sm:w-[400px] sm:h-[400px]">
@@ -83,33 +71,35 @@ export default function SingleTeacher({ teacher }) {
           <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-l from-transparent via-transparent to-gray-200" />
         </div>
       </div>
-      <div className="w-full mt-8 lg:mt-12">
-        <MKTypography
-          variant="h3"
-          className="text-center px-4 w-full"
-          color={colors.dark.main}
-          textGradient
-        >
-          Cursos com participação do profissional
-        </MKTypography>
+      {teacher?.courses?.length && (
+        <div className="w-full mt-8 lg:mt-12">
+          <MKTypography
+            variant="h3"
+            className="text-center px-4 w-full"
+            color={colors.dark.main}
+            textGradient
+          >
+            Cursos com participação do profissional
+          </MKTypography>
 
-        <div className="flex flex-wrap pt-4 gap-y-4 justify-center">
-          {courses
-            .filter((c, index) => index <= 2)
-            .map((course) => {
-              return (
-                <StarCard
-                  category={course.category}
-                  img={course.img}
-                  stars={course.stars}
-                  text={course.text}
-                  url={course.url}
-                  key={course.id}
-                />
-              );
-            })}
+          <div className="flex flex-wrap pt-4 gap-y-4 justify-center">
+            {teacher.courses
+              .filter((c, index) => index <= 2)
+              .map((course) => {
+                return (
+                  <StarCard
+                    category={course.category}
+                    img={course.img}
+                    stars={course.stars}
+                    text={course.text}
+                    url={course.url}
+                    key={course.id}
+                  />
+                );
+              })}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
