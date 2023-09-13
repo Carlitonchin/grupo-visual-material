@@ -2,7 +2,7 @@
 import MKTypography from "@/components/MKTypography";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-export default function Info() {
+export default function Info({ info }) {
   return (
     <div>
       <div
@@ -11,7 +11,7 @@ export default function Info() {
           height: "45vh",
           minHeight: "460px",
           maxHeight: "500px",
-          backgroundImage: `url("/bg1.jpeg")`,
+          backgroundImage: `url("${info.fundo}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           textAlign: "center",
@@ -27,14 +27,14 @@ export default function Info() {
               },
             })}
           >
-            Fale Conosco
+            {info.titulo}
           </MKTypography>
           <MKTypography variant="body1" color="white" mt={1}>
-            Atendemos todo o Brasil
+            {info.texto}
           </MKTypography>
           <div className="mt-4 text-center justify-center">
             <div className="flex justify-center">
-              <PhoneInTalkOutlinedIcon className="fill-white w-8 h-8" />
+              <PhoneInTalkOutlinedIcon className="fill-white w-8 h-8 mr-1" />
               <MKTypography
                 variant="h3"
                 color={"white"}
@@ -49,11 +49,11 @@ export default function Info() {
               </MKTypography>
             </div>
             <MKTypography variant="body2" color={"white"}>
-              <a href={"tel:+554630554355"}>(46) 3055-4355</a>
+              <a href={`tel:${info.telefone}`}>{info.telefone_formatado}</a>
             </MKTypography>
 
             <div className="flex text-center justify-center  mt-4">
-              <EmailOutlinedIcon className="w-8 h-8 fill-white" />
+              <EmailOutlinedIcon className="w-8 h-8 fill-white mr-1" />
               <MKTypography
                 variant="h3"
                 color={"white"}
@@ -68,9 +68,7 @@ export default function Info() {
               </MKTypography>
             </div>
             <MKTypography variant="body2" color={"white"}>
-              <a href={"mailto:grupovisualfb@gmail.com"}>
-                grupovisualfb@gmail.com
-              </a>
+              <a href={`mailto:${info.email}`}>{info.email}</a>
             </MKTypography>
           </div>
         </div>

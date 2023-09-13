@@ -12,6 +12,7 @@ export default async function OurMethod() {
       video={info.video}
       cardTitle={info.card_titulo}
       cards={cards}
+      background={info.fundo}
     />
   );
 }

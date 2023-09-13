@@ -11,6 +11,7 @@ export default function Who({
   video,
   cardTitle,
   cards,
+  background,
 }) {
   return (
     <div className="bg-gray-200">
@@ -19,7 +20,7 @@ export default function Who({
           width: "100%",
           height: "55vh",
           minHeight: "400px",
-          backgroundImage: `url("/bg1.jpeg")`,
+          backgroundImage: `url("${background}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

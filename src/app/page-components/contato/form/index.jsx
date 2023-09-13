@@ -34,7 +34,7 @@ const TextMaskCustom = forwardRef(function TextMaskCustom(props, ref) {
   );
 });
 
-export default function Form() {
+export default function Form({ text }) {
   const [values, setValues] = useState({
     name: "",
     phone: "",
@@ -289,7 +289,7 @@ export default function Form() {
                   onSubmit(e);
                 }}
               >
-                Enviar
+                {text || "Enviar"}
               </MKButton>
             </Grid>
           </MKBox>
