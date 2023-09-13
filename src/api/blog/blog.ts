@@ -1,4 +1,6 @@
 import { strapiGet } from "../constant";
+import { remark } from "remark";
+import html from "remark-html";
 
 export const getBlogs = async () => {
   const data: any[] = [];
@@ -8,8 +10,12 @@ export const getBlogs = async () => {
     undefined,
     "&sort=publishedAt:desc"
   );
-  for (let i = 0; i < resp.length; i++)
+  for (let i = 0; i < resp.length; i++) {
     data.push({ id: resp[i].id, ...resp[i].attributes });
+    data[i].conteudo = (
+      await remark().use(html).process(data[i].conteudo)
+    ).toString();
+  }
 
   return data;
 };
