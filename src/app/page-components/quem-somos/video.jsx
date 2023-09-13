@@ -1,6 +1,6 @@
 import MKTypography from "@/components/MKTypography";
 
-export default function WhoVideo() {
+export default function WhoVideo({ url, description }) {
   return (
     <div className="p-4">
       <div className="w-fit relative h-fit p-1 md:p-8 bg-black rounded-xl border-black md:border-white  border-4  m-auto -mt-28">
@@ -15,7 +15,7 @@ export default function WhoVideo() {
           autoPlay
           muted
         >
-          <source src={"/course-video.mp4"}></source>
+          <source src={url}></source>
         </video>
         <div className="hidden md:flex h-8 gap-x-12 absolute w-full bottom-0 left-0 justify-center items-center">
           <span className="w-4 h-4 rounded-sm bg-white" />
@@ -98,20 +98,7 @@ export default function WhoVideo() {
           color={"text"}
           sx={{ fontSize: "1.15rem" }}
         >
-          Uma instituição de cursos profissionalizantes reconhecida pela
-          credibilidade e compromisso com a formação profissional dos seus
-          estudantes. Com uma vasta experiência na área de treinamentos e nos
-          mais variados cursos profissionalizantes. Os cursos possuem uma
-          linguagem simples, prática e moderna que atendem da melhor maneira
-          possível o público alvo em questão, proporcionando um processo de
-          aprendizagem interativo, dinâmico e acessível a qualquer pessoa que
-          tenha acesso à Internet. Há anos atuando no mercado, o Grupo Visual se
-          transformou rapidamente em uma referência no mercado virtual, com
-          certificado válido (Cursos Livres), investindo não apenas na qualidade
-          de seu material didático, como também em profissionais qualificados,
-          para atender estudantes de qualquer lugar do Brasil. Hoje o Grupo
-          Visual orgulhosamente disponibiliza cursos de primeira linha, visando
-          o mercado de trabalho e qualificação dos alunos.
+          {description}
         </MKTypography>
         <svg
           viewBox="0 0 24 24"

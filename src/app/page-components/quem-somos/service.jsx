@@ -12,6 +12,7 @@ export default function Service({
   text,
   textButton,
   urlButton,
+  externLink,
 }) {
   return (
     <div
@@ -78,6 +79,7 @@ export default function Service({
             variant="gradient"
             color="dark"
             component={Link}
+            target={externLink ? "_blank" : undefined}
             href={urlButton}
           >
             {textButton}

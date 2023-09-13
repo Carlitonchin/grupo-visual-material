@@ -4,7 +4,14 @@ import colors from "@/theme/base/colors";
 import WhoVideo from "./video";
 import Service from "./service";
 
-export default function Who() {
+export default function Who({
+  title,
+  description,
+  ourMethod,
+  video,
+  cardTitle,
+  cards,
+}) {
   return (
     <div className="bg-gray-200">
       <div
@@ -29,11 +36,11 @@ export default function Who() {
               },
             })}
           >
-            Conheça o Grupo Visual
+            {title}
           </MKTypography>
         </div>
       </div>
-      <WhoVideo />
+      <WhoVideo url={video} description={description} />
       <section className=" bg-white">
         <MKTypography
           variant="h2"
@@ -45,60 +52,25 @@ export default function Who() {
             },
           })}
         >
-          Serviços Oferecidos
+          {cardTitle}
         </MKTypography>
         <div className="w-full mt-8 flex flex-col gap-y-20 lg:gap-y-36">
-          <Service
-            align={"left"}
-            alt={"servico"}
-            category={"Gestao Academica"}
-            img={"/bg2.jpg"}
-            text={
-              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
-            }
-            textButton={"Saiba mais"}
-            title={"Secretaria Virtual"}
-            urlButton={"/cursos"}
-          />
-
-          <Service
-            align={"right"}
-            alt={"servico"}
-            category={"Gestao Academica"}
-            img={"/bg2.jpg"}
-            text={
-              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
-            }
-            textButton={"Saiba mais"}
-            title={"Secretaria Virtual"}
-            urlButton={"/cursos"}
-          />
-
-          <Service
-            align={"left"}
-            alt={"servico"}
-            category={"Gestao Academica"}
-            img={"/bg2.jpg"}
-            text={
-              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
-            }
-            textButton={"Saiba mais"}
-            title={"Secretaria Virtual"}
-            urlButton={"/cursos"}
-          />
-
-          <Service
-            align={"right"}
-            alt={"servico"}
-            category={"Gestao Academica"}
-            img={"/bg2.jpg"}
-            text={
-              "Este é o coração da Escola Virtual.Gov! Por meio dela, instituições gerenciam seus cursos, a abertura de turmas e o andamento das inscrições. É o local onde servidores e cidadãos têm acesso ao catálogo unificado, calendário de turmas, histórico escolar e emissão de certificado. Tudo por meio de um acesso único e simplificado."
-            }
-            textButton={"Saiba mais"}
-            title={"Secretaria Virtual"}
-            urlButton={"/cursos"}
-          />
+          {cards.map((card, index) => {
+            return (
+              <Service
+                align={index % 2 == 0 ? "left" : "right"}
+                alt={card.alt}
+                category={card.category}
+                img={card.img}
+                text={card.text}
+                textButton={card.textButton}
+                title={card.title}
+                urlButton={card.urlButton}
+                externLink={card.externLink}
+                key={index}
+              />
+            );
+          })}
         </div>
       </section>
       <section className="py-8 flex flex-col gap-y-4">
@@ -122,33 +94,7 @@ export default function Who() {
           className="columns-1 md:columns-2 lg:columns-3 gap-x-20"
           sx={{ fontSize: "1.1rem" }}
         >
-          Entre 2013 e 2016, a Enap alcançou avanços significativos no campo da
-          educação a distância, a exemplo da ampliação dos cursos ofertados
-          (100%) e dos certificados emitidos (400%), bem como a internalização
-          dos serviços de hospedagem e administração do seu ambiente virtual de
-          aprendizagem, de produção multimídia e de planejamento educacional. A
-          Escola Virtual de Governo surgiu, em 2017, como uma proposta para
-          superar a fragmentação dos serviços de hospedagem e gestão acadêmica,
-          buscando garantir a continuidade dos serviços de capacitação a
-          distância do serviço público e solucionar problemas estruturantes que
-          tenham origem na oferta descentralizada de cursos. Saiba mais sobre o
-          surgimento da Escola Virtual de Governo. As primeiras adesões à Escola
-          Virtual de Governo aconteceram em uma cerimônia realizada na Enap no
-          dia 6 de dezembro de 2017. A Escola Virtual segue na jornada de
-          ampliar sua capacidade como hub de conhecimento, abrindo o leque de
-          possibilidades e buscando engajamento dos usuários interessados para
-          que a plataforma evolua ainda mais e consolide-se como um centro de
-          propagação da capacitação online. Atualmente, diversas instituições
-          fazem parte da EV.G como conteudistas, ou seja, ofertando cursos
-          produzidos em parceria conosco ou migrando cursos prontos para
-          hospedagem na plataforma da EV.G. A fim de simplificar e tornar mais
-          eficazes e diretas as parcerias, a EV.G baseia-se na Portaria Enap no
-          83, de 03 de junho de 2014, que versa sobre os termos de autorização
-          de uso dos cursos. Sendo assim, os parceiros estão assegurados que a
-          permanência de seus cursos na plataforma é perene (salvo manifestação
-          contrária do próprio parceiro para que o curso seja alterado ou
-          precise ser retirado da EV.G). Para saber mais sobre adesão da sua
-          instituição à EV.G, escreva para parcerias.evg@enap.gov.br
+          {ourMethod}
         </MKTypography>
       </section>
     </div>
