@@ -18,7 +18,7 @@ export default function BlogCard({ blog }) {
   const autor = blog.autor.data.attributes;
 
   return (
-    <a href="/blog/esporte">
+    <a href={`/blog${blog.url}`}>
       <div className="flex flex-col lg:flex-row gap-x-4 gap-y-4 max-w-6xl m-auto hover:bg-black p-4 rounded-lg hover:bg-opacity-10 duration-200">
         <img
           className="w-full lg:w-[800px] aspect-video"

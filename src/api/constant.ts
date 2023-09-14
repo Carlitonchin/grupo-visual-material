@@ -23,3 +23,13 @@ export const strapiGet = async (
   });
   return resp.data.data;
 };
+
+export const strapiGetPagination = async (
+  resource: string,
+  pageSize: number
+) => {
+  const url = STRAPI_URL + resource + `?pagination[pageSize]=${pageSize}`;
+
+  const resp = await axios.get(url, { headers });
+  return resp.data.meta.pagination;
+};
