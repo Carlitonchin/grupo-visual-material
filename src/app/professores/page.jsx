@@ -5,6 +5,15 @@ import {
 } from "@/api/teachers/teachers";
 import ProfessoresPage from "../page-components/professores";
 import { getCategories } from "@/api/cursos/cursos";
+import { GetMetadata } from "@/app/api-components/metadata";
+
+export const metadata = GetMetadata(
+  undefined,
+  undefined,
+  "Professores",
+  undefined,
+  "/professores"
+);
 
 export default async function Professores() {
   const texts = await getTeacherPageTexts();

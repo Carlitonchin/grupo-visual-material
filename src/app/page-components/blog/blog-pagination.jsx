@@ -56,12 +56,12 @@ export default function BlogPagination({ page, pageCount }) {
 
           {pages.map((currentPage) => (
             <a
+              key={currentPage}
               href={
                 currentPage == page ? undefined : `/blog/page/${currentPage}`
               }
             >
               <MKPagination
-                key={currentPage}
                 item
                 className={currentPage == page ? "bg-black" : ""}
                 active={currentPage == page}

@@ -59,16 +59,16 @@ export default function SingleTeacher({ teacher }) {
             })}
           </MKTypography>
         </div>
-        <div className="w-full relative sm:w-[400px] sm:h-[400px]">
+        <div className="w-full relative sm:w-[400px] sm:h-[400px] rounded-lg">
           <img
             className="w-full h-full rounded-sm"
             alt="profesor"
             src={teacher.url}
           ></img>
           <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-b from-transparent via-transparent to-gray-200" />
-          <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-t from-transparent via-transparent to-gray-200" />
+          {/*<div className="absolute w-full h-full top-0 left-0 bg-gradient-to-t from-transparent via-transparent to-gray-200" />
           <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-r from-transparent via-transparent to-gray-200" />
-          <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-l from-transparent via-transparent to-gray-200" />
+          <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-l from-transparent via-transparent to-gray-200" />*/}
         </div>
       </div>
       {teacher?.courses?.length && (

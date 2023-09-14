@@ -1,6 +1,6 @@
-import { teachers } from "@/api/routes";
 import { getTeachersInfo } from "@/api/teachers/teachers";
 import SingleTeacher from "@/app/page-components/professores/single-teacher";
+import { GetMetadata } from "../../api-components/metadata";
 
 export async function generateStaticParams() {
   return (await getTeachersInfo()).map((c) => ({
@@ -8,20 +8,20 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getTeacher(slug) {
-  let promise = new Promise((resolve, reject) => {
-    const course = teachers.find(
-      (c) => c.slug.trim().replaceAll("/", "") == slug
-    );
-    if (!course) {
-      reject("teacher not found");
-      return;
-    }
+export async function generateMetadata({ params }) {
+  let slug = params.slug;
+  if (slug[0] != "/") slug = "/" + slug;
+  const teacher = (await getTeachersInfo(slug))[0];
 
-    resolve(course);
-  });
+  const meta = GetMetadata(
+    teacher.url,
+    teacher.title,
+    teacher.title,
+    teacher.text,
+    "professores" + teacher.slug
+  );
 
-  return promise;
+  return meta;
 }
 
 export default async function Teacher({ params }) {

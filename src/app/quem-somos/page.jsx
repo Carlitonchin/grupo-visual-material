@@ -1,5 +1,14 @@
 import { getWhoCards, getWhoInfo } from "@/api/who/who";
 import Who from "../page-components/quem-somos";
+import { GetMetadata } from "../api-components/metadata";
+
+export const metadata = GetMetadata(
+  undefined,
+  undefined,
+  "Quem Somos",
+  undefined,
+  "/quem-somos"
+);
 
 export default async function OurMethod() {
   const info = await getWhoInfo();

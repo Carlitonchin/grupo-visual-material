@@ -4,9 +4,6 @@ import "./professores.css";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
-import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
-import { routes } from "@/api/routes";
-import Footer from "../components/footer";
 import Cart from "@/components/cart";
 import { CartProvider } from "./hooks/cart";
 import { Suspense } from "react";
@@ -16,15 +13,9 @@ import CheckOrders from "./orders/check-orders";
 import { OrderProvider } from "./hooks/order";
 import Navbar from "./api-components/general/navbar";
 import FooterServer from "./api-components/general/footerServer";
+import { GetMetadata } from "./api-components/metadata";
 
-export const metadata = {
-  title: "Grupo Visual | Formações Profissionais",
-  description:
-    "O Grupo Visual é uma instituição de cursos profissionalizantes com uma vasta experiência na área de treinamentos e nos mais variados cursos.",
-  icons: {
-    icon: "/favicon.png",
-  },
-};
+export const metadata = GetMetadata();
 
 export default function RootLayout({ children }) {
   return (
