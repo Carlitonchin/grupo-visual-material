@@ -52,8 +52,8 @@ export default {
   },
 
   secondary: {
-    main: "#0a0",
-    focus: "#0a0",
+    main: "#000",
+    focus: "#000",
   },
 
   info: {
