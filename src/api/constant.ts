@@ -14,13 +14,23 @@ export const strapiGet = async (
   resource: string,
   populate = "?populate=*",
   limit = "&pagination[pageSize]=1000000",
-  filters = ""
-) => {
-  const url = STRAPI_URL + resource + populate + limit + filters;
+  filters = "",
+  errors = 0
+): Promise<any> => {
+  let resp: any;
+  try {
+    const url = STRAPI_URL + resource + populate + limit + filters;
 
-  const resp = await axios.get(url, {
-    headers,
-  });
+    resp = await axios.get(url, {
+      timeout: 60000,
+      headers,
+    });
+  } catch {
+    errors++;
+    if (errors < 5)
+      return await strapiGet(resource, populate, limit, filters, errors);
+  }
+
   return resp.data.data;
 };
 
@@ -30,6 +40,6 @@ export const strapiGetPagination = async (
 ) => {
   const url = STRAPI_URL + resource + `?pagination[pageSize]=${pageSize}`;
 
-  const resp = await axios.get(url, { headers });
+  const resp = await axios.get(url, { headers, timeout: 60000 });
   return resp.data.meta.pagination;
 };
