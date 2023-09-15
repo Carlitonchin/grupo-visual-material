@@ -1,5 +1,6 @@
 import { blogPageSize } from "@/api/blog/blog";
 import { strapiGetPagination } from "@/api/constant";
+import { GetMetadata } from "@/app/api-components/metadata";
 import BlogPaginated from "@/app/page-components/blog/blog-paginated";
 
 export async function generateStaticParams() {
@@ -11,6 +12,14 @@ export async function generateStaticParams() {
 
   return resp;
 }
+
+export const metadata = GetMetadata(
+  undefined,
+  undefined,
+  "Blog",
+  undefined,
+  "/blog"
+);
 
 export default function BlogPage({ params }: any) {
   return <BlogPaginated page={Number(params.slug)} />;

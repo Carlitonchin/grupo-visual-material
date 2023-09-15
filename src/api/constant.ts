@@ -13,7 +13,7 @@ const headers = {
 export const strapiGet = async (
   resource: string,
   populate = "?populate=*",
-  limit = "&pagination[limit]=100",
+  limit = "&pagination[pageSize]=1000000",
   filters = ""
 ) => {
   const url = STRAPI_URL + resource + populate + limit + filters;
