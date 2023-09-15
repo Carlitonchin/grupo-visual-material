@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: any) {
     blog.alt,
     blog.titulo,
     blog.descricao.split("\n")[0],
-    slug
+    "/blog" + slug
   );
 
   return meta;
