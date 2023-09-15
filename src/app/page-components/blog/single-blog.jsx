@@ -8,9 +8,9 @@ function getHeader(blog) {
   let url = encodeURI(process.env.URL_BASE + "/blog" + blog.url);
 
   const titleUrl = blog.titulo.replaceAll(" ", "%20");
-  return `<h1>${blog.titulo}</h1>
+  return `<h1 class="text-center sm:text-start">${blog.titulo}</h1>
     <img src="${blog.img}" alt="${blog.alt}" style="margin-bottom:0.5rem;"/>
-    <div class="flex flex-col sm:flex-row gap-y-2 justify-between items-start" style="margin-bottom:2rem;">
+    <div class="flex flex-col sm:flex-row gap-y-2 justify-between items-center sm:items-start mb-4 sm:mb-8">
     <div class=" flex gap-x-2 items-center" >
               <img
               class="rounded-full w-16 h-16"
@@ -28,7 +28,7 @@ function getHeader(blog) {
                 </span>
               </div>
               </div>
-              <div class="flex flex-col items-start sm:items-center">
+              <div class="flex flex-col items-center">
               <span class="font-semibold">Compartilhe:</span>
               <div class="flex gap-x-1 items-center">
               <a target="_blank" class="twitter-share-button"
@@ -43,18 +43,18 @@ function getHeader(blog) {
             ${FacebookIcon()}
             </a>        
 
-
-
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener noreferrer">
-  ${LinkedinIcon()}
-</a>
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=${url}">
+            ${LinkedinIcon()}
+            </a>
 
 <a href="https://api.whatsapp.com/send?text=${titleUrl}%0A%0A${url}" target="_blank" rel="noopener noreferrer">
   ${WhatsappIcon()}
 </a>
 </div>
 </div>
-            </div>`;
+            </div>
+            <h2 class="sm:hidden"></h2>
+            `;
 }
 
 export default function SingleBlog({ blog }) {
