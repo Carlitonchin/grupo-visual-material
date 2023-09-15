@@ -376,44 +376,36 @@ export default function SingleCourse({ course }) {
               Conteúdo
             </MKTypography>
             <div className="flex gap-x-2">
-              <div className="flex flex-col w-fit h-fit items-end">
+              <div className="flex flex-col w-fit h-fit">
                 {splitContent
                   .filter((text) => Boolean(text))
                   .map((text, index) => {
                     if (!text) return <></>;
 
                     return (
-                      <MKTypography
-                        key={index}
-                        variant="button"
-                        color={colors.dark.main}
-                        className="font-bold"
-                        sx={{
-                          fontSize: "1rem",
-                        }}
-                      >
-                        {index + 1 + ". "}
-                      </MKTypography>
+                      <span key={index} className="flex gap-x-2">
+                        <MKTypography
+                          variant="button"
+                          color={colors.dark.main}
+                          className="font-bold"
+                          sx={{
+                            fontSize: "1rem",
+                          }}
+                        >
+                          {(index + 1 < 10 ? "0" : "") + (index + 1 + ". ")}
+                        </MKTypography>
+                        <MKTypography
+                          variant="button"
+                          color={"text"}
+                          sx={{
+                            fontSize: "1rem",
+                          }}
+                        >
+                          {text}
+                        </MKTypography>
+                      </span>
                     );
                   })}
-              </div>
-              <div className="flex flex-col w-fit h-fit">
-                {splitContent.map((text, index) => {
-                  if (!text) return <></>;
-
-                  return (
-                    <MKTypography
-                      key={index}
-                      variant="button"
-                      color={"text"}
-                      sx={{
-                        fontSize: "1rem",
-                      }}
-                    >
-                      {text}
-                    </MKTypography>
-                  );
-                })}
               </div>
             </div>
           </div>
