@@ -15,6 +15,10 @@ function resultsText(number) {
 }
 export default function CoursesLists({ categories, courses }) {
   const [categoriesSelected, setCategoriesSelected] = useState([]);
+  const [focusInput, setFocusInput] = useState(false);
+  const [searchWhileInput, setSearchWhileInput] = useState("");
+  const [inputCoursesFiltered, setInputCoursesFiltered] = useState(false);
+  const [searchHovered, setSearchHovered] = useState(null);
   const [search, setSearch] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([].concat(courses));
 
@@ -25,6 +29,22 @@ export default function CoursesLists({ categories, courses }) {
     let input = document.getElementById("search-course");
     if (input) input.value = searchQuery.trim();
   }, []);
+
+  useEffect(() => {
+    if (!searchWhileInput.trim()) {
+      setInputCoursesFiltered([]);
+      return;
+    }
+
+    setInputCoursesFiltered(
+      courses.filter((c) =>
+        c.text
+          .trim()
+          .toLowerCase()
+          .includes(searchWhileInput.trim().toLowerCase())
+      )
+    );
+  }, [searchWhileInput]);
 
   useEffect(() => {
     let newCourses = courses;
@@ -41,6 +61,49 @@ export default function CoursesLists({ categories, courses }) {
 
     setFilteredCourses(newCourses);
   }, [categoriesSelected, search]);
+
+  useEffect(() => {
+    if (!inputCoursesFiltered?.length) {
+      setSearchHovered(null);
+      return;
+    }
+
+    if (
+      searchHovered != null &&
+      !inputCoursesFiltered.find((c) => c.id == searchHovered)
+    ) {
+      setSearchHovered(inputCoursesFiltered[0].id);
+      return;
+    }
+  }, [inputCoursesFiltered]);
+
+  function moveUpDown(step) {
+    if (!inputCoursesFiltered?.length) return;
+
+    const elem = inputCoursesFiltered.find((c) => c.id == searchHovered);
+    let index = inputCoursesFiltered.indexOf(elem);
+
+    index += step;
+    if (index >= 0 && index < 5 && index < inputCoursesFiltered.length)
+      setSearchHovered(inputCoursesFiltered[index].id);
+    else setSearchHovered(null);
+  }
+
+  function handleKey(e) {
+    if (e.key == "ArrowDown") {
+      e.preventDefault();
+      return moveUpDown(1);
+    }
+    if (e.key == "ArrowUp") {
+      e.preventDefault();
+      return moveUpDown(-1);
+    }
+    if (e.key == "Enter" && searchHovered) {
+      e.preventDefault();
+      let course = courses.find((c) => c.id == searchHovered);
+      if (course) window.location.href = "/cursos" + course.url;
+    }
+  }
 
   function handleSelectCategory(id) {
     if (categoriesSelected.includes(id)) {
@@ -62,6 +125,7 @@ export default function CoursesLists({ categories, courses }) {
     let input = document.getElementById("search-course");
     setSearch(input?.value || "");
   }
+
   return (
     <div className="flex flex-col justify-center items-center">
       <MKTypography
@@ -118,28 +182,67 @@ export default function CoursesLists({ categories, courses }) {
           );
         })}
       </div>
-      <form
-        onSubmit={handleSearch}
-        className="w-full max-w-3xl flex bg-white rounded-md shadow-sm mt-6"
-      >
-        <InputBase
-          sx={{ ml: 1, flex: 1 }}
-          className="w-full"
-          id="search-course"
-          onBlur={handleSearch}
-          placeholder="Pesquisar"
-          inputProps={{ "aria-label": "pesquisar" }}
-        />
-        <IconButton
-          onClick={handleSearch}
-          type="button"
-          sx={{ p: "10px" }}
-          aria-label="search"
+      <div className="w-full max-w-3xl relative">
+        <form
+          onSubmit={handleSearch}
+          className="w-full max-w-3xl flex bg-white rounded-md shadow-sm mt-6"
         >
-          <SearchIcon />
-        </IconButton>
-      </form>
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            onKeyDown={handleKey}
+            className="w-full"
+            autoComplete="off"
+            id="search-course"
+            onInput={(e) => setSearchWhileInput(e.target.value)}
+            onFocus={() => setFocusInput(true)}
+            onBlur={(e) => {
+              handleSearch(e);
+              if (
+                e?.relatedTarget?.getAttribute("data-group") == "search-group"
+              ) {
+                return;
+              }
+              e.preventDefault();
+              e.stopPropagation();
+              setSearchHovered(null);
+              setFocusInput(false);
+            }}
+            placeholder="Pesquisar"
+            inputProps={{ "aria-label": "pesquisar" }}
+          />
+          <IconButton
+            onClick={handleSearch}
+            type="button"
+            sx={{ p: "10px" }}
+            aria-label="search"
+          >
+            <SearchIcon />
+          </IconButton>
+        </form>
+        {focusInput && inputCoursesFiltered.length > 0 && (
+          <div className="absolute mt-1 rounded-sm shadow-md bg-white top-full flex flex-col w-full z-30">
+            {inputCoursesFiltered.map((c, index) => {
+              if (index > 4) return <></>;
 
+              return (
+                <a
+                  onClick={() => setFocusInput(true)}
+                  data-group="search-group"
+                  key={c.id}
+                  href={"/cursos" + c.url}
+                  className={`hover:bg-gray-200 px-4 py-2 ${
+                    searchHovered == c.id && "bg-gray-200"
+                  }`}
+                >
+                  <MKTypography variant="body2" color={colors.dark.main}>
+                    {c.text}
+                  </MKTypography>
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </div>
       <div className="mt-4 md:mt-10 w-full xl:w-11/12 flex justify-center flex-wrap gap-y-4 md:gap-y-8">
         <MKTypography
           variant="body1"

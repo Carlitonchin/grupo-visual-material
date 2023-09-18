@@ -60,6 +60,7 @@ function DefaultNavbar({
   center,
   urlLogo,
   altLogo,
+  courses,
 }) {
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
@@ -535,7 +536,7 @@ function DefaultNavbar({
                   ml="auto"
                   mr={center ? "auto" : 0}
                 >
-                  <SearchInput />
+                  <SearchInput courses={courses} />
                 </MKBox>
 
                 {renderNavbarItems}

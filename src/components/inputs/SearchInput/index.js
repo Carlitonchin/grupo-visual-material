@@ -1,10 +1,9 @@
-import { courses } from "@/api/routes";
 import MKTypography from "@/components/MKTypography";
 import colors from "@/theme/base/colors";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useRef, useEffect } from "react";
 
-function InputIcon({ classNameContainer, className, mobile }) {
+function InputIcon({ classNameContainer, className, mobile, courses }) {
   const [focusInput, setFocusInput] = useState(false);
   const refInput = useRef(null);
   const refContainer = useRef(null);
