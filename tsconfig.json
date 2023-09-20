@@ -36,7 +36,8 @@
     "src/app/page-components/contato/form/form.jsx",
     "src/app/facebook/pixel.js",
     "src/app/page-components/blog/single-blog.jsx",
-    "src/api/blog/blog.js"
+    "src/api/blog/blog.js",
+    "strapi.js"
   ],
   "exclude": ["node_modules"]
 }
