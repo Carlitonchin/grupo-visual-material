@@ -92,7 +92,7 @@ export default function HomeMain({ slides }) {
                     as={Link}
                     href={slide.url}
                     target={slide?.extern_link ? "_blank" : undefined}
-                    className="bg-white font-semibold mt-4"
+                    className="bg-white font-bold uppercase mt-4"
                     variant="shadow"
                   >
                     {slide.buttonText}

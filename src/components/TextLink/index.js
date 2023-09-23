@@ -1,3 +1,4 @@
+"use client";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { Button } from "@nextui-org/button";

@@ -2,7 +2,6 @@ import {
   getDataSessionHomeCourses,
   getHomeCourses,
 } from "@/api/home/homecursos";
-import { courses } from "@/api/routes";
 import CourseCarousel from "@/app/page-components/home/course-carousel";
 
 export default async function CourseCarouselServer() {

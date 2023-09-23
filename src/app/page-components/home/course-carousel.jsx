@@ -1,10 +1,8 @@
 "use client";
 import StarCard from "@/components/cards/StarCard";
-import MKTypography from "@/components/MKTypography";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useRef, useEffect, useState } from "react";
-import colors from "@/theme/base/colors";
 import TextLink from "@/components/TextLink";
 
 var prevPageX = 0;
@@ -103,19 +101,7 @@ export default function CourseCarousel({
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <MKTypography
-        variant="h2"
-        color={colors.dark.main}
-        textGradient
-        className="text-center w-full"
-        sx={({ breakpoints, typography: { size } }) => ({
-          [breakpoints.down("md")]: {
-            fontSize: size["4xl"],
-          },
-        })}
-      >
-        {title}
-      </MKTypography>
+      <h2 className="text-center w-full">{title}</h2>
       <div className="relative flex items-center w-full justify-center mt-8">
         <NavigateBeforeIcon
           onClick={clickLeft}

@@ -2,9 +2,7 @@
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
-import MKButton from "@/components/MKButton";
+import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -49,14 +47,9 @@ function component(
           className="absolute z-20 top-0 left-0 rounded-br-md px-4"
           style={{ backgroundColor: category.color }}
         >
-          <MKTypography
-            className="w-full z-20 -mt-2 text-center whitespace-normal"
-            variant="text"
-            color="white"
-            fontWeight="bold"
-          >
+          <span className="w-full font-semibold text-white z-20 -mt-2 text-center whitespace-normal">
             {category.text}
-          </MKTypography>
+          </span>
         </span>
         <div
           className={
@@ -67,58 +60,45 @@ function component(
       </div>
       <div className="w-full h-[40%] xl:h-[45%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
         <div className="flex flex-col gap-y-4 w-full">
-          <MKTypography
-            className="w-full -mt-2 text-center whitespace-normal"
-            variant="text"
+          <span
+            className="w-full font-bold -mt-2 text-center whitespace-normal"
             sx={{
               fontSize: "1.1rem",
             }}
-            color="black"
-            fontWeight="bold"
           >
             {text}
-          </MKTypography>
+          </span>
           <div className="w-full -mt-3 flex items-center justify-center gap-x-1">
             {new Array(Math.ceil(stars))
               .fill(0)
               .map((_, index) =>
                 index + 1 <= stars ? (
-                  <StarIcon
-                    key={index}
-                    className="w-6 h-6"
-                    style={{ color: colors.warning.main }}
-                  />
+                  <StarIcon key={index} className="w-6 h-6 fill-orange-500" />
                 ) : (
                   <></>
                 )
               )}
             {Math.ceil(stars) > stars && (
-              <StarHalfIcon
-                className="w-6 h-6"
-                style={{ color: colors.warning.main }}
-              />
+              <StarHalfIcon className="w-6 h-6 fill-orange-500" />
             )}
             {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
               <StarBorderIcon
                 key={"--" + index}
-                className="w-6 h-6"
-                style={{ color: colors.warning.main }}
+                className="w-6 h-6 fill-orange-500"
               />
             ))}
           </div>
         </div>
-        <MKButton
-          variant="gradient"
-          color="dark"
-          className={"w-full "}
-          component={Link}
-          style={{
-            color: hover ? colors.warning.main : "white",
-          }}
+        <Button
+          as={Link}
+          className={`w-full bg-black font-bold uppercase ${
+            hover ? "text-orange-500" : "text-white"
+          }`}
           href={"/cursos" + url}
+          variant="shadow"
         >
           Saiba mais
-        </MKButton>
+        </Button>
       </div>
     </div>
   );
