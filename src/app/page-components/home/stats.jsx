@@ -1,52 +1,24 @@
-"use client";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
-
 export default function Stats({ stats }) {
   return (
-    <section className="py-10 bg-gray-200 flex flex-col items-center md:items-start md:flex-row gap-y-10 justify-center gap-x-16 lg:gap-x-24 xl:gap-x-32">
+    <section
+      className="py-10 flex flex-col items-center md:items-start md:flex-row gap-y-10 justify-center gap-x-16 lg:gap-x-24 xl:gap-x-32"
+      style={{
+        background:
+          "linear-gradient(36deg, rgba(232,243,244,0) 1%, rgba(232,233,244,1) 71%)",
+      }}
+    >
       {stats.map((elem, index) => (
         <div key={index} className="flex relative">
-          <div className="w-fit text-center">
-            <div className="relative w-full text-center">
-              <MKTypography
-                variant="h2"
-                color={colors.dark.main}
-                textGradient
-                className="absolute "
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["6xl"],
-                  },
-                })}
-              >
-                +
-              </MKTypography>
-              <MKTypography
-                variant="h2"
-                className="ml-7"
-                color={colors.dark.main}
-                textGradient
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["4xl"],
-                  },
-                })}
-              >
-                {elem.count}
-              </MKTypography>
+          <div className="w-fit flex flex-col items-center text-center">
+            <div className="relative w-fit">
+              <h2 className="absolute text-5xl -left-10">+</h2>
+              <h2 className="text-center text-5xl"> {elem.count}</h2>
             </div>
 
-            <MKTypography variant="h4" className="text-center ml-7">
-              {elem.title}
-            </MKTypography>
-            <MKTypography
-              className="text-center ml-7"
-              variant="body2"
-              color="text"
-            >
+            <h3 className="text-center text-slate-700">{elem.title}</h3>
+            <span className="text-center text-gray-600">
               {elem.description}
-            </MKTypography>
+            </span>
           </div>
         </div>
       ))}

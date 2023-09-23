@@ -11,14 +11,26 @@
 h1 {
   font-size: 3rem;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 h2 {
   font-size: 2.5rem;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 h3 {
   font-size: 2rem;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+h4 {
+  font-size: 1.6rem;
+  font-size: bold;
+  margin: 0;
+  padding: 0;
 }
 
 .father-hover\:scale-110:hover {
