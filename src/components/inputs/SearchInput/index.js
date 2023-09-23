@@ -1,3 +1,5 @@
+"use client";
+
 import MKTypography from "@/components/MKTypography";
 import colors from "@/theme/base/colors";
 import SearchIcon from "@mui/icons-material/Search";
@@ -99,7 +101,7 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
       ref={refContainer}
       onClick={putFocusOnInput}
       className={
-        `relative items-center flex cursor-pointer transition-all duration-300 ` +
+        `relative items-center flex cursor-pointer transition-all duration-300 text-black ` +
         classNameContainer
       }
     >

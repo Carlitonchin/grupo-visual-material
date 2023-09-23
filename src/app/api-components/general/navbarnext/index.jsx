@@ -1,0 +1,121 @@
+"use client";
+
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+} from "@nextui-org/navbar";
+import { Link } from "@nextui-org/link";
+import SearchInput from "@/components/inputs/SearchInput";
+import { Button } from "@nextui-org/button";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/dropdown";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { default as NextLink } from "next/link";
+import MenuMobile from "./menumobile";
+import { useState } from "react";
+
+export default function NavbarNext() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  return (
+    <Navbar
+      shouldHideOnScroll
+      className={`bg-black fixed top-0 text-white py-1 sm:py-2 h-[150px] sm:h-fit`}
+      onMenuOpenChange={setIsMenuOpen}
+    >
+      <div className="flex flex-col w-full">
+        <NavbarContent className="w-full">
+          <NavbarBrand>
+            <a href="/">
+              <img
+                width={120}
+                height={50}
+                src={"/grupo_visual_logo.webp"}
+                alt={"Logo Grupo Visual"}
+              />
+            </a>
+          </NavbarBrand>
+
+          <a href="/dsfklsdjf" className="hidden sm:block lg:hidden">
+            <Button variant="shadow" className="bg-white">
+              Área do Aluno
+            </Button>
+          </a>
+
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            className="lg:hidden"
+          />
+        </NavbarContent>
+
+        <a href="/dsfklsdjf" className="w-full sm:hidden">
+          <Button variant="shadow" className="bg-white w-full">
+            Área do Aluno
+          </Button>
+        </a>
+      </div>
+      <NavbarContent className="hidden lg:flex gap-4 gap-x-8" justify="center">
+        <SearchInput courses={[]} />
+        <NavbarItem>
+          <Link className="text-white text-base" href={"/cursos"}>
+            Cursos
+          </Link>
+        </NavbarItem>
+
+        <Dropdown>
+          <DropdownTrigger>
+            <Button
+              disableRipple
+              className="p-0 bg-transparent data-[hover=true]:bg-transparent text-white text-base"
+              radius="sm"
+              endContent={<ExpandMoreIcon className="w-4 h-4 fill-white" />}
+              variant="light"
+            >
+              Sobre
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="menu">
+            <DropdownItem key="new">
+              <NextLink href={"/quem-somos"}>Quem Somos</NextLink>
+            </DropdownItem>
+            <DropdownItem key="copy">
+              <NextLink href={"/quem-somos#nosso-metodo"}>
+                Nosso Método
+              </NextLink>
+            </DropdownItem>
+            <DropdownItem key="edit">
+              <NextLink href={"/professores"}>Professores</NextLink>
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+
+        <NavbarItem>
+          <Link className="text-white text-base" href={"/contato"}>
+            Contato
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link className="text-white text-base" href={"/blog"}>
+            Blog
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <a href="/dsfklsdjf" className="hidden lg:block">
+        <Button variant="shadow" className="bg-white">
+          Área do Aluno
+        </Button>
+      </a>
+
+      <NavbarMenu className="bg-black text-white h-fit">
+        <MenuMobile />
+      </NavbarMenu>
+    </Navbar>
+  );
+}
