@@ -1,27 +1,8 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
 // @mui material components
 import Icon from "@mui/material/Icon";
 
 // Material Kit 2 React components
-import MKBox from "@/components/MKBox";
-import MKTypography from "@/components/MKTypography";
+import MKBox from "@mui/material/Box";
 
 function DefaultInfoCard({
   color,
@@ -36,66 +17,17 @@ function DefaultInfoCard({
       lineHeight={1}
       p={direction === "center" ? 2 : 0}
       textAlign={direction}
+      className="flex flex-col"
     >
-      {typeof icon === "string" ? (
-        <MKTypography
-          display="block"
-          variant={direction === "center" ? "h2" : "h3"}
-          color={color}
-          textGradient
-        >
-          {" "}
-          <Icon>{icon}</Icon>{" "}
-        </MKTypography>
-      ) : (
-        icon
-      )}
-      <MKTypography
-        display="block"
-        variant="5"
-        fontWeight="bold"
-        className="text-center lg:text-left"
-        mt={direction === "center" ? 1 : 2}
-        mb={1.5}
-      >
+      {typeof icon === "string" ? <Icon>{icon}</Icon> : icon}
+      <span className="text-center lg:text-left font-bold mt-2 mb-0.5 text-slate-800">
         {title}
-      </MKTypography>
-      <MKTypography
-        display="block"
-        className="text-center lg:text-left"
-        variant={small ? "button" : "body2"}
-        color="text"
-      >
+      </span>
+      <span className="text-center lg:text-left text-base text-gray-500">
         {description}
-      </MKTypography>
+      </span>
     </MKBox>
   );
 }
-
-// Setting default props for the DefaultInfoCard
-DefaultInfoCard.defaultProps = {
-  color: "info",
-  direction: "left",
-  small: false,
-};
-
-// Typechecking props for the DefaultInfoCard
-DefaultInfoCard.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "secondary",
-    "info",
-    "success",
-    "warning",
-    "error",
-    "light",
-    "dark",
-  ]),
-  icon: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  direction: PropTypes.oneOf(["left", "right", "center"]),
-  small: PropTypes.bool,
-};
 
 export default DefaultInfoCard;

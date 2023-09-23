@@ -1,27 +1,5 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
-
-// @mui material components
-import Icon from "@mui/material/Icon";
-
 // Material Kit 2 React components
-import MKBox from "@/components/MKBox";
-import MKTypography from "@/components/MKTypography";
+import MKBox from "@mui/material/Box";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 
 function RotatingCardFront({ color, image, icon, title, description }) {
@@ -58,39 +36,11 @@ function RotatingCardFront({ color, image, icon, title, description }) {
     >
       <MKBox textAlign="center" lineHeight={1}>
         {icon && <PanToolAltIcon className="text-white my-2 w-10 h-10" />}
-        <MKTypography variant="h3" color="white" gutterBottom mt={4}>
-          {title}
-        </MKTypography>
-        <MKTypography variant="body2" color="white" opacity={0.8}>
-          {description}
-        </MKTypography>
+        <h3 className="mt-4 text-white">{title}</h3>
+        <span className="text-white">{description}</span>
       </MKBox>
     </MKBox>
   );
 }
-
-// Setting default props for the RotatingCardFront
-RotatingCardFront.defaultProps = {
-  color: "info",
-  icon: "",
-};
-
-// Typechecking props for the RotatingCardFront
-RotatingCardFront.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "secondary",
-    "info",
-    "success",
-    "warning",
-    "error",
-    "dark",
-    "light",
-  ]),
-  image: PropTypes.string.isRequired,
-  icon: PropTypes.node,
-  title: PropTypes.node.isRequired,
-  description: PropTypes.node.isRequired,
-};
 
 export default RotatingCardFront;
