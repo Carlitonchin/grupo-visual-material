@@ -1,8 +1,9 @@
 "use client";
-import RotatingCard from "@/components/examples/Cards/RotatingCard";
-import RotatingCardFront from "@/components/examples/Cards/RotatingCard/RotatingCardFront";
-import RotatingCardBack from "@/components/examples/Cards/RotatingCard/RotatingCardBack";
+import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 import DefaultInfoCard from "@/components/examples/Cards/InfoCards/DefaultInfoCard";
+import { Button } from "@nextui-org/button";
+import Link from "next/link";
+
 import { Grid } from "@mui/material";
 
 export default function Teachers({ teachers, cardData }) {
@@ -12,24 +13,48 @@ export default function Teachers({ teachers, cardData }) {
         className="w-full sm:w-[60%] lg:w-[30%] lg:max-w-[25rem] "
         style={{ height: "30rem" }}
       >
-        <RotatingCard>
-          <RotatingCardFront
-            image={cardData.img_frente}
-            icon="touch_app"
-            color={"dark"}
-            title={cardData.texto_frente}
-          />
-          <RotatingCardBack
-            image={cardData.img_atras}
-            title={cardData.texto_atras}
-            color={"dark"}
-            action={{
-              type: cardData?.link_externo ? "external" : "internal",
-              route: cardData.url_botao,
-              label: cardData.texto_botao,
-            }}
-          />
-        </RotatingCard>
+        <div className="group h-full [perspective:1000px]">
+          <div
+            style={{ transitionDuration: "500ms" }}
+            className="relative h-full w-full transition-all rounded-xl shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] "
+          >
+            <div className="absolute inset-0">
+              <div
+                className="w-full h-full  rounded-xl object-cover shadow-xl shadow-black/40"
+                style={{
+                  backgroundImage: `url(${cardData.img_frente})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              >
+                <div className="bg-black w-full h-full shadow-black/40 bg-opacity-50 flex justify-center items-center rounded-xl object-cover">
+                  <PanToolAltIcon className="w-16 h-16 mt-48 fill-white" />
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                backgroundImage: `url(${cardData.img_atras})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+              className="absolute inset-0 h-full w-full rounded-xl text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]"
+            >
+              <div className="flex flex-col bg-black shadow-black/40 bg-opacity-70 h-full w-full rounded-xl px-8 justify-center items-center">
+                <h4 className="font-bold">{cardData.texto_atras}</h4>
+                <Button
+                  as={Link}
+                  href={cardData.url_botao}
+                  target={cardData?.link_externo ? "_blank" : undefined}
+                  variant="shadow"
+                  className="bg-white text-black uppercase font-bold mt-8"
+                >
+                  {cardData.texto_botao}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="w-full lg:w-[50%] flex items-center justify-center">
         <Grid container spacing={4.5} className="h-fit">

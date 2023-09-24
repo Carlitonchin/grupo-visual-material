@@ -85,7 +85,7 @@ export default function PresentationVideo({ videoUrl, title, options }) {
                 >
                   <span
                     key={index}
-                    className={`px-4 lg:px-8 h-10 font-semibold uppercase text-medium cursor-pointer text-center min-w-min hover:text-black transition-all duration-300 ${
+                    className={`px-4 lg:px-8 h-10 font-bold uppercase text-medium cursor-pointer text-center min-w-min hover:text-black transition-all duration-300 ${
                       index == selectedOption ? "text-black" : "text-gray-500"
                     }`}
                     onClick={() => handleChangeOptions(index)}

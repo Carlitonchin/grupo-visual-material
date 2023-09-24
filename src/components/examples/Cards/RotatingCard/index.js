@@ -15,25 +15,27 @@ function RotatingCard({ children }) {
   const rotate180 = () => setRotate(true);
 
   return (
-    <MKBox
-      sx={{ perspective: "50rem", height: "100%" }}
-      onMouseEnter={rotate180}
-      onMouseLeave={rotate0}
-    >
-      <Card
-        sx={{
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          height: "100%",
-          position: "relative",
-          transform: rotate ? "rotateY(180deg)" : "rotateY(0)",
-          transformStyle: "preserve-3d",
-          transition: "all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1)",
-        }}
+    <>
+      <MKBox
+        sx={{ perspective: "50rem", height: "100%" }}
+        onMouseEnter={rotate180}
+        onMouseLeave={rotate0}
       >
-        {children}
-      </Card>
-    </MKBox>
+        <Card
+          sx={{
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            height: "100%",
+            position: "relative",
+            transform: rotate ? "rotateY(180deg)" : "rotateY(0)",
+            transformStyle: "preserve-3d",
+            transition: "all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1)",
+          }}
+        >
+          {children}
+        </Card>
+      </MKBox>
+    </>
   );
 }
 

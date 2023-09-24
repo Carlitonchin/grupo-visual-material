@@ -1,6 +1,61 @@
 // Material Kit 2 React components
 import MKBox from "@mui/material/Box";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
+import chroma from "chroma-js";
+
+function hexToRgb(color) {
+  return chroma(color).rgb().join(", ");
+}
+
+function linearGradient(color, colorState, angle = 195) {
+  return `linear-gradient(${angle}deg, ${color}, ${colorState})`;
+}
+
+function rgba(color, opacity) {
+  return `rgba(${hexToRgb(color)}, ${opacity})`;
+}
+
+const gradients = {
+  primary: {
+    main: "#a00",
+    state: "#a00",
+  },
+
+  secondary: {
+    main: "#747b8a",
+    state: "#495361",
+  },
+
+  info: {
+    main: "#49a3f1",
+    state: "#1A73E8",
+  },
+
+  success: {
+    main: "#a00",
+    state: "#a00",
+  },
+
+  warning: {
+    main: "#FFA726",
+    state: "#FB8C00",
+  },
+
+  error: {
+    main: "#EF5350",
+    state: "#E53935",
+  },
+
+  light: {
+    main: "#EBEFF4",
+    state: "#CED4DA",
+  },
+
+  dark: {
+    main: "#42424a",
+    state: "#191919",
+  },
+};
 
 function RotatingCardFront({ color, image, icon, title, description }) {
   return (
@@ -16,10 +71,7 @@ function RotatingCardFront({ color, image, icon, title, description }) {
       position="relative"
       zIndex={2}
       sx={{
-        backgroundImage: ({
-          palette: { gradients },
-          functions: { linearGradient, rgba },
-        }) =>
+        backgroundImage: () =>
           `${linearGradient(
             rgba(
               gradients[color] ? gradients[color].main : gradients.info.main,

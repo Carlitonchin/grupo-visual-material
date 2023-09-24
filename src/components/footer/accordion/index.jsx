@@ -5,8 +5,6 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import MKTypography from "@/components/MKTypography";
-import colors from "../../../theme/base/colors";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -57,49 +55,23 @@ export default function MyAccordion({ faqs }) {
             key={index}
             expanded={expanded === `panel${index + 1}`}
             onChange={handleChange(`panel${index + 1}`)}
-            className="bg-transparent  text-white w-full md:w-[80%] lg:w-[70%] xl:w-[60%] lg:text-center"
-            sx={{
-              fill:
-                expanded === `panel${index + 1}`
-                  ? colors.warning.main
-                  : "white",
-            }}
+            className={`${
+              expanded === `panel${index + 1}`
+                ? "fill-orange-500"
+                : "fill-white"
+            } bg-transparent  text-white w-full md:w-[80%] lg:w-[70%] xl:w-[60%] lg:text-center`}
           >
             <AccordionSummary
               className="w-full flex"
               aria-controls="panel1d-content"
               id="panel1d-header"
             >
-              <MKTypography
-                variant="h6"
-                color={"#fff"}
-                className={" w-full"}
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["4xl"],
-                  },
-                  color:
-                    expanded == `panel${index + 1}`
-                      ? colors.warning.main
-                      : "white",
-                })}
-              >
-                {faq.pergunta}
-              </MKTypography>
+              <h6 className={" w-full text-white font-bold"}>{faq.pergunta}</h6>
             </AccordionSummary>
             <AccordionDetails className="w-full">
-              <MKTypography
-                variant="body1"
-                color={"#fff"}
-                className="text-white w-full text-left"
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["4xl"],
-                  },
-                })}
-              >
+              <span className="text-white w-full text-left">
                 {faq.resposta}
-              </MKTypography>
+              </span>
             </AccordionDetails>
           </Accordion>
         );
