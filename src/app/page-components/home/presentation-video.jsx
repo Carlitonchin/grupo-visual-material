@@ -1,12 +1,6 @@
 "use client";
 import { useReactPixel } from "@/app/hooks/reactPixel";
-import MKTypography from "@/components/MKTypography";
-import {
-  activateSoundTrack,
-  customEvent,
-  viewVideoTrack,
-} from "@/facebook-pixel/utils";
-import colors from "@/theme/base/colors";
+import { activateSoundTrack, viewVideoTrack } from "@/facebook-pixel/utils";
 import { useEffect, useState } from "react";
 
 const videoName = "home";
@@ -80,19 +74,7 @@ export default function PresentationVideo({ videoUrl, title, options }) {
           <source src={videoUrl}></source>
         </video>
         <div className="w-full max-w-2xl flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start">
-          <MKTypography
-            variant="h2"
-            color={colors.dark.main}
-            textGradient
-            className="text-center w-full"
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["4xl"],
-              },
-            })}
-          >
-            {title}
-          </MKTypography>
+          <h2 className="text-center w-full">{title}</h2>
 
           <div className="w-full sm:w-3/4 md:w-full ">
             <div className="w-full flex flex-col  md:flex-row justify-center gap-y-2 ">
@@ -101,24 +83,16 @@ export default function PresentationVideo({ videoUrl, title, options }) {
                   className="w-full h-10 flex flex-col  relative "
                   key={index}
                 >
-                  <MKTypography
+                  <span
                     key={index}
-                    variant="button"
-                    color="text"
-                    fontWeight="bold"
-                    className={`px-4 lg:px-8  cursor-pointer text-center min-w-min hover:text-black transition-all duration-300 ${
-                      index == selectedOption ? "text-black" : ""
+                    className={`px-4 lg:px-8 h-10 font-semibold uppercase text-medium cursor-pointer text-center min-w-min hover:text-black transition-all duration-300 ${
+                      index == selectedOption ? "text-black" : "text-gray-500"
                     }`}
                     onClick={() => handleChangeOptions(index)}
-                    textTransform="uppercase"
-                    mt={1}
                   >
                     {key}
-                  </MKTypography>
-                  <span
-                    className="absolute bottom-0 left-0 h-1 w-full"
-                    style={{ backgroundColor: colors.text.main }}
-                  />
+                  </span>
+                  <span className="absolute bottom-0 left-0 h-1 w-full bg-gray-500" />
                   <span
                     className={
                       "absolute bottom-0 left-0 transition-all h-1 bg-black duration-300 " +
@@ -129,14 +103,11 @@ export default function PresentationVideo({ videoUrl, title, options }) {
               ))}
             </div>
             {Object.keys(options).map((key, index) => (
-              <MKTypography
+              <span
                 key={index}
-                mt={1.5}
-                variant="body2"
                 id={"text-option-presentation-" + index}
-                color="text"
                 className={
-                  "transition-opacity  text-center duration-700 w-full  " +
+                  "transition-opacity mt-2 text-base text-gray-500  text-center duration-700 w-full  " +
                   (index == selectedOption ? "block" : "hidden")
                 }
                 style={{
@@ -144,7 +115,7 @@ export default function PresentationVideo({ videoUrl, title, options }) {
                 }}
               >
                 {options[key]}
-              </MKTypography>
+              </span>
             ))}
           </div>
         </div>
