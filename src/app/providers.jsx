@@ -9,12 +9,7 @@ export default function Providers({ children }) {
   return (
     <ReactPixelProvider>
       <CartProvider>
-        <OrderProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
-        </OrderProvider>
+        <OrderProvider>{children}</OrderProvider>
       </CartProvider>
     </ReactPixelProvider>
   );
