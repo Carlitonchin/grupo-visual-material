@@ -1,7 +1,6 @@
 "use client";
-import MKButton from "@/components/MKButton";
-import MKTypography from "@/components/MKTypography";
 import Link from "next/link";
+import { Button } from "@nextui-org/button";
 import { useEffect } from "react";
 
 export default function HomeMain({ slides }) {
@@ -86,31 +85,18 @@ export default function HomeMain({ slides }) {
                   style={{ opacity: index == 0 ? "1" : "0" }}
                   className={`home-container-text transition-opacity duration-1000 w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
                 >
-                  <MKTypography
-                    variant="h1"
-                    color="white"
-                    sx={({ breakpoints, typography: { size } }) => ({
-                      [breakpoints.down("md")]: {
-                        fontSize: size["4xl"],
-                      },
-                    })}
-                  >
-                    {slide.text1}
-                  </MKTypography>
-                  <MKTypography variant="body1" color="white" mt={1}>
-                    {slide.text2}
-                  </MKTypography>
+                  <h1 className="text-white">{slide.text1}</h1>
+                  <p className="text-white">{slide.text2}</p>
 
-                  <MKButton
-                    className="mt-4"
-                    color="light"
-                    variant="gradient"
-                    component={Link}
+                  <Button
+                    as={Link}
                     href={slide.url}
                     target={slide?.extern_link ? "_blank" : undefined}
+                    className="bg-white font-semibold mt-4"
+                    variant="shadow"
                   >
                     {slide.buttonText}
-                  </MKButton>
+                  </Button>
                 </div>
               </div>
             </div>

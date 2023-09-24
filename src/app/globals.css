@@ -8,6 +8,19 @@
   padding: 0;
 }
 
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .father-hover\:scale-110:hover {
   transform: scale(1.1);
   border: 1px solid rgb(192, 185, 185);
