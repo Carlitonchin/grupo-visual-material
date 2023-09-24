@@ -4,11 +4,10 @@ import MKButton from "@/components/MKButton";
 import { useState } from "react";
 import MuiAlert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
-import MKBox from "@/components/MKBox";
+import MKBox from "@mui/material/Box";
 import Snackbar from "@mui/material/Snackbar";
 import { requiredField, validateEmail } from "@/components/utils/validators";
 import { API_URL } from "@/api/constant";
-import colors from "@/theme/base/colors";
 import {
   Grid,
   FormControl,
@@ -102,7 +101,7 @@ export default function BuyForm({ courses, handleClose, isCart }) {
     <>
       {isLoading && (
         <div className="w-screen z-40  h-screen fixed top-0 left-0 flex justify-center items-center">
-          <CircularProgress sx={{ color: colors.dark.main }} />
+          <CircularProgress sx={{ color: "#000" }} />
         </div>
       )}
 

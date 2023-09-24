@@ -1,7 +1,5 @@
 "use client";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
-import MKButton from "@/components/MKButton";
+import { Button } from "@nextui-org/button";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import WatchLaterOutlinedIcon from "@mui/icons-material/WatchLaterOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
@@ -121,30 +119,26 @@ export default function SingleCourse({ course }) {
           >
             {!fixCard && (
               <>
-                <MKTypography
-                  variant="button"
-                  textTransform="uppercase"
-                  sx={{
+                <span
+                  className="uppercase"
+                  style={{
                     fontWeight: "bold",
                     color: course.category.color,
                     fontSize: "1rem",
                   }}
                 >
                   {course.category.text}
-                </MKTypography>
+                </span>
 
-                <MKTypography
-                  variant="h3"
-                  color={colors.dark.main}
-                  textGradient
+                <h3
                   className="text-center lg:text-right"
-                  sx={{
+                  style={{
                     padding: 0,
                     margin: 0,
                   }}
                 >
                   {course.text}
-                </MKTypography>
+                </h3>
               </>
             )}
 
@@ -157,30 +151,26 @@ export default function SingleCourse({ course }) {
                         className="w-6 h-6 mr-1"
                         style={{ fill: course.category.color }}
                       />
-                      <MKTypography
-                        variant="button"
-                        textTransform="uppercase"
-                        color={colors.dark.main}
-                        textGradient
-                        sx={{
+                      <span
+                        className="uppercase"
+                        style={{
                           fontWeight: "bold",
                           fontSize: "0.9rem",
                         }}
                       >
                         Formato
-                      </MKTypography>
+                      </span>
                     </div>
-                    <MKTypography
-                      variant="button"
-                      color={"text"}
-                      sx={{
+                    <span
+                      className="text-gray-500"
+                      style={{
                         fontSize: "1rem",
                         marginLeft: "1.75rem",
                         marginBottom: "1rem",
                       }}
                     >
                       {course.format}
-                    </MKTypography>
+                    </span>
                   </div>
 
                   <div>
@@ -189,30 +179,26 @@ export default function SingleCourse({ course }) {
                         className="w-6 h-6 mr-1"
                         style={{ fill: course.category.color }}
                       />
-                      <MKTypography
-                        variant="button"
-                        textTransform="uppercase"
-                        color={colors.dark.main}
-                        textGradient
-                        sx={{
+                      <span
+                        className="uppercase"
+                        style={{
                           fontWeight: "bold",
                           fontSize: "0.9rem",
                         }}
                       >
                         Duração
-                      </MKTypography>
+                      </span>
                     </div>
-                    <MKTypography
-                      variant="button"
-                      color={"text"}
-                      sx={{
+                    <span
+                      className="text-gray-500"
+                      style={{
                         fontSize: "1rem",
                         marginLeft: "1.75rem",
                         marginBottom: "1rem",
                       }}
                     >
                       {course.duration}
-                    </MKTypography>
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center mt-6">
@@ -220,45 +206,32 @@ export default function SingleCourse({ course }) {
                     className="w-6 h-6 mr-1"
                     style={{ fill: course.category.color }}
                   />
-                  <MKTypography
-                    variant="button"
-                    textTransform="uppercase"
-                    color={colors.dark.main}
-                    textGradient
-                    sx={{
+                  <span
+                    className="uppercase"
+                    style={{
                       fontWeight: "bold",
                       fontSize: "0.9rem",
                     }}
                   >
                     Certificação
-                  </MKTypography>
+                  </span>
                 </div>
-                <MKTypography
-                  variant="button"
-                  color={"text"}
-                  sx={{
+                <span
+                  className="text-gray-500"
+                  style={{
                     fontSize: "1rem",
                     marginLeft: "1.75rem",
                     marginBottom: "1rem",
                   }}
                 >
                   {course.certification}
-                </MKTypography>
+                </span>
               </div>
               <div className="w-full bg-gray-300 p-5 text-center flex flex-col items-center justify-center">
-                <MKTypography
-                  variant="h3"
-                  color={colors.dark.main}
-                  textGradient
-                  sx={{ padding: 0, margin: 0 }}
-                >
-                  {brlCurrencyFormatter.format(course?.price || 0)}
-                </MKTypography>
-                <MKButton
-                  variant="gradient"
-                  fullWidth
-                  sx={{ marginTop: "1rem" }}
-                  href="#"
+                <h3>{brlCurrencyFormatter.format(course?.price || 0)}</h3>
+                <Button
+                  variant="shadow"
+                  className="w-full bg-blue-600 font-bold uppercase mt-1.5 text-white"
                   onClick={(e) => {
                     e.preventDefault();
                     if (!firstEnroll) {
@@ -268,23 +241,19 @@ export default function SingleCourse({ course }) {
 
                     setOpenEnroll(true);
                   }}
-                  color="info"
                 >
                   Matricule-se
-                </MKButton>
-                <MKButton
-                  variant="gradient"
-                  color="dark"
-                  fullWidth
-                  sx={{ marginTop: "0.5rem" }}
-                  href="#"
+                </Button>
+                <Button
+                  variant="shadow"
+                  className="w-full bg-black mt-1"
                   onClick={(e) => {
                     e.preventDefault();
                     AddToCart(course);
                   }}
                 >
-                  <ShoppingCartOutlinedIcon className="h-6 w-6" />
-                </MKButton>
+                  <ShoppingCartOutlinedIcon className="h-6 w-6 fill-white" />
+                </Button>
               </div>
             </div>
           </div>
@@ -311,18 +280,14 @@ export default function SingleCourse({ course }) {
             className="flex flex-col"
             style={{ width: "100%", maxWidth: "1000px" }}
           >
-            <MKTypography
-              variant="h3"
-              color={colors.dark.main}
-              textGradient
-              sx={{ padding: 0, marginTop: "2rem", marginBottom: "0.5rem" }}
+            <h3
+              style={{ padding: 0, marginTop: "2rem", marginBottom: "0.5rem" }}
             >
               Sobre o curso
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
+            </h3>
+            <span
+              className="text-gray-500"
+              style={{
                 fontSize: "1rem",
               }}
             >
@@ -337,20 +302,16 @@ export default function SingleCourse({ course }) {
 
                 return text;
               })}
-            </MKTypography>
+            </span>
 
-            <MKTypography
-              variant="h3"
-              color={colors.dark.main}
-              textGradient
-              sx={{ padding: 0, marginTop: "2rem", marginBottom: "0.5rem" }}
+            <h3
+              style={{ padding: 0, marginTop: "2rem", marginBottom: "0.5rem" }}
             >
               Objetivo
-            </MKTypography>
-            <MKTypography
-              variant="button"
-              color={"text"}
-              sx={{
+            </h3>
+            <span
+              className="text-gray-500"
+              style={{
                 fontSize: "1rem",
               }}
             >
@@ -365,16 +326,13 @@ export default function SingleCourse({ course }) {
 
                 return text;
               })}
-            </MKTypography>
+            </span>
 
-            <MKTypography
-              variant="h3"
-              color={colors.dark.main}
-              textGradient
-              sx={{ padding: 0, marginTop: "2rem", marginBottom: "0.5rem" }}
+            <h3
+              style={{ padding: 0, marginTop: "2rem", marginBottom: "0.5rem" }}
             >
               Conteúdo
-            </MKTypography>
+            </h3>
             <div className="flex gap-x-2">
               <div className="flex flex-col w-fit h-fit">
                 {splitContent
@@ -384,25 +342,22 @@ export default function SingleCourse({ course }) {
 
                     return (
                       <span key={index} className="flex gap-x-2">
-                        <MKTypography
-                          variant="button"
-                          color={colors.dark.main}
+                        <span
                           className="font-bold"
-                          sx={{
+                          style={{
                             fontSize: "1rem",
                           }}
                         >
                           {(index + 1 < 10 ? "0" : "") + (index + 1 + ". ")}
-                        </MKTypography>
-                        <MKTypography
-                          variant="button"
-                          color={"text"}
-                          sx={{
+                        </span>
+                        <span
+                          className="text-gray-500"
+                          style={{
                             fontSize: "1rem",
                           }}
                         >
                           {text}
-                        </MKTypography>
+                        </span>
                       </span>
                     );
                   })}

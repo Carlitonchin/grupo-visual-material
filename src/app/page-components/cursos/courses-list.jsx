@@ -1,6 +1,4 @@
 "use client";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import { useEffect, useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import InputBase from "@mui/material/InputBase";
@@ -128,35 +126,16 @@ export default function CoursesLists({ categories, courses }) {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <MKTypography
-        variant="h2"
-        color={colors.dark.main}
-        textGradient
-        className="text-center w-full"
-        sx={({ breakpoints, typography: { size } }) => ({
-          [breakpoints.down("md")]: {
-            fontSize: size["4xl"],
-          },
-        })}
-      >
-        Nossos Cursos
-      </MKTypography>
-      <MKTypography
-        variant="h5"
-        textGradient
-        className="text-center w-full"
-        color={colors.dark.main}
-        mt={0.5}
-      >
+      <h2 className="text-center w-full">Nossos Cursos</h2>
+      <h5 className="text-center w-full mt-0.5 font-bold">
         Selecione um ou mais filtros abaixo:
-      </MKTypography>
+      </h5>
       <div className="flex mt-2 flex-wrap w-full items-center justify-center gap-x-2 gap-y-2">
         {categories.map((cat) => {
           return (
-            <MKTypography
+            <span
               key={cat.id}
-              variant="button"
-              sx={{
+              style={{
                 color: categoriesSelected.includes(cat.id) ? "#fff" : cat.color,
                 border: "2px solid " + cat.color,
                 "&:hover": {
@@ -166,9 +145,7 @@ export default function CoursesLists({ categories, courses }) {
                   ? cat.color
                   : "transparent",
               }}
-              fontWeight="bold"
-              className={`px-4 py-2 relative rounded-full cursor-pointer hover:text-white duration-200`}
-              textTransform="uppercase"
+              className={`px-4 py-2 relative rounded-full text-base font-bold uppercase cursor-pointer hover:text-white duration-200`}
               onClick={() => handleSelectCategory(cat.id)}
             >
               <span>{cat.text}</span>
@@ -178,7 +155,7 @@ export default function CoursesLists({ categories, courses }) {
                   <CancelIcon className="w-6 h-6  fill-red-500 z-10" />
                 </div>
               )}
-            </MKTypography>
+            </span>
           );
         })}
       </div>
@@ -234,9 +211,7 @@ export default function CoursesLists({ categories, courses }) {
                     searchHovered == c.id && "bg-gray-200"
                   }`}
                 >
-                  <MKTypography variant="body2" color={colors.dark.main}>
-                    {c.text}
-                  </MKTypography>
+                  <span className="text-base">{c.text}</span>
                 </a>
               );
             })}
@@ -244,15 +219,9 @@ export default function CoursesLists({ categories, courses }) {
         )}
       </div>
       <div className="mt-4 md:mt-10 w-full xl:w-11/12 flex justify-center flex-wrap gap-y-4 md:gap-y-8">
-        <MKTypography
-          variant="body1"
-          textGradient
-          className="text-center w-full"
-          color={colors.dark.main}
-          mt={0.5}
-        >
+        <span className="text-center w-full mt-0.5">
           {resultsText(filteredCourses?.length || 0)}
-        </MKTypography>
+        </span>
         {filteredCourses?.length > 0 &&
           filteredCourses.map((course) => {
             return (
