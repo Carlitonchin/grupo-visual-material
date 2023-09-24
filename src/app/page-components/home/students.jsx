@@ -1,27 +1,15 @@
 "use client";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import PhotoCard from "@/components/cards/PhotoCard";
 import { useState } from "react";
-import MKButton from "@/components/MKButton";
+import { Button } from "@nextui-org/button";
 
 export default function Students({ students, texts }) {
   const [showAll, setShowAll] = useState(false);
   return (
     <section className="py-10 flex flex-col justify-center items-center bg-gray-200">
-      <MKTypography
-        variant="h2"
-        color={colors.dark.main}
-        textGradient
-        className="text-center w-full mb-8"
-        sx={({ breakpoints, typography: { size } }) => ({
-          [breakpoints.down("md")]: {
-            fontSize: size["4xl"],
-          },
-        })}
-      >
+      <h2 variant="h2" className="text-center w-full mb-8">
         {texts.titulo}
-      </MKTypography>
+      </h2>
       <div className="w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
         {students
           .filter((_, index) => index < 4)
@@ -46,15 +34,13 @@ export default function Students({ students, texts }) {
         </div>
       )}
 
-      <MKButton
+      <Button
         onClick={() => setShowAll(!showAll)}
-        className={"text-md mt-2 duration-200"}
-        color="dark"
-        variant="text"
-        component={"button"}
+        className={"text-md mt-2 duration-200 text-base font-semibold"}
+        variant="light"
       >
         <span>{showAll ? texts.ver_menos : texts.ver_mais}</span>
-      </MKButton>
+      </Button>
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import MKTypography from "@/components/MKTypography";
 export default function PhotoCard({ url, text, className }) {
   return (
     <div className={className || "item-4 relative"}>
@@ -13,13 +12,13 @@ export default function PhotoCard({ url, text, className }) {
         }}
       >
         <div className="w-full overflow-hidden h-full transition-opacity duration-200 opacity-0 hover:opacity-100 bg-black bg-opacity-75 p-4 flex items-center justify-center">
-          <MKTypography
-            variant="body2"
-            color="white"
-            className={"text-center w-full  overflow-hidden"}
+          <span
+            className={
+              "text-center w-full  overflow-hidden text-white text-base"
+            }
           >
             {text}
-          </MKTypography>
+          </span>
         </div>
       </div>
     </div>
