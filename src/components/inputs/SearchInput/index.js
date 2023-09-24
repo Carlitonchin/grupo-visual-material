@@ -1,7 +1,3 @@
-"use client";
-
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useRef, useEffect } from "react";
 
@@ -151,9 +147,7 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
                   searchHovered == c.id && "bg-gray-200"
                 }`}
               >
-                <MKTypography variant="body2" color={colors.dark.main}>
-                  {c.text}
-                </MKTypography>
+                <span>{c.text}</span>
               </a>
             );
           })}

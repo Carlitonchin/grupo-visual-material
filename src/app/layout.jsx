@@ -9,7 +9,6 @@ import FooterServer from "./api-components/general/footerServer";
 import { GetMetadata } from "./api-components/metadata";
 import Providers from "./providers";
 import MyNextUIProvider from "./mynextui-provider";
-import NavbarNext from "./api-components/general/navbarnext";
 
 export const metadata = GetMetadata();
 
@@ -23,7 +22,6 @@ export default function RootLayout({ children }) {
               <FacebookPixel />
             </Suspense>
             <div className="overflow-x-hidden h-fit overflow-y-auto">
-              <NavbarNext />
               <Navbar />
               {children}
               <Cart />

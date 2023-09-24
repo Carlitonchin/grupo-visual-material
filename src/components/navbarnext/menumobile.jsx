@@ -9,12 +9,12 @@ export default function MenuMobile() {
   const [expanded, setExpanded] = useState("");
   return (
     <>
-      <NavbarMenuItem className="mt-24">
+      <NavbarMenuItem className="pr-4">
         <SearchInput courses={[]} mobile={true} />
       </NavbarMenuItem>
 
-      <NavbarMenuItem className="mt-8">
-        <Link className="text-white w-full text-2xl" href={"/cursos"}>
+      <NavbarMenuItem className="mt-4">
+        <Link className="text-white w-full text-xl" href={"/cursos"}>
           Cursos
         </Link>
       </NavbarMenuItem>
@@ -24,7 +24,7 @@ export default function MenuMobile() {
             e.preventDefault();
             expanded == "Sobre" ? setExpanded("") : setExpanded("Sobre");
           }}
-          className="text-white w-full text-2xl"
+          className="text-white w-full text-xl"
           href={"#"}
         >
           <span className="flex gap-x-2 items-center">
@@ -42,21 +42,21 @@ export default function MenuMobile() {
             expanded == "Sobre" ? "pl-2 py-1 h-fit" : "h-0 p-0"
           } flex flex-col gap-y-1 h-0 overflow-hidden`}
         >
-          <Link className="text-white w-full text-xl" href={"/sobre"}>
+          <Link className="text-white w-full text-lg" href={"/sobre"}>
             Sobre
           </Link>
-          <Link className="text-white w-full text-xl" href={"/sobre"}>
+          <Link className="text-white w-full text-lg" href={"/sobre"}>
             Sobre
           </Link>
         </div>
       </NavbarMenuItem>
       <NavbarMenuItem>
-        <Link className="text-white w-full text-2xl" href={"/contato"}>
+        <Link className="text-white w-full text-xl" href={"/contato"}>
           Contato
         </Link>
       </NavbarMenuItem>
       <NavbarMenuItem>
-        <Link className="text-white w-full text-2xl" href={"/blog"}>
+        <Link className="text-white w-full text-xl" href={"/blog"}>
           Blog
         </Link>
       </NavbarMenuItem>

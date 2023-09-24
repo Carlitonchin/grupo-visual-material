@@ -6,7 +6,6 @@ import {
   NavbarContent,
   NavbarItem,
   NavbarMenuToggle,
-  NavbarMenu,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import SearchInput from "@/components/inputs/SearchInput";
@@ -20,14 +19,22 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { default as NextLink } from "next/link";
 import MenuMobile from "./menumobile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function NavbarNext() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hideOnScroll, setHideOnScroll] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHideOnScroll(!isMenuOpen);
+    }, 500);
+  }, [isMenuOpen]);
   return (
     <Navbar
-      shouldHideOnScroll
-      className={`bg-black fixed top-0 text-white py-1 sm:py-2 h-[150px] sm:h-fit`}
+      isBlurred={false}
+      shouldHideOnScroll={hideOnScroll}
+      className={`bg-black bg-opacity-90 fixed top-0 text-white py-1 sm:py-2 h-[150px] sm:h-[80px]`}
       onMenuOpenChange={setIsMenuOpen}
     >
       <div className="flex flex-col w-full">
@@ -113,9 +120,13 @@ export default function NavbarNext() {
         </Button>
       </a>
 
-      <NavbarMenu className="bg-black text-white h-fit">
+      <div
+        className={`bg-black flex flex-col gap-y-3  bg-opacity-90 fixed ${
+          isMenuOpen ? "h-fit p-6 pt-2 opacity-100" : "h-0 p-0 opacity-0"
+        } left-0 top-[150px] sm:top-[80px] w-screen list-none text-white overflow-hidden duration-500 ease-in-out transition-all`}
+      >
         <MenuMobile />
-      </NavbarMenu>
+      </div>
     </Navbar>
   );
 }

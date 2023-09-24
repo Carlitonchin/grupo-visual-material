@@ -1,13 +1,14 @@
 import { getCourses } from "@/api/cursos/cursos";
 import { getAreaAluno, getLogoMenu, getMenu } from "@/api/home/menu";
 import DefaultNavbar from "@/components/examples/Navbars/DefaultNavbar";
+import NavbarNext from "@/components/navbarnext";
 
 export default async function Navbar() {
   const routes = await getMenu();
   const logoMenu = await getLogoMenu();
   const areaAluno = await getAreaAluno();
   const courses = await getCourses();
-  return (
+  return <NavbarNext />; /*(
     <DefaultNavbar
       courses={courses}
       routes={routes}
@@ -23,5 +24,5 @@ export default async function Navbar() {
       light
       sticky
     />
-  );
+  );*/
 }
