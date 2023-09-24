@@ -101,7 +101,9 @@ export default function CourseCarousel({
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <h2 className="text-center w-full">{title}</h2>
+      <div data-aos-delay="200" data-aos="fade-down">
+        <h2 className="text-center w-full">{title}</h2>
+      </div>
       <div className="relative flex items-center w-full justify-center mt-8">
         <NavigateBeforeIcon
           onClick={clickLeft}
@@ -124,11 +126,14 @@ export default function CourseCarousel({
           {courses.map((c, index) => (
             <>
               <StarCard
+                data-aos="flip-left"
                 img={c.img}
                 text={c.text}
                 stars={c.stars}
                 url={c.url}
                 category={c.category}
+                index={index + 1}
+                animation
               />
             </>
           ))}
@@ -143,6 +148,7 @@ export default function CourseCarousel({
         />
       </div>
       <TextLink
+        animation
         className={"mt-4"}
         url={buttonUrl}
         text={buttonText}

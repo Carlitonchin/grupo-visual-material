@@ -31,9 +31,11 @@ export default function CoursesCards({
       className="bg-gray-200 py-10 w-full h-fit flex flex-col justify-center items-center md:-mt-24 transition-all duration-1000"
     >
       <div className="h-fit w-full  flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-y-0 md:gap-x-5 lg:gap-x-10">
-        {cards.map((card) => {
+        {cards.map((card, index) => {
           return (
             <a
+              data-aos-delay={`${100 * (index + 1)}`}
+              data-aos="fade-up"
               key={card.href}
               href={card.href}
               style={{ zIndex: 20 }}

@@ -63,13 +63,18 @@ function component(hover, setHover, blog) {
   );
 }
 
-export default function BlogCard({ blog }) {
+export default function BlogCard({ blog, animation = false, index = 1 }) {
   const [hover, setHover] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient(true), []);
   return (
-    <div className="item-carousel-3 inline-block relative ">
+    <div
+      data-aos-delay={`${index * 100 + 200}`}
+      data-aos={animation ? "flip-left" : undefined}
+      data-aos-duration="800"
+      className="item-carousel-3 inline-block relative "
+    >
       {isClient ? (
         <a href={blog.url} target={blog?.link_externo ? "_blank" : undefined}>
           {component(hover, setHover, blog)}

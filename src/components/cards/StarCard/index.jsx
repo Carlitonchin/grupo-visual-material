@@ -111,13 +111,20 @@ export default function StarCard({
   url,
   className,
   category,
+  index = 1,
+  animation = false,
 }) {
   const [hover, setHover] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient(true), []);
   return (
-    <div className="item-carousel-3 inline-block relative w-full">
+    <div
+      data-aos-delay={`${index * 100 + 200}`}
+      data-aos={animation && index <= 3 ? "flip-left" : undefined}
+      data-aos-duration="800"
+      className="item-carousel-3 inline-block relative w-full"
+    >
       {isClient ? (
         <a href={"/cursos" + url} draggable={false} className="w-fit h-fit">
           {component(

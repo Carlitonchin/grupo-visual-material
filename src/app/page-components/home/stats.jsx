@@ -8,7 +8,12 @@ export default function Stats({ stats }) {
       }}
     >
       {stats.map((elem, index) => (
-        <div key={index} className="flex relative">
+        <div
+          data-aos="fade-up"
+          data-aos-delay={`${200 * (index + 1)}`}
+          key={index}
+          className="flex relative"
+        >
           <div className="w-fit flex flex-col items-center text-center">
             <div className="relative w-fit">
               <h2 className="absolute text-5xl -left-10">+</h2>

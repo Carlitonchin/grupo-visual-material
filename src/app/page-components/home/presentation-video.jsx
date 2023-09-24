@@ -62,6 +62,7 @@ export default function PresentationVideo({ videoUrl, title, options }) {
     <section className=" w-full h-fit ">
       <div className="flex flex-col items-center justify-between xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
         <video
+          data-aos="fade-right"
           id="presentation-video"
           controls
           width="600"
@@ -73,7 +74,10 @@ export default function PresentationVideo({ videoUrl, title, options }) {
         >
           <source src={videoUrl}></source>
         </video>
-        <div className="w-full max-w-2xl flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start">
+        <div
+          data-aos="fade-left"
+          className="w-full max-w-2xl flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start"
+        >
           <h2 className="text-center w-full">{title}</h2>
 
           <div className="w-full sm:w-3/4 md:w-full ">

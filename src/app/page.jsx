@@ -1,6 +1,4 @@
 import Whatsapp from "@/components/smartarget/whatsapp";
-import Students from "@/app/page-components/home/students";
-import Brand from "@/app/page-components/home/brand";
 import HomeMainServer from "./api-components/home/HomeMainServer";
 import PromoCardServer from "./api-components/home/PromoCardServer";
 import PresentationVideoServer from "./api-components/home/PresentationVideoServer";
@@ -10,20 +8,23 @@ import TeachersServer from "./api-components/home/TeachersServer";
 import HomeBlogServer from "./api-components/home/BlogHomeServer";
 import StudentsServer from "./api-components/home/StudentsServer";
 import BrandServer from "./api-components/home/BrandServer";
+import AosAnimation from "./aos-animation";
 
 export default function Home() {
   return (
     <>
-      <HomeMainServer />
-      <PromoCardServer />
-      <PresentationVideoServer />
-      <StatsServer />
-      <CourseCarouselServer />
-      <TeachersServer />
-      <HomeBlogServer />
-      <StudentsServer />
-      <BrandServer />
-      <Whatsapp />
+      <AosAnimation>
+        <HomeMainServer />
+        <PromoCardServer />
+        <PresentationVideoServer />
+        <StatsServer />
+        <CourseCarouselServer />
+        <TeachersServer />
+        <HomeBlogServer />
+        <StudentsServer />
+        <BrandServer />
+        <Whatsapp />
+      </AosAnimation>
     </>
   );
 }

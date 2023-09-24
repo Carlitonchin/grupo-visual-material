@@ -1,6 +1,16 @@
-export default function PhotoCard({ url, text, className }) {
+export default function PhotoCard({
+  url,
+  text,
+  className,
+  animation = false,
+  index = 1,
+}) {
   return (
-    <div className={className || "item-4 relative"}>
+    <div
+      data-aos={animation ? "zoom-in" : undefined}
+      data-aos-delay={`${100 * index + 100}`}
+      className={className || "item-4 relative"}
+    >
       <div
         className="absolute h-full rounded-sm shadow-sm"
         style={{
