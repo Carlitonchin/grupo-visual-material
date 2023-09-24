@@ -1,7 +1,5 @@
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
-import MKButton from "@/components/MKButton";
 import Link from "next/link";
+import { Button } from "@nextui-org/button";
 
 export default function Service({
   align,
@@ -22,8 +20,7 @@ export default function Service({
       }
     >
       <img
-        className="w-full lg:max-w-[500px] "
-        style={{ minWidth: "500px" }}
+        className="w-full lg:max-w-[500px] sm:min-w-[500px]"
         width={500}
         height={500}
         alt={alt}
@@ -41,24 +38,10 @@ export default function Service({
             (align != "left" && " lg:items-end")
           }
         >
-          <MKTypography
-            variant="button"
-            color={"text"}
-            sx={{ fontSize: "1.5rem" }}
-          >
+          <span className="text-gray-500" style={{ fontSize: "1.5rem" }}>
             {category}
-          </MKTypography>
-          <MKTypography
-            variant="h3"
-            color={colors.dark.main}
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["4xl"],
-              },
-            })}
-          >
-            {title}
-          </MKTypography>
+          </span>
+          <h3>{title}</h3>
         </div>
         <div
           className={
@@ -66,24 +49,19 @@ export default function Service({
             (align != "left" && " lg:text-right lg:items-end")
           }
         >
-          <MKTypography
-            variant="button"
-            color={"text"}
-            sx={{ fontSize: "1.1rem" }}
-          >
+          <span className="text-gray-500" style={{ fontSize: "1.1rem" }}>
             {text}
-          </MKTypography>
+          </span>
 
-          <MKButton
-            className="w-full md:w-fit mt-4"
-            variant="gradient"
-            color="dark"
-            component={Link}
+          <Button
+            className="w-full md:w-fit mt-4 bg-black text-white uppercase font-bold"
+            variant="shadow"
+            as={Link}
             target={externLink ? "_blank" : undefined}
             href={urlButton}
           >
             {textButton}
-          </MKButton>
+          </Button>
         </div>
       </div>
     </div>

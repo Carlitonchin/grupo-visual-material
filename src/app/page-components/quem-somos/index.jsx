@@ -1,6 +1,3 @@
-"use client";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import WhoVideo from "./video";
 import Service from "./service";
 
@@ -28,33 +25,12 @@ export default function Who({
         }}
       >
         <div className="w-full px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-center">
-          <MKTypography
-            variant="h2"
-            color="white"
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["4xl"],
-              },
-            })}
-          >
-            {title}
-          </MKTypography>
+          <h2 className="text-white">{title}</h2>
         </div>
       </div>
       <WhoVideo url={video} description={description} />
       <section className=" bg-white">
-        <MKTypography
-          variant="h2"
-          className="text-center lg:text-start"
-          color={colors.dark.main}
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
-        >
-          {cardTitle}
-        </MKTypography>
+        <h2 className="text-center lg:text-start">{cardTitle}</h2>
         <div className="w-full mt-8 flex flex-col gap-y-20 lg:gap-y-36">
           {cards.map((card, index) => {
             return (
@@ -75,28 +51,16 @@ export default function Who({
         </div>
       </section>
       <section className="py-8 flex flex-col gap-y-4">
-        <MKTypography
-          id="nosso-metodo"
-          variant="h2"
-          className="text-center lg:text-start"
-          color={colors.dark.main}
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
-        >
+        <h2 id="nosso-metodo" className="text-center lg:text-start">
           Nosso Metodo
-        </MKTypography>
+        </h2>
 
-        <MKTypography
-          variant="button"
-          color={"text"}
-          className="columns-1 md:columns-2 lg:columns-3 gap-x-20"
-          sx={{ fontSize: "1.1rem" }}
+        <span
+          className="text-gray-500 columns-1 md:columns-2 lg:columns-3 gap-x-20"
+          style={{ fontSize: "1.1rem" }}
         >
           {ourMethod}
-        </MKTypography>
+        </span>
       </section>
     </div>
   );

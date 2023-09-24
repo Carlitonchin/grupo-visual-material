@@ -1,5 +1,3 @@
-import MKTypography from "@/components/MKTypography";
-
 export default function WhoVideo({ url, description }) {
   return (
     <div className="p-4">
@@ -92,14 +90,12 @@ export default function WhoVideo({ url, description }) {
             ></path>{" "}
           </g>
         </svg>
-        <MKTypography
-          className="columns-1 lg:columns-3 gap-x-16"
-          variant="button"
-          color={"text"}
+        <span
+          className="columns-1 lg:columns-3 gap-x-16 text-gray-500"
           sx={{ fontSize: "1.15rem" }}
         >
           {description}
-        </MKTypography>
+        </span>
         <svg
           viewBox="0 0 24 24"
           fill="none"
