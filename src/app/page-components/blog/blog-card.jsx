@@ -1,7 +1,3 @@
-"use client";
-
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import moment from "moment";
 import "moment/locale/pt-br";
 
@@ -39,40 +35,22 @@ export default function BlogCard({ blog }) {
               }}
             />
 
-            <MKTypography
-              variant="button"
-              className="px-4 py-2 "
-              sx={{ color: category.color }}
-              fontWeight="bold"
-              textTransform="uppercase"
+            <span
+              className="px-4 py-2 uppercase font-bold text-base"
+              style={{ color: category.color }}
             >
               {category.nome}
-            </MKTypography>
+            </span>
           </div>
 
-          <MKTypography
-            variant="h4"
-            color={colors.dark.main}
-            mt={2}
-            className="line-clamp-2"
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["4xl"],
-              },
-            })}
-          >
-            {blog.titulo}
-          </MKTypography>
+          <h4 className="line-clamp-2 mt-2 font-bold">{blog.titulo}</h4>
 
-          <MKTypography
-            variant="button"
-            color={"text"}
-            sx={{ fontSize: "1.1rem" }}
-            className="line-clamp-5"
-            mt={2}
+          <span
+            style={{ fontSize: "1.1rem" }}
+            className="line-clamp-5 mt-1 text-gray-500"
           >
             {blog.descricao}
-          </MKTypography>
+          </span>
 
           <div className="mt-4 flex gap-x-2 items-center">
             <img
@@ -83,12 +61,12 @@ export default function BlogCard({ blog }) {
               height={70}
             />
             <div className="flex flex-col">
-              <MKTypography variant="button" color="text" fontWeight="bold">
+              <span className="font-bold text-base text-gray-500">
                 {autor.nome}
-              </MKTypography>
-              <MKTypography variant="button" color="text">
+              </span>
+              <span className="text-gray-500 text-base">
                 {getTime(blog.publishedAt)}
-              </MKTypography>
+              </span>
             </div>
           </div>
         </div>

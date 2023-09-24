@@ -1,6 +1,3 @@
-"use client";
-import MKTypography from "@/components/MKTypography";
-
 export default function BlogHeader() {
   return (
     <div
@@ -16,17 +13,7 @@ export default function BlogHeader() {
       }}
     >
       <div className="w-full pb-10 px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-end">
-        <MKTypography
-          variant="h2"
-          color="white"
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
-        >
-          Útimos posts
-        </MKTypography>
+        <h2 className="text-white">Útimos posts</h2>
       </div>
     </div>
   );
