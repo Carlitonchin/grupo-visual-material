@@ -1,5 +1,4 @@
 "use client";
-import MKTypography from "@/components/MKTypography";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 export default function Info({ info }) {
@@ -18,58 +17,24 @@ export default function Info({ info }) {
         }}
       >
         <div className="w-full h-full pb-12 bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-end">
-          <MKTypography
-            variant="h1"
-            color="white"
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["4xl"],
-              },
-            })}
-          >
-            {info.titulo}
-          </MKTypography>
-          <MKTypography variant="body1" color="white" mt={1}>
-            {info.texto}
-          </MKTypography>
+          <h1 className="text-white">{info.titulo}</h1>
+          <span className="text-white">{info.texto}</span>
           <div className="mt-4 text-center justify-center">
             <div className="flex justify-center">
               <PhoneInTalkOutlinedIcon className="fill-white w-8 h-8 mr-1" />
-              <MKTypography
-                variant="h3"
-                color={"white"}
-                className="text-2xl"
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["4xl"],
-                  },
-                })}
-              >
-                Telefone
-              </MKTypography>
+              <h3 className="text-2xl text-white">Telefone</h3>
             </div>
-            <MKTypography variant="body2" color={"white"}>
+            <span className="text-white text-base">
               <a href={`tel:${info.telefone}`}>{info.telefone_formatado}</a>
-            </MKTypography>
+            </span>
 
             <div className="flex text-center justify-center  mt-4">
               <EmailOutlinedIcon className="w-8 h-8 fill-white mr-1" />
-              <MKTypography
-                variant="h3"
-                color={"white"}
-                className="text-2xl"
-                sx={({ breakpoints, typography: { size } }) => ({
-                  [breakpoints.down("md")]: {
-                    fontSize: size["4xl"],
-                  },
-                })}
-              >
-                Email
-              </MKTypography>
+              <h3 className="text-2xl text-white">Email</h3>
             </div>
-            <MKTypography variant="body2" color={"white"}>
+            <span className="text-white text-base">
               <a href={`mailto:${info.email}`}>{info.email}</a>
-            </MKTypography>
+            </span>
           </div>
         </div>
       </div>

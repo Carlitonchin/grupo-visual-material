@@ -1,5 +1,5 @@
 "use client";
-import MKBox from "@/components/MKBox";
+import MKBox from "@mui/material/Box";
 import {
   Grid,
   FormControl,
@@ -10,13 +10,12 @@ import {
 import MuiAlert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
 import Snackbar from "@mui/material/Snackbar";
-import MKButton from "@/components/MKButton";
+import { Button } from "@nextui-org/button";
 import { IMaskInput } from "react-imask";
 import { useState, forwardRef } from "react";
 import { requiredField } from "../../../../components/utils/validators";
 import axios from "axios";
 import { API_URL } from "@/api/constant";
-import colors from "@/theme/base/colors";
 
 const TextMaskCustom = forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -108,7 +107,7 @@ export default function Form({ text }) {
     <div className="w-full h-fit max-w-4xl">
       {isLoading && (
         <div className="w-screen z-40  h-screen fixed top-0 left-0 flex justify-center items-center">
-          <CircularProgress sx={{ color: colors.dark.main }} />
+          <CircularProgress sx={{ color: "#000" }} />
         </div>
       )}
       <Snackbar
@@ -280,17 +279,15 @@ export default function Form({ text }) {
               </Grid>
             </Grid>
             <Grid container item justifyContent="center" xs={12} my={2}>
-              <MKButton
-                href="#"
-                variant="gradient"
-                color={"dark"}
-                fullWidth
+              <Button
+                variant="shadow"
+                className="w-full bg-black uppercase font-bold text-white"
                 onClick={(e) => {
                   onSubmit(e);
                 }}
               >
                 {text || "Enviar"}
-              </MKButton>
+              </Button>
             </Grid>
           </MKBox>
         </MKBox>
