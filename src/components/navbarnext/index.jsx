@@ -32,9 +32,10 @@ export default function NavbarNext() {
   }, [isMenuOpen]);
   return (
     <Navbar
+      maxWidth="xl"
       isBlurred={false}
       shouldHideOnScroll={hideOnScroll}
-      className={`bg-black bg-opacity-90 fixed top-0 text-white py-1 sm:py-2 h-[150px] sm:h-[80px]`}
+      className={`bg-black fixed bg-opacity-90 top-0 text-white py-1 sm:py-2 h-[150px] sm:h-[80px]`}
       onMenuOpenChange={setIsMenuOpen}
     >
       <div className="flex flex-col w-full">
@@ -50,8 +51,12 @@ export default function NavbarNext() {
             </a>
           </NavbarBrand>
 
-          <a href="/dsfklsdjf" className="hidden sm:block lg:hidden">
-            <Button variant="shadow" className="bg-white">
+          <a
+            href="/dsfklsdjf"
+            target="_blank"
+            className="hidden sm:block lg:hidden"
+          >
+            <Button variant="shadow" className="bg-white uppercase font-bold">
               Área do Aluno
             </Button>
           </a>
@@ -62,8 +67,11 @@ export default function NavbarNext() {
           />
         </NavbarContent>
 
-        <a href="/dsfklsdjf" className="w-full sm:hidden">
-          <Button variant="shadow" className="bg-white w-full">
+        <a href="/dsfklsdjf" target="_blank" className="w-full sm:hidden">
+          <Button
+            variant="shadow"
+            className="bg-white w-full uppercase font-bold"
+          >
             Área do Aluno
           </Button>
         </a>
@@ -114,8 +122,8 @@ export default function NavbarNext() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <a href="/dsfklsdjf" className="hidden lg:block">
-        <Button variant="shadow" className="bg-white">
+      <a href="/dsfklsdjf" target="_blank" className="hidden lg:block ml-12">
+        <Button variant="shadow" className="bg-white font-bold uppercase">
           Área do Aluno
         </Button>
       </a>

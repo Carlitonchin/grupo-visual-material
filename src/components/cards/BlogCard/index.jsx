@@ -1,8 +1,7 @@
-import MKTypography from "@/components/MKTypography";
-import MKButton from "@/components/MKButton";
+"use client";
+import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import colors from "@/theme/base/colors";
 
 function component(hover, setHover, blog) {
   return (
@@ -29,39 +28,36 @@ function component(hover, setHover, blog) {
         />
       </div>
       <div className="w-full h-3/5 p-2 text-center">
-        <MKTypography
-          className="w-full text-center whitespace-normal line-clamp-2"
-          variant="text"
-          color="black"
-          fontWeight="bold"
-          sx={{ fontSize: "1.1rem" }}
+        <span
+          className="w-full text-center whitespace-normal line-clamp-2 font-bold "
+          style={{ fontSize: "1.1rem" }}
         >
           {blog.titulo}
-        </MKTypography>
+        </span>
 
-        <MKTypography
-          mt={1.5}
-          variant="body2"
-          color="text"
-          className={"w-full mt-2 line-clamp-3 lg:line-clamp-4"}
+        <span
+          className={
+            "w-full mt-2 line-clamp-3 lg:line-clamp-4 text-base text-gray-500"
+          }
         >
           {blog.texto}
-        </MKTypography>
+        </span>
 
-        <MKButton
-          variant="gradient"
-          color="dark"
-          className={"absolute bottom-0 left-0 m-4 mb-2"}
-          component={Link}
+        <Button
+          variant="shadow"
+          className={
+            "absolute bottom-0 left-0 m-4 mb-2 bg-black uppercase font-bold " +
+            (hover ? "text-orange-500" : "text-white")
+          }
+          as={Link}
           target={blog.link_externo ? "_blank" : undefined}
           style={{
-            color: hover ? colors.warning.main : "white",
             width: "calc(100% - 2rem)",
           }}
           href={blog.url}
         >
           {blog.texto_botao}
-        </MKButton>
+        </Button>
       </div>
     </div>
   );
