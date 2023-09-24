@@ -1,7 +1,4 @@
 "use client";
-import MKTypography from "@/components/MKTypography";
-import MKButton from "@/components/MKButton";
-import Link from "next/link";
 import { useRef, useState } from "react";
 import TextLink from "@/components/TextLink";
 
@@ -52,12 +49,9 @@ export default function CoursesCards({
                   }}
                 ></div>
                 <div className="absolute top-0 left-0 w-full h-full flex items-end bg-gray-800 bg-opacity-30">
-                  <MKTypography
-                    color="white"
-                    className="w-full text-center font-bold mb-4 text-3xl"
-                  >
+                  <h2 className="w-full text-center font-bold mb-4 text-2xl text-white">
                     {card.text}
-                  </MKTypography>
+                  </h2>
                 </div>
               </div>
             </a>
