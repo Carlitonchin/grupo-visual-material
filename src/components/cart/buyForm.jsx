@@ -1,6 +1,6 @@
 "use client";
 import Typography from "@mui/material/Typography";
-import MKButton from "@/components/MKButton";
+import { Button } from "@nextui-org/button";
 import { useState } from "react";
 import MuiAlert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -169,17 +169,15 @@ export default function BuyForm({ courses, handleClose, isCart }) {
                 </FormControl>
               </Grid>
               <Grid container item justifyContent="center" xs={12} mt={4}>
-                <MKButton
-                  href="#"
-                  variant="gradient"
-                  color={"dark"}
-                  fullWidth
+                <Button
+                  variant="shadow"
+                  className="w-full bg-black text-white uppercase font-bold"
                   onClick={(e) => {
                     onSubmit(e);
                   }}
                 >
                   Realizar Pagamento
-                </MKButton>
+                </Button>
               </Grid>
             </Grid>
           </MKBox>
