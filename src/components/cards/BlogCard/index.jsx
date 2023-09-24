@@ -71,7 +71,7 @@ export default function BlogCard({ blog, animation = false, index = 1 }) {
   return (
     <div
       data-aos-delay={`${index * 100 + 200}`}
-      data-aos={animation ? "flip-left" : undefined}
+      my-data-aos={animation ? "flip-left" : undefined}
       data-aos-duration="800"
       className="item-carousel-3 inline-block relative "
     >

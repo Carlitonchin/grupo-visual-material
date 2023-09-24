@@ -4,7 +4,7 @@ import TextLink from "@/components/TextLink";
 export default function BlogHome({ blogs, texts }) {
   return (
     <section className="flex flex-col justify-center items-center">
-      <div data-aos-delay="200" data-aos="fade-down">
+      <div data-aos-delay="200" my-data-aos="fade-down">
         <h2 className="text-center w-full mb-8">{texts.titulo}</h2>
       </div>
       <div className="w-full h-fit flex flex-wrap justify-center gap-y-4">

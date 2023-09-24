@@ -7,7 +7,7 @@ export default function PhotoCard({
 }) {
   return (
     <div
-      data-aos={animation ? "zoom-in" : undefined}
+      my-data-aos={animation ? "zoom-in" : undefined}
       data-aos-delay={`${100 * index + 100}`}
       className={className || "item-4 relative"}
     >

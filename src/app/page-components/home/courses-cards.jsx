@@ -34,8 +34,6 @@ export default function CoursesCards({
         {cards.map((card, index) => {
           return (
             <a
-              data-aos-delay={`${100 * (index + 1)}`}
-              data-aos="fade-up"
               key={card.href}
               href={card.href}
               style={{ zIndex: 20 }}

@@ -101,7 +101,7 @@ export default function CourseCarousel({
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <div data-aos-delay="200" data-aos="fade-down">
+      <div data-aos-delay="200" my-data-aos="fade-down">
         <h2 className="text-center w-full">{title}</h2>
       </div>
       <div className="relative flex items-center w-full justify-center mt-8">
@@ -126,7 +126,7 @@ export default function CourseCarousel({
           {courses.map((c, index) => (
             <>
               <StarCard
-                data-aos="flip-left"
+                my-data-aos="flip-left"
                 img={c.img}
                 text={c.text}
                 stars={c.stars}

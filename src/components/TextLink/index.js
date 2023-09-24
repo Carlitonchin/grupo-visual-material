@@ -13,7 +13,7 @@ export default function TextLink({
 }) {
   const [hover, setHover] = useState(false);
   return (
-    <div data-aos={animation ? "zoom-in" : undefined}>
+    <div my-data-aos={animation ? "zoom-in" : undefined}>
       <Button
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

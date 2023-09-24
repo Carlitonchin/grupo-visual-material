@@ -9,7 +9,7 @@ export default function Stats({ stats }) {
     >
       {stats.map((elem, index) => (
         <div
-          data-aos="fade-up"
+          my-data-aos="fade-up"
           data-aos-delay={`${200 * (index + 1)}`}
           key={index}
           className="flex relative"

@@ -7,7 +7,7 @@ export default function Students({ students, texts }) {
   const [showAll, setShowAll] = useState(false);
   return (
     <section className="py-10 flex flex-col justify-center items-center bg-gray-200">
-      <div data-aos-delay="200" data-aos="fade-down">
+      <div data-aos-delay="200" my-data-aos="fade-down">
         <h2 variant="h2" className="text-center w-full mb-8">
           {texts.titulo}
         </h2>
@@ -41,7 +41,7 @@ export default function Students({ students, texts }) {
             ))}
         </div>
       )}
-      <div data-aos="zoom-in">
+      <div my-data-aos="zoom-in">
         <Button
           onClick={() => setShowAll(!showAll)}
           className={"text-md mt-2 duration-200 text-base font-semibold"}

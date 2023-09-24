@@ -73,16 +73,24 @@ function component(
               .fill(0)
               .map((_, index) =>
                 index + 1 <= stars ? (
-                  <StarIcon key={index} className="w-6 h-6 fill-orange-500" />
+                  <StarIcon
+                    fill="#f97316"
+                    key={index}
+                    className="w-6 h-6 fill-orange-500"
+                  />
                 ) : (
                   <></>
                 )
               )}
             {Math.ceil(stars) > stars && (
-              <StarHalfIcon className="w-6 h-6 fill-orange-500" />
+              <StarHalfIcon
+                fill="#f97316"
+                className="w-6 h-6 fill-orange-500"
+              />
             )}
             {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
               <StarBorderIcon
+                fill="#f97316"
                 key={"--" + index}
                 className="w-6 h-6 fill-orange-500"
               />
@@ -121,7 +129,7 @@ export default function StarCard({
   return (
     <div
       data-aos-delay={`${index * 100 + 200}`}
-      data-aos={animation && index <= 3 ? "flip-left" : undefined}
+      my-data-aos={animation && index <= 3 ? "flip-left" : undefined}
       data-aos-duration="800"
       className="item-carousel-3 inline-block relative w-full"
     >

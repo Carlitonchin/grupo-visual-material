@@ -10,7 +10,7 @@ export default function Teachers({ teachers, cardData }) {
   return (
     <section className="py-10 flex flex-col lg:flex-row bg-gray-200 justify-center gap-y-10 gap-x-20 items-center h-max">
       <div
-        data-aos="fade-right"
+        my-data-aos="fade-right"
         data-aos-delay="100"
         data-aos-duration="500"
         className="w-full sm:w-[60%] lg:w-[30%] lg:max-w-[25rem] "
@@ -60,7 +60,7 @@ export default function Teachers({ teachers, cardData }) {
         </div>
       </div>
       <div
-        data-aos="fade-left"
+        my-data-aos="fade-left"
         data-aos-delay="300"
         data-aos-duration="500"
         className="w-full lg:w-[50%] flex items-center justify-center"
