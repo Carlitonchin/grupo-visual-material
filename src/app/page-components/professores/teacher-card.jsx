@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import MKTypography from "@/components/MKTypography";
-import MKButton from "@/components/MKButton";
+import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
 export default function TeacherCard({ url, text, title, slug, className }) {
@@ -28,30 +27,31 @@ export default function TeacherCard({ url, text, title, slug, className }) {
           } flex flex-col justify-end items-center p-4 " +
             `}
         >
-          <MKTypography
-            className={"z-20 text-center w-full  overflow-hidden"}
-            variant="h4"
-            color={"white"}
+          <h4
+            className={
+              "z-20 text-center w-full text-white font-bold overflow-hidden"
+            }
           >
             {title}
-          </MKTypography>
-          <MKTypography
-            variant="body2"
-            color="white"
-            className={"text-center w-full  overflow-hidden"}
+          </h4>
+          <span
+            className={
+              "text-center w-full text-white text-base overflow-hidden"
+            }
           >
             {text}
-          </MKTypography>
+          </span>
 
-          <MKButton
-            className={hover ? "mt-4 scale-100" : "-mt-8 scale-0"}
-            color="light"
-            variant="gradient"
-            component={Link}
+          <Button
+            className={`text-black bg-white font-bold uppercase ${
+              hover ? "mt-4 scale-100" : "-mt-8 scale-0"
+            }`}
+            variant="shadow"
+            as={Link}
             href={"/professores" + slug}
           >
             Conheça o professor
-          </MKButton>
+          </Button>
         </div>
       </div>
     </div>

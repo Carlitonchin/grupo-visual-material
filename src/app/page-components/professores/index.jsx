@@ -1,6 +1,3 @@
-"use client";
-import MKTypography from "@/components/MKTypography";
-import colors from "@/theme/base/colors";
 import TeachersList from "./teachers-list";
 
 export default function ProfessoresPage({
@@ -16,19 +13,7 @@ export default function ProfessoresPage({
         className="absolute top-0 left-0 flex justify-center items-end z-20"
         style={{ width: "100%", height: "400px" }}
       >
-        <MKTypography
-          variant="h2"
-          color={colors.dark.main}
-          textGradient
-          className="text-center w-full mb-6 px-4 z-20"
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
-        >
-          {title}
-        </MKTypography>
+        <h2 className="text-center w-full mb-6 px-4 z-20">{title}</h2>
       </div>
       <div className="w-full">
         <div

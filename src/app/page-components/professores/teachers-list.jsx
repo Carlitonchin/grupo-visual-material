@@ -1,10 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import MKTypography from "@/components/MKTypography";
 import CancelIcon from "@mui/icons-material/Cancel";
 import TeacherCard from "./teacher-card";
-import colors from "@/theme/base/colors";
-import { yellow } from "@mui/material/colors";
 
 export default function TeachersList({ categories, teachers, text }) {
   const [categoriesSelected, setCategoriesSelected] = useState([]);
@@ -28,27 +25,18 @@ export default function TeachersList({ categories, teachers, text }) {
   return (
     <div className="z-20">
       <div className="z-20 flex mt-10 mb-4 flex-wrap w-full items-center justify-center gap-x-2 gap-y-2">
-        <MKTypography
+        <h4
           id="text-teachers"
-          variant="h4"
-          color={colors.dark.main}
-          textGradient
-          className="text-center w-full mb-4 px-4 z-20"
-          sx={({ breakpoints, typography: { size } }) => ({
-            [breakpoints.down("md")]: {
-              fontSize: size["4xl"],
-            },
-          })}
+          className="text-center w-full mb-4 px-4 z-20 font-bold"
         >
           {text}
-        </MKTypography>
+        </h4>
 
         {categories.map((cat) => {
           return (
-            <MKTypography
+            <span
               key={cat.id}
-              variant="button"
-              sx={{
+              style={{
                 color: categoriesSelected.includes(cat.id) ? "#fff" : cat.color,
                 border: "2px solid " + cat.color,
                 "&:hover": !isMobile
@@ -62,7 +50,7 @@ export default function TeachersList({ categories, teachers, text }) {
                   : "transparent",
               }}
               fontWeight="bold"
-              className={`z-20 px-4 py-2 relative rounded-full cursor-pointer ${
+              className={`z-20 px-4 py-2 relative uppercase text-base font-bold rounded-full cursor-pointer ${
                 !isMobile && "hover:text-white"
               } duration-200`}
               textTransform="uppercase"
@@ -82,7 +70,7 @@ export default function TeachersList({ categories, teachers, text }) {
                   <CancelIcon className="w-6 h-6  fill-red-500 z-10" />
                 </div>
               )}
-            </MKTypography>
+            </span>
           );
         })}
       </div>

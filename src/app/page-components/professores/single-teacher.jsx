@@ -1,7 +1,4 @@
-"use client";
-import MKTypography from "@/components/MKTypography";
 import StarCard from "@/components/cards/StarCard";
-import colors from "@/theme/base/colors";
 
 export default function SingleTeacher({ teacher }) {
   return (
@@ -12,36 +9,29 @@ export default function SingleTeacher({ teacher }) {
         }
       >
         <div className="flex flex-col w-full lg:max-w-[500px]">
-          <MKTypography
-            variant="h3"
+          <h3
             className="text-center lg:text-start"
-            color={colors.dark.main}
-            textGradient
-            sx={{
+            style={{
               padding: 0,
               margin: 0,
             }}
           >
             {teacher.title}
-          </MKTypography>
+          </h3>
 
-          <MKTypography
-            variant="body1"
+          <span
             className="text-center lg:text-start"
-            color={colors.dark.main}
-            textGradient
-            sx={{
+            style={{
               padding: 0,
               margin: 0,
             }}
           >
             {teacher.text}
-          </MKTypography>
+          </span>
 
-          <MKTypography
-            variant="button"
-            color={"text"}
-            sx={{
+          <span
+            className="text-gray-500"
+            style={{
               fontSize: "1rem",
               marginTop: "1rem",
             }}
@@ -57,7 +47,7 @@ export default function SingleTeacher({ teacher }) {
 
               return <span key={index}>{t}</span>;
             })}
-          </MKTypography>
+          </span>
         </div>
         <div className="w-full relative sm:w-[400px] sm:h-[400px] rounded-lg">
           <img
@@ -73,14 +63,9 @@ export default function SingleTeacher({ teacher }) {
       </div>
       {teacher?.courses?.length && (
         <div className="w-full mt-8 lg:mt-12">
-          <MKTypography
-            variant="h3"
-            className="text-center px-4 w-full"
-            color={colors.dark.main}
-            textGradient
-          >
+          <h3 className="text-center px-4 w-full">
             Cursos com participação do profissional
-          </MKTypography>
+          </h3>
 
           <div className="flex flex-wrap pt-4 gap-y-4 justify-center">
             {teacher.courses
