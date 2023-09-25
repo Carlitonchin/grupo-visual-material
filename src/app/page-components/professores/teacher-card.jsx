@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@nextui-org/button";
-import { Link } from "nextui-org/link";
+import { Link } from "@nextui-org/link";
 
 export default function TeacherCard({ url, text, title, slug, className }) {
   const [hover, setHover] = useState(false);
