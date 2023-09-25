@@ -9,20 +9,13 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export default function Footer({ faqTexts, faqs, footerInfo, links }) {
+export default function Footer({ footerInfo, links }) {
   return (
     <section
       id="footer-section"
       className="py-10 flex flex-col justify-center items-center bg-gray-900 "
     >
-      <h2 variant="h2" className="text-center w-full text-white">
-        {faqTexts.titulo}
-      </h2>
-      <h4 className="text-center w-full mb-8 text-white">
-        {faqTexts.descricao}
-      </h4>
-      <Accordion faqs={faqs} />
-      <div className="flex w-full flex-col items-center lg:flex-row lg:justify-center lg:gap-x-40 mt-12">
+      <div className="flex w-full flex-col items-center lg:flex-row lg:justify-center lg:gap-x-40">
         <div className="flex flex-col gap-y-2 w-full px-4 md:px-20 lg:px-0 text-left md:text-center items-center lg:text-start lg:items-start lg:max-w-sm">
           <img
             alt={footerInfo.alt_logo}

@@ -97,20 +97,20 @@ export default function NavbarNext() {
           </DropdownTrigger>
           <DropdownMenu aria-label="menu">
             <DropdownItem key="new">
-              <Link className="text-slate-900" href={"/quem-somos"}>
+              <Link className="text-slate-900 w-full" href={"/quem-somos"}>
                 Quem Somos
               </Link>
             </DropdownItem>
             <DropdownItem key="copy">
               <Link
-                className="text-slate-900"
+                className="text-slate-900 w-full"
                 href={"/quem-somos#nosso-metodo"}
               >
                 Nosso Método
               </Link>
             </DropdownItem>
             <DropdownItem key="edit">
-              <Link className="text-slate-900" href={"/professores"}>
+              <Link className="text-slate-900 w-full" href={"/professores"}>
                 Professores
               </Link>
             </DropdownItem>

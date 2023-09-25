@@ -9,6 +9,7 @@ import HomeBlogServer from "./api-components/home/BlogHomeServer";
 import StudentsServer from "./api-components/home/StudentsServer";
 import BrandServer from "./api-components/home/BrandServer";
 import AosAnimation from "./aos-animation";
+import AcordionServer from "./api-components/home/AcordionServer";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <HomeBlogServer />
         <StudentsServer />
         <BrandServer />
+        <AcordionServer />
         <Whatsapp />
       </AosAnimation>
     </>
