@@ -55,6 +55,11 @@ export default function MyAccordion({ faqs }) {
             key={index}
             expanded={expanded === `panel${index + 1}`}
             onChange={handleChange(`panel${index + 1}`)}
+            sx={{
+              fill: expanded === `panel${index + 1}` ? "#f97316" : "white",
+              backgroundColor: "transparent",
+              color: "white",
+            }}
             className={`${
               expanded === `panel${index + 1}`
                 ? "fill-orange-500"

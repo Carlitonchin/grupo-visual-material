@@ -252,7 +252,9 @@ export default function SingleCourse({ course }) {
                     AddToCart(course);
                   }}
                 >
-                  <ShoppingCartOutlinedIcon className="h-6 w-6 fill-white" />
+                  <ShoppingCartOutlinedIcon
+                    sx={{ height: "1.5rem", window: "1.5rem", fill: "white" }}
+                  />
                 </Button>
               </div>
             </div>

@@ -106,15 +106,16 @@ export default function CourseCarousel({
       </div>
       <div className="relative flex items-center w-full justify-center mt-8">
         <NavigateBeforeIcon
+          sx={{
+            width: "2.5rem",
+            height: "2.5rem",
+            display: arrowLeftVisible ? "block" : "none",
+            left: "-0.45rem",
+          }}
           onClick={clickLeft}
           className={
-            "w-10 h-10 rounded-full  bg-gray-300 bg-opacity-90 cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
-            (arrowLeftVisible ? "block" : "hidden")
+            "rounded-full bg-gray-300 bg-opacity-90 cursor-pointer absolute z-10 duration-500 hover:scale-105 "
           }
-          style={{
-            left: "-0.45rem",
-            //background: colors.warning.main,
-          }}
         />
         <div
           ref={carouselRef}
@@ -138,14 +139,20 @@ export default function CourseCarousel({
             </>
           ))}
         </div>
-        <NavigateNextIcon
-          className={
-            "w-10 h-10 rounded-full  bg-gray-300 bg-opacity-90 cursor-pointer absolute z-10 duration-500 hover:scale-105 " +
-            (arrowRightVisible ? "block" : "hidden")
-          }
-          style={{ right: "-0.45rem" }}
-          onClick={clickRight}
-        />
+        <div my-data-aos="fade-left">
+          <NavigateNextIcon
+            sx={{
+              width: "2.5rem",
+              height: "2.5rem",
+              display: arrowRightVisible ? "block" : "none",
+              right: "-0.45rem",
+            }}
+            className={
+              "rounded-full  bg-gray-300 bg-opacity-90 cursor-pointer absolute z-10 duration-500 hover:scale-105 "
+            }
+            onClick={clickRight}
+          />
+        </div>
       </div>
       <TextLink
         animation

@@ -21,7 +21,14 @@ export default function Info({ info }) {
           <span className="text-white">{info.texto}</span>
           <div className="mt-4 text-center justify-center">
             <div className="flex justify-center">
-              <PhoneInTalkOutlinedIcon className="fill-white w-8 h-8 mr-1" />
+              <PhoneInTalkOutlinedIcon
+                sx={{
+                  fill: "white",
+                  width: "2rem",
+                  height: "2rem",
+                  marginRight: "0.25rem",
+                }}
+              />
               <h3 className="text-2xl text-white">Telefone</h3>
             </div>
             <span className="text-white text-base">
@@ -29,7 +36,14 @@ export default function Info({ info }) {
             </span>
 
             <div className="flex text-center justify-center  mt-4">
-              <EmailOutlinedIcon className="w-8 h-8 fill-white mr-1" />
+              <EmailOutlinedIcon
+                sx={{
+                  fill: "white",
+                  width: "2rem",
+                  height: "2rem",
+                  marginRight: "0.25rem",
+                }}
+              />
               <h3 className="text-2xl text-white">Email</h3>
             </div>
             <span className="text-white text-base">

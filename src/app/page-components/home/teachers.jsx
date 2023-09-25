@@ -30,8 +30,18 @@ export default function Teachers({ teachers, cardData }) {
                   backgroundSize: "cover",
                 }}
               >
-                <div className="bg-black w-full h-full shadow-black/40 bg-opacity-50 flex justify-center items-center rounded-xl object-cover">
-                  <PanToolAltIcon className="w-16 h-16 mt-48 fill-white" />
+                <div className="bg-black flex flex-col justify-center px-8 items-center w-full h-full shadow-black/40 bg-opacity-50 rounded-xl object-cover">
+                  <h4 className="font-bold text-center text-white">
+                    {cardData.texto_frente}
+                  </h4>
+                  <PanToolAltIcon
+                    sx={{
+                      width: "2.8rem",
+                      height: "2.8rem",
+                      fill: "white",
+                      marginTop: "2rem",
+                    }}
+                  />
                 </div>
               </div>
             </div>

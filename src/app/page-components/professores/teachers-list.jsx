@@ -67,7 +67,14 @@ export default function TeachersList({ categories, teachers, text }) {
               {categoriesSelected.includes(cat.id) && (
                 <div className="absolute -top-2 -right-2 flex justify-center items-center w-6 h-6">
                   <span className="bg-white w-3 h-3 z-0 absolute"></span>
-                  <CancelIcon className="w-6 h-6  fill-red-500 z-10" />
+                  <CancelIcon
+                    sx={{
+                      width: "1.5rem",
+                      height: "1.5rem",
+                      fill: "#ef4444",
+                      zIndex: "10",
+                    }}
+                  />
                 </div>
               )}
             </span>

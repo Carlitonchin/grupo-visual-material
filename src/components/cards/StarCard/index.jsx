@@ -1,11 +1,10 @@
 "use client";
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import { useState, useEffect } from "react";
-
+import EmptyStar from "@/components/icons/emptystar";
+import HalfStar from "@/components/icons/halfstar";
+import FillStar from "@/components/icons/fillstar";
 function component(
   img,
   text,
@@ -73,26 +72,20 @@ function component(
               .fill(0)
               .map((_, index) =>
                 index + 1 <= stars ? (
-                  <StarIcon
-                    fill="#f97316"
-                    key={index}
-                    className="w-6 h-6 fill-orange-500"
-                  />
+                  <FillStar key={index} fill="#f97316" width="25" height="25" />
                 ) : (
                   <></>
                 )
               )}
             {Math.ceil(stars) > stars && (
-              <StarHalfIcon
-                fill="#f97316"
-                className="w-6 h-6 fill-orange-500"
-              />
+              <HalfStar fill="#f97316" width="25" height="25" />
             )}
             {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
-              <StarBorderIcon
-                fill="#f97316"
-                key={"--" + index}
-                className="w-6 h-6 fill-orange-500"
+              <EmptyStar
+                key={5 + index}
+                stroke="#f97316"
+                width="27"
+                height="27"
               />
             ))}
           </div>

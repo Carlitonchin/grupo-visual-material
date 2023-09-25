@@ -58,7 +58,9 @@ export default function Cart() {
         }}
         className="bg-blue-600 shadow-md fixed rounded-full hover:bg-blue-700"
       >
-        <ShoppingCartOutlinedIcon className="w-7 h-7 fill-white" />
+        <ShoppingCartOutlinedIcon
+          sx={{ width: "1.75rem", height: "1.75rem", fill: "white" }}
+        />
         <span
           style={{
             right: "1rem",
