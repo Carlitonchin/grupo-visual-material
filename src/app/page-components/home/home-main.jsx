@@ -86,7 +86,7 @@ export default function HomeMain({ slides }) {
                   className={`home-container-text transition-opacity duration-1000 w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
                 >
                   <h1 className="text-white">{slide.text1}</h1>
-                  <p className="text-white">{slide.text2}</p>
+                  <p className="text-white mt-2">{slide.text2}</p>
 
                   <Button
                     as={Link}

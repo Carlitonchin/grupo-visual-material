@@ -18,7 +18,7 @@ export default function Info({ info }) {
       >
         <div className="w-full h-full pb-12 bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-end">
           <h1 className="text-white">{info.titulo}</h1>
-          <span className="text-white">{info.texto}</span>
+          <span className="text-white mt-2">{info.texto}</span>
           <div className="mt-4 text-center justify-center">
             <div className="flex justify-center">
               <PhoneInTalkOutlinedIcon
