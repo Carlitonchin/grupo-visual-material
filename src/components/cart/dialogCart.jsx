@@ -32,7 +32,7 @@ export default function DialogCart({
     return brlCurrencyFormatter.format(sum);
   }
   return (
-    <div>
+    <div className="px-4 sm:px-8">
       <Dialog fullWidth maxWidth={"md"} open={open} onClose={handleClose}>
         <DialogTitle
           className="text-center sm:text-start"
@@ -79,7 +79,10 @@ export default function DialogCart({
                       onClick={() => RemoveFromCart(c?.item)}
                       className="w-fit h-fit p-0 -mt-1 sm:hidden"
                     >
-                      <DeleteForeverIcon className="hover:scale-125 duration-200 p-0 m-0 w-6 h-6 mr-1 fill-red-500" />
+                      <DeleteForeverIcon
+                        sx={{ fill: "#ef4444" }}
+                        className="hover:scale-125 duration-200 p-0 m-0 w-6 h-6 mr-1 "
+                      />
                     </button>
                     <span>
                       {c.item.text}
@@ -92,14 +95,18 @@ export default function DialogCart({
                       onClick={() => RemoveFromCart(c?.item)}
                       className="w-fit h-fit p-0 -mt-1 hidden ml-1 sm:flex"
                     >
-                      <DeleteForeverIcon className="hover:scale-125 duration-200 p-0 m-0 w-6 h-6 mr-1 fill-red-500" />
+                      <DeleteForeverIcon
+                        sx={{ fill: "#ef4444" }}
+                        className="hover:scale-125 duration-200 p-0 m-0 w-6 h-6 mr-1 "
+                      />
                     </button>
                   </span>
                 </Typography>
               ))}
               <Typography
                 mt={3}
-                className="text-center sm:text-start font-bold"
+                sx={{ fontWeight: "bold" }}
+                className="text-center sm:text-start"
                 gutterBottom
               >
                 {`Total: ${calculateSum()}`}

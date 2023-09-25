@@ -1,5 +1,4 @@
 "use client";
-import Typography from "@mui/material/Typography";
 import { Button } from "@nextui-org/button";
 import { useState } from "react";
 import MuiAlert from "@mui/material/Alert";
@@ -129,14 +128,10 @@ export default function BuyForm({ courses, handleClose, isCart }) {
           autoComplete="off"
         >
           <MKBox>
-            <Typography
-              className="text-center sm:text-start font-bold"
-              gutterBottom
-              mb={2}
-            >
+            <span className="text-center text-xl sm:text-start font-bold mt-2 ">
               Informe seus dados
-            </Typography>
-            <Grid container spacing={1.5}>
+            </span>
+            <Grid container spacing={1.5} mt={0.5}>
               <Grid item xs={12}>
                 <FormControl
                   error={Boolean(isSubmitted && errors.name)}

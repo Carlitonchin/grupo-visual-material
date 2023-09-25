@@ -14,7 +14,7 @@ export default function EnrollDialog({ course, setOpen, open }) {
   };
 
   return (
-    <div>
+    <div className="px-4 sm:px-4">
       <Dialog fullWidth maxWidth={"md"} open={open} onClose={handleClose}>
         <DialogTitle
           className="text-center sm:text-start"
@@ -49,7 +49,8 @@ export default function EnrollDialog({ course, setOpen, open }) {
 
           <Typography
             mt={3}
-            className="text-center sm:text-start font-bold"
+            sx={{ fontWeight: "bold" }}
+            className="text-center sm:text-start"
             gutterBottom
           >
             {`Preço: ${brlCurrencyFormatter.format(course?.price || 0)}`}
