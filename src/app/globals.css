@@ -8,6 +8,14 @@
   padding: 0;
 }
 
+.bg-gray-200 {
+  background: linear-gradient(
+    36deg,
+    rgba(232, 243, 244, 0) 1%,
+    rgba(232, 233, 244, 1) 71%
+  ) !important;
+}
+
 .w-10 {
   width: 2.5rem /* 40px */;
 }
