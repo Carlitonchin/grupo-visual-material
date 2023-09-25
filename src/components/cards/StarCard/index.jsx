@@ -3,7 +3,7 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { Button } from "@nextui-org/button";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import { useState, useEffect } from "react";
 
 function component(

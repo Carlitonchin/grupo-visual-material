@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { useEffect } from "react";
 

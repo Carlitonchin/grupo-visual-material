@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@nextui-org/button";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import { useState, useEffect } from "react";
 
 function component(hover, setHover, blog) {

@@ -2,7 +2,7 @@
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 import DefaultInfoCard from "@/components/examples/Cards/InfoCards/DefaultInfoCard";
 import { Button } from "@nextui-org/button";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 
 import { Grid } from "@mui/material";
 

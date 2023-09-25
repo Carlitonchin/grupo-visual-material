@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // react-router components
-import { Link } from "next/link";
+import { Link } from "@nextui-org/link";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";

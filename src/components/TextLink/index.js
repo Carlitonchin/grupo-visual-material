@@ -1,6 +1,6 @@
 "use client";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { useState } from "react";
 

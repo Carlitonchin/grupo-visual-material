@@ -17,7 +17,6 @@ import {
   DropdownItem,
 } from "@nextui-org/dropdown";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { default as NextLink } from "next/link";
 import MenuMobile from "./menumobile";
 import { useEffect, useState } from "react";
 
@@ -98,15 +97,13 @@ export default function NavbarNext() {
           </DropdownTrigger>
           <DropdownMenu aria-label="menu">
             <DropdownItem key="new">
-              <NextLink href={"/quem-somos"}>Quem Somos</NextLink>
+              <Link href={"/quem-somos"}>Quem Somos</Link>
             </DropdownItem>
             <DropdownItem key="copy">
-              <NextLink href={"/quem-somos#nosso-metodo"}>
-                Nosso Método
-              </NextLink>
+              <Link href={"/quem-somos#nosso-metodo"}>Nosso Método</Link>
             </DropdownItem>
             <DropdownItem key="edit">
-              <NextLink href={"/professores"}>Professores</NextLink>
+              <Link href={"/professores"}>Professores</Link>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

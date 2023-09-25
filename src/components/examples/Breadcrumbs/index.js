@@ -17,7 +17,7 @@ Coded by www.creative-tim.com
 import PropTypes from "prop-types";
 
 // next/link components
-import { Link } from "next/link";
+import { Link } from "@nextui-org/link";
 
 // @mui material components
 import MuiBreadcrumbs from "@mui/material/Breadcrumbs";

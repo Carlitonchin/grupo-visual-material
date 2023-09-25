@@ -1,6 +1,6 @@
 "use client";
 import Accordion from "./accordion";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
