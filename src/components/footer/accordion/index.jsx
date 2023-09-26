@@ -56,24 +56,18 @@ export default function MyAccordion({ faqs }) {
             expanded={expanded === `panel${index + 1}`}
             onChange={handleChange(`panel${index + 1}`)}
             sx={{
-              fill: expanded === `panel${index + 1}` ? "#f97316" : "white",
+              fill: expanded === `panel${index + 1}` ? "#f97316" : "black",
               backgroundColor: "transparent",
               color: "black",
             }}
-            className={`${
-              expanded === `panel${index + 1}`
-                ? "fill-orange-500"
-                : "fill-slate-800"
-            } bg-transparent   w-full md:w-[80%] lg:w-[70%] xl:w-[60%] lg:text-center`}
+            className={` bg-transparent   w-full md:w-[80%] lg:w-[70%] xl:w-[60%] lg:text-center`}
           >
             <AccordionSummary
               className="w-full flex"
               aria-controls="panel1d-content"
               id="panel1d-header"
             >
-              <h6 className={" w-full text-slate-800 font-bold"}>
-                {faq.pergunta}
-              </h6>
+              <h6 className={" w-full text-black font-bold"}>{faq.pergunta}</h6>
             </AccordionSummary>
             <AccordionDetails className="w-full">
               <span className="text-gray-500 w-full text-left">
