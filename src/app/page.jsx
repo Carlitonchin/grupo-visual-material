@@ -8,25 +8,22 @@ import TeachersServer from "./api-components/home/TeachersServer";
 import HomeBlogServer from "./api-components/home/BlogHomeServer";
 import StudentsServer from "./api-components/home/StudentsServer";
 import BrandServer from "./api-components/home/BrandServer";
-import AosAnimation from "./aos-animation";
 import AcordionServer from "./api-components/home/AcordionServer";
 
 export default function Home() {
   return (
     <>
-      <AosAnimation>
-        <HomeMainServer />
-        <PromoCardServer />
-        <PresentationVideoServer />
-        <StatsServer />
-        <CourseCarouselServer />
-        <TeachersServer />
-        <HomeBlogServer />
-        <StudentsServer />
-        <BrandServer />
-        <AcordionServer />
-        <Whatsapp />
-      </AosAnimation>
+      <HomeMainServer />
+      <PromoCardServer />
+      <PresentationVideoServer />
+      <StatsServer />
+      <CourseCarouselServer />
+      <TeachersServer />
+      <HomeBlogServer />
+      <StudentsServer />
+      <BrandServer />
+      <AcordionServer />
+      <Whatsapp />
     </>
   );
 }

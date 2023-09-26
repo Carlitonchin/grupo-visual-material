@@ -12,9 +12,11 @@ export default function Service({
   textButton,
   urlButton,
   externLink,
+  index,
 }) {
   return (
     <div
+      my-data-aos={index % 2 != 0 ? "fade-left" : "fade-right"}
       className={
         "flex flex-col lg:flex-row w-full" +
         (align != "left" && "justify-end lg:flex-row-reverse")

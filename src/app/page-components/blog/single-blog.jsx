@@ -60,8 +60,8 @@ function getHeader(blog) {
 export default function SingleBlog({ blog }) {
   blog.conteudo = getHeader(blog) + blog.conteudo;
   return (
-    <section>
-      <div className="w-full m-auto lg:max-w-[900px] mt-20  md:mt-16">
+    <section className="bg-gray-200 ">
+      <div className="w-full m-auto lg:max-w-[900px] mt-24  sm:mt-12">
         <div
           className="markdown-body "
           dangerouslySetInnerHTML={{ __html: blog.conteudo }}

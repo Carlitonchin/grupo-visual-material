@@ -10,6 +10,7 @@ import { GetMetadata } from "./api-components/metadata";
 import Providers from "./providers";
 import MyNextUIProvider from "./mynextui-provider";
 import { fontNormal } from "./fonts";
+import AosAnimation from "./aos-animation";
 
 export const metadata = GetMetadata();
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
     <Providers>
       <html lang="pt">
         <body className={fontNormal.className}>
+          <AosAnimation />
           <MyNextUIProvider>
             <Suspense fallback={null}>
               <FacebookPixel />

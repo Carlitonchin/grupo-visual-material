@@ -12,7 +12,11 @@ export default async function BlogPaginated({ page }: { page: number }) {
       <BlogHeader />
       <section className="bg-gray-200 py-8 flex flex-col gap-y-10">
         {blogs.map((blog, index) => {
-          return <BlogCard key={blog.id} blog={blog} />;
+          return (
+            <div my-data-aos={index % 2 != 0 ? "fade-left" : "fade-right"}>
+              <BlogCard key={blog.id} blog={blog} />
+            </div>
+          );
         })}
         <BlogPagination page={page} pageCount={pagination.pageCount} />
       </section>

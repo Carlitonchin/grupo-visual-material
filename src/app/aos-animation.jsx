@@ -19,7 +19,7 @@ export default function AosAnimation({ children }) {
     for (const aos of myAos) {
       aos.setAttribute("data-aos", aos.getAttribute("my-data-aos"));
     }
-    AOS.init({ once: true });
+    AOS.init({ once: false });
   }, []);
   return <>{children}</>;
 }

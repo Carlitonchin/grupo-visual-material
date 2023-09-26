@@ -25,7 +25,10 @@ export default function Who({
           textAlign: "center",
         }}
       >
-        <div className="w-full px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center pt-12 sm:pt-0 justify-center">
+        <div
+          my-data-aos="fade-down"
+          className="w-full px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center pt-12 sm:pt-0 justify-center"
+        >
           <HeaderText className="text-white" variant="h2">
             {title}
           </HeaderText>
@@ -33,14 +36,16 @@ export default function Who({
       </div>
       <WhoVideo url={video} description={description} />
       <section className=" bg-white">
-        <HeaderText className="text-center lg:text-start" variant="h2">
-          {cardTitle}
-        </HeaderText>
-
+        <div my-data-aos="fade-down">
+          <HeaderText className="text-center lg:text-start" variant="h2">
+            {cardTitle}
+          </HeaderText>
+        </div>
         <div className="w-full mt-8 flex flex-col gap-y-20 lg:gap-y-36">
           {cards.map((card, index) => {
             return (
               <Service
+                index={index}
                 align={index % 2 == 0 ? "left" : "right"}
                 alt={card.alt}
                 category={card.category}
@@ -57,15 +62,18 @@ export default function Who({
         </div>
       </section>
       <section className="py-8 flex flex-col gap-y-4">
-        <HeaderText
-          id="nosso-metodo"
-          className="text-center lg:text-start"
-          variant="h2"
-        >
-          Nosso Método
-        </HeaderText>
+        <div my-data-aos="fade-down">
+          <HeaderText
+            id="nosso-metodo"
+            className="text-center lg:text-start"
+            variant="h2"
+          >
+            Nosso Método
+          </HeaderText>
+        </div>
 
         <span
+          my-data-aos="fade-up"
           className="text-gray-500 columns-1 md:columns-2 lg:columns-3 gap-x-20"
           style={{ fontSize: "1.1rem" }}
         >
