@@ -15,7 +15,7 @@ export default function Footer({ footerInfo, links }) {
       id="footer-section"
       className="py-8 flex flex-col justify-center items-center bg-black "
     >
-      <div className="flex w-full flex-col items-center lg:flex-row lg:justify-between lg:items-end">
+      <div className="flex w-full flex-col items-center lg:flex-row lg:justify-between xl:justify-center xl:gap-x-36 lg:items-end">
         <div className="w-full max-w-md lg:max-w-sm flex flex-col gap-y-2 text-left md:text-center items-center lg:text-start lg:items-start ">
           <img
             alt={footerInfo.alt_logo}

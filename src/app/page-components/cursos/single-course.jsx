@@ -49,8 +49,10 @@ export default function SingleCourse({ course }) {
       let footer = document.getElementById("footer-section");
       const scrollY = window.scrollY;
       const footerTop = footer.offsetTop - footer.offsetHeight;
-      if (scrollY - footerTop >= 80 && !closeFooter) setCloseFooter(true);
-      else if (scrollY - footerTop < 80 && closeFooter) setCloseFooter(false);
+      if (Math.abs(scrollY - footerTop) <= 250 && !closeFooter)
+        setCloseFooter(true);
+      else if (Math.abs(scrollY - footerTop) > 250 && closeFooter)
+        setCloseFooter(false);
 
       if (scrollY > 450 && !fixCard) setFixCard(true);
       else if (scrollY <= 450 && fixCard) setFixCard(false);

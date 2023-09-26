@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 function InputIcon({ classNameContainer, className, mobile, courses }) {
   const [focusInput, setFocusInput] = useState(false);
+  const [hoverInput, setHoverInput] = useState(false);
   const refInput = useRef(null);
   const refContainer = useRef(null);
   const [search, setSearch] = useState("");
@@ -78,7 +79,7 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
     if (mobile) return;
     if (!refContainer?.current) return;
 
-    if (!focusInput) {
+    if (!focusInput && !hoverInput) {
       if (refContainer.current.classList?.contains("w-10")) return;
       refContainer.current.classList?.remove("w-72");
       refContainer.current.classList?.add("w-10");
@@ -89,7 +90,7 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
     if (refContainer.current.classList?.contains("w-72")) return;
     refContainer.current.classList?.remove("w-10");
     refContainer.current.classList?.add("w-72");
-  }, [focusInput]);
+  }, [focusInput, hoverInput]);
 
   return (
     <form
@@ -103,7 +104,15 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
     >
       <input
         ref={refInput}
+        data-group="search-group"
         placeholder="Buscar"
+        onMouseEnter={() => setHoverInput(true)}
+        onMouseLeave={(e) => {
+          if (e?.relatedTarget?.getAttribute("data-group") == "search-group") {
+            return;
+          }
+          setHoverInput(false);
+        }}
         onFocus={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -129,11 +138,18 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
         }
       />
       <SearchIcon
+        onMouseEnter={() => setHoverInput(true)}
+        onMouseLeave={(e) => {
+          if (e?.relatedTarget?.getAttribute("data-group") == "search-group") {
+            return;
+          }
+          setHoverInput(false);
+        }}
         onClick={putFocusOnInput}
         className={`text-black w-5 h-5 absolute transition-all duration-300 left-2.5 cursor-pointer`}
       />
       {focusInput && coursesFiltered.length > 0 && (
-        <div className="absolute mt-1 md:mt-0 rounded-sm shadow-md bg-white top-full flex flex-col w-full">
+        <div className="absolute mt-1 rounded-sm shadow-md bg-white top-full flex flex-col w-full">
           {coursesFiltered.map((c, index) => {
             if (index > 4) return <></>;
 
@@ -143,8 +159,8 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
                 data-group="search-group"
                 key={c.id}
                 href={"/cursos" + c.url}
-                className={`hover:bg-gray-200 px-4 py-2 ${
-                  searchHovered == c.id && "bg-gray-200"
+                className={`hover:bg-gray-300 px-4 py-2 font-bold ${
+                  searchHovered == c.id && "bg-gray-300"
                 }`}
               >
                 <span>{c.text}</span>

@@ -20,7 +20,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuMobile from "./menumobile";
 import { useEffect, useState } from "react";
 
-export default function NavbarNext() {
+export default function NavbarNext({
+  routes,
+  courses,
+  urlLogo,
+  altLogo,
+  urlButton,
+  textButton,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hideOnScroll, setHideOnScroll] = useState(true);
 
@@ -41,22 +48,17 @@ export default function NavbarNext() {
         <NavbarContent className="w-full">
           <NavbarBrand>
             <a href="/">
-              <img
-                width={120}
-                height={50}
-                src={"/grupo_visual_logo.webp"}
-                alt={"Logo Grupo Visual"}
-              />
+              <img width={120} height={50} src={urlLogo} alt={altLogo} />
             </a>
           </NavbarBrand>
 
           <a
-            href="/dsfklsdjf"
+            href={urlButton}
             target="_blank"
             className="hidden sm:block lg:hidden"
           >
             <Button variant="shadow" className="bg-white uppercase font-bold">
-              Área do Aluno
+              {textButton}
             </Button>
           </a>
 
@@ -66,71 +68,59 @@ export default function NavbarNext() {
           />
         </NavbarContent>
 
-        <a href="/dsfklsdjf" target="_blank" className="w-full sm:hidden">
+        <a href={urlButton} target="_blank" className="w-full sm:hidden">
           <Button
             variant="shadow"
             className="bg-white w-full uppercase font-bold"
           >
-            Área do Aluno
+            {textButton}
           </Button>
         </a>
       </div>
       <NavbarContent className="hidden lg:flex gap-4 gap-x-8" justify="center">
-        <SearchInput courses={[]} />
-        <NavbarItem>
-          <Link className="text-white text-base" href={"/cursos"}>
-            Cursos
-          </Link>
-        </NavbarItem>
+        <SearchInput courses={courses} />
+        {routes.map((route, index) => {
+          if (!route?.collapse?.length)
+            return (
+              <NavbarItem key={index}>
+                <Link className="text-white text-base" href={route.route}>
+                  {route.name}
+                </Link>
+              </NavbarItem>
+            );
 
-        <Dropdown>
-          <DropdownTrigger>
-            <Button
-              disableRipple
-              className="p-0 bg-transparent data-[hover=true]:bg-transparent text-white text-base"
-              radius="sm"
-              endContent={<ExpandMoreIcon className="w-4 h-4 fill-white" />}
-              variant="light"
-            >
-              Sobre
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu aria-label="menu">
-            <DropdownItem key="new">
-              <Link className="text-slate-900 w-full" href={"/quem-somos"}>
-                Quem Somos
-              </Link>
-            </DropdownItem>
-            <DropdownItem key="copy">
-              <Link
-                className="text-slate-900 w-full"
-                href={"/quem-somos#nosso-metodo"}
-              >
-                Nosso Método
-              </Link>
-            </DropdownItem>
-            <DropdownItem key="edit">
-              <Link className="text-slate-900 w-full" href={"/professores"}>
-                Professores
-              </Link>
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-
-        <NavbarItem>
-          <Link className="text-white text-base" href={"/contato"}>
-            Contato
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-white text-base" href={"/blog"}>
-            Blog
-          </Link>
-        </NavbarItem>
+          return (
+            <Dropdown>
+              <DropdownTrigger>
+                <Button
+                  disableRipple
+                  className="p-0 bg-transparent data-[hover=true]:bg-transparent text-white text-base"
+                  radius="sm"
+                  endContent={<ExpandMoreIcon className="w-4 h-4 fill-white" />}
+                  variant="light"
+                >
+                  {route.name}
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="menu">
+                {route.collapse[0].collapse.map((subroute, subindex) => (
+                  <DropdownItem key={index + subindex + 1}>
+                    <Link
+                      className="text-slate-900 w-full"
+                      href={subroute.route}
+                    >
+                      {subroute.name}
+                    </Link>
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+          );
+        })}
       </NavbarContent>
-      <a href="/dsfklsdjf" target="_blank" className="hidden lg:block ml-12">
+      <a href={urlButton} target="_blank" className="hidden lg:block ml-12">
         <Button variant="shadow" className="bg-white font-bold uppercase">
-          Área do Aluno
+          {textButton}
         </Button>
       </a>
 
@@ -139,7 +129,7 @@ export default function NavbarNext() {
           isMenuOpen ? "h-fit p-6 pt-2 opacity-100" : "h-0 p-0 opacity-0"
         } left-0 top-[150px] sm:top-[80px] w-screen list-none text-white overflow-hidden duration-500 ease-in-out transition-all`}
       >
-        <MenuMobile />
+        <MenuMobile courses={courses} routes={routes} />
       </div>
     </Navbar>
   );
