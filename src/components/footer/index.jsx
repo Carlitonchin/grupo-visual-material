@@ -13,36 +13,37 @@ export default function Footer({ footerInfo, links }) {
   return (
     <section
       id="footer-section"
-      className="py-10 flex flex-col justify-center items-center bg-gray-900 "
+      className="py-8 flex flex-col justify-center items-center bg-black "
     >
-      <div className="flex w-full flex-col items-center lg:flex-row lg:justify-center lg:gap-x-40">
-        <div className="flex flex-col gap-y-2 w-full px-4 md:px-20 lg:px-0 text-left md:text-center items-center lg:text-start lg:items-start lg:max-w-sm">
+      <div className="flex w-full flex-col items-center lg:flex-row lg:justify-between lg:items-end">
+        <div className="w-full max-w-md lg:max-w-sm flex flex-col gap-y-2 text-left md:text-center items-center lg:text-start lg:items-start ">
           <img
             alt={footerInfo.alt_logo}
             className="h-auto w-44"
             src={footerInfo.img_logo}
           ></img>
           <span className=" text-white ">{footerInfo.descricao}</span>
-          <div className="flex flex-wrap gap-x-2 w-full justify-start md:justify-center lg:justify-start">
-            {links.map((link, index) => (
-              <>
-                <Link
-                  href={link.url}
-                  className=" text-white hover:text-orange-500"
-                >
-                  {link.texto}
-                </Link>
-                {index < links.length - 1 && (
-                  <span className="text-white">/</span>
-                )}
-              </>
-            ))}
-          </div>
+
           <div className="w-full">
             <span className=" text-white">{footerInfo.texto_copyright}</span>
           </div>
         </div>
-        <div className="w-full px-0 md:px-20 lg:px-0 text-start md:text-center items-center mt-6 lg:mt-0 lg:text-start lg:items-start lg:max-w-sm flex flex-col gap-y-2">
+        <div className="w-fit max-w-md lg:max-w-sm flex flex-row lg:flex-col flex-wrap mt-6 lg:mt-0 gap-y-1 gap-x-2 items-center justify-start md:justify-center lg:justify-start">
+          {links.map((link, index) => (
+            <div key={index} className="text-start w-fit lg:w-full">
+              <Link
+                href={link.url}
+                className=" text-white hover:text-orange-500"
+              >
+                {link.texto}
+              </Link>
+              {index < links.length - 1 && (
+                <span className="lg:hidden text-white">{" / "}</span>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="w-full max-w-md lg:max-w-xs xl:max-w-sm text-start md:text-center items-center mt-6 lg:mt-0 lg:text-start lg:items-start flex flex-col gap-y-2">
           <div className="w-full flex flex-col items-start md:items-center lg:items-start gap-y-2">
             <a
               href={`tel:${footerInfo.telefone}`}
