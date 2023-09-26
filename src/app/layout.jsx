@@ -9,7 +9,7 @@ import FooterServer from "./api-components/general/footerServer";
 import { GetMetadata } from "./api-components/metadata";
 import Providers from "./providers";
 import MyNextUIProvider from "./mynextui-provider";
-import FontStyle from "./font-style";
+import { fontNormal } from "./fonts";
 
 export const metadata = GetMetadata();
 
@@ -17,8 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <Providers>
       <html lang="pt">
-        <body>
-          <FontStyle />
+        <body className={fontNormal.className}>
           <MyNextUIProvider>
             <Suspense fallback={null}>
               <FacebookPixel />

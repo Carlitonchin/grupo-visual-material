@@ -5,6 +5,7 @@ import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 
 import { Grid } from "@mui/material";
+import HeaderText from "@/components/texts/header-text";
 
 export default function Teachers({ teachers, cardData }) {
   return (
@@ -31,9 +32,13 @@ export default function Teachers({ teachers, cardData }) {
                 }}
               >
                 <div className="bg-black flex flex-col justify-center px-8 items-center w-full h-full shadow-black/40 bg-opacity-50 rounded-xl object-cover">
-                  <h4 className="font-bold text-center text-white">
+                  <HeaderText
+                    className="font-bold text-center text-white"
+                    variant="h4"
+                  >
                     {cardData.texto_frente}
-                  </h4>
+                  </HeaderText>
+
                   <PanToolAltIcon
                     sx={{
                       width: "2.8rem",
@@ -54,7 +59,9 @@ export default function Teachers({ teachers, cardData }) {
               className="absolute inset-0 h-full w-full rounded-xl text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]"
             >
               <div className="flex flex-col bg-black shadow-black/40 bg-opacity-70 h-full w-full rounded-xl px-8 justify-center items-center">
-                <h4 className="font-bold">{cardData.texto_atras}</h4>
+                <HeaderText className="font-bold" variant="h4">
+                  {cardData.texto_atras}
+                </HeaderText>
                 <Button
                   as={Link}
                   href={cardData.url_botao}

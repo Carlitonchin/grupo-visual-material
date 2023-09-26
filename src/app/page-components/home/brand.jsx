@@ -1,8 +1,12 @@
+import HeaderText from "@/components/texts/header-text";
+
 export default function Brand({ brands, title }) {
   return (
     <section>
       <div className="w-full" data-aos-delay="200" my-data-aos="fade-down">
-        <h2 className="text-center w-full">{title}</h2>
+        <HeaderText variant="h2" className="text-center w-full mb-8">
+          {title}
+        </HeaderText>
       </div>
       <div className="w-full h-fit flex  justify-center items-center flex-wrap gap-x-8 md:gap-x-12 gap-y-4">
         {brands.map((brand, index) => (

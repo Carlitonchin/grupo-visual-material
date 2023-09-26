@@ -1,5 +1,6 @@
 import WhoVideo from "./video";
 import Service from "./service";
+import HeaderText from "@/components/texts/header-text";
 
 export default function Who({
   title,
@@ -24,13 +25,18 @@ export default function Who({
           textAlign: "center",
         }}
       >
-        <div className="w-full px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-center">
-          <h2 className="text-white">{title}</h2>
+        <div className="w-full px-4 h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center pt-12 sm:pt-0 justify-center">
+          <HeaderText className="text-white" variant="h2">
+            {title}
+          </HeaderText>
         </div>
       </div>
       <WhoVideo url={video} description={description} />
       <section className=" bg-white">
-        <h2 className="text-center lg:text-start">{cardTitle}</h2>
+        <HeaderText className="text-center lg:text-start" variant="h2">
+          {cardTitle}
+        </HeaderText>
+
         <div className="w-full mt-8 flex flex-col gap-y-20 lg:gap-y-36">
           {cards.map((card, index) => {
             return (
@@ -51,9 +57,13 @@ export default function Who({
         </div>
       </section>
       <section className="py-8 flex flex-col gap-y-4">
-        <h2 id="nosso-metodo" className="text-center lg:text-start">
-          Nosso Metodo
-        </h2>
+        <HeaderText
+          id="nosso-metodo"
+          className="text-center lg:text-start"
+          variant="h2"
+        >
+          Nosso Método
+        </HeaderText>
 
         <span
           className="text-gray-500 columns-1 md:columns-2 lg:columns-3 gap-x-20"

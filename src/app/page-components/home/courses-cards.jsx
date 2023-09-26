@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import TextLink from "@/components/TextLink";
+import HeaderText from "@/components/texts/header-text";
 
 export default function CoursesCards({
   cards,
@@ -49,9 +50,9 @@ export default function CoursesCards({
                   }}
                 ></div>
                 <div className="absolute top-0 left-0 w-full h-full flex items-end bg-gray-800 bg-opacity-30">
-                  <h2 className="w-full text-center font-bold mb-4 text-2xl text-white">
+                  <span className="w-full text-center font-bold mb-4 text-2xl text-white">
                     {card.text}
-                  </h2>
+                  </span>
                 </div>
               </div>
             </a>

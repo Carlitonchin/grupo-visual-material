@@ -1,5 +1,6 @@
 "use client";
 import { useReactPixel } from "@/app/hooks/reactPixel";
+import HeaderText from "@/components/texts/header-text";
 import { activateSoundTrack, viewVideoTrack } from "@/facebook-pixel/utils";
 import { useEffect, useState } from "react";
 
@@ -78,7 +79,9 @@ export default function PresentationVideo({ videoUrl, title, options }) {
           my-data-aos="fade-left"
           className="w-full max-w-2xl flex flex-col justify-center items-center gap-y-4 h-fit xl:pt-9 xl:items-start"
         >
-          <h2 className="text-center w-full">{title}</h2>
+          <HeaderText className="text-center w-full mb-4" variant="h2">
+            {title}
+          </HeaderText>
 
           <div className="w-full sm:w-3/4 md:w-full ">
             <div className="w-full flex flex-col  md:flex-row justify-center gap-y-2 ">
@@ -87,15 +90,17 @@ export default function PresentationVideo({ videoUrl, title, options }) {
                   className="w-full h-10 flex flex-col  relative "
                   key={index}
                 >
-                  <span
+                  <HeaderText
+                    variant="span"
                     key={index}
                     className={`px-4 lg:px-8 h-10 font-bold uppercase text-medium cursor-pointer text-center min-w-min hover:text-black transition-all duration-300 ${
                       index == selectedOption ? "text-black" : "text-gray-500"
                     }`}
-                    onClick={() => handleChangeOptions(index)}
+                    onClick={(e) => handleChangeOptions(index)}
                   >
                     {key}
-                  </span>
+                  </HeaderText>
+
                   <span className="absolute bottom-0 left-0 h-1 w-full bg-gray-500" />
                   <span
                     className={

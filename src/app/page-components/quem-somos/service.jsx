@@ -1,5 +1,6 @@
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
+import HeaderText from "@/components/texts/header-text";
 
 export default function Service({
   align,
@@ -34,14 +35,18 @@ export default function Service({
       >
         <div
           className={
-            "flex flex-col py-2 px-4 w-full lg:max-w-md border-b-8 border-orange-500 " +
+            "flex flex-col py-2 px-4 w-full lg:max-w-lg border-b-8 border-orange-500 " +
             (align != "left" && " lg:items-end")
           }
         >
-          <span className="text-gray-500" style={{ fontSize: "1.5rem" }}>
+          <HeaderText
+            className="text-gray-500"
+            style={{ fontSize: "1.5rem" }}
+            variant="span"
+          >
             {category}
-          </span>
-          <h3>{title}</h3>
+          </HeaderText>
+          <HeaderText variant="h3">{title}</HeaderText>
         </div>
         <div
           className={

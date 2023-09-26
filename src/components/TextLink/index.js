@@ -3,6 +3,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { useState } from "react";
+import HeaderText from "../texts/header-text";
 
 export default function TextLink({
   url,
@@ -24,6 +25,7 @@ export default function TextLink({
         href={url}
       >
         <span>{text}</span>
+
         <ArrowForwardIcon
           className={`transition-all duration-100 ${hover ? "ml-1" : "ml-0"}`}
         />

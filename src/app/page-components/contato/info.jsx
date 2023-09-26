@@ -1,23 +1,27 @@
 "use client";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import HeaderText from "@/components/texts/header-text";
 export default function Info({ info }) {
   return (
     <div>
       <div
         style={{
           width: "100%",
-          height: "45vh",
-          minHeight: "460px",
-          maxHeight: "500px",
+          height: "50vh",
+          minHeight: "500px",
+          maxHeight: "550px",
           backgroundImage: `url("${info.fundo}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           textAlign: "center",
         }}
       >
-        <div className="w-full h-full pb-12 bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-end">
-          <h1 className="text-white">{info.titulo}</h1>
+        <div className="w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex flex-col items-center justify-center pt-[150px] sm:pt-[80px]">
+          <HeaderText font="Custom" variant="h1" className="text-white">
+            {info.titulo}
+          </HeaderText>
           <span className="text-white mt-2">{info.texto}</span>
           <div className="mt-4 text-center justify-center">
             <div className="flex justify-center">
@@ -29,7 +33,13 @@ export default function Info({ info }) {
                   marginRight: "0.25rem",
                 }}
               />
-              <h3 className="text-2xl text-white">Telefone</h3>
+              <HeaderText
+                font="Custom"
+                variant="h3"
+                className="text-2xl text-white"
+              >
+                Telefone
+              </HeaderText>
             </div>
             <span className="text-white text-base">
               <a href={`tel:${info.telefone}`}>{info.telefone_formatado}</a>
@@ -44,7 +54,13 @@ export default function Info({ info }) {
                   marginRight: "0.25rem",
                 }}
               />
-              <h3 className="text-2xl text-white">Email</h3>
+              <HeaderText
+                font="Custom"
+                variant="h3"
+                className="text-2xl text-white"
+              >
+                Email
+              </HeaderText>
             </div>
             <span className="text-white text-base">
               <a href={`mailto:${info.email}`}>{info.email}</a>

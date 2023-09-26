@@ -1,4 +1,5 @@
 import TeachersList from "./teachers-list";
+import HeaderText from "@/components/texts/header-text";
 
 export default function ProfessoresPage({
   title,
@@ -13,7 +14,9 @@ export default function ProfessoresPage({
         className="absolute top-0 left-0 flex justify-center items-end z-20"
         style={{ width: "100%", height: "400px" }}
       >
-        <h2 className="text-center w-full mb-6 px-4 z-20">{title}</h2>
+        <HeaderText className="text-center w-full mb-6 px-4 z-20" variant="h2">
+          {title}
+        </HeaderText>
       </div>
       <div className="w-full">
         <div

@@ -4,6 +4,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useRef, useEffect, useState } from "react";
 import TextLink from "@/components/TextLink";
+import HeaderText from "@/components/texts/header-text";
 
 var prevPageX = 0;
 var prevScrollLeft = 0;
@@ -102,7 +103,9 @@ export default function CourseCarousel({
   return (
     <section className="flex flex-col justify-center items-center">
       <div data-aos-delay="200" my-data-aos="fade-down">
-        <h2 className="text-center w-full">{title}</h2>
+        <HeaderText className="text-center w-full" variant="h2">
+          {title}
+        </HeaderText>
       </div>
       <div className="relative flex items-center w-full justify-center mt-8">
         <NavigateBeforeIcon

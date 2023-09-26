@@ -1,3 +1,5 @@
+import HeaderText from "@/components/texts/header-text";
+
 export default function Stats({ stats }) {
   return (
     <section
@@ -16,14 +18,25 @@ export default function Stats({ stats }) {
         >
           <div className="w-fit flex flex-col items-center text-center">
             <div className="relative w-fit">
-              <h2 className="absolute text-5xl -left-10">+</h2>
-              <h2 className="text-center text-5xl"> {elem.count}</h2>
+              <HeaderText variant="h2" className="absolute text-5xl -left-10">
+                +
+              </HeaderText>
+              <HeaderText className="text-center text-5xl" variant="h2">
+                {elem.count}
+              </HeaderText>
             </div>
-
-            <h3 className="text-center text-slate-700">{elem.title}</h3>
-            <span className="text-center text-gray-600">
+            <HeaderText
+              className="text-center text-slate-700 mt-1"
+              variant="h3"
+            >
+              {elem.title}
+            </HeaderText>
+            <HeaderText
+              className="text-center text-gray-600 mt-1"
+              variant="span"
+            >
               {elem.description}
-            </span>
+            </HeaderText>
           </div>
         </div>
       ))}

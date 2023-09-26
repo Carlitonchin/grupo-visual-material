@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import EmptyStar from "@/components/icons/emptystar";
 import HalfStar from "@/components/icons/halfstar";
 import FillStar from "@/components/icons/fillstar";
+import HeaderText from "@/components/texts/header-text";
 function component(
   img,
   text,
@@ -46,9 +47,12 @@ function component(
           className="absolute z-20 top-0 left-0 rounded-br-md px-4"
           style={{ backgroundColor: category.color }}
         >
-          <span className="w-full font-semibold text-white z-20 -mt-2 text-center whitespace-normal">
+          <HeaderText
+            variant="span"
+            className="w-full font-bold text-white z-20 -mt-2 text-center whitespace-normal"
+          >
             {category.text}
-          </span>
+          </HeaderText>
         </span>
         <div
           className={

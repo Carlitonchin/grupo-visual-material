@@ -2,15 +2,16 @@
 import PhotoCard from "@/components/cards/PhotoCard";
 import { useState } from "react";
 import { Button } from "@nextui-org/button";
+import HeaderText from "@/components/texts/header-text";
 
 export default function Students({ students, texts }) {
   const [showAll, setShowAll] = useState(false);
   return (
     <section className="py-10 flex flex-col justify-center items-center bg-gray-200">
       <div data-aos-delay="200" my-data-aos="fade-down">
-        <h2 variant="h2" className="text-center w-full mb-8">
+        <HeaderText variant="h2" className="text-center w-full mb-8">
           {texts.titulo}
-        </h2>
+        </HeaderText>
       </div>
       <div className="w-full h-fit flex flex-wrap gap-y-4 justify-center items-center">
         {students

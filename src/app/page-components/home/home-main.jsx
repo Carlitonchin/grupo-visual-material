@@ -2,6 +2,7 @@
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { useEffect } from "react";
+import HeaderText from "@/components/texts/header-text";
 
 export default function HomeMain({ slides }) {
   function animateSliders() {
@@ -85,7 +86,9 @@ export default function HomeMain({ slides }) {
                   style={{ opacity: index == 0 ? "1" : "0" }}
                   className={`home-container-text transition-opacity duration-1000 w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
                 >
-                  <h1 className="text-white">{slide.text1}</h1>
+                  <HeaderText font="Custom" variant="h1" className="text-white">
+                    {slide.text1}
+                  </HeaderText>
                   <p className="text-white mt-2">{slide.text2}</p>
 
                   <Button

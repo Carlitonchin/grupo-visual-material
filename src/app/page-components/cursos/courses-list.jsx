@@ -5,6 +5,7 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import StarCard from "@/components/cards/StarCard";
+import HeaderText from "@/components/texts/header-text";
 var pesquisa = false;
 function resultsText(number) {
   if (number == 1) return "1 curso encontrado";
@@ -126,10 +127,21 @@ export default function CoursesLists({ categories, courses }) {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h2 className="text-center w-full">Nossos Cursos</h2>
-      <h5 className="text-center w-full mt-0.5 font-bold">
+      <HeaderText
+        className="text-center w-full mt-4 sm:mt-0"
+        font="Custom"
+        variant="h2"
+      >
+        Nossos Cursos
+      </HeaderText>
+      <HeaderText
+        className="text-center w-full mt-0.5 font-bold"
+        font="Custom"
+        variant="h5"
+      >
         Selecione um ou mais filtros abaixo:
-      </h5>
+      </HeaderText>
+
       <div className="flex mt-2 flex-wrap w-full items-center justify-center gap-x-2 gap-y-2">
         {categories.map((cat) => {
           return (
@@ -145,10 +157,11 @@ export default function CoursesLists({ categories, courses }) {
                   ? cat.color
                   : "transparent",
               }}
-              className={`px-4 py-2 relative rounded-full text-base font-bold uppercase cursor-pointer hover:text-white duration-200`}
+              className={`px-4 py-2 relative rounded-md text-base font-bold uppercase cursor-pointer hover:text-white duration-200`}
               onClick={() => handleSelectCategory(cat.id)}
             >
-              <span>{cat.text}</span>
+              <HeaderText variant="span">{cat.text}</HeaderText>
+
               {categoriesSelected.includes(cat.id) && (
                 <div className="absolute -top-2 -right-2 flex justify-center items-center w-6 h-6">
                   <span className="bg-white w-3 h-3 z-0 absolute"></span>
