@@ -20,9 +20,24 @@ export default function HomeMain({ slides }) {
         child.style.zIndex = 1;
         child.style.transition = "left 0.8s ease-in-out";
         if (content?.length && content[0]?.style) {
+          let h1 = content[0].getElementsByTagName("h1")[0];
+          let p = content[0].getElementsByTagName("p")[0];
+          let a = content[0].getElementsByTagName("a")[0];
+
+          console.log({ h1, p, a });
+
           setTimeout(() => {
             content[0].style.opacity = "1";
-          }, 300);
+            h1.classList.add("animate-fade-down");
+            p.classList.add("animate-fade-right");
+            a.classList.add("animate-fade-up");
+          }, 700);
+
+          setTimeout(() => {
+            h1.classList.remove("animate-fade-down");
+            p.classList.remove("animate-fade-right");
+            a.classList.remove("animate-fade-up");
+          }, 2000);
         }
       } else {
         child.style.zIndex = 0;
@@ -58,15 +73,15 @@ export default function HomeMain({ slides }) {
   }, []);
 
   return (
-    <main className="flex h-[75vh] flex-col items-center justify-between  color-white">
+    <main className="flex h-screen md:h-[75vh] flex-col items-center justify-between  color-white">
       <div
         id="slider-container-home-main"
-        className="w-screen h-[75vh] flex overflow-hidden relative z-10"
+        className="w-screen h-full flex overflow-hidden relative z-10"
       >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`w-screen h-[75vh] absolute top-0`}
+            className={`w-screen h-full absolute top-0`}
             style={{
               left: `${index * 100}%`,
             }}
@@ -74,7 +89,7 @@ export default function HomeMain({ slides }) {
             <div
               style={{
                 width: "100%",
-                minHeight: "75vh",
+                minHeight: "100%",
                 backgroundImage: `url("${slide.img}")`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
