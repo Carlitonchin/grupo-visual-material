@@ -48,7 +48,10 @@ export default function MyAccordion({ faqs }) {
   };
 
   return (
-    <>
+    <div
+      my-data-aos="fade-down"
+      className="w-full h-fit flex items-center justify-center flex-col"
+    >
       {faqs.map((faq, index) => {
         return (
           <Accordion
@@ -77,6 +80,6 @@ export default function MyAccordion({ faqs }) {
           </Accordion>
         );
       })}
-    </>
+    </div>
   );
 }

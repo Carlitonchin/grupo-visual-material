@@ -7,17 +7,18 @@ export default async function AcordionServer() {
   const faqTexts = await getFaqsTexts();
   return (
     <section className="bg-gray-200 py-10 flex flex-col justify-center items-center">
-      <HeaderText className="text-center w-full" variant="h2" font="Custom">
-        {faqTexts.titulo}
-      </HeaderText>
-      <HeaderText
-        className="text-center w-full mb-8 font-bold mt-2"
-        variant="h4"
-        font="Custom"
-      >
-        {faqTexts.descricao}
-      </HeaderText>
-
+      <div my-data-aos="fade-left" className="w-full">
+        <HeaderText className="text-center w-full" variant="h2" font="Custom">
+          {faqTexts.titulo}
+        </HeaderText>
+        <HeaderText
+          className="text-center w-full mb-8 font-bold mt-2"
+          variant="h4"
+          font="Custom"
+        >
+          {faqTexts.descricao}
+        </HeaderText>
+      </div>
       <MyAccordion faqs={faqs} />
     </section>
   );
