@@ -13,8 +13,11 @@ export default async function BlogPaginated({ page }: { page: number }) {
       <section className="bg-gray-200 py-8 flex flex-col gap-y-10">
         {blogs.map((blog, index) => {
           return (
-            <div my-data-aos={index % 2 != 0 ? "fade-left" : "fade-right"}>
-              <BlogCard key={blog.id} blog={blog} />
+            <div
+              key={blog.id}
+              my-data-aos={index % 2 != 0 ? "fade-left" : "fade-right"}
+            >
+              <BlogCard blog={blog} />
             </div>
           );
         })}

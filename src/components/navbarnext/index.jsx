@@ -90,7 +90,7 @@ export default function NavbarNext({
             );
 
           return (
-            <Dropdown>
+            <Dropdown key={index}>
               <DropdownTrigger>
                 <Button
                   disableRipple
