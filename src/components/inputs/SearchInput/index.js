@@ -149,7 +149,7 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
         className={`text-black w-5 h-5 absolute transition-all duration-300 left-2.5 cursor-pointer`}
       />
       {focusInput && coursesFiltered.length > 0 && (
-        <div className="absolute mt-1 rounded-sm shadow-md bg-white top-full flex flex-col w-full">
+        <div className="absolute z-50 mt-1 rounded-sm shadow-md bg-white top-full flex flex-col w-full">
           {coursesFiltered.map((c, index) => {
             if (index > 4) return <></>;
 
@@ -159,9 +159,12 @@ function InputIcon({ classNameContainer, className, mobile, courses }) {
                 data-group="search-group"
                 key={c.id}
                 href={"/cursos" + c.url}
-                className={`hover:bg-gray-300 px-4 py-2 font-bold ${
+                className={`hover:bg-gray-300 px-4 py-2 ${
                   searchHovered == c.id && "bg-gray-300"
-                }`}
+                } ${
+                  index == 4 ||
+                  (index == coursesFiltered.length - 1 && "rounded-b-sm")
+                } ${index == 0 && "rounded-t-sm"}`}
               >
                 <span>{c.text}</span>
               </a>

@@ -228,8 +228,11 @@ export default function CoursesLists({ categories, courses }) {
                   key={c.id}
                   href={"/cursos" + c.url}
                   className={`hover:bg-gray-200 px-4 py-2 ${
-                    searchHovered == c.id && "bg-gray-200"
-                  }`}
+                    searchHovered == c.id && "bg-gray-300"
+                  } ${
+                    index == 4 ||
+                    (index == inputCoursesFiltered.length - 1 && "rounded-b-sm")
+                  } ${index == 0 && "rounded-t-sm"}`}
                 >
                   <span className="text-base">{c.text}</span>
                 </a>
