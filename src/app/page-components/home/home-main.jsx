@@ -12,7 +12,6 @@ export default function HomeMain({ slides }) {
     if (!container) return;
 
     const width = window.innerWidth;
-    console.log(width);
 
     let max = (slides.length - 1) * 100;
     container.childNodes.forEach((child) => {
