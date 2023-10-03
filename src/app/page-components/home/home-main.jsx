@@ -11,6 +11,9 @@ export default function HomeMain({ slides }) {
     let container = document.getElementById("slider-container-home-main");
     if (!container) return;
 
+    const width = window.innerWidth;
+    console.log(width);
+
     let max = (slides.length - 1) * 100;
     container.childNodes.forEach((child) => {
       let left = Number(child.style.left.split("%")[0]);
@@ -18,20 +21,23 @@ export default function HomeMain({ slides }) {
 
       if (left == 100) {
         child.style.zIndex = 1;
-        child.style.transition = "left 0.8s ease-in-out";
+        child.style.transition = `left ${
+          width >= 1000 ? "1s" : "0.8s"
+        } ease-in-out`;
         if (content?.length && content[0]?.style) {
           let h1 = content[0].getElementsByTagName("h1")[0];
           let p = content[0].getElementsByTagName("p")[0];
           let a = content[0].getElementsByTagName("a")[0];
 
-          console.log({ h1, p, a });
-
-          setTimeout(() => {
-            content[0].style.opacity = "1";
-            h1.classList.add("animate-fade-down");
-            p.classList.add("animate-fade-right");
-            a.classList.add("animate-fade-up");
-          }, 700);
+          setTimeout(
+            () => {
+              content[0].style.opacity = "1";
+              h1.classList.add("animate-fade-down");
+              p.classList.add("animate-fade-right");
+              a.classList.add("animate-fade-up");
+            },
+            width >= 1000 ? 800 : 700
+          );
 
           setTimeout(() => {
             h1.classList.remove("animate-fade-down");
@@ -99,12 +105,16 @@ export default function HomeMain({ slides }) {
               <div className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center lg:justify-start">
                 <div
                   style={{ opacity: index == 0 ? "1" : "0" }}
-                  className={`home-container-text transition-opacity duration-1000 w-full max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
+                  className={`home-container-text flex flex-col items-center md:items-start transition-opacity duration-1000 w-full sm:max-w-6xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
                 >
-                  <HeaderText font="Custom" variant="h1" className="text-white">
+                  <HeaderText
+                    font="Custom"
+                    variant="h1"
+                    className="text-white text-6xl"
+                  >
                     {slide.text1}
                   </HeaderText>
-                  <p className="text-white mt-2">{slide.text2}</p>
+                  <p className="text-white mt-2 text-2xl">{slide.text2}</p>
 
                   <Button
                     as={Link}

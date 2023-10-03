@@ -19,7 +19,7 @@
 
 @keyframes faderight {
   from {
-    transform: translateX(-100px);
+    transform: translateX(-50px);
   }
   to {
     transform: translateX(0px);
@@ -38,16 +38,19 @@
 .animate-fade-down {
   animation-name: fadedown;
   animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 
 .animate-fade-up {
   animation-name: fadeup;
   animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 
 .animate-fade-right {
   animation-name: faderight;
   animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 
 .bg-gray-200 {
