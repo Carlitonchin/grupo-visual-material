@@ -21,9 +21,7 @@ export default function CheckOrders() {
     useOrder();
 
   async function checkOrder(order: any) {
-    const resp = await axios.get(
-      API_URL + `buy-courses?order=${order.orderId}`
-    );
+    const resp = await axios.get(API_URL + `buy-courses/${order.orderId}`);
     return resp.data;
   }
 

@@ -1,7 +1,9 @@
 import axios from "axios";
 
-export const API_URL = "https://grupo-visual-api.vercel.app/api/";
+//export const API_URL = "https://grupo-visual-api.vercel.app/api/";
 //export const API_URL = "http://localhost:3001/api/";
+export const API_URL =
+  "https://wisg21tz2f.execute-api.sa-east-1.amazonaws.com/dev/";
 
 const STRAPI_URL = process.env.STRAPI_URL;
 const STRAPI_TOKEN = process.env.STRAPI_TOKEN;

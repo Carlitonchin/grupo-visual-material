@@ -109,11 +109,11 @@ export default function HomeMain({ slides }) {
                   <HeaderText
                     font="Custom"
                     variant="h1"
-                    className="text-white text-6xl"
+                    className="text-white sm:text-6xl"
                   >
                     {slide.text1}
                   </HeaderText>
-                  <p className="text-white mt-2 text-2xl">{slide.text2}</p>
+                  <p className="text-white mt-2 sm:text-2xl">{slide.text2}</p>
 
                   <Button
                     as={Link}
