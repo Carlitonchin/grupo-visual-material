@@ -60,8 +60,8 @@ export default function PresentationVideo({ videoUrl, title, options }) {
     }
   }
   return (
-    <section className=" w-full h-fit ">
-      <div className="flex flex-col items-center justify-between xl:flex-row xl:items-start w-full gap-y-4 gap-x-8">
+    <section className=" w-full flex justify-center items-center h-fit ">
+      <div className="flex flex-col items-center justify-between xl:flex-row xl:items-start w-full xl:max-w-[1500px] gap-y-4 gap-x-8">
         <video
           my-data-aos="fade-right"
           id="presentation-video"
