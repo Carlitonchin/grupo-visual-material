@@ -2,6 +2,16 @@ import FacebookIcon from "@/components/icons/facebook-icon";
 import LinkedinIcon from "@/components/icons/linkedin-icon";
 import TwitterIcon from "@/components/icons/twitter-icon";
 import WhatsappIcon from "@/components/icons/whatsapp-icon";
+import moment from "moment";
+import "moment/locale/pt-br";
+
+function getTime(date) {
+  moment.locale("pt-br");
+  const sameYear = new Date(date).getFullYear() == new Date().getFullYear();
+  if (sameYear) return moment(date).format("DD [de] MMMM");
+
+  return moment(date).format("LL");
+}
 
 function getHeader(blog) {
   const autor = blog.autor.data.attributes;
@@ -24,7 +34,7 @@ function getHeader(blog) {
                   ${autor.nome}
                 </span>
                 <span>
-                 13 de setembro
+                 ${getTime(blog.publishedAt)}
                 </span>
               </div>
               </div>
