@@ -13,7 +13,7 @@ export default function Footer({ footerInfo, links }) {
   return (
     <section
       id="footer-section"
-      className="py-8 flex flex-col justify-center items-center bg-black "
+      className="py-8 flex flex-col justify-center items-center bg-black bg-opacity-90"
     >
       <div className="flex w-full flex-col items-center lg:flex-row lg:justify-between xl:justify-center xl:gap-x-36 lg:items-end">
         <div className="w-full max-w-md lg:max-w-sm flex flex-col gap-y-2 text-left md:text-center items-center lg:text-start lg:items-start ">
