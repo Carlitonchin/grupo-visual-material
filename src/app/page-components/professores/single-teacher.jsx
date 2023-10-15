@@ -79,6 +79,7 @@ export default function SingleTeacher({ teacher }) {
                     text={course.text}
                     url={course.url}
                     key={course.id}
+                    price={course.price}
                   />
                 );
               })}

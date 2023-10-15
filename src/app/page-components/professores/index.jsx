@@ -53,13 +53,13 @@ export default function ProfessoresPage({
         }}
       ></div>
       <section
-        className="z-20 bg-gray-200"
+        className="z-20 bg-gray-200 pb-24"
         style={{
           width: "100%",
           height: "fit-content",
           minHeight: "200px",
           paddingTop: "1rem",
-          paddingBottom: "2rem",
+          paddingBottom: "6rem",
         }}
       >
         <TeachersList text={text} categories={categories} teachers={teachers} />
