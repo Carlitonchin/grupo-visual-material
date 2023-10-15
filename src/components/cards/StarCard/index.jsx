@@ -6,6 +6,8 @@ import EmptyStar from "@/components/icons/emptystar";
 import HalfStar from "@/components/icons/halfstar";
 import FillStar from "@/components/icons/fillstar";
 import HeaderText from "@/components/texts/header-text";
+import { brlCurrencyFormatter } from "@/components/utils/conversion";
+
 function component(
   img,
   text,
@@ -14,7 +16,8 @@ function component(
   className,
   hover,
   setHover,
-  category
+  category,
+  price
 ) {
   return (
     <div
@@ -64,7 +67,7 @@ function component(
       <div className="w-full h-[40%] xl:h-[45%] p-4 pt-4 py-2 flex flex-col items-center justify-between gap-y-4">
         <div className="flex flex-col gap-y-4 w-full">
           <span
-            className="w-full font-bold -mt-2 text-center whitespace-normal"
+            className="w-full font-bold -mt-2 text-center whitespace-normal uppercase"
             sx={{
               fontSize: "1.1rem",
             }}
@@ -76,28 +79,31 @@ function component(
               .fill(0)
               .map((_, index) =>
                 index + 1 <= stars ? (
-                  <FillStar key={index} fill="#f97316" width="25" height="25" />
+                  <FillStar key={index} fill="#ffcf40" width="15" height="15" />
                 ) : (
                   <></>
                 )
               )}
             {Math.ceil(stars) > stars && (
-              <HalfStar fill="#f97316" width="25" height="25" />
+              <HalfStar fill="#ffcf40" width="15" height="15" />
             )}
             {new Array(5 - Math.ceil(stars)).fill(0).map((index) => (
               <EmptyStar
                 key={5 + index}
-                stroke="#f97316"
-                width="27"
-                height="27"
+                stroke="#ffcf40"
+                width="16"
+                height="16"
               />
             ))}
           </div>
         </div>
+        <span className="font-bold text-blue-950">
+          {brlCurrencyFormatter.format(price)}
+        </span>
         <Button
           as={Link}
           className={`w-full bg-black font-bold uppercase ${
-            hover ? "text-orange-500" : "text-white"
+            hover ? "text-red-600" : "text-white"
           }`}
           href={"/cursos" + url}
           variant="shadow"
@@ -116,6 +122,7 @@ export default function StarCard({
   url,
   className,
   category,
+  price,
   index = 1,
   animation = false,
 }) {
@@ -140,11 +147,22 @@ export default function StarCard({
             className,
             hover,
             setHover,
-            category
+            category,
+            price
           )}
         </a>
       ) : (
-        component(img, text, stars, url, className, hover, setHover, category)
+        component(
+          img,
+          text,
+          stars,
+          url,
+          className,
+          hover,
+          setHover,
+          category,
+          price
+        )
       )}
     </div>
   );

@@ -136,6 +136,7 @@ export default function CourseCarousel({
                 stars={c.stars}
                 url={c.url}
                 category={c.category}
+                price={c.price}
                 index={index + 1}
                 animation
               />

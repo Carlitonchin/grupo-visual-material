@@ -255,6 +255,7 @@ export default function CoursesLists({ categories, courses }) {
                 text={course.text}
                 url={course.url}
                 key={course.id}
+                price={course.price}
               />
             );
           })}
