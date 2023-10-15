@@ -4,7 +4,7 @@ import "moment/locale/pt-br";
 function getTime(date) {
   moment.locale("pt-br");
   const sameYear = new Date(date).getFullYear() == new Date().getFullYear();
-  if (sameYear) return moment().format("DD [de] MMMM");
+  if (sameYear) return moment(date).format("DD [de] MMMM");
 
   return moment(date).format("LL");
 }
