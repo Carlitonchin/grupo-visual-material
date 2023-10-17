@@ -61,7 +61,7 @@ export default function Who({
           })}
         </div>
       </section>
-      <section className="py-8 flex flex-col gap-y-4">
+      <section className="py-12 flex flex-col gap-y-4 pb-20">
         <div my-data-aos="fade-down">
           <HeaderText
             id="nosso-metodo"

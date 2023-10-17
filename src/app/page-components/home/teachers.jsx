@@ -88,7 +88,7 @@ export default function Teachers({ teachers, cardData }) {
               <Grid key={index} item xs={12} lg={6} className="flex flex-col">
                 <div className="flex flex-col justify-center items-center text-center lg:justify-start lg:items-start lg:text-left w-full lg:w-64 max-w-full">
                   <img
-                    className="w-14 h-14 rounded-full"
+                    className="w-20 h-20 rounded-full"
                     src={teacher.img}
                     alt={teacher.alt}
                   ></img>
