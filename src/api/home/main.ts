@@ -2,6 +2,7 @@ import { strapiGet } from "../constant";
 
 interface props {
   text1: string;
+  red_text: string;
   text2: string;
   buttonText: string;
   url: string;
@@ -21,6 +22,7 @@ export const getHomeMains = async () => {
       text1: item.texto1,
       text2: item.texto2,
       url: item.url_botao,
+      red_text: item.texto_vermelho,
     });
   }
 

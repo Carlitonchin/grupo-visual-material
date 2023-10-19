@@ -22,12 +22,11 @@ export const strapiGet = async (
   let resp: any;
   try {
     const url = STRAPI_URL + resource + populate + limit + filters;
-
     resp = await axios.get(url, {
       timeout: 60000,
       headers,
     });
-  } catch {
+  } catch (e) {
     errors++;
     if (errors < 5)
       return await strapiGet(resource, populate, limit, filters, errors);

@@ -25,6 +25,7 @@ export default function HomeMain({ slides }) {
         } ease-in-out`;
         if (content?.length && content[0]?.style) {
           let h1 = content[0].getElementsByTagName("h1")[0];
+          let h12 = content[0].getElementsByTagName("h1")[1];
           let p = content[0].getElementsByTagName("p")[0];
           let a = content[0].getElementsByTagName("a")[0];
 
@@ -32,6 +33,7 @@ export default function HomeMain({ slides }) {
             () => {
               content[0].style.opacity = "1";
               h1.classList.add("animate-fade-down");
+              h12.classList.add("animate-fade-right");
               p.classList.add("animate-fade-right");
               a.classList.add("animate-fade-up");
             },
@@ -40,6 +42,7 @@ export default function HomeMain({ slides }) {
 
           setTimeout(() => {
             h1.classList.remove("animate-fade-down");
+            h12.classList.remove("animate-fade-right");
             p.classList.remove("animate-fade-right");
             a.classList.remove("animate-fade-up");
           }, 2000);
@@ -101,19 +104,28 @@ export default function HomeMain({ slides }) {
               }}
               className="relative"
             >
-              <div className="absolute w-full h-full bg-gray-800 bg-opacity-75 bg-blur flex items-center justify-center lg:justify-start">
+              <div className="absolute w-full h-full bg-gray-800 bg-opacity-0 bg-blur flex items-center justify-center lg:justify-start">
                 <div
                   style={{ opacity: index == 0 ? "1" : "0" }}
-                  className={`home-container-text flex flex-col items-center md:items-start transition-opacity duration-1000 w-full sm:max-w-6xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
+                  className={`home-container-text flex flex-col items-center md:items-start transition-opacity duration-1000 w-full sm:max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
                 >
                   <HeaderText
                     font="Custom"
                     variant="h1"
-                    className="text-white sm:text-6xl"
+                    className="text-white text-2xl sm:text-4xl"
                   >
                     {slide.text1}
                   </HeaderText>
-                  <p className="text-white mt-2 sm:text-2xl">{slide.text2}</p>
+                  <HeaderText
+                    font="Custom"
+                    variant="h1"
+                    className="text-main text-3xl sm:text-5xl"
+                  >
+                    {slide.red_text}
+                  </HeaderText>
+                  <p className="text-white mt-2 text-large sm:text-2xl sm:mt-4">
+                    {slide.text2}
+                  </p>
 
                   <Button
                     as={Link}
