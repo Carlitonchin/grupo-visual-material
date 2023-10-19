@@ -18,6 +18,9 @@ module.exports = {
       colors: {
         main: "#FF1616",
       },
+      screens: {
+        "3xl": "1800px",
+      },
     },
   },
   darkMode: "class",

@@ -107,23 +107,23 @@ export default function HomeMain({ slides }) {
               <div className="absolute w-full h-full bg-gray-800 bg-opacity-0 bg-blur flex items-center justify-center lg:justify-start">
                 <div
                   style={{ opacity: index == 0 ? "1" : "0" }}
-                  className={`home-container-text flex flex-col items-center md:items-start transition-opacity duration-1000 w-full sm:max-w-4xl px-4 sm:px-10 text-center lg:text-left lg:px-40`}
+                  className={`home-container-text flex flex-col items-center md:items-start transition-opacity duration-1000 w-full sm:max-w-4xl 3xl:max-w-6xl px-4 sm:px-10 text-center sm:text-left lg:px-40`}
                 >
                   <HeaderText
                     font="Custom"
                     variant="h1"
-                    className="text-white text-2xl sm:text-4xl"
+                    className="text-white text-2xl sm:text-4xl 3xl:text-6xl"
                   >
                     {slide.text1}
                   </HeaderText>
                   <HeaderText
                     font="Custom"
                     variant="h1"
-                    className="text-main text-3xl sm:text-5xl"
+                    className="text-main text-3xl sm:text-5xl 3xl:text-7xl"
                   >
                     {slide.red_text}
                   </HeaderText>
-                  <p className="text-white mt-2 text-large sm:text-2xl sm:mt-4">
+                  <p className="text-white mt-2 text-large sm:text-2xl 3xl:text-4xl sm:mt-4 3xl:mt-8">
                     {slide.text2}
                   </p>
 
@@ -131,7 +131,7 @@ export default function HomeMain({ slides }) {
                     as={Link}
                     href={slide.url}
                     target={slide?.extern_link ? "_blank" : undefined}
-                    className="bg-white font-bold uppercase mt-4"
+                    className="bg-white font-bold uppercase mt-4 3xl:mt-8"
                     variant="shadow"
                   >
                     {slide.buttonText}
