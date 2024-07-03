@@ -6,7 +6,7 @@ export default function Whatsapp() {
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.src =
-      "https://smartarget.online/loader.js?u=603da0f4880eac03c4a04e4192a85450c044deef";
+      "https://smartarget.online/loader.js?u=aa345026521a807932506ca3575ccb135716fe71";
     script.async = true;
     document.body.appendChild(script);
 
