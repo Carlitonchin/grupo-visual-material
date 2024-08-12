@@ -16,6 +16,7 @@ import { useState, forwardRef } from "react";
 import { requiredField } from "../../../../components/utils/validators";
 import axios from "axios";
 import { API_URL } from "@/api/constant";
+import { PhoneInputMask } from "../../../../components/utils/masks";
 
 const TextMaskCustom = forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -176,7 +177,7 @@ export default function Form({ text }) {
                     fullWidth
                     name="phone"
                     onChange={handleChange}
-                    inputComponent={TextMaskCustom}
+                    inputComponent={PhoneInputMask}
                   />
                   {isSubmitted && (
                     <FormHelperText>{errors.phone}</FormHelperText>
